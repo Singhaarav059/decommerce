@@ -10,7 +10,51 @@
       "out": "assets-src/vertex/test-diorama-fast-720.mp4",
       "prompt": "A slow, smooth cinematic camera orbit around this exact miniature luxury clothing store diorama on a seamless warm grey backdrop. Keep every object, material an",
       "filtered": 0
+    },
+    {
+      "at": "2026-10-23T17:30:43.828Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/hero-orbit-portrait-1080.mp4",
+      "prompt": "Vertical frame. One slow, continuous camera orbit from left to right around this exact miniature luxury clothing store diorama on a seamless warm grey backdrop,",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-23T17:30:57.286Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/hero-orbit-1080.mp4",
+      "prompt": "One slow, continuous camera orbit from left to right around this exact miniature luxury clothing store diorama on a seamless warm grey backdrop, ending three-qu",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-23T17:31:27.799Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/hero-pushin-1080.mp4",
+      "prompt": "One slow, continuous camera move that starts at this exact framing, then glides forward and gently down toward the open front of this miniature luxury clothing ",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-23T17:36:15.085Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/hero-pushin-169-1080.mp4",
+      "prompt": "One slow, continuous camera move that starts at this exact framing, then glides forward and gently down toward the open front of this miniature luxury clothing ",
+      "filtered": 0
     }
   ],
-  "totalUsd": 0.32
+  "totalUsd": 3.52
 }

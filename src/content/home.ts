@@ -34,7 +34,8 @@ export const hero = {
   body: "Website, store, warehouse and marketplaces, run from one catalog, one stock count and one customer record.",
   primary: { label: "Book a demo", href: "/contact-us" },
   secondary: { label: "See it work", href: "#ch-islands" },
-  posterAlt: "A miniature store: a counter with a card terminal, a rail of linen shirts, shelves of kraft boxes and an olive tree, lit by low sun.",
+  posterAlt: "A miniature luxury clothing store with a curved glass front, terrazzo floor and copper counter; the camera glides inside to the counter.",
+  arrival: "One store. Behind it, the website, the warehouse and every marketplace, all on one system.",
 };
 
 export const islands = {

@@ -52,7 +52,7 @@ export function ChapterRail({ chapters }: { chapters: Chapter[] }) {
       </div>
 
       {/* Desktop: chapter index */}
-      <nav aria-label="Chapters" className="fixed top-1/2 left-[var(--gutter)] z-[45] hidden -translate-y-1/2 lg:block">
+      <nav aria-label="Chapters" className="fixed top-1/2 left-[calc(var(--gutter)-12px)] z-[45] hidden -translate-y-1/2 rounded-[var(--radius-md)] bg-stone-50 px-3 py-3 lg:block">
         <p className="eyebrow mb-4 tabular-nums" aria-live="polite">
           <span className="text-ink">{pad(active + 1)}</span> / {pad(chapters.length)}
         </p>

@@ -1,4 +1,5 @@
 import { ChapterRail } from "@/components/ui/ChapterRail";
+import { HeroFilm } from "@/components/home/HeroFilm";
 import { WorldChapter } from "@/components/home/WorldChapter";
 import { StorefrontChapter } from "@/components/home/StorefrontChapter";
 import { OrderChapter } from "@/components/home/OrderChapter";
@@ -15,6 +16,7 @@ export default function HomePage() {
     <main id="main">
       <Opening />
       <ChapterRail chapters={[...chapters]} />
+      <HeroFilm />
       <WorldChapter />
       <StorefrontChapter />
       <OrderChapter />

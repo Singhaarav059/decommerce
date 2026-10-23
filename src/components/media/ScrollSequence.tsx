@@ -39,6 +39,10 @@ export function ScrollSequence({
   alt,
   captions = [],
   className = "",
+  frameClassName = "absolute inset-0",
+  bg,
+  priority = false,
+  defer = false,
   children,
 }: {
   /** e.g. "/assets/seq/delivery/{i}.webp" */
@@ -53,11 +57,20 @@ export function ScrollSequence({
   alt: string;
   captions?: Caption[];
   className?: string;
+  /** Where the film sits inside the sticky viewport (default: full bleed). Use breakpoint classes for a phone layout. */
+  frameClassName?: string;
+  /** Viewport colour around the film (match the footage's backdrop). */
+  bg?: string;
+  /** The still frame is the page's LCP image: fetch it first. */
+  priority?: boolean;
+  /** Stream the other frames only after the page has loaded and gone idle. */
+  defer?: boolean;
   children?: ReactNode;
 }) {
   const section = useRef<HTMLElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
-  const [still, setStill] = useState(true);
+  // The pinned layout is what the server renders, so a hero never shifts on hydration.
+  const [still, setStill] = useState(false);
   const [active, setActive] = useState<number[]>([]);
   const listeners = useRef(new Set<Listener>());
   const [ctxValue] = useState(() => ({
@@ -69,8 +82,8 @@ export function ScrollSequence({
   const key = stillFrame ?? Math.floor(count / 2);
 
   useEffect(() => {
-    if (wantsStill()) return;
-    const raf = requestAnimationFrame(() => setStill(false));
+    if (!wantsStill()) return;
+    const raf = requestAnimationFrame(() => setStill(true));
     return () => cancelAnimationFrame(raf);
   }, []);
 
@@ -114,6 +127,8 @@ export function ScrollSequence({
       const h = img.naturalHeight * s;
       g.drawImage(img, (cv.width - w) / 2, (cv.height - h) / 2, w, h);
       drawn = i;
+      // the canvas stays invisible over the still image until it has a real frame
+      cv.style.opacity = "1";
     }
 
     // Progressive loading, a few at a time.
@@ -137,11 +152,21 @@ export function ScrollSequence({
       }
     };
 
-    // Start fetching when the section is within a viewport.
+    // Start fetching when the section is within a viewport (after load + idle when deferred).
+    let idle = 0;
+    const start = () => {
+      if (!defer) return pump();
+      const go = () => {
+        const ric = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 300));
+        idle = ric(pump, { timeout: 2500 });
+      };
+      if (document.readyState === "complete") go();
+      else addEventListener("load", go, { once: true });
+    };
     const io = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
-          pump();
+          start();
           io.disconnect();
         }
       },
@@ -169,14 +194,26 @@ export function ScrollSequence({
 
     return () => {
       cancelled = true;
+      (window.cancelIdleCallback ?? window.clearTimeout)(idle);
       st.kill();
       io.disconnect();
       ro.disconnect();
     };
-  }, [still, pattern, mobilePattern, count, pad, captions]);
+  }, [still, pattern, mobilePattern, count, pad, captions, defer]);
 
-  // eslint-disable-next-line @next/next/no-img-element
-  const keyImg = <img src={frameUrl(pattern, key, pad)} alt="" className="absolute inset-0 size-full object-cover" />;
+  const keyImg = (
+    <picture>
+      {mobilePattern && <source media="(max-width: 767px)" srcSet={frameUrl(mobilePattern, key, pad)} />}
+      <img
+        src={frameUrl(pattern, key, pad)}
+        alt=""
+        fetchPriority={priority ? "high" : undefined}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        className="absolute inset-0 size-full object-cover"
+      />
+    </picture>
+  );
 
   if (still) {
     return (
@@ -200,9 +237,11 @@ export function ScrollSequence({
   return (
     <ProgressContext.Provider value={ctxValue}>
       <section ref={section} className={`relative ${className}`} style={{ height: `${length * 100}svh` }} aria-label={alt}>
-        <div className="sticky top-0 h-[100svh] overflow-hidden">
-          {keyImg}
-          <canvas ref={canvas} aria-hidden className="absolute inset-0 size-full" />
+        <div className="sticky top-0 h-[100svh] overflow-hidden" style={bg ? { background: bg } : undefined}>
+          <div className={`overflow-hidden ${frameClassName}`}>
+            {keyImg}
+            <canvas ref={canvas} aria-hidden className="absolute inset-0 size-full opacity-0" />
+          </div>
           {captions.map((c, i) => (
             <div
               key={c.text}

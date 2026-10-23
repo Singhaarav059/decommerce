@@ -25,6 +25,7 @@ export function ScrollStage({
   className = "",
   onStep,
   onProgress,
+  mapProgress,
 }: {
   id?: string;
   length?: number;
@@ -38,6 +39,8 @@ export function ScrollStage({
   onStep?: (step: number) => void;
   /** Called on every scroll update with 0–1 progress (for DOM transforms; no re-render). */
   onProgress?: (p: number) => void;
+  /** Remap scroll progress before it reaches the scene (e.g. skip a scene's intro). */
+  mapProgress?: (p: number) => number;
 }) {
   const [bus] = useState(() => {
     const b = new StageBus();
@@ -70,7 +73,7 @@ export function ScrollStage({
       start: "top top",
       end: "bottom bottom",
       onUpdate: (self) => {
-        bus.setProgress(self.progress);
+        bus.setProgress(mapProgress ? mapProgress(self.progress) : self.progress);
         el.style.setProperty("--p", self.progress.toFixed(4));
         onProgressRef.current?.(self.progress);
         let s = 0;
@@ -83,7 +86,7 @@ export function ScrollStage({
       },
     });
     return () => st.kill();
-  }, [still, bus, steps]);
+  }, [still, bus, steps, mapProgress]);
 
   if (still) {
     return (
