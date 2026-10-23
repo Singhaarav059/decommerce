@@ -1,0 +1,31 @@
+/* Decommerce design tokens. Stone + copper, one accent, one warm light. */
+:root {
+  --stone-50: #f5f2ed;
+  --travertine: #e6ddcf;
+  --terrazzo-chip: #c9b8a0;
+  --ink: #17150f;
+  --copper: #c2602a;
+  --olive: #69714e;
+  --steel: #9ea4a6;
+
+  /* Derived (same hues, no new colours) */
+  --ink-soft: #4a463d;
+  --ink-muted: #6f695d;
+  --line: rgb(23 21 15 / 0.12);
+  --copper-ink: #9a4718; /* copper darkened for AA text on stone */
+  --alert: #a13d1c; /* broken-state numbers: a deeper copper, never a new red */
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-overshoot: cubic-bezier(0.34, 1.36, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
+
+  --header-h: 64px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --max-w: 1320px;
+}

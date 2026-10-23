@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+@theme inline {
+  --color-stone-50: var(--stone-50);
+  --color-travertine: var(--travertine);
+  --color-terrazzo: var(--terrazzo-chip);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-copper: var(--copper);
+  --color-copper-ink: var(--copper-ink);
+  --color-olive: var(--olive);
+  --color-steel: var(--steel);
+  --color-line: var(--line);
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-instrument-serif);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  background: var(--stone-50);
+  color: var(--ink);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--stone-50);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--copper);
+  color: var(--stone-50);
+}
+
+:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Headline pattern: plain words + one italic accent word */
+.display {
+  font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+.display em {
+  font-style: italic;
+  color: var(--copper-ink);
+}
+
+.eyebrow {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.prose-copy p {
+  text-wrap: pretty;
+  max-width: 62ch;
+}
+
+/* Terrazzo texture for light pages (no WebGL) */
+.terrazzo {
+  background-color: var(--travertine);
+  background-image:
+    radial-gradient(circle at 12% 18%, var(--terrazzo-chip) 0 2px, transparent 3px),
+    radial-gradient(circle at 63% 41%, var(--steel) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 38% 77%, var(--terrazzo-chip) 0 2.5px, transparent 3.5px),
+    radial-gradient(circle at 86% 83%, var(--olive) 0 1px, transparent 2px),
+    radial-gradient(circle at 79% 12%, var(--copper) 0 1px, transparent 2px);
+  background-size: 140px 140px, 90px 90px, 170px 170px, 110px 110px, 200px 200px;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
