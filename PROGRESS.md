@@ -11,7 +11,7 @@ Source plan: [PLAN.md](PLAN.md). One loop iteration = one chunk; update this fil
 - [x] **5. Clothing rack** — `ClothingRack` (DOM gestures: rubber-band drag, exactly one hanger per swipe/flick, tap slot hit-test via projected `slotPx`, tap centre = lift, drag spins lifted garment with momentum, arrows/Home/End/Enter/Escape, prev/next/Try-it-on buttons, live region, `touch-action: pan-y`) + `RackScene` (spring rail with overshoot, acceleration-driven swing, neighbour knock, lift + 1.5 s twirl, others slide apart and recede). Garments GLB from `scripts/blender/garments.py` (246 KB Meshopt). Low tier: swatch rack with same controls. Check: `node scripts/checks/rack.mjs`.
 - [x] **6. Homepage** — 0 Opening (once per session, head script skips repeat/reduced, CSS no-JS exit), 1–3 `WorldChapter` (diorama → four islands with 4/1/0/6 → one base, copper line, all 5), 4 `StorefrontChapter` (laptop screen builds + re-skins from the rack), 5 `OrderChapter` (ticket drops, 3 locations, routed to Riverside 2.4 km, hotspots), 6 `PackChapter` (B-14 lights, scan, label, conveyor), 7 `DeliveryChapter` (72-frame film captured from `scenes/delivery`, ETA chip), 8 `InStoreChapter` (horizontal POS / endless aisle / self-checkout), 9 `ProofChapter` (Demaze 45+/35+/6 counters + four process rooms), 10 `CloseChapter` (shutter, wordmark, DemoForm → /api/demo). Shared kit `src/three/kit.tsx`, procedural textures, `StageBus` + `SceneLabels` (3D-anchored DOM labels), `ScrollStage` pinned chapters. Posters captured from live scenes (`scripts/posters.mjs`).
 - [x] **7. Solution template + 12 pages** — `SolutionPage` (server) = `SolutionHero` (live scene + `InteractionControl`: slider/drag, toggles bitmask, pick, or the rack) → `ProblemFix` (pinned scrub, MDX body = problem narrative, fix steps) → `Inside` (anatomy pins projected from 3D + capability tabs moving the camera, sticky scene) → works-with poster cards → FAQ + CTA. Content: `src/content/solutions/*.mdx` + registry. Scenes: shared `useRig` (views, anchors, part highlight, modes live/scrub/inside, full-bleed framing); new showcase, b2b, quick, market, oms, tms, client; laptop/packing/pos/aisle/kiosk upgraded and reused. Hero posters `sol-<slug>` via `scripts/posters.mjs --solutions`. Check: `node scripts/checks/solution.mjs <slug> <out> [widths]`.
-- [ ] **8. Company/legal/SEO** — contact form, About principles, Security layers, llms.txt, sitemap, robots, OG, schema.org.
+- [x] **8. Company/legal/SEO** — About: numbered principles reveal + Demaze/Decignal/Decommerce rooms (`AboutExtras`); Contact: `DemoForm` → `/api/demo`; Security + Infrastructure: `ExplodedStack` (CSS 3D slabs/rack units part with each h2, no WebGL, no invented figures); `/llms.txt` route, `sitemap.ts` (22 URLs), `robots.ts` (disallows /lab, /capture, /api), Organization JSON-LD, `opengraph-image.png`/`twitter-image.png` captured from `/capture/og` (`node scripts/og.mjs`), canonical URLs.
 - [ ] **9. Hardening** — perf budget, a11y, Lighthouse mobile.
 
 ## Notes / decisions
@@ -42,6 +42,9 @@ Source plan: [PLAN.md](PLAN.md). One loop iteration = one chunk; update this fil
 - Module availability per solution is an open decision; copy describes capabilities plainly with no availability badges. Confirm each module (or mark "coming soon") before launch.
 - `StageBus.fullBleed` (set only by ScrollStage) gates the copy-card camera shift and pull-back, so boxed scenes (homepage in-store panels) frame normally.
 
+- `cacheComponents` rejects route segment config (`export const dynamic`); route handlers without dynamic APIs are static already.
+- `brand.siteUrl` (decommerce.example) feeds sitemap, robots, canonical and OG URLs: set the real domain before launch.
+
 ## Iteration log
 
 1. Phase 1 complete. lint ✓ typecheck ✓ build ✓ (25 static pages). Checked 1440 / 375: no horizontal overflow.
@@ -50,3 +53,4 @@ Source plan: [PLAN.md](PLAN.md). One loop iteration = one chunk; update this fil
 4. Phase 5 complete. Rack check at 1440/390: swipe → index+1, tap → lifted, Esc + → → index+1 & put back, no console errors. lint/typecheck/build ✓.
 5. Phase 6 complete. Headless 1440/390: all chapters render, low tier = posters + 2D sequence canvas only, reduced motion = stacked layout without canvas, no horizontal overflow, no console errors. lint/typecheck/build ✓.
 6. Phase 7 complete. All 12 solution pages load with no console errors at 1440, POS checked at 390, no horizontal overflow on all solution routes. lint/typecheck/build ✓.
+7. Phase 8 complete. llms.txt/robots/sitemap (22) served, company pages render without errors, no overflow on company/legal routes at 360/390/1440. lint/typecheck/build ✓.

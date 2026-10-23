@@ -3,7 +3,7 @@ import type { DocMeta } from "@/content/types";
 import { Headline } from "@/components/ui/Headline";
 
 /** Company and legal pages: type-led, terrazzo band, no WebGL. */
-export function DocPage({ meta, children, aside }: { meta: DocMeta; children: ReactNode; aside?: ReactNode }) {
+export function DocPage({ meta, children, aside, after }: { meta: DocMeta; children: ReactNode; aside?: ReactNode; after?: ReactNode }) {
   return (
     <main id="main">
       <section className="terrazzo relative overflow-hidden pt-[calc(var(--header-h)+72px)] pb-16 md:pb-24">
@@ -12,7 +12,7 @@ export function DocPage({ meta, children, aside }: { meta: DocMeta; children: Re
           <Headline text={meta.headline} className="mt-5 max-w-[14ch] text-[clamp(3rem,9vw,7.5rem)]" />
         </div>
       </section>
-      <div className="mx-auto grid max-w-[var(--max-w)] gap-12 px-[var(--gutter)] py-16 md:py-24 lg:grid-cols-[1fr_380px]">
+      <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 px-[var(--gutter)] py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_400px]">
         <article className="prose-copy text-[1.05rem] [&>*:first-child]:mt-0">
           {meta.draftNote && (
             <p className="mb-10 max-w-[62ch] rounded-[var(--radius-md)] border border-copper/40 bg-copper/5 px-4 py-3 text-sm text-copper-ink">
@@ -21,8 +21,9 @@ export function DocPage({ meta, children, aside }: { meta: DocMeta; children: Re
           )}
           {children}
         </article>
-        {aside && <aside>{aside}</aside>}
+        {aside && <aside className="min-w-0">{aside}</aside>}
       </div>
+      {after}
     </main>
   );
 }

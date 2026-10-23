@@ -11,6 +11,12 @@ export type DocMeta = {
   light?: boolean;
   /** Shown as a note when the page still needs owner review (legal, figures). */
   draftNote?: string;
+  /** About: numbered principles, revealed one by one. */
+  principles?: { title: string; body: string }[];
+  /** About: the company family, shown as three linked rooms. */
+  family?: { name: string; role: string; href: string; current?: boolean; poster: string }[];
+  /** Security / Infrastructure: layers of the exploded illustration, one per h2 in the body. */
+  layers?: { label: string; detail: string }[];
 };
 
 export type Hotspot = {

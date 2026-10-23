@@ -17,7 +17,7 @@ export function solutionMetadata(slug: SolutionSlug): Metadata {
     title: meta.title,
     description: meta.description,
     alternates: { canonical: solutionBySlug(slug).href },
-    openGraph: { title: `${meta.title} · Decommerce`, description: meta.description, images: [solutionPoster(slug).desktop] },
+    openGraph: { title: `${meta.title} · Decommerce`, description: meta.description },
   };
 }
 

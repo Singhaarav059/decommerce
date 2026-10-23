@@ -47,6 +47,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Script id="opening-skip" strategy="beforeInteractive">
           {openingHeadScript}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: brand.legalName,
+              url: brand.siteUrl,
+              description: brand.tagline,
+              parentOrganization: { "@type": "Organization", name: brand.parent.name, url: brand.parent.href },
+            }),
+          }}
+        />
         <SmoothScroll />
         {children}
       </body>

@@ -4,6 +4,13 @@ export const meta = {
   eyebrow: "Company · Infrastructure",
   headline: "The rack behind the *counter*.",
   draftNote: "Uptime and capacity figures will be published here once we have a full year of measured data.",
+  layers: [
+    { label: "Storefronts", detail: "Served from the edge" },
+    { label: "APIs", detail: "Catalog, orders, stock" },
+    { label: "Background jobs", detail: "Routing, sync, emails" },
+    { label: "Database", detail: "One record per product and customer" },
+    { label: "Backups", detail: "Off-site copies" },
+  ],
 };
 
 Decommerce runs on managed cloud infrastructure, with stores, APIs and background jobs deployed as separate services so a busy sale on one store does not slow the till in another.
