@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "at": "2026-10-23T17:23:53.811Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "720p",
+      "seconds": 4,
+      "usd": 0.32,
+      "out": "assets-src/vertex/test-diorama-fast-720.mp4",
+      "prompt": "A slow, smooth cinematic camera orbit around this exact miniature luxury clothing store diorama on a seamless warm grey backdrop. Keep every object, material an",
+      "filtered": 0
+    }
+  ],
+  "totalUsd": 0.32
+}

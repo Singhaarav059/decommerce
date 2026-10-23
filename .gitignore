@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 /reports
+
+# reference PNGs are regenerated from the .webp originals (sips -s format png)
+/assets-src/refs/*.png
