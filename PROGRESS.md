@@ -58,3 +58,13 @@ Source plan: [PLAN.md](PLAN.md). One loop iteration = one chunk; update this fil
 6. Phase 7 complete. All 12 solution pages load with no console errors at 1440, POS checked at 390, no horizontal overflow on all solution routes. lint/typecheck/build ✓.
 7. Phase 8 complete. llms.txt/robots/sitemap (22) served, company pages render without errors, no overflow on company/legal routes at 360/390/1440. lint/typecheck/build ✓.
 8. Phase 9 complete. All phases done; build passes. Loop stopped. Remaining items need people: see LAUNCH.md.
+
+## Photoreal pass (started 23 Oct 2026, after the 9 phases)
+
+Direction agreed with the owner: hyper-real look from AI footage, scrubbed frame by frame; real-time 3D kept only for interactive parts.
+
+- Done: Vertex AI Veo tooling (`scripts/vertex/veo.mjs`, cap via `VERTEX_CAP_USD`, default $100, ledger `assets-src/vertex/ledger.json`), project `silicon-alchemy-476503-i4`, region `us-central1`, auth = local ADC (`gcloud auth application-default login`). Owner's three reference renders in `assets-src/refs/` (counter, packing, diorama).
+- Done: homepage hero = Veo 3.1 Fast push-in from `ref-diorama-169.png` → 48 frames (`scripts/frames-from-video.sh`), `HeroFilm` with deferred frame streaming, phone 4:3 band on backdrop `#d0c7c2`. Lighthouse home 90, axe clean. Spent $3.52.
+- Learned: Veo letterboxes a start image whose aspect differs from the output (pad/outpaint the start image to 16:9 or 9:16 first). Veo grain is real detail; denoise/AVIF don't shrink frames much, so budget by frame count.
+- Next: chapters 2–3 photoreal (islands + unified stills, then Veo first/last-frame transitions); counter (POS) and pick-and-pack from the other two renders; character loops (cashier, picker, shopper) from reference stills + local background removal; then solution heroes.
+- Open: private GitHub repo not created yet (owner to decide); cloud session would need a service-account key for Vertex and loses Blender/Mac encoders.
