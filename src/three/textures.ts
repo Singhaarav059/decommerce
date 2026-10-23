@@ -5,7 +5,7 @@ import * as THREE from "three";
 // Procedural textures for the store world, drawn once on 2D canvases and
 // cached. Cheaper than shipping image textures and always on-palette.
 
-function rng(seed: number) {
+export function rng(seed: number) {
   let s = seed >>> 0;
   return () => {
     s = (s * 1664525 + 1013904223) >>> 0;

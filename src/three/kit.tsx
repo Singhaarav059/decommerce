@@ -4,7 +4,7 @@ import { forwardRef, useMemo, type ReactNode } from "react";
 import { RoundedBox } from "@react-three/drei";
 import * as THREE from "three";
 import type { ThreeElements } from "@react-three/fiber";
-import { brushedTexture, kraftTexture, terrazzoTexture, travertineTexture } from "./textures";
+import { brushedTexture, kraftTexture, rng, terrazzoTexture, travertineTexture } from "./textures";
 
 // The store-world kit: every scene on the site is assembled from these parts
 // and materials so all pages feel like rooms in one building.
@@ -184,8 +184,7 @@ export function Shelf({ w = 1.2, h = 1.3, d = 0.4, levels = 3, children, ...g }:
 export function OliveTree({ height = 1.4, seed = 1, ...g }: { height?: number; seed?: number } & Group) {
   const k = useKit();
   const clusters = useMemo(() => {
-    let s = seed * 9301 + 49297;
-    const r = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
+    const r = rng(seed * 9301 + 49297);
     return Array.from({ length: 34 }, () => {
       const a = r() * Math.PI * 2;
       const rad = Math.sqrt(r()) * 0.3;
