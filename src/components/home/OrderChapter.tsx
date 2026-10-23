@@ -1,5 +1,7 @@
 "use client";
 
+import { PosterPair } from "@/components/media/Poster";
+import { posters } from "@/content/media";
 import { Scene } from "@/components/scene/Scene";
 import { SceneLabels } from "@/components/scene/SceneLabels";
 import { ScrollStage } from "@/components/scene/ScrollStage";
@@ -18,7 +20,14 @@ const STATUS = ["Order received", "Checking 3 locations", `Routed to ${order.sto
 function Stage({ bus, active }: { bus: StageBus; active: number }) {
   return (
     <>
-      <Scene scene="orders" className="size-full" sceneProps={{ bus }} alt="City map with the order ticket and three stock locations" fallback={<div className="terrazzo absolute inset-0" />} />
+      <Scene
+        scene="orders"
+        poster={<PosterPair set={posters.orders} sizes="100vw" />}
+        className="size-full"
+        sceneProps={{ bus }}
+        alt="City map with the order ticket and three stock locations"
+        fallback={<div className="terrazzo absolute inset-0" />}
+      />
       <SceneLabels
         bus={bus}
         className="z-40"
@@ -29,7 +38,11 @@ function Stage({ bus, active }: { bus: StageBus; active: number }) {
             node: (
               <div
                 className={`rounded-[var(--radius-sm)] px-2.5 py-1.5 text-[0.74rem] whitespace-nowrap transition-colors duration-500 ${
-                  active === 2 && l.chosen ? "bg-ink text-stone-50" : active === 2 ? "bg-stone-50/80 text-ink-muted" : "bg-stone-50 text-ink shadow-[0_0_0_1px_var(--line)]"
+                  active === 2 && l.chosen
+                    ? "bg-ink text-stone-50"
+                    : active === 2
+                      ? "bg-stone-50/80 text-ink-muted"
+                      : "bg-stone-50 text-ink shadow-[0_0_0_1px_var(--line)]"
                 }`}
               >
                 <span className="block font-medium">{l.name}</span>
@@ -37,7 +50,10 @@ function Stage({ bus, active }: { bus: StageBus; active: number }) {
               </div>
             ),
           })),
-          { id: "home", node: <span className="rounded-full bg-copper px-2 py-0.5 font-mono text-[0.68rem] text-stone-50">{order.id}</span> },
+          {
+            id: "home",
+            node: <span className="rounded-full bg-copper px-2 py-0.5 font-mono text-[0.68rem] text-stone-50">{order.id}</span>,
+          },
         ]}
       />
       <StageCopy>
@@ -52,7 +68,9 @@ function Stage({ bus, active }: { bus: StageBus; active: number }) {
           </ol>
         </ChapterCard>
       </StageCopy>
-      <div className={`absolute inset-0 z-40 transition-opacity duration-500 ${active === 2 ? "opacity-100" : "pointer-events-none opacity-0"}`}>
+      <div
+        className={`absolute inset-0 z-40 transition-opacity duration-500 ${active === 2 ? "opacity-100" : "pointer-events-none opacity-0"}`}
+      >
         <Hotspots items={orderLands.hotspots} className="pointer-events-auto absolute inset-0 hidden md:block">
           <div className="h-[100svh]" />
         </Hotspots>

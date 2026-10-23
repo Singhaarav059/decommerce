@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { brand } from "@/content/site";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { openingHeadScript } from "@/lib/opening";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -38,8 +39,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: openingHeadScript }} />
+      </head>
       <body className="min-h-dvh">
         <SmoothScroll />
         {children}

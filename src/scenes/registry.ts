@@ -21,6 +21,11 @@ export const sceneLoaders = {
   laptop: () => import("./laptop/LaptopScene"),
   orders: () => import("./orders/OrderScene"),
   packing: () => import("./packing/PackScene"),
+  delivery: () => import("./delivery/DeliveryScene"),
+  pos: () => import("./instore/PosScene"),
+  aisle: () => import("./instore/AisleScene"),
+  kiosk: () => import("./instore/KioskScene"),
+  rooms: () => import("./rooms/RoomsScene"),
 } satisfies Record<string, Loader>;
 
 export type SceneKey = keyof typeof sceneLoaders;

@@ -127,6 +127,37 @@ body {
   .marquee-row { flex-wrap: wrap; row-gap: 1rem; }
 }
 
+/* Opening (homepage chapter 0) */
+html.opened .opening {
+  display: none;
+}
+.opening {
+  /* no-JS fallback: leave on its own */
+  animation: opening-away 600ms var(--ease-out) 3.2s forwards;
+}
+.opening.js {
+  animation: none;
+}
+.opening-shutter {
+  transition: transform 1000ms cubic-bezier(0.7, 0, 0.2, 1);
+}
+.opening-count {
+  transition: opacity 300ms var(--ease-out);
+}
+.opening.is-done {
+  pointer-events: none;
+}
+.opening.is-done .opening-shutter {
+  transform: translateY(-104%);
+}
+.opening.is-done .opening-count,
+.opening.is-done button {
+  opacity: 0;
+}
+@keyframes opening-away {
+  to { opacity: 0; visibility: hidden; }
+}
+
 /* Lenis */
 html.lenis,
 html.lenis body {

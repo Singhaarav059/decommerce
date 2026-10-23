@@ -5,7 +5,7 @@ import { SceneLabels } from "@/components/scene/SceneLabels";
 import { ScrollStage } from "@/components/scene/ScrollStage";
 import { ButtonLink } from "@/components/ui/Button";
 import { Headline } from "@/components/ui/Headline";
-import { Poster } from "@/components/media/Poster";
+import { Poster, PosterPair } from "@/components/media/Poster";
 import { hero, islands, unify } from "@/content/home";
 import { posters } from "@/content/media";
 import type { StageBus } from "@/three/stageBus";
@@ -52,7 +52,15 @@ function HeroCopy({ visible }: { visible: boolean }) {
   );
 }
 
-function StepCard({ step, visible, children }: { step: { eyebrow: string; headline: string; body: string }; visible: boolean; children?: React.ReactNode }) {
+function StepCard({
+  step,
+  visible,
+  children,
+}: {
+  step: { eyebrow: string; headline: string; body: string };
+  visible: boolean;
+  children?: React.ReactNode;
+}) {
   return (
     <div
       aria-hidden={!visible}
@@ -79,14 +87,7 @@ function Stage({ bus, active }: { bus: StageBus; active: number }) {
         className="size-full"
         alt={hero.posterAlt}
         sceneProps={{ bus }}
-        poster={
-          posters.world ? (
-            <>
-              <Poster src={posters.world.desktop} alt="" priority sizes="100vw" className="hidden md:block" />
-              <Poster src={posters.world.mobile} alt="" priority sizes="100vw" className="md:hidden" />
-            </>
-          ) : undefined
-        }
+        poster={<PosterPair set={posters.world} priority />}
         fallback={<div className="terrazzo absolute inset-0" />}
       />
       <SceneLabels
@@ -130,7 +131,7 @@ export function WorldChapter() {
             <Headline text={hero.headline} className="mt-4 max-w-[11ch] text-[clamp(3rem,8.4vw,7.6rem)]" />
             <p className="mt-5 max-w-[38ch] text-lg text-ink-soft">{hero.body}</p>
             <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-[var(--radius-lg)]">
-              <Poster src={posters.world?.desktop} alt={hero.posterAlt} />
+              <Poster src={posters.world.desktop} alt={hero.posterAlt} />
             </div>
             {[islands, unify].map((s) => (
               <div key={s.eyebrow} className="mt-16 max-w-xl">

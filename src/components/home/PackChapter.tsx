@@ -1,5 +1,7 @@
 "use client";
 
+import { PosterPair } from "@/components/media/Poster";
+import { posters } from "@/content/media";
 import { Scene } from "@/components/scene/Scene";
 import { SceneLabels } from "@/components/scene/SceneLabels";
 import { ScrollStage } from "@/components/scene/ScrollStage";
@@ -18,8 +20,13 @@ function Steps({ active }: { active: number }) {
   return (
     <ol className="mt-5 space-y-2">
       {pack.steps.map((s, i) => (
-        <li key={s} className={`flex items-center gap-3 text-[0.95rem] transition-colors duration-300 ${i <= active ? "text-ink" : "text-ink-muted/60"}`}>
-          <span className={`flex size-6 items-center justify-center rounded-full font-mono text-[0.68rem] transition-colors ${i < active ? "bg-olive text-stone-50" : i === active ? "bg-copper text-stone-50" : "bg-travertine"}`}>
+        <li
+          key={s}
+          className={`flex items-center gap-3 text-[0.95rem] transition-colors duration-300 ${i <= active ? "text-ink" : "text-ink-muted/60"}`}
+        >
+          <span
+            className={`flex size-6 items-center justify-center rounded-full font-mono text-[0.68rem] transition-colors ${i < active ? "bg-olive text-stone-50" : i === active ? "bg-copper text-stone-50" : "bg-travertine"}`}
+          >
             {i + 1}
           </span>
           {s}
@@ -32,13 +39,23 @@ function Steps({ active }: { active: number }) {
 function Stage({ bus, active }: { bus: StageBus; active: number }) {
   return (
     <>
-      <Scene scene="packing" className="size-full" sceneProps={{ bus }} alt="Packing station with lit bins, a scanner, a label printer and a conveyor" fallback={<div className="terrazzo absolute inset-0" />} />
+      <Scene
+        scene="packing"
+        poster={<PosterPair set={posters.packing} sizes="100vw" />}
+        className="size-full"
+        sceneProps={{ bus }}
+        alt="Packing station with lit bins, a scanner, a label printer and a conveyor"
+        fallback={<div className="terrazzo absolute inset-0" />}
+      />
       <SceneLabels
         bus={bus}
         className="z-40"
         items={[
           { id: "bin", node: <span className="rounded-full bg-copper px-2 py-0.5 font-mono text-[0.68rem] text-stone-50">B-14</span> },
-          { id: "label", node: <span className="rounded-full bg-ink px-2 py-0.5 font-mono text-[0.68rem] text-stone-50">Label printed</span> },
+          {
+            id: "label",
+            node: <span className="rounded-full bg-ink px-2 py-0.5 font-mono text-[0.68rem] text-stone-50">Label printed</span>,
+          },
         ]}
       />
       <StageCopy>

@@ -47,12 +47,12 @@ export function ChapterRail({ chapters }: { chapters: Chapter[] }) {
   return (
     <>
       {/* Mobile: thin progress bar */}
-      <div aria-hidden className="fixed inset-x-0 top-[var(--header-h)] z-40 h-0.5 bg-line lg:hidden">
+      <div aria-hidden className="fixed inset-x-0 top-[var(--header-h)] z-[45] h-0.5 bg-line lg:hidden">
         <div className="h-full origin-left bg-copper" style={{ transform: `scaleX(${progress})` }} />
       </div>
 
       {/* Desktop: chapter index */}
-      <nav aria-label="Chapters" className="fixed top-1/2 left-[var(--gutter)] z-40 hidden -translate-y-1/2 lg:block">
+      <nav aria-label="Chapters" className="fixed top-1/2 left-[var(--gutter)] z-[45] hidden -translate-y-1/2 lg:block">
         <p className="eyebrow mb-4 tabular-nums" aria-live="polite">
           <span className="text-ink">{pad(active + 1)}</span> / {pad(chapters.length)}
         </p>

@@ -24,6 +24,7 @@ export function ScrollStage({
   stacked,
   className = "",
   onStep,
+  onProgress,
 }: {
   id?: string;
   length?: number;
@@ -35,14 +36,18 @@ export function ScrollStage({
   stacked: (bus: StageBus) => ReactNode;
   className?: string;
   onStep?: (step: number) => void;
+  /** Called on every scroll update with 0–1 progress (for DOM transforms; no re-render). */
+  onProgress?: (p: number) => void;
 }) {
   const [bus] = useState(() => new StageBus());
   const section = useRef<HTMLElement>(null);
   const [still, setStill] = useState(false);
   const [active, setActive] = useState(0);
   const onStepRef = useRef(onStep);
+  const onProgressRef = useRef(onProgress);
   useEffect(() => {
     onStepRef.current = onStep;
+    onProgressRef.current = onProgress;
   });
 
   useEffect(() => {
@@ -63,14 +68,13 @@ export function ScrollStage({
       onUpdate: (self) => {
         bus.setProgress(self.progress);
         el.style.setProperty("--p", self.progress.toFixed(4));
+        onProgressRef.current?.(self.progress);
         let s = 0;
         steps.forEach(([a], i) => {
           if (self.progress >= a) s = i;
         });
-        setActive((prev) => {
-          if (prev !== s) onStepRef.current?.(s);
-          return s;
-        });
+        if (s !== bus.step) onStepRef.current?.(s);
+        setActive(s);
         bus.setStep(s);
       },
     });

@@ -42,3 +42,13 @@ export function Poster({
     />
   );
 }
+
+/** Desktop + phone stills of one scene, swapped at the md breakpoint. */
+export function PosterPair({ set, priority = false, sizes = "100vw" }: { set: { desktop: string; mobile: string }; priority?: boolean; sizes?: string }) {
+  return (
+    <>
+      <Poster src={set.desktop} alt="" priority={priority} sizes={sizes} className="hidden md:block" />
+      <Poster src={set.mobile} alt="" priority={priority} sizes={sizes} className="md:hidden" />
+    </>
+  );
+}

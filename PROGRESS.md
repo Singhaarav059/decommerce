@@ -9,7 +9,7 @@ Source plan: [PLAN.md](PLAN.md). One loop iteration = one chunk; update this fil
 - [x] **3. 3D foundation** — `SceneHost` (QualityProvider + one fixed canvas, mounted on idle for mid/high only), `<Scene>` (poster first, load within 1 viewport, unload beyond, fade in on ready), frameloop store (renders only while a scene is visible and tab visible), PerformanceMonitor dpr stepping, StoreLight rig + RoomEnvironment + BlobShadow, `useAsset` (Meshopt/Draco). `?tier=low|mid|high` forces a tier.
 - [x] **4. Media components** — `Poster` (next/image, LCP-ready), `AlphaVideo` (VP9/HEVC alpha pick, plays only on screen, still for reduced-motion/save-data), `VideoPlane` (alpha clip in 3D), `ScrollSequence` (2D canvas in sticky viewport, ScrollTrigger progress → `--p` + `useSequenceProgress`, progressive ends-first loading, captions, still fallback). Blender pipeline in `scripts/blender` (lib.py rig/materials, encode_alpha.sh, encode_sequence.sh); media registry `src/content/media.ts`.
 - [x] **5. Clothing rack** — `ClothingRack` (DOM gestures: rubber-band drag, exactly one hanger per swipe/flick, tap slot hit-test via projected `slotPx`, tap centre = lift, drag spins lifted garment with momentum, arrows/Home/End/Enter/Escape, prev/next/Try-it-on buttons, live region, `touch-action: pan-y`) + `RackScene` (spring rail with overshoot, acceleration-driven swing, neighbour knock, lift + 1.5 s twirl, others slide apart and recede). Garments GLB from `scripts/blender/garments.py` (246 KB Meshopt). Low tier: swatch rack with same controls. Check: `node scripts/checks/rack.mjs`.
-- [ ] **6. Homepage** — chapters 0–10 from storyboard, ORD-1042 thread.
+- [x] **6. Homepage** — 0 Opening (once per session, head script skips repeat/reduced, CSS no-JS exit), 1–3 `WorldChapter` (diorama → four islands with 4/1/0/6 → one base, copper line, all 5), 4 `StorefrontChapter` (laptop screen builds + re-skins from the rack), 5 `OrderChapter` (ticket drops, 3 locations, routed to Riverside 2.4 km, hotspots), 6 `PackChapter` (B-14 lights, scan, label, conveyor), 7 `DeliveryChapter` (72-frame film captured from `scenes/delivery`, ETA chip), 8 `InStoreChapter` (horizontal POS / endless aisle / self-checkout), 9 `ProofChapter` (Demaze 45+/35+/6 counters + four process rooms), 10 `CloseChapter` (shutter, wordmark, DemoForm → /api/demo). Shared kit `src/three/kit.tsx`, procedural textures, `StageBus` + `SceneLabels` (3D-anchored DOM labels), `ScrollStage` pinned chapters. Posters captured from live scenes (`scripts/posters.mjs`).
 - [ ] **7. Solution template + 12 pages** — seven-block template, MDX per solution.
 - [ ] **8. Company/legal/SEO** — contact form, About principles, Security layers, llms.txt, sitemap, robots, OG, schema.org.
 - [ ] **9. Hardening** — perf budget, a11y, Lighthouse mobile.
@@ -32,9 +32,17 @@ Source plan: [PLAN.md](PLAN.md). One loop iteration = one chunk; update this fil
 - `<Scene>` adds `relative` to its root; size it with `size-full`/aspect classes, not `absolute inset-0`.
 - Rack garments are stylised placeholders (flattened tubes); replace with cloth-simulated or CC-licensed garments keeping node names `garment_<theme>` + `hanger`.
 
+- Store-world props are procedural (kit.tsx) instead of Blender GLBs: one material library, no downloads, posters/frames captured from the same scenes. Real Blender assets can replace kit parts later.
+- `position: sticky` makes a stacking context: pinned stages are `z-40` (above the z-30 canvas); never give a Scene container inside a stage an opaque background (use `fallback`).
+- ScrollTrigger is refreshed on every page-height change (SmoothScroll ResizeObserver); stages mounting late otherwise break all later triggers.
+- Single-column CSS grids need `grid-cols-1` (minmax(0,1fr)) or min-content blows the phone layout out (caught by `scripts/checks/overflow.mjs`).
+- `/capture?scene=&p=` renders any scene full-screen with exact progress (dev tool for posters and sequences; noindex).
+- Demo form posts to `/api/demo`, which forwards to `DEMO_WEBHOOK_URL` if set (destination is an open decision), else logs.
+
 ## Iteration log
 
 1. Phase 1 complete. lint ✓ typecheck ✓ build ✓ (25 static pages). Checked 1440 / 375: no horizontal overflow.
 2. Phases 2–3 complete. lint ✓ typecheck ✓ build ✓. Headless: two placeholder scenes render in one canvas at 1440/390; `?tier=low` mounts no canvas; overflowX 0.
 3. Phase 4 complete. Headless: sequence `--p` tracks scroll (0.2/0.55/0.9), WebM alpha clip plays on screen, lint/typecheck/build ✓.
 4. Phase 5 complete. Rack check at 1440/390: swipe → index+1, tap → lifted, Esc + → → index+1 & put back, no console errors. lint/typecheck/build ✓.
+5. Phase 6 complete. Headless 1440/390: all chapters render, low tier = posters + 2D sequence canvas only, reduced motion = stacked layout without canvas, no horizontal overflow, no console errors. lint/typecheck/build ✓.
