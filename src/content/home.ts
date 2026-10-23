@@ -79,7 +79,7 @@ export const orderLands = {
     { id: "st2", name: "Old Town store", detail: "Out of size M", chosen: false },
   ],
   hotspots: [
-    { id: "split", label: "Split shipment", detail: "If no single location has every item, the order ships from two and the customer sees one tracking page.", x: 22, y: 30 },
+    { id: "split", label: "Split shipment", detail: "If no single location has every item, the order ships from two and the customer sees one tracking page.", x: 58, y: 24 },
     { id: "returns", label: "Returns anywhere", detail: "A return can go back to any store, which restocks it into the same shared count.", x: 74, y: 64 },
   ],
   links: [{ label: "Order management", href: "/oms" }],

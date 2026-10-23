@@ -19,9 +19,9 @@ function build() {
     terrazzoFine: std({ map: terrazzoTexture(4), roughness: 0.5 }),
     travertine: std({ map: travertineTexture(1), roughness: 0.8 }),
     stone: std({ color: "#f1ece4", roughness: 0.85 }),
-    copper: std({ color: "#c2602a", metalness: 1, roughness: 0.3 }),
+    copper: std({ color: "#c2602a", metalness: 1, roughness: 0.3, envMapIntensity: 2 }),
     copperMatte: std({ color: "#c2602a", roughness: 0.6 }),
-    steel: std({ color: "#c3c8ca", map: brushedTexture(), metalness: 1, roughness: 0.34 }),
+    steel: std({ color: "#e2e5e6", map: brushedTexture(), metalness: 0.82, roughness: 0.34, envMapIntensity: 2.2 }),
     ink: std({ color: "#1d1b16", roughness: 0.45 }),
     inkMatte: std({ color: "#25221c", roughness: 0.8 }),
     oak: std({ color: "#8a5a32", roughness: 0.6 }),
@@ -126,7 +126,7 @@ export function CardReader(g: Group) {
 }
 
 /** Laptop with an open lid; `open` 0..1, screen texture optional. */
-export function Laptop({ screen, open = 1, ...g }: { screen?: THREE.Texture; open?: number } & Group) {
+export function Laptop({ screen, open = 1, lidRef, ...g }: { screen?: THREE.Texture; open?: number; lidRef?: React.Ref<THREE.Group> } & Group) {
   const k = useKit();
   const mat = useMemo(
     () => new THREE.MeshBasicMaterial({ map: screen ?? null, color: screen ? "#ffffff" : "#e9e3d8", toneMapped: false }),
@@ -137,7 +137,7 @@ export function Laptop({ screen, open = 1, ...g }: { screen?: THREE.Texture; ope
     <group {...g}>
       <Slab size={[0.56, 0.018, 0.38]} material={k.steel} radius={0.008} />
       <Slab size={[0.46, 0.002, 0.18]} material={k.inkMatte} radius={0.001} position={[0, 0.018, -0.05]} />
-      <group position={[0, 0.018, -0.19]} rotation={[angle, 0, 0]}>
+      <group ref={lidRef} position={[0, 0.018, -0.19]} rotation={[angle, 0, 0]}>
         <Slab size={[0.56, 0.36, 0.012]} material={k.steel} radius={0.008} position={[0, 0, -0.006]} />
         <mesh position={[0, 0.185, 0.0005]} material={mat}>
           <planeGeometry args={[0.52, 0.33]} />
@@ -216,13 +216,12 @@ export function OliveTree({ height = 1.4, seed = 1, ...g }: { height?: number; s
 }
 
 /** Open bin with a status light strip at the front. */
-export function Bin({ lit = false, label, ...g }: { lit?: boolean; label?: string } & Group) {
+export function Bin({ lit = false, light, ...g }: { lit?: boolean; light?: THREE.Material } & Group) {
   const k = useKit();
-  void label;
   return (
     <group {...g}>
       <Slab size={[0.26, 0.14, 0.3]} material={k.stone} radius={0.01} />
-      <Slab size={[0.2, 0.012, 0.012]} material={lit ? k.lightOn : k.lightOff} radius={0.004} position={[0, 0.1, 0.152]} />
+      <Slab size={[0.2, 0.012, 0.012]} material={light ?? (lit ? k.lightOn : k.lightOff)} radius={0.004} position={[0, 0.1, 0.152]} />
     </group>
   );
 }

@@ -18,6 +18,9 @@ export const sceneLoaders = {
   placeholder: () => import("./PlaceholderScene"),
   rack: () => import("./rack/RackScene"),
   world: () => import("./world/WorldScene"),
+  laptop: () => import("./laptop/LaptopScene"),
+  orders: () => import("./orders/OrderScene"),
+  packing: () => import("./packing/PackScene"),
 } satisfies Record<string, Loader>;
 
 export type SceneKey = keyof typeof sceneLoaders;
