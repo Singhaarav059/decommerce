@@ -7,6 +7,8 @@ export type SceneProps = {
   interactive?: boolean;
   /** Hotspot or tab currently focused on the DOM side. */
   focus?: string | null;
+  /** Mutable state shared with a DOM controller (gestures, keyboard). Scene-specific shape. */
+  bus?: unknown;
 };
 
 type Loader = () => Promise<{ default: ComponentType<SceneProps> }>;
@@ -14,6 +16,7 @@ type Loader = () => Promise<{ default: ComponentType<SceneProps> }>;
 // Every scene is its own chunk so three.js only loads where a scene is near.
 export const sceneLoaders = {
   placeholder: () => import("./PlaceholderScene"),
+  rack: () => import("./rack/RackScene"),
 } satisfies Record<string, Loader>;
 
 export type SceneKey = keyof typeof sceneLoaders;

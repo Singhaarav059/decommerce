@@ -10,6 +10,7 @@ import { Scene } from "@/components/scene/Scene";
 import { AlphaVideo } from "@/components/media/AlphaVideo";
 import { ScrollSequence } from "@/components/media/ScrollSequence";
 import { clips, sequences } from "@/content/media";
+import { ClothingRack } from "@/components/rack/ClothingRack";
 import { SceneThumb } from "@/components/ui/SceneThumb";
 import { StatCounter } from "@/components/ui/StatCounter";
 import { Tabs } from "@/components/ui/Tabs";
@@ -27,6 +28,7 @@ const chapters = [
   { id: "lab-marquee", label: "Marquee" },
   { id: "lab-3d", label: "3D foundation" },
   { id: "lab-media", label: "Media" },
+  { id: "lab-rack", label: "Clothing rack" },
 ];
 
 const hotspots = [
@@ -188,6 +190,10 @@ export default function LabPage() {
               with the same keys.
             </p>
           </div>
+        </Section>
+
+        <Section id="lab-rack" title="09 · Clothing rack">
+          <ClothingRack className="max-w-5xl" />
         </Section>
       </main>
       <ScrollSequence
