@@ -26,19 +26,40 @@ export type Capability = { title: string; body: string };
 
 export type Faq = { q: string; a: string };
 
-/** Front matter exported from every solution MDX file as `meta`. */
+/** One labelled part in the anatomy block; its 3D anchor lives in the scene. */
+export type Part = { id: string; label: string; detail: string };
+
+/** The hero's signature interaction, rendered by a generic control. */
+export type Interaction =
+  | { kind: "rack"; label: string; hint: string }
+  | {
+      kind: "slider";
+      label: string;
+      hint: string;
+      /** Readout shown next to the slider: lerp(from, to, value) with a unit, or a clock time. */
+      readout?: { from: number; to: number; unit?: string; format?: "number" | "clock"; prefix?: string };
+      /** Dragging across the scene also moves the slider. */
+      drag?: boolean;
+    }
+  | { kind: "toggles"; label: string; hint: string; options: { id: string; label: string }[]; initial?: number }
+  | { kind: "pick"; label: string; hint: string; options: { id: string; label: string; detail?: string }[] };
+
+/** Front matter exported from every solution MDX file as `meta`. The MDX body is the problem narrative. */
 export type SolutionMeta = {
   slug: SolutionSlug;
   title: string;
   description: string;
   eyebrow: string;
+  /** Headline with one *italic* accent word. */
   headline: string;
   promise: string;
-  status: "available" | "coming-soon";
-  problem: { title: string; body: string; broken: string };
+  /** Scene module key in src/scenes/registry.ts */
+  scene: string;
+  interaction: Interaction;
+  problem: { title: string; broken: string };
   fix: { title: string; steps: string[]; fixed: string };
-  scene: { name: string; interaction: string };
-  anatomy: Hotspot[];
+  anatomy: Part[];
+  /** Each capability tab moves the camera to the scene's view n + 1. */
   capabilities: Capability[];
   worksWith: SolutionSlug[];
   faq: Faq[];

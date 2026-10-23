@@ -1,0 +1,83 @@
+export const meta = {
+  "title": "Point of sale",
+  "description": "A fast till with tap-to-pay, on the same catalog, stock and customer record as online.",
+  "eyebrow": "In-store · POS",
+  "headline": "Tap, *paid*, receipt.",
+  "promise": "Ring up, take a tap payment and print the receipt in seconds, with stock updated everywhere.",
+  "scene": "pos",
+  "interaction": {
+    "kind": "slider",
+    "label": "Rotate the terminal",
+    "hint": "Drag the terminal or use the slider to look around it.",
+    "drag": true
+  },
+  "problem": {
+    "title": "A queue at a *slow* till.",
+    "broken": "Queue at the till"
+  },
+  "fix": {
+    "title": "Tap to pay, *done*.",
+    "steps": [
+      "Scan or pick the item",
+      "Customer taps their card",
+      "Receipt prints",
+      "Stock updates everywhere"
+    ],
+    "fixed": "Tap-to-pay and printed receipt"
+  },
+  "anatomy": [
+    {
+      "id": "screen",
+      "label": "Till screen",
+      "detail": "Big, simple buttons; the same product data as the website."
+    },
+    {
+      "id": "reader",
+      "label": "Card reader",
+      "detail": "Tap, chip or phone payments through your payment partner."
+    },
+    {
+      "id": "printer",
+      "label": "Receipt printer",
+      "detail": "Prints receipts and gift receipts, or emails them instead."
+    },
+    {
+      "id": "counter",
+      "label": "Counter",
+      "detail": "One counter can run several tills on the same store account."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Checkout",
+      "body": "Fast sale screen, discounts, gift cards and split payments."
+    },
+    {
+      "title": "Returns",
+      "body": "Return anything bought anywhere, online or in another store."
+    },
+    {
+      "title": "Customers",
+      "body": "Look up a customer to see their history and save the sale to them."
+    }
+  ],
+  "worksWith": [
+    "clienteling",
+    "endless-aisle",
+    "self-checkout",
+    "oms"
+  ],
+  "faq": [
+    {
+      "q": "Does it work if the internet drops?",
+      "a": "Sales continue offline and sync when the connection is back."
+    },
+    {
+      "q": "Which card readers can I use?",
+      "a": "Readers from our payment partners. Ask us which are available in your region."
+    }
+  ],
+  "slug": "pos"
+};
+
+A slow till makes a queue, and a till that doesn't talk to the website makes worse problems: wrong prices, stock that isn't there, returns that can't be processed.

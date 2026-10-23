@@ -1,0 +1,87 @@
+export const meta = {
+  "title": "Transport management",
+  "description": "Plan efficient routes, assign vans and give every customer a live ETA.",
+  "eyebrow": "Supply chain · TMS",
+  "headline": "One van, one *clean* route.",
+  "promise": "Stops are ordered into one efficient loop, and every customer sees their own ETA.",
+  "scene": "tms",
+  "interaction": {
+    "kind": "slider",
+    "label": "Delivery day",
+    "hint": "Scrub through the day: the van moves and the ETA updates.",
+    "readout": {
+      "from": 9,
+      "to": 17,
+      "format": "clock"
+    },
+    "drag": true
+  },
+  "problem": {
+    "title": "Routes in a *tangle*.",
+    "broken": "Tangled routes, all-day windows"
+  },
+  "fix": {
+    "title": "Untangled into one *loop*.",
+    "steps": [
+      "Stops collected",
+      "Route optimised",
+      "Van loaded in stop order",
+      "Live ETA for every customer"
+    ],
+    "fixed": "One optimised route"
+  },
+  "anatomy": [
+    {
+      "id": "bay",
+      "label": "Loading bay",
+      "detail": "Vans are loaded in reverse stop order, so the first parcel is at the door."
+    },
+    {
+      "id": "van",
+      "label": "Van",
+      "detail": "Each van gets a route sized to its capacity and shift."
+    },
+    {
+      "id": "route",
+      "label": "Optimised route",
+      "detail": "Stops ordered to cut distance and keep promised windows."
+    },
+    {
+      "id": "stop",
+      "label": "Stop",
+      "detail": "Customers get a narrow window and a live countdown."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Planning",
+      "body": "Build routes automatically and adjust them by hand."
+    },
+    {
+      "title": "Dispatch",
+      "body": "Assign vans and drivers, print load sheets."
+    },
+    {
+      "title": "Tracking",
+      "body": "Live position and ETA for your team and your customers."
+    }
+  ],
+  "worksWith": [
+    "oms",
+    "wms",
+    "quick-commerce"
+  ],
+  "faq": [
+    {
+      "q": "Can I use carriers as well as my own vans?",
+      "a": "Yes. Some orders can go to carriers while your own vans take local stops."
+    },
+    {
+      "q": "Does the driver need an app?",
+      "a": "Drivers use a simple mobile web app for stops and proof of delivery."
+    }
+  ],
+  "slug": "tms"
+};
+
+Delivery routes are planned on a whiteboard or not at all. Vans cross each other's paths, drivers backtrack, and customers get a delivery window of a whole day.

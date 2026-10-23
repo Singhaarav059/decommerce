@@ -1,0 +1,100 @@
+export const meta = {
+  "title": "Marketplace",
+  "description": "List once and sell on several marketplaces from one catalog and one stock count.",
+  "eyebrow": "Online · Marketplace",
+  "headline": "One listing, *every* shelf.",
+  "promise": "Write a product once; it appears on each marketplace you switch on, with shared stock.",
+  "scene": "market",
+  "interaction": {
+    "kind": "toggles",
+    "label": "Channels",
+    "hint": "Switch channels on and off.",
+    "options": [
+      {
+        "id": "a",
+        "label": "Channel A"
+      },
+      {
+        "id": "b",
+        "label": "Channel B"
+      },
+      {
+        "id": "c",
+        "label": "Channel C"
+      },
+      {
+        "id": "d",
+        "label": "Channel D"
+      }
+    ],
+    "initial": 7
+  },
+  "problem": {
+    "title": "One product, *four* copies.",
+    "broken": "One listing, copied by hand"
+  },
+  "fix": {
+    "title": "Listed everywhere from *one* box.",
+    "steps": [
+      "Write the listing once",
+      "Switch channels on",
+      "Stock shared across them",
+      "Orders come back to one queue"
+    ],
+    "fixed": "Same product on every channel shelf"
+  },
+  "anatomy": [
+    {
+      "id": "box",
+      "label": "Master listing",
+      "detail": "Title, images, price and stock live in one place."
+    },
+    {
+      "id": "shelf",
+      "label": "Channel shelves",
+      "detail": "Each channel gets the listing in its own format. (Channel names here are generic.)"
+    },
+    {
+      "id": "badge",
+      "label": "Channel switch",
+      "detail": "Turn a channel on or off without touching the listing."
+    },
+    {
+      "id": "queue",
+      "label": "One order queue",
+      "detail": "Marketplace orders arrive alongside website and store orders."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Listings",
+      "body": "Map your catalog fields to each marketplace once."
+    },
+    {
+      "title": "Stock",
+      "body": "Share stock across channels or reserve some for each."
+    },
+    {
+      "title": "Orders",
+      "body": "Marketplace orders route like any other order."
+    }
+  ],
+  "worksWith": [
+    "oms",
+    "storefront",
+    "wms"
+  ],
+  "faq": [
+    {
+      "q": "Which marketplaces are supported?",
+      "a": "Ask us during your demo; the list depends on your region. We don't show third-party logos here."
+    },
+    {
+      "q": "Can prices differ by channel?",
+      "a": "Yes. Set a channel price or a rule such as a percentage on top of the base price."
+    }
+  ],
+  "slug": "marketplace"
+};
+
+Selling on several marketplaces usually means several copies of each listing, each with its own price and stock. When one channel sells out, the others keep taking orders.

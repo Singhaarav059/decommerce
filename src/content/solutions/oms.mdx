@@ -1,0 +1,99 @@
+export const meta = {
+  "title": "Order management",
+  "description": "Route every order to the right location automatically, with split shipments and returns anywhere.",
+  "eyebrow": "Supply chain · OMS",
+  "headline": "Every order finds the *right* shelf.",
+  "promise": "Orders check every location and route themselves to the one that can ship fastest and cheapest.",
+  "scene": "oms",
+  "interaction": {
+    "kind": "pick",
+    "label": "Follow an order",
+    "hint": "Tap a ticket to follow its route.",
+    "options": [
+      {
+        "id": "t1",
+        "label": "ORD-1042",
+        "detail": "Linen overshirt · to Riverside store"
+      },
+      {
+        "id": "t2",
+        "label": "ORD-1043",
+        "detail": "Two items · split shipment"
+      },
+      {
+        "id": "t3",
+        "label": "ORD-1044",
+        "detail": "Wholesale · central warehouse"
+      }
+    ]
+  },
+  "problem": {
+    "title": "Tickets *piling up*.",
+    "broken": "Tickets stacked, routed by hand"
+  },
+  "fix": {
+    "title": "Tickets route *themselves*.",
+    "steps": [
+      "Order arrives from any channel",
+      "Every location checked",
+      "Best location chosen",
+      "Ticket moves to its lane"
+    ],
+    "fixed": "Tickets auto-routed to lanes"
+  },
+  "anatomy": [
+    {
+      "id": "inbox",
+      "label": "Incoming orders",
+      "detail": "Website, marketplace, B2B and store orders land in one queue."
+    },
+    {
+      "id": "rules",
+      "label": "Routing rules",
+      "detail": "Distance, stock, cost and store workload decide the location."
+    },
+    {
+      "id": "lanes",
+      "label": "Location lanes",
+      "detail": "Each warehouse and store gets its own lane of orders to fulfil."
+    },
+    {
+      "id": "split",
+      "label": "Split shipment",
+      "detail": "When no location has everything, the order ships from two."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Routing",
+      "body": "Rules you can read: nearest with stock, cheapest, or least busy."
+    },
+    {
+      "title": "Splits",
+      "body": "Split orders across locations with one tracking page for the customer."
+    },
+    {
+      "title": "Returns",
+      "body": "Returns go back to any location and restock the shared count."
+    }
+  ],
+  "worksWith": [
+    "wms",
+    "tms",
+    "storefront",
+    "pos"
+  ],
+  "faq": [
+    {
+      "q": "Can I set my own routing rules?",
+      "a": "Yes. Rules are ordered and readable, and you can test them against past orders."
+    },
+    {
+      "q": "What happens if a store can't fulfil?",
+      "a": "The store rejects it and the order re-routes to the next best location."
+    }
+  ],
+  "slug": "oms"
+};
+
+Orders pile up in one inbox while stock sits in several places. Someone decides by hand which location ships each one, and the nearest store with the item is often missed.

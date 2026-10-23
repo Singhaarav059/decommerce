@@ -24,6 +24,10 @@ export function CaptureStage() {
     const key = q.get("scene") as SceneKey | null;
     bus.setProgress(Number(q.get("p") ?? 0));
     bus.setStep(Number(q.get("step") ?? 0));
+    const mode = q.get("mode");
+    if (mode === "live" || mode === "scrub" || mode === "inside") bus.setMode(mode);
+    if (q.has("v")) bus.setValue(Number(q.get("v")));
+    if (q.has("focus")) bus.setFocus(q.get("focus"));
     (window as unknown as { __capture: unknown }).__capture = {
       set: (p: number) => bus.setProgress(p),
       step: (s: number) => bus.setStep(s),

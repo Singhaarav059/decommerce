@@ -127,6 +127,46 @@ body {
   .marquee-row { flex-wrap: wrap; row-gap: 1rem; }
 }
 
+/* Range slider (solution hero interactions) */
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 28px;
+  background: transparent;
+  cursor: pointer;
+}
+.range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--travertine);
+}
+.range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--travertine);
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -9px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 4px var(--stone-50), 0 0 0 5px var(--line);
+  transition: transform 200ms var(--ease-overshoot);
+}
+.range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.range:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+  background: var(--copper);
+}
+
 /* Opening (homepage chapter 0) */
 html.opened .opening {
   display: none;

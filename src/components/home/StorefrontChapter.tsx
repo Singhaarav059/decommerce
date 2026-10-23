@@ -17,6 +17,7 @@ const START = 2;
 export function StorefrontChapter() {
   const [bus] = useState(() => {
     const b = new StageBus();
+    b.setMode("live");
     b.setStep(START);
     return b;
   });

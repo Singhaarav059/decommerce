@@ -2,7 +2,6 @@
 
 import { useMemo, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
-import { PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 import { clips } from "@/content/media";
 import { order } from "@/content/home";
@@ -12,6 +11,7 @@ import { VideoPlane } from "@/three/VideoPlane";
 import { drawnTexture, fonts } from "@/three/textures";
 import type { StageBus } from "@/three/stageBus";
 import type { SceneProps } from "../registry";
+import { useRig, type Anchors, type View } from "../solutions/rig";
 
 const ss = THREE.MathUtils.smoothstep;
 const BIN_ROWS = 3;
@@ -54,29 +54,41 @@ class PackMaterials {
   }
 }
 
+const VIEWS: View[] = [
+  { pos: [2.95, 3.1, 6.2], target: [0.75, 0.75, 0] },
+  { pos: [0.2, 1.75, 2.4], target: [-0.2, 1.4, -0.4] },
+  { pos: [0.5, 1.6, 2.1], target: [0, 0.82, 0.1] },
+  { pos: [2.8, 1.7, 2.7], target: [1.3, 0.7, 0.1] },
+];
+const ANCHORS: Anchors = {
+  bins: [-0.32, 1.55, -0.46],
+  scanner: [-0.4, 0.88, 0.2],
+  printer: [0.55, 1.0, -0.05],
+  conveyor: [2.0, 0.5, 0.1],
+};
+
 /**
- * Chapter 6, the packing station: a bin lights up copper, the scanner beam
- * sweeps the overshirt, the label prints and the boxed order rolls off on the
- * conveyor. bus.progress drives it.
+ * The packing station (homepage chapter 6, WMS page): a bin lights up copper,
+ * the scanner beam sweeps the overshirt, the label prints and the boxed order
+ * rolls off on the conveyor. Scrub: bus.progress; live: bus.value (pick
+ * slider); inside: a mid-pack still.
  */
 export default function PackScene({ bus: rawBus }: SceneProps) {
   const bus = rawBus as StageBus;
   const k = useKit();
   const size = useThree((s) => s.size);
-  const cam = useRef<THREE.PerspectiveCamera>(null);
+  const { state, camera, part } = useRig(bus, VIEWS, ANCHORS, { fov: 28, portraitFar: 1.65, scrubOffset: 0.14 });
   const beam = useRef<THREE.Mesh>(null);
   const label = useRef<THREE.Mesh>(null);
   const box = useRef<THREE.Group>(null);
   const shirt = useRef<THREE.Mesh>(null);
-  const p = useRef(0);
   const tmp = useMemo(() => new THREE.Vector3(), []);
   const print = useMemo(() => labelPrint(), []);
   // one light strip material per bin so only the picked bin glows
   const mats = useMemo(() => new PackMaterials(print), [print]);
 
-  useFrame((st, dt) => {
-    p.current += (bus.progress - p.current) * (bus.reduced ? 1 : 1 - Math.exp(-5 * dt));
-    const t = p.current;
+  useFrame((st) => {
+    const t = bus.mode === "scrub" ? state.current.fixed : bus.mode === "live" ? state.current.value : 0.62;
     const lit = ss(t, 0.02, 0.15);
     const scan = ss(t, 0.25, 0.45);
     const printing = ss(t, 0.48, 0.66);
@@ -108,25 +120,16 @@ export default function PackScene({ bus: rawBus }: SceneProps) {
     }
     bus.project("bin", tmp.set(-0.62 + (TARGET_BIN % BIN_COLS) * 0.3, 1.3 + Math.floor(TARGET_BIN / BIN_COLS) * 0.2 + 0.18, -0.46), st.camera, size, lit > 0.5 && roll < 0.5);
     bus.project("label", tmp.set(0.55, 1.05, 0.1), st.camera, size, printing > 0.5 && roll < 0.3);
-
-    if (cam.current) {
-      const aspect = size.width / Math.max(1, size.height);
-      const far = aspect < 1 ? 1.65 : 1;
-      cam.current.position.set(0.55 + 2.4 * far, 3.1 * far, 6.2 * far);
-      cam.current.lookAt(0.75, 0.75, 0);
-      cam.current.setViewOffset(size.width, size.height, aspect >= 1 ? -size.width * 0.14 : 0, 0, size.width, size.height);
-    }
-    bus.tick();
   });
 
   return (
     <>
-      <PerspectiveCamera ref={cam} makeDefault fov={28} />
+      {camera}
       <StoreLight />
       <Slab size={[5, 0.05, 3]} material={k.terrazzo} position={[0.4, -0.05, -0.3]} radius={0.01} />
       <Slab size={[4.4, 2.2, 0.1]} material={k.travertine} position={[0.4, 0, -0.7]} radius={0.01} />
       {/* bin wall */}
-      <group position={[-0.62, 1.3, -0.46]}>
+      <group ref={part("bins")} position={[-0.62, 1.3, -0.46]}>
         {Array.from({ length: BIN_ROWS * BIN_COLS }, (_, i) => (
           <Bin key={i} light={mats.lights[i]} position={[(i % BIN_COLS) * 0.3, Math.floor(i / BIN_COLS) * 0.2, 0]} scale={[1, 1, 0.8]} />
         ))}
@@ -147,11 +150,11 @@ export default function PackScene({ bus: rawBus }: SceneProps) {
       <mesh ref={beam} position={[0, 0.84, 0.1]} rotation={[Math.PI / 2, 0, 0]} material={mats.beam}>
         <planeGeometry args={[0.012, 0.3]} />
       </mesh>
-      <group position={[-0.4, 0.79, 0.2]} rotation={[0, 0.6, 0]}>
+      <group ref={part("scanner")} position={[-0.4, 0.79, 0.2]} rotation={[0, 0.6, 0]}>
         <Slab size={[0.06, 0.05, 0.18]} material={k.ink} radius={0.02} />
         <Slab size={[0.04, 0.12, 0.05]} material={k.inkMatte} radius={0.015} position={[0, -0.0, 0.08]} />
       </group>
-      <group position={[0.55, 0.79, -0.05]}>
+      <group ref={part("printer")} position={[0.55, 0.79, -0.05]}>
         <Slab size={[0.26, 0.16, 0.24]} material={k.stone} radius={0.03} />
         <Slab size={[0.18, 0.006, 0.01]} material={k.inkMatte} radius={0.002} position={[0, 0.1, 0.121]} />
         <mesh ref={label} position={[0, 0.105, 0.02]} rotation={[-Math.PI / 2, 0, 0]} material={mats.label}>
@@ -161,7 +164,9 @@ export default function PackScene({ bus: rawBus }: SceneProps) {
       <group ref={box}>
         <KraftBox size={[0.4, 0.22, 0.3]} />
       </group>
-      <Conveyor length={2.6} width={0.46} position={[2.0, 0, 0.1]} />
+      <group ref={part("conveyor")} position={[2.0, 0, 0.1]}>
+        <Conveyor length={2.6} width={0.46} />
+      </group>
       <group position={[0.85, 0.62, -0.38]}>
         <VideoPlane clip={clips.walker} height={1.25} />
       </group>

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { brand } from "@/content/site";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
@@ -42,10 +43,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: openingHeadScript }} />
-      </head>
       <body className="min-h-dvh">
+        <Script id="opening-skip" strategy="beforeInteractive">
+          {openingHeadScript}
+        </Script>
         <SmoothScroll />
         {children}
       </body>

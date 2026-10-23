@@ -8,6 +8,14 @@ export type LabelPos = { x: number; y: number; visible: boolean };
  * writes back screen positions for DOM labels anchored to 3D points.
  */
 export class StageBus {
+  /**
+   * How a solution scene should behave: "live" (hero: fixed state + signature
+   * interaction), "scrub" (progress drives broken → fixed), "inside" (fixed
+   * state; step picks a camera view, focus highlights a part).
+   */
+  mode: "live" | "scrub" | "inside" = "scrub";
+  /** True when the scene fills a pinned full-screen stage (set by ScrollStage); boxed scenes stay false. */
+  fullBleed = false;
   /** Raw 0–1 scroll progress through the stage. */
   progress = 0;
   /** Discrete step chosen by the DOM (tab, hotspot, chapter). */
@@ -21,6 +29,12 @@ export class StageBus {
   readonly labels = new Map<string, LabelPos>();
   private listeners = new Set<() => void>();
 
+  setMode(m: "live" | "scrub" | "inside") {
+    this.mode = m;
+  }
+  setFullBleed(v: boolean) {
+    this.fullBleed = v;
+  }
   setProgress(p: number) {
     this.progress = p;
   }

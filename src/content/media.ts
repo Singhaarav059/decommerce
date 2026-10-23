@@ -33,3 +33,8 @@ export const posters = {
   kiosk: { desktop: "/assets/posters/kiosk-d.webp", mobile: "/assets/posters/kiosk-m.webp" },
 } satisfies Record<string, PosterSet>;
 
+
+/** Poster of a solution page's hero scene (captured by scripts/posters.mjs --solutions). */
+export function solutionPoster(slug: string): PosterSet {
+  return { desktop: `/assets/posters/sol-${slug}-d.webp`, mobile: `/assets/posters/sol-${slug}-m.webp` };
+}

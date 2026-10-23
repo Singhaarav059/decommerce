@@ -39,7 +39,11 @@ export function ScrollStage({
   /** Called on every scroll update with 0–1 progress (for DOM transforms; no re-render). */
   onProgress?: (p: number) => void;
 }) {
-  const [bus] = useState(() => new StageBus());
+  const [bus] = useState(() => {
+    const b = new StageBus();
+    b.setFullBleed(true);
+    return b;
+  });
   const section = useRef<HTMLElement>(null);
   const [still, setStill] = useState(false);
   const [active, setActive] = useState(0);

@@ -6,22 +6,38 @@ import * as THREE from "three";
 import { Slab, useKit } from "@/three/kit";
 import type { StageBus } from "@/three/stageBus";
 import type { SceneProps } from "../registry";
-import { Room, useProgress } from "./shared";
+import { CardReader, Counter } from "@/three/kit";
+import { Room, phase } from "./shared";
+import { useRig, type Anchors, type View } from "../solutions/rig";
 
 const ss = THREE.MathUtils.smoothstep;
 const SECTIONS = 7;
 const COLORS = ["#d9cfbf", "#69714e", "#25221c", "#c9b8a0", "#a8835c"];
 
-/** Endless aisle: a short shelf with a gap in size M that extends into depth. */
+const VIEWS: View[] = [
+  { pos: [1.7, 1.45, 2.3], target: [0, 0.7, -1.2] },
+  { pos: [0.5, 1.0, 1.25], target: [0, 0.6, 0] },
+  { pos: [2.3, 1.25, 0.5], target: [0, 0.7, -2.6] },
+  { pos: [2.4, 1.4, 2.4], target: [1.3, 0.6, 0.8] },
+];
+const ANCHORS: Anchors = {
+  gap: [0, 0.6, 0.16],
+  shelf: [-0.5, 1.12, 0.2],
+  network: [0, 1.0, -3.6],
+  till: [1.3, 0.78, 0.8],
+};
+
+/** Endless aisle: a short shelf with a gap in size M that extends into depth. Live: the slider pushes it deeper. */
 export default function AisleScene({ bus: rawBus }: SceneProps) {
   const bus = rawBus as StageBus;
   const k = useKit();
-  const p = useProgress(bus);
+  const rig = useRig(bus, VIEWS, ANCHORS, { fov: 32 });
   const sections = useRef<(THREE.Group | null)[]>([]);
   const gap = useRef<THREE.Mesh>(null);
 
   useFrame((st) => {
-    const t = p.current;
+    const { fixed, value } = rig.state.current;
+    const t = phase(bus.mode, fixed, value, true);
     const extend = ss(t, 0.2, 0.85);
     sections.current.forEach((g, i) => {
       if (!g) return;
@@ -39,9 +55,20 @@ export default function AisleScene({ bus: rawBus }: SceneProps) {
 
   return (
     <>
-      <Room camera={[1.7, 1.45, 2.3]} target={[0, 0.7, -1.2]} fov={32} />
+      {rig.camera}
+      <Room />
+      <group ref={rig.part("till")} position={[1.3, 0, 0.8]}>
+        <Counter w={0.7} d={0.45} h={0.66} />
+        <CardReader position={[0.1, 0.66, 0.05]} />
+      </group>
       {Array.from({ length: SECTIONS }, (_, i) => (
-        <group key={i} ref={(el) => void (sections.current[i] = el)}>
+        <group
+          key={i}
+          ref={(el) => {
+            sections.current[i] = el;
+            if (i === 0) rig.part("shelf")(el);
+          }}
+        >
           <Slab size={[1.4, 0.04, 0.5]} material={k.oak} position={[0, 0.45, 0]} radius={0.008} />
           <Slab size={[1.4, 0.04, 0.5]} material={k.oak} position={[0, 0.95, 0]} radius={0.008} />
           {[-0.68, 0.68].map((x) =>

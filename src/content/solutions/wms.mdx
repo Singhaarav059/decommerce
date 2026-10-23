@@ -1,0 +1,82 @@
+export const meta = {
+  "title": "Warehouse management",
+  "description": "Bins light up in pick order, scans confirm every item, labels print themselves.",
+  "eyebrow": "Supply chain · WMS",
+  "headline": "Bins light up in *pick order*.",
+  "promise": "Pickers follow lit bins, scan to confirm, and the label is printed before the box is closed.",
+  "scene": "packing",
+  "interaction": {
+    "kind": "slider",
+    "label": "Pick progress",
+    "hint": "Move the slider to step through a pick.",
+    "drag": true
+  },
+  "problem": {
+    "title": "Walking the aisles, *searching*.",
+    "broken": "Bins dark, picker searching"
+  },
+  "fix": {
+    "title": "Lit bins, one *scan*, done.",
+    "steps": [
+      "Bin lights up",
+      "Scan confirms the item",
+      "Label prints",
+      "Box onto the conveyor"
+    ],
+    "fixed": "Bins light in pick order"
+  },
+  "anatomy": [
+    {
+      "id": "bins",
+      "label": "Lit bins",
+      "detail": "A light strip shows the next bin to pick from."
+    },
+    {
+      "id": "scanner",
+      "label": "Scanner",
+      "detail": "Each scan checks the item against the order before it is packed."
+    },
+    {
+      "id": "printer",
+      "label": "Label printer",
+      "detail": "Prints the shipping label as soon as the last item is scanned."
+    },
+    {
+      "id": "conveyor",
+      "label": "Conveyor",
+      "detail": "Packed orders roll to dispatch, sorted by carrier."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Bins",
+      "body": "Every item has a bin; every bin has a count."
+    },
+    {
+      "title": "Picking",
+      "body": "Pick lists ordered by walking path, single or batch."
+    },
+    {
+      "title": "Packing",
+      "body": "Scan to pack, print to ship, no re-typing."
+    }
+  ],
+  "worksWith": [
+    "oms",
+    "tms",
+    "b2b"
+  ],
+  "faq": [
+    {
+      "q": "Do I need special hardware?",
+      "a": "Any modern handheld scanner and label printer works. Bin lights are optional."
+    },
+    {
+      "q": "Can I run it in a store's stockroom?",
+      "a": "Yes. Stores can use the same picking flow for online orders."
+    }
+  ],
+  "slug": "wms"
+};
+
+In a busy warehouse, pickers walk the aisles looking for items, labels are printed at a desk, and mistakes show up as returns a week later.

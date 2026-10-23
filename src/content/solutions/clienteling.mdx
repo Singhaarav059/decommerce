@@ -1,0 +1,100 @@
+export const meta = {
+  "title": "Clienteling",
+  "description": "Give store associates each customer's history, sizes and preferences on a tablet.",
+  "eyebrow": "In-store · Clienteling",
+  "headline": "Greet every regular *by name*.",
+  "promise": "Associates see past purchases and sizes on a tablet and build looks with the customer.",
+  "scene": "client",
+  "interaction": {
+    "kind": "toggles",
+    "label": "Build a look",
+    "hint": "Tap garments to add them to the look on the tablet.",
+    "options": [
+      {
+        "id": "linen",
+        "label": "Linen overshirt"
+      },
+      {
+        "id": "olive",
+        "label": "Olive knit"
+      },
+      {
+        "id": "ink",
+        "label": "Ink coat"
+      },
+      {
+        "id": "stone",
+        "label": "Stone tee"
+      }
+    ],
+    "initial": 1
+  },
+  "problem": {
+    "title": "A generic *hello*.",
+    "broken": "Blank tablet, generic greeting"
+  },
+  "fix": {
+    "title": "A profile in the *associate's* hand.",
+    "steps": [
+      "Customer identified",
+      "Profile opens on the tablet",
+      "Sizes and past buys shown",
+      "Look saved to the customer"
+    ],
+    "fixed": "Profile with purchases and sizes"
+  },
+  "anatomy": [
+    {
+      "id": "tablet",
+      "label": "Associate tablet",
+      "detail": "Profile, wishlist and past purchases, with the customer's consent."
+    },
+    {
+      "id": "rack",
+      "label": "Rail",
+      "detail": "Add garments to a look straight from the rail."
+    },
+    {
+      "id": "sizes",
+      "label": "Saved sizes",
+      "detail": "Sizes from past purchases, so the associate brings the right one."
+    },
+    {
+      "id": "look",
+      "label": "Saved look",
+      "detail": "Send the look to the customer or reserve it for a visit."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Profiles",
+      "body": "One customer record across website, stores and marketplaces."
+    },
+    {
+      "title": "Looks",
+      "body": "Build and share looks; customers can buy them online later."
+    },
+    {
+      "title": "Appointments",
+      "body": "Book visits and have items waiting in the fitting room."
+    }
+  ],
+  "worksWith": [
+    "pos",
+    "endless-aisle",
+    "storefront"
+  ],
+  "faq": [
+    {
+      "q": "How do you handle consent?",
+      "a": "Profiles only open for customers who have opted in, and they can see and delete their data."
+    },
+    {
+      "q": "Does it need special hardware?",
+      "a": "Any tablet with a modern browser works."
+    }
+  ],
+  "slug": "clienteling"
+};
+
+Store associates greet regular customers like strangers. Past purchases, sizes and preferences sit in a CRM nobody on the shop floor can reach.

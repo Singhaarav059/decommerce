@@ -26,6 +26,13 @@ export const sceneLoaders = {
   aisle: () => import("./instore/AisleScene"),
   kiosk: () => import("./instore/KioskScene"),
   rooms: () => import("./rooms/RoomsScene"),
+  showcase: () => import("./solutions/ShowcaseScene"),
+  b2b: () => import("./solutions/B2bScene"),
+  quick: () => import("./solutions/QuickScene"),
+  market: () => import("./solutions/MarketScene"),
+  oms: () => import("./solutions/OmsScene"),
+  tms: () => import("./solutions/TmsScene"),
+  client: () => import("./solutions/ClientScene"),
 } satisfies Record<string, Loader>;
 
 export type SceneKey = keyof typeof sceneLoaders;

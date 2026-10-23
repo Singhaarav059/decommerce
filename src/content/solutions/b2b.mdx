@@ -1,0 +1,86 @@
+export const meta = {
+  "title": "B2B commerce",
+  "description": "A buyer portal with tiered wholesale prices, running on the same stock as retail.",
+  "eyebrow": "Online · B2B commerce",
+  "headline": "Wholesale without the *order book*.",
+  "promise": "Trade buyers order from a portal with their own prices, and the pallets are picked from the same stock as retail.",
+  "scene": "b2b",
+  "interaction": {
+    "kind": "slider",
+    "label": "Order quantity",
+    "hint": "Move the slider: the pallets grow and the price tier changes.",
+    "readout": {
+      "from": 24,
+      "to": 960,
+      "unit": " units"
+    }
+  },
+  "problem": {
+    "title": "A paper order book and *re-typing*.",
+    "broken": "Paper order pad, prices checked by hand"
+  },
+  "fix": {
+    "title": "A portal that knows each *buyer*.",
+    "steps": [
+      "Buyer signs in",
+      "Their price tiers load",
+      "Bulk order in one screen",
+      "Pallets picked from shared stock"
+    ],
+    "fixed": "Buyer portal with tiered prices"
+  },
+  "anatomy": [
+    {
+      "id": "portal",
+      "label": "Buyer portal",
+      "detail": "Each trade account sees its own catalog, prices and credit terms."
+    },
+    {
+      "id": "tiers",
+      "label": "Price tiers",
+      "detail": "Prices drop automatically at the quantity breaks you set."
+    },
+    {
+      "id": "pallets",
+      "label": "Pallet stock",
+      "detail": "Wholesale and retail draw from one stock count, so you never oversell."
+    },
+    {
+      "id": "pad",
+      "label": "Order pad, retired",
+      "detail": "Repeat orders are one tap instead of a phone call."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Price tiers",
+      "body": "Set quantity breaks per product and per buyer group."
+    },
+    {
+      "title": "Accounts",
+      "body": "Several buyers per company, with their own permissions and credit limits."
+    },
+    {
+      "title": "Reorders",
+      "body": "Buyers repeat past orders or upload a list in one step."
+    }
+  ],
+  "worksWith": [
+    "oms",
+    "wms",
+    "tms"
+  ],
+  "faq": [
+    {
+      "q": "Can each buyer have different prices?",
+      "a": "Yes. Assign buyers to price groups or set prices per account."
+    },
+    {
+      "q": "Do wholesale and retail share stock?",
+      "a": "Yes, both read the same count, with optional reserved stock for key accounts."
+    }
+  ],
+  "slug": "b2b"
+};
+
+Wholesale orders still arrive by phone, email and paper order books. Each buyer has their own price list, so someone re-types every order and checks every price by hand.

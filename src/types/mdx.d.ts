@@ -6,7 +6,7 @@ declare module "@/content/company/*.mdx" {
   export default MDXComponent;
 }
 
-declare module "@/content/solutions/*.mdx" {
+declare module "*.mdx" {
   import type { MDXContent } from "mdx/types";
   import type { SolutionMeta } from "@/content/types";
   export const meta: SolutionMeta;

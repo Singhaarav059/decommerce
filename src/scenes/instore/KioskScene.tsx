@@ -6,7 +6,10 @@ import * as THREE from "three";
 import { KraftBox, Slab, useKit } from "@/three/kit";
 import type { StageBus } from "@/three/stageBus";
 import type { SceneProps } from "../registry";
-import { Room, useProgress } from "./shared";
+import { clips } from "@/content/media";
+import { VideoPlane } from "@/three/VideoPlane";
+import { Room, phase } from "./shared";
+import { useRig, type Anchors, type View } from "../solutions/rig";
 
 const ITEMS = [
   { size: [0.16, 0.1, 0.12] as [number, number, number], color: "#d9cfbf" },
@@ -14,16 +17,37 @@ const ITEMS = [
   { size: [0.18, 0.06, 0.14] as [number, number, number], color: "#c2602a" },
 ];
 
-/** Self-checkout: items pass the scanner one by one and drop into a kraft bag. */
+const VIEWS: View[] = [
+  { pos: [1.0, 1.7, 2.5], target: [0, 0.8, 0] },
+  { pos: [-0.2, 1.4, 1.4], target: [-0.35, 1.05, -0.18] },
+  { pos: [1.7, 1.5, 1.7], target: [0.3, 0.9, 0] },
+  { pos: [0.4, 1.3, 1.15], target: [-0.05, 0.98, 0.1] },
+];
+const ANCHORS: Anchors = {
+  screen: [-0.35, 1.18, -0.18],
+  scanner: [-0.05, 0.99, 0.12],
+  bag: [0.48, 0.98, 0.1],
+  items: [-0.55, 1.08, 0.1],
+};
+const QUEUE: [number, number, number][] = [
+  [-1.0, 0.62, 0.9],
+  [-1.45, 0.62, 1.35],
+  [-1.9, 0.62, 1.8],
+];
+
+/** Self-checkout: a queue (broken), then items pass the scanner and drop into a kraft bag. Live: the slider scans. */
 export default function KioskScene({ bus: rawBus }: SceneProps) {
   const bus = rawBus as StageBus;
   const k = useKit();
-  const p = useProgress(bus);
+  const rig = useRig(bus, VIEWS, ANCHORS);
+  const queue = useRef<THREE.Group>(null);
   const items = useRef<(THREE.Group | null)[]>([]);
   const beam = useRef<THREE.Mesh>(null);
 
   useFrame(() => {
-    const t = p.current;
+    const { fixed, value } = rig.state.current;
+    const t = phase(bus.mode, fixed, value, true);
+    if (queue.current) queue.current.visible = bus.mode === "scrub" && t < 0.1;
     let scanning = false;
     items.current.forEach((g, i) => {
       if (!g) return;
@@ -42,11 +66,19 @@ export default function KioskScene({ bus: rawBus }: SceneProps) {
 
   return (
     <>
-      <Room camera={[1.0, 1.7, 2.5]} target={[0, 0.8, 0]} />
+      {rig.camera}
+      <Room />
+      <group ref={queue}>
+        {QUEUE.map((q, i) => (
+          <group key={i} position={q}>
+            <VideoPlane clip={clips.walker} height={1.25} />
+          </group>
+        ))}
+      </group>
       {/* kiosk body + screen */}
       <Slab size={[1.3, 0.92, 0.55]} material={k.stone} radius={0.03} />
       <Slab size={[1.34, 0.04, 0.6]} material={k.travertine} radius={0.01} position={[0, 0.92, 0]} />
-      <group position={[-0.35, 0.96, -0.18]} rotation={[-0.35, 0.15, 0]}>
+      <group ref={rig.part("screen")} position={[-0.35, 0.96, -0.18]} rotation={[-0.35, 0.15, 0]}>
         <Slab size={[0.42, 0.3, 0.03]} material={k.ink} radius={0.015} />
         <mesh position={[0, 0.15, 0.016]}>
           <planeGeometry args={[0.38, 0.26]} />
@@ -60,7 +92,7 @@ export default function KioskScene({ bus: rawBus }: SceneProps) {
         <meshBasicMaterial color="#c2602a" toneMapped={false} transparent opacity={0.8} />
       </mesh>
       {/* open kraft bag */}
-      <group position={[0.48, 0.96, 0.1]}>
+      <group ref={rig.part("bag")} position={[0.48, 0.96, 0.1]}>
         <KraftBox size={[0.32, 0.36, 0.2]} taped={false} position={[0, -0.24, 0]} />
       </group>
       {ITEMS.map((it, i) => (

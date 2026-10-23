@@ -10,7 +10,8 @@ import { VideoPlane } from "@/three/VideoPlane";
 import { drawnTexture, fonts } from "@/three/textures";
 import type { StageBus } from "@/three/stageBus";
 import type { SceneProps } from "../registry";
-import { Room, useProgress } from "./shared";
+import { Room, phase } from "./shared";
+import { useRig, type Anchors, type View } from "../solutions/rig";
 
 const ss = THREE.MathUtils.smoothstep;
 
@@ -38,18 +39,49 @@ function screenTexture() {
   }).texture;
 }
 
-/** POS: card taps the reader, the screen turns to Paid and a receipt rises. */
+const VIEWS: View[] = [
+  { pos: [1.1, 1.55, 2.4], target: [0, 0.72, 0] },
+  { pos: [0.1, 1.1, 0.95], target: [-0.25, 0.86, -0.05] },
+  { pos: [1.05, 1.1, 0.85], target: [0.42, 0.8, -0.05] },
+  { pos: [-0.85, 1.4, 1.9], target: [-0.1, 0.9, -0.4] },
+];
+const ANCHORS: Anchors = {
+  screen: [-0.25, 0.98, -0.05],
+  reader: [0.05, 0.72, 0.15],
+  printer: [0.42, 0.82, -0.05],
+  counter: [-0.6, 0.35, 0.33],
+};
+const QUEUE: [number, number, number][] = [
+  [0.95, 0.62, 0.85],
+  [1.4, 0.62, 1.3],
+  [1.85, 0.62, 1.75],
+];
+
+/**
+ * POS (homepage panel, POS page): a queue waits at the till (broken), then a
+ * card taps the reader, the screen turns to Paid and a receipt rises. Live:
+ * the slider rotates the terminal.
+ */
 export default function PosScene({ bus: rawBus }: SceneProps) {
   const bus = rawBus as StageBus;
   const k = useKit();
-  const p = useProgress(bus);
+  const rig = useRig(bus, VIEWS, ANCHORS);
+  const queue = useRef<THREE.Group>(null);
+  const terminal = useRef<THREE.Group>(null);
   const card = useRef<THREE.Group>(null);
   const receipt = useRef<THREE.Mesh>(null);
   const paid = useMemo(() => screenTexture(), []);
   const screenRef = useRef<THREE.Group>(null);
+  const plainRef = useRef<THREE.Group>(null);
 
-  useFrame(() => {
-    const t = p.current;
+  useFrame((_, dt) => {
+    const { fixed, value } = rig.state.current;
+    const t = phase(bus.mode, fixed, value, false);
+    if (queue.current) queue.current.visible = t < 0.3;
+    if (terminal.current) {
+      const turn = bus.mode === "live" ? (value - 0.35) * Math.PI * 1.2 : 0;
+      terminal.current.rotation.y = THREE.MathUtils.damp(terminal.current.rotation.y, 0.25 + turn, 8, dt);
+    }
     const tap = ss(t, 0.15, 0.45);
     const print = ss(t, 0.5, 0.85);
     if (card.current) {
@@ -61,19 +93,40 @@ export default function PosScene({ bus: rawBus }: SceneProps) {
       receipt.current.position.y = 0.86 + print * 0.11;
     }
     if (screenRef.current) screenRef.current.visible = tap > 0.95;
+    if (plainRef.current) plainRef.current.visible = tap <= 0.95;
   });
 
   return (
     <>
-      <Room camera={[1.1, 1.55, 2.4]} target={[0, 0.72, 0]} />
-      <Counter w={1.6} d={0.62} h={0.66} />
-      <PosTerminal position={[-0.25, 0.66, -0.05]} rotation={[0, 0.25, 0]} />
-      <group ref={screenRef} position={[-0.25, 0.66, -0.05]} rotation={[0, 0.25, 0]} visible={false}>
-        <PosTerminal screen={paid} />
+      {rig.camera}
+      <Room />
+      <group ref={rig.part("counter")}>
+        <Counter w={1.6} d={0.62} h={0.66} />
       </group>
-      <CardReader position={[0.05, 0.66, 0.15]} rotation={[0, -0.2, 0]} />
+      <group ref={terminal} position={[-0.25, 0.66, -0.05]} rotation={[0, 0.25, 0]}>
+        <group ref={rig.part("screen")}>
+          <group ref={plainRef}>
+            <PosTerminal />
+          </group>
+          <group ref={screenRef} visible={false}>
+            <PosTerminal screen={paid} />
+          </group>
+        </group>
+      </group>
+      <group ref={rig.part("reader")} position={[0.05, 0.66, 0.15]} rotation={[0, -0.2, 0]}>
+        <CardReader />
+      </group>
       {/* receipt printer */}
-      <Slab size={[0.18, 0.12, 0.2]} material={k.stone} radius={0.02} position={[0.42, 0.66, -0.05]} />
+      <group ref={rig.part("printer")} position={[0.42, 0.66, -0.05]}>
+        <Slab size={[0.18, 0.12, 0.2]} material={k.stone} radius={0.02} />
+      </group>
+      <group ref={queue}>
+        {QUEUE.map((q, i) => (
+          <group key={i} position={q}>
+            <VideoPlane clip={clips.walker} height={1.25} />
+          </group>
+        ))}
+      </group>
       <mesh ref={receipt} position={[0.42, 0.86, -0.02]} material={k.paper}>
         <boxGeometry args={[0.12, 0.22, 0.003]} />
       </mesh>

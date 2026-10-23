@@ -1,0 +1,82 @@
+export const meta = {
+  "title": "Endless aisle",
+  "description": "Sell what the shelf doesn't hold: order from another location for home delivery.",
+  "eyebrow": "In-store · Endless aisle",
+  "headline": "The shelf goes *on*.",
+  "promise": "Out of a size? Order it from any location in the network, delivered to the customer's home.",
+  "scene": "aisle",
+  "interaction": {
+    "kind": "slider",
+    "label": "Push the shelf",
+    "hint": "Slide to push the shelf deeper into the network's stock.",
+    "drag": true
+  },
+  "problem": {
+    "title": "A gap where *size M* should be.",
+    "broken": "Gap on the shelf"
+  },
+  "fix": {
+    "title": "Every location's stock, *one* shelf.",
+    "steps": [
+      "Find the gap",
+      "Search the network",
+      "Order to home",
+      "Customer pays at the till"
+    ],
+    "fixed": "Shelf extends into the network"
+  },
+  "anatomy": [
+    {
+      "id": "gap",
+      "label": "The gap",
+      "detail": "The size the customer wants, missing from this store."
+    },
+    {
+      "id": "shelf",
+      "label": "This store's shelf",
+      "detail": "What the shop floor holds today."
+    },
+    {
+      "id": "network",
+      "label": "Network stock",
+      "detail": "Every other store and warehouse, searchable from the floor."
+    },
+    {
+      "id": "till",
+      "label": "Pay here, ship home",
+      "detail": "The customer pays in store; the order ships from wherever it is."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Search",
+      "body": "Search every location's stock from a tablet or the till."
+    },
+    {
+      "title": "Order",
+      "body": "Ship to home or to the store for collection."
+    },
+    {
+      "title": "Credit",
+      "body": "The store gets credit for the sale wherever it ships from."
+    }
+  ],
+  "worksWith": [
+    "pos",
+    "oms",
+    "clienteling"
+  ],
+  "faq": [
+    {
+      "q": "Who gets credit for the sale?",
+      "a": "You choose: the selling store, the shipping location, or a split."
+    },
+    {
+      "q": "Can the customer collect instead?",
+      "a": "Yes, from this store or any other."
+    }
+  ],
+  "slug": "endless-aisle"
+};
+
+A customer finds the right shirt in the wrong size and leaves. The size is in another store or the warehouse, but the shop floor has no way to sell it.

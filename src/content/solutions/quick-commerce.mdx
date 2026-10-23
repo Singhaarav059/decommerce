@@ -1,0 +1,87 @@
+export const meta = {
+  "title": "Quick commerce",
+  "description": "Fast local delivery from dark stores, with picking and riders run from one system.",
+  "eyebrow": "Online · Quick commerce",
+  "headline": "Ten minutes, *door to door*.",
+  "promise": "Orders go straight to the nearest dark store, are picked in seconds and handed to the closest rider.",
+  "scene": "quick",
+  "interaction": {
+    "kind": "slider",
+    "label": "Rider on the route",
+    "hint": "Drag the rider along the street; the timer follows.",
+    "readout": {
+      "from": 10,
+      "to": 0,
+      "unit": " min left"
+    },
+    "drag": true
+  },
+  "problem": {
+    "title": "A ten-minute promise, *forty-five* on the clock.",
+    "broken": "45-minute timer"
+  },
+  "fix": {
+    "title": "Picked, packed and *riding* in minutes.",
+    "steps": [
+      "Order routed to nearest dark store",
+      "Shelves light in pick order",
+      "Bag handed to the closest rider",
+      "Live ETA to the door"
+    ],
+    "fixed": "10-minute timer"
+  },
+  "anatomy": [
+    {
+      "id": "shelves",
+      "label": "Dark store shelves",
+      "detail": "Laid out for picking, with fast movers closest to the dispatch point."
+    },
+    {
+      "id": "rider",
+      "label": "Rider",
+      "detail": "Assigned automatically by distance and current load."
+    },
+    {
+      "id": "timer",
+      "label": "Live timer",
+      "detail": "The customer sees the same countdown your team does."
+    },
+    {
+      "id": "block",
+      "label": "Delivery zone",
+      "detail": "Each dark store serves the blocks it can reach within the promise."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Zones",
+      "body": "Draw delivery zones per dark store and change them by time of day."
+    },
+    {
+      "title": "Picking",
+      "body": "Pick lists ordered by shelf position, on a handheld."
+    },
+    {
+      "title": "Riders",
+      "body": "Assign, batch and track riders with live ETAs."
+    }
+  ],
+  "worksWith": [
+    "oms",
+    "wms",
+    "tms"
+  ],
+  "faq": [
+    {
+      "q": "Do I need dark stores?",
+      "a": "No. Regular stores can fulfil quick orders too, from a back room or the shop floor."
+    },
+    {
+      "q": "Can I use my own riders?",
+      "a": "Yes, or connect a delivery partner. Both appear on the same tracking page."
+    }
+  ],
+  "slug": "quick-commerce"
+};
+
+Fast delivery breaks when the order sits in a queue, the picker hunts the shelves and the rider waits at the door. A 10-minute promise turns into 45.
