@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { pickAlphaSource, wantsStill } from "@/lib/media";
 import type { AlphaClip } from "@/components/media/AlphaVideo";
@@ -24,13 +24,19 @@ export function VideoPlane({
   opacity?: number;
 }) {
   const still = useMemo(() => wantsStill(), []);
+  const material = useRef<THREE.MeshBasicMaterial>(null);
+
+  // The transparent poster shows first (and stays for still visitors); the
+  // video texture takes over once it has decoded a frame, so the plane never
+  // flashes black.
+  const poster = useMemo(() => {
+    const tex = new THREE.TextureLoader().load(clip.poster);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    return tex;
+  }, [clip]);
 
   const { texture, video } = useMemo(() => {
-    if (still) {
-      const tex = new THREE.TextureLoader().load(clip.poster);
-      tex.colorSpace = THREE.SRGBColorSpace;
-      return { texture: tex as THREE.Texture, video: null };
-    }
+    if (still) return { texture: null, video: null };
     const v = document.createElement("video");
     v.src = pickAlphaSource(clip);
     v.crossOrigin = "anonymous";
@@ -40,24 +46,35 @@ export function VideoPlane({
     v.preload = "auto";
     const tex = new THREE.VideoTexture(v);
     tex.colorSpace = THREE.SRGBColorSpace;
-    return { texture: tex as THREE.Texture, video: v };
+    return { texture: tex, video: v };
   }, [clip, still]);
 
   useEffect(() => {
-    video?.play().catch(() => {});
+    if (!video || !texture) return;
+    const swap = () => {
+      if (material.current) {
+        material.current.map = texture;
+        material.current.needsUpdate = true;
+      }
+    };
+    video.addEventListener("playing", swap, { once: true });
+    video.play().catch(() => {});
     return () => {
-      video?.pause();
-      if (video) video.removeAttribute("src");
-      video?.load();
+      video.removeEventListener("playing", swap);
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
       texture.dispose();
     };
   }, [video, texture]);
+
+  useEffect(() => () => poster.dispose(), [poster]);
 
   const width = (height * clip.width) / clip.height;
   return (
     <mesh position={position} rotation={rotation}>
       <planeGeometry args={[width, height]} />
-      <meshBasicMaterial map={texture} transparent opacity={opacity} toneMapped={false} depthWrite={false} side={THREE.DoubleSide} />
+      <meshBasicMaterial ref={material} map={poster} transparent opacity={opacity} toneMapped={false} depthWrite={false} side={THREE.DoubleSide} />
     </mesh>
   );
 }

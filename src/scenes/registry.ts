@@ -17,6 +17,7 @@ type Loader = () => Promise<{ default: ComponentType<SceneProps> }>;
 export const sceneLoaders = {
   placeholder: () => import("./PlaceholderScene"),
   rack: () => import("./rack/RackScene"),
+  world: () => import("./world/WorldScene"),
 } satisfies Record<string, Loader>;
 
 export type SceneKey = keyof typeof sceneLoaders;

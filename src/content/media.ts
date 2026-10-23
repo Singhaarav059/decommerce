@@ -17,3 +17,7 @@ export const clips = {
 export const sequences = {
   labOrbit: { pattern: "/assets/seq/lab-orbit/d/{i}.webp", mobilePattern: "/assets/seq/lab-orbit/m/{i}.webp", count: 60 },
 } as const;
+
+/** Stills captured from the live scenes by scripts/posters.mjs (desktop 16:10-ish, mobile portrait). */
+export type PosterSet = { desktop: string; mobile: string };
+export const posters: Partial<Record<string, PosterSet>> = {};
