@@ -62,7 +62,7 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
-        scrolled || open || mobileOpen ? "bg-stone-50/95 shadow-[0_1px_0_var(--line)] backdrop-blur-sm" : "bg-transparent"
+        scrolled || open || mobileOpen ? "bg-stone-50 shadow-[0_1px_0_var(--line)]" : "bg-transparent"
       }`}
     >
       <div ref={navRef} className="mx-auto flex h-[var(--header-h)] max-w-[var(--max-w)] items-center px-[var(--gutter)]">
@@ -124,7 +124,7 @@ export function Header() {
               exit={reduce ? { opacity: 0 } : { opacity: 0, y: -6 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(null)}
-              className="absolute inset-x-0 top-[var(--header-h)] hidden border-t border-line bg-stone-50 shadow-[0_24px_48px_-24px_rgb(23_21_15/0.25)] lg:block"
+              className="absolute inset-x-0 top-[var(--header-h)] hidden border-t border-b border-line bg-stone-50 lg:block"
             >
               <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-[220px_1fr] gap-10 px-[var(--gutter)] py-8">
                 <div>

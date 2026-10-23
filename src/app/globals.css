@@ -81,6 +81,52 @@ body {
   background-size: 140px 140px, 90px 90px, 170px 170px, 110px 110px, 200px 200px;
 }
 
+/* Reveal */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms var(--ease-out),
+    transform 900ms var(--ease-overshoot);
+}
+.reveal-pending.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Hotspots */
+.hotspot-ping {
+  box-shadow: 0 0 0 0 rgb(194 96 42 / 0.55);
+  animation: hotspot-ping 2.4s var(--ease-out) infinite;
+}
+@keyframes hotspot-ping {
+  0% { box-shadow: 0 0 0 0 rgb(194 96 42 / 0.55); }
+  70%, 100% { box-shadow: 0 0 0 12px rgb(194 96 42 / 0); }
+}
+.hotspot-pop {
+  animation: hotspot-pop 320ms var(--ease-overshoot);
+}
+@keyframes hotspot-pop {
+  from { opacity: 0; translate: 0 6px; scale: 0.96; }
+}
+
+/* Marquee */
+.marquee-track {
+  animation: marquee linear infinite;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; width: auto; flex-wrap: wrap; }
+  .marquee-row[aria-hidden] { display: none; }
+  .marquee-row { flex-wrap: wrap; row-gap: 1rem; }
+}
+
 /* Lenis */
 html.lenis,
 html.lenis body {
