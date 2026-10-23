@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SceneHost } from "@/components/scene/SceneHost";
 
 export default function SiteLayout({ children }: LayoutProps<"/">) {
   return (
@@ -10,9 +11,11 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       >
         Skip to content
       </a>
-      <Header />
-      {children}
-      <Footer />
+      <SceneHost>
+        <Header />
+        {children}
+        <Footer />
+      </SceneHost>
     </>
   );
 }

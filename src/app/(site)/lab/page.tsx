@@ -6,6 +6,7 @@ import { Headline } from "@/components/ui/Headline";
 import { Hotspots } from "@/components/ui/Hotspots";
 import { Marquee } from "@/components/ui/Marquee";
 import { Reveal } from "@/components/ui/Reveal";
+import { Scene } from "@/components/scene/Scene";
 import { SceneThumb } from "@/components/ui/SceneThumb";
 import { StatCounter } from "@/components/ui/StatCounter";
 import { Tabs } from "@/components/ui/Tabs";
@@ -21,6 +22,7 @@ const chapters = [
   { id: "lab-tabs", label: "Tabs" },
   { id: "lab-faq", label: "FAQ" },
   { id: "lab-marquee", label: "Marquee" },
+  { id: "lab-3d", label: "3D foundation" },
 ];
 
 const hotspots = [
@@ -126,6 +128,24 @@ export default function LabPage() {
             </span>
           ))}
         />
+      </Section>
+
+      <Section id="lab-3d" title="07 · 3D foundation">
+        <p className="mb-6 max-w-[60ch] text-ink-soft">
+          Placeholder scene in the shared canvas. Add <code className="font-mono text-sm">?tier=low</code> to see the poster-only path.
+        </p>
+        <div className="grid gap-6 md:grid-cols-2">
+          {[0, 1].map((i) => (
+            <Scene
+              key={i}
+              scene="placeholder"
+              alt="Copper cube on a travertine plinth (placeholder scene)"
+              className="terrazzo aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)]"
+              fallback={<SceneThumb slug="storefront" className="size-full p-[18%]" />}
+              sceneProps={{ progress: i * 0.5 }}
+            />
+          ))}
+        </div>
       </Section>
     </main>
   );
