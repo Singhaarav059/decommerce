@@ -2,7 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
-import { useQuality } from "@/lib/quality";
+import { useQuality, useRequestWebGL } from "@/lib/quality";
+import { useCanvasReady } from "./SceneHost";
 import { frameloop } from "@/three/frameloop";
 import type { SceneKey, SceneProps } from "@/scenes/registry";
 
@@ -39,15 +40,19 @@ export function Scene({
   const box = useRef<HTMLDivElement>(null);
   const [near, setNear] = useState(false);
   const [ready, setReady] = useState(false);
-  const webgl = tier === "mid" || tier === "high";
+  const canvas = useCanvasReady();
+  const request = useRequestWebGL();
+  const webgl = (tier === "mid" || tier === "high") && canvas;
 
+  // Being near the viewport is what asks the host for WebGL in the first place.
   useEffect(() => {
     const el = box.current;
-    if (!el || !webgl) return;
+    if (!el || tier === "low") return;
     const nearIO = new IntersectionObserver(
       ([e]) => {
         setNear(e.isIntersecting);
-        if (!e.isIntersecting) setReady(false);
+        if (e.isIntersecting) request();
+        else setReady(false);
       },
       { rootMargin: "100% 0px 100% 0px" },
     );
@@ -59,7 +64,7 @@ export function Scene({
       visIO.disconnect();
       frameloop.setVisible(id, false);
     };
-  }, [id, webgl]);
+  }, [id, tier, request]);
 
   const onReady = useCallback(() => setReady(true), []);
 

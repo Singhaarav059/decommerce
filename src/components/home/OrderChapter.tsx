@@ -60,7 +60,7 @@ function Stage({ bus, active }: { bus: StageBus; active: number }) {
         <ChapterCard eyebrow={orderLands.eyebrow} headline={orderLands.headline} body={orderLands.body} links={orderLands.links}>
           <ol className="mt-5 space-y-1.5 text-sm">
             {STATUS.map((s, i) => (
-              <li key={s} className={`flex items-center gap-2 transition-colors ${i <= active ? "text-ink" : "text-ink-muted/60"}`}>
+              <li key={s} className={`flex items-center gap-2 transition-colors ${i <= active ? "text-ink" : "text-ink-muted"}`}>
                 <span className={`size-1.5 rounded-full ${i < active ? "bg-olive" : i === active ? "bg-copper" : "bg-line"}`} />
                 {s}
               </li>

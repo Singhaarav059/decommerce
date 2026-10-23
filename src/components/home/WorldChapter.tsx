@@ -25,7 +25,7 @@ function StockTag({ name, stock, fixed }: { name: string; stock: number; fixed: 
     >
       <span className="mr-1.5">{name}</span>
       <span className={`font-mono tabular-nums ${fixed ? "text-[#e9a27a]" : "text-[var(--alert)]"}`}>{stock}</span>
-      <span className={fixed ? "text-stone-50/60" : "text-ink-muted"}> {islands.unit}</span>
+      <span className={fixed ? "text-stone-50/70" : "text-ink-muted"}> {islands.unit}</span>
     </div>
   );
 }

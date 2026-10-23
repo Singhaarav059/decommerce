@@ -114,13 +114,12 @@ export function InteractionControl({
       )}
 
       {interaction.kind === "pick" && (
-        <div className="grid gap-2" role="radiogroup" aria-label={interaction.label}>
+        <div className="grid gap-2" role="group" aria-label={interaction.label}>
           {interaction.options.map((o) => (
             <button
               key={o.id}
               type="button"
-              role="radio"
-              aria-checked={picked === o.id}
+              aria-pressed={picked === o.id}
               onClick={() => setPicked(o.id)}
               className={`flex items-baseline justify-between gap-3 rounded-[var(--radius-md)] px-3 py-2.5 text-left text-sm transition-colors ${
                 picked === o.id ? "bg-ink text-stone-50" : "hover:bg-travertine"

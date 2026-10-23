@@ -48,7 +48,8 @@ export function PosterPair({ set, priority = false, sizes = "100vw" }: { set: { 
   return (
     <>
       <Poster src={set.desktop} alt="" priority={priority} sizes={sizes} className="hidden md:block" />
-      <Poster src={set.mobile} alt="" priority={priority} sizes={sizes} className="md:hidden" />
+      {/* on phones the hero text is the LCP element: don't let the poster compete for bandwidth */}
+      <Poster src={set.mobile} alt="" sizes={sizes} className="md:hidden" />
     </>
   );
 }

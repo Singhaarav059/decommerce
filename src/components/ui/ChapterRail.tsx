@@ -68,7 +68,7 @@ export function ChapterRail({ chapters }: { chapters: Chapter[] }) {
                 href={`#${c.id}`}
                 aria-current={i === active ? "step" : undefined}
                 className={`group flex items-center gap-2 text-[0.78rem] transition-colors duration-300 ${
-                  i === active ? "text-ink" : "text-ink-muted/70 hover:text-ink"
+                  i === active ? "text-ink" : "text-ink-muted hover:text-ink"
                 }`}
               >
                 <span className="font-mono tabular-nums">{pad(i + 1)}</span>

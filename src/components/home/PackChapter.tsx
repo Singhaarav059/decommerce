@@ -22,7 +22,7 @@ function Steps({ active }: { active: number }) {
       {pack.steps.map((s, i) => (
         <li
           key={s}
-          className={`flex items-center gap-3 text-[0.95rem] transition-colors duration-300 ${i <= active ? "text-ink" : "text-ink-muted/60"}`}
+          className={`flex items-center gap-3 text-[0.95rem] transition-colors duration-300 ${i <= active ? "text-ink" : "text-ink-muted"}`}
         >
           <span
             className={`flex size-6 items-center justify-center rounded-full font-mono text-[0.68rem] transition-colors ${i < active ? "bg-olive text-stone-50" : i === active ? "bg-copper text-stone-50" : "bg-travertine"}`}

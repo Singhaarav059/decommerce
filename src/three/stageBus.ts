@@ -1,4 +1,4 @@
-import * as THREE from "three";
+import type * as THREE from "three";
 
 export type LabelPos = { x: number; y: number; visible: boolean };
 
@@ -51,9 +51,13 @@ export class StageBus {
     this.reduced = v;
   }
 
-  /** Scene side: project a world point into the view box (CSS px from its top-left). */
+  /**
+   * Scene side: project a world point into the view box (CSS px from its
+   * top-left). The vector is projected in place, so pass a scratch vector.
+   * (three is only a type import here: this class ships on pages that never load 3D.)
+   */
   project(id: string, world: THREE.Vector3, camera: THREE.Camera, size: { width: number; height: number }, visible = true) {
-    const v = tmp.copy(world).project(camera);
+    const v = world.project(camera);
     const pos = this.labels.get(id) ?? { x: 0, y: 0, visible: false };
     pos.x = ((v.x + 1) / 2) * size.width;
     pos.y = ((1 - v.y) / 2) * size.height;
@@ -74,4 +78,3 @@ export class StageBus {
   }
 }
 
-const tmp = new THREE.Vector3();

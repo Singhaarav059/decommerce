@@ -14,7 +14,7 @@ export function Footer() {
           </div>
           {columns.map((g) => (
             <div key={g.label}>
-              <p className="eyebrow !text-stone-50/45">{g.label}</p>
+              <p className="eyebrow !text-stone-50/70">{g.label}</p>
               <ul className="mt-4 space-y-2.5">
                 {g.items.map((item) => (
                   <li key={item.href}>
@@ -28,7 +28,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-stone-50/15 pt-6 text-[0.82rem] text-stone-50/55 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-stone-50/15 pt-6 text-[0.82rem] text-stone-50/70 md:flex-row md:items-center md:justify-between">
           <p>
             A{" "}
             <a href={brand.parent.href} className="underline-offset-4 hover:text-stone-50 hover:underline">

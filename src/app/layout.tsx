@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { brand } from "@/content/site";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
@@ -11,9 +12,11 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+// Mono is for eyebrows and order codes only: keep it off the critical path.
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  preload: false,
 });
 
 const instrumentSerif = Instrument_Serif({
@@ -62,6 +65,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <SmoothScroll />
         {children}
+        {/* cookieless page-view analytics; the script only exists on Vercel, so skip it elsewhere */}
+        {process.env.VERCEL === "1" && <Analytics />}
       </body>
     </html>
   );

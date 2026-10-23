@@ -11,7 +11,7 @@ export function AboutExtras({ meta }: { meta: DocMeta }) {
       {meta.principles && (
         <section className="border-t border-line">
           <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-20 md:py-28">
-            <p className="eyebrow">Decommerce principles</p>
+            <h2 className="eyebrow">Decommerce principles</h2>
             <Reveal as="ol" className="mt-10 divide-y divide-line border-y border-line" stagger={120}>
               {meta.principles.map((p, i) => (
                 <li key={p.title} data-reveal-item className="grid grid-cols-[3.5rem_1fr] gap-4 py-7 md:grid-cols-[8rem_minmax(0,1fr)_minmax(0,1.2fr)] md:gap-10">

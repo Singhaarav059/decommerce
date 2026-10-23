@@ -66,9 +66,9 @@ export function ExplodedStack({ layers, variant = "slab", label }: { layers: { l
         <ol className="space-y-1.5">
           {layers.map((l, i) => (
             <li key={l.label} className={`flex items-baseline gap-3 rounded-[var(--radius-sm)] px-2 py-1 text-sm transition-colors ${i === active ? "bg-ink text-stone-50" : "text-ink-soft"}`}>
-              <span className="font-mono text-[0.7rem] opacity-60">{String(i + 1).padStart(2, "0")}</span>
+              <span className={`font-mono text-[0.7rem] ${i === active ? "text-stone-50/75" : "text-ink-muted"}`}>{String(i + 1).padStart(2, "0")}</span>
               <span className="font-medium">{l.label}</span>
-              <span className="opacity-70">{l.detail}</span>
+              <span className={i === active ? "text-stone-50/75" : "text-ink-muted"}>{l.detail}</span>
             </li>
           ))}
         </ol>

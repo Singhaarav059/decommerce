@@ -12,7 +12,7 @@ Source plan: [PLAN.md](PLAN.md). One loop iteration = one chunk; update this fil
 - [x] **6. Homepage** — 0 Opening (once per session, head script skips repeat/reduced, CSS no-JS exit), 1–3 `WorldChapter` (diorama → four islands with 4/1/0/6 → one base, copper line, all 5), 4 `StorefrontChapter` (laptop screen builds + re-skins from the rack), 5 `OrderChapter` (ticket drops, 3 locations, routed to Riverside 2.4 km, hotspots), 6 `PackChapter` (B-14 lights, scan, label, conveyor), 7 `DeliveryChapter` (72-frame film captured from `scenes/delivery`, ETA chip), 8 `InStoreChapter` (horizontal POS / endless aisle / self-checkout), 9 `ProofChapter` (Demaze 45+/35+/6 counters + four process rooms), 10 `CloseChapter` (shutter, wordmark, DemoForm → /api/demo). Shared kit `src/three/kit.tsx`, procedural textures, `StageBus` + `SceneLabels` (3D-anchored DOM labels), `ScrollStage` pinned chapters. Posters captured from live scenes (`scripts/posters.mjs`).
 - [x] **7. Solution template + 12 pages** — `SolutionPage` (server) = `SolutionHero` (live scene + `InteractionControl`: slider/drag, toggles bitmask, pick, or the rack) → `ProblemFix` (pinned scrub, MDX body = problem narrative, fix steps) → `Inside` (anatomy pins projected from 3D + capability tabs moving the camera, sticky scene) → works-with poster cards → FAQ + CTA. Content: `src/content/solutions/*.mdx` + registry. Scenes: shared `useRig` (views, anchors, part highlight, modes live/scrub/inside, full-bleed framing); new showcase, b2b, quick, market, oms, tms, client; laptop/packing/pos/aisle/kiosk upgraded and reused. Hero posters `sol-<slug>` via `scripts/posters.mjs --solutions`. Check: `node scripts/checks/solution.mjs <slug> <out> [widths]`.
 - [x] **8. Company/legal/SEO** — About: numbered principles reveal + Demaze/Decignal/Decommerce rooms (`AboutExtras`); Contact: `DemoForm` → `/api/demo`; Security + Infrastructure: `ExplodedStack` (CSS 3D slabs/rack units part with each h2, no WebGL, no invented figures); `/llms.txt` route, `sitemap.ts` (22 URLs), `robots.ts` (disallows /lab, /capture, /api), Organization JSON-LD, `opengraph-image.png`/`twitter-image.png` captured from `/capture/og` (`node scripts/og.mjs`), canonical URLs.
-- [ ] **9. Hardening** — perf budget, a11y, Lighthouse mobile.
+- [x] **9. Hardening** — three.js, GPU detection and the canvas load only when a scene asks (phones: after first scroll/touch), `StageBus` three-free, Motion removed (CSS header), GSAP/Lenis lazy, mono font not preloaded, mobile hero poster not prioritised, hidden menu links no longer prefetched. Lighthouse mobile (prod): home 91, POS/Storefront/OMS 95, About 97; a11y/BP/SEO 100. axe WCAG 2.1 AA: 0 violations on 22 routes × 2 widths. Overflow: 0 on 22 routes × 4 widths. Vercel Web Analytics (Vercel builds only). CREDITS.md, LAUNCH.md, README.md.
 
 ## Notes / decisions
 
@@ -45,6 +45,9 @@ Source plan: [PLAN.md](PLAN.md). One loop iteration = one chunk; update this fil
 - `cacheComponents` rejects route segment config (`export const dynamic`); route handlers without dynamic APIs are static already.
 - `brand.siteUrl` (decommerce.example) feeds sitemap, robots, canonical and OG URLs: set the real domain before launch.
 
+- LCP is 2.6–3.4 s under Lighthouse's simulated slow 4G (budget 2.5 s); TBT and CLS are within budget. Initial JS is ~150 KB gz before route prefetches.
+- Unused by design: post-processing (bloom/DOF) and react-spring were dropped for the performance budget.
+
 ## Iteration log
 
 1. Phase 1 complete. lint ✓ typecheck ✓ build ✓ (25 static pages). Checked 1440 / 375: no horizontal overflow.
@@ -54,3 +57,4 @@ Source plan: [PLAN.md](PLAN.md). One loop iteration = one chunk; update this fil
 5. Phase 6 complete. Headless 1440/390: all chapters render, low tier = posters + 2D sequence canvas only, reduced motion = stacked layout without canvas, no horizontal overflow, no console errors. lint/typecheck/build ✓.
 6. Phase 7 complete. All 12 solution pages load with no console errors at 1440, POS checked at 390, no horizontal overflow on all solution routes. lint/typecheck/build ✓.
 7. Phase 8 complete. llms.txt/robots/sitemap (22) served, company pages render without errors, no overflow on company/legal routes at 360/390/1440. lint/typecheck/build ✓.
+8. Phase 9 complete. All phases done; build passes. Loop stopped. Remaining items need people: see LAUNCH.md.

@@ -7,15 +7,22 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
  *   high — real-time 3D + post-processing, dpr up to 2
  *   mid  — real-time 3D, no post, dpr 1–1.5
  *   low  — posters + video loops, no WebGL at all
- * "pending" until detection finishes; treat it like low (posters show first).
+ * "pending" until detection finishes (it starts only once a scene asks for
+ * WebGL); treat it like low: posters show first.
  */
 export type Tier = "pending" | "low" | "mid" | "high";
 
 const KEY = "dc-tier-v1";
 const QualityContext = createContext<Tier>("pending");
+const RequestContext = createContext<() => void>(() => {});
 
 export function useQuality() {
   return useContext(QualityContext);
+}
+
+/** Scenes call this when they come near the viewport; GPU detection only starts then. */
+export function useRequestWebGL() {
+  return useContext(RequestContext);
 }
 
 export function dprFor(tier: Tier, mobile = isMobile()): [number, number] {
@@ -67,8 +74,12 @@ async function detect(): Promise<Tier> {
 
 export function QualityProvider({ children }: { children: ReactNode }) {
   const [tier, setTier] = useState<Tier>("pending");
+  const [wanted, setWanted] = useState(false);
+  const [request] = useState(() => () => setWanted(true));
 
+  // Pages without 3D never pay for detection (or the benchmark download).
   useEffect(() => {
+    if (!wanted) return;
     let cancelled = false;
     const forced = new URLSearchParams(location.search).get("tier");
     let cached: string | null = null;
@@ -90,11 +101,15 @@ export function QualityProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [wanted]);
 
   useEffect(() => {
     document.documentElement.dataset.tier = tier;
   }, [tier]);
 
-  return <QualityContext.Provider value={tier}>{children}</QualityContext.Provider>;
+  return (
+    <RequestContext.Provider value={request}>
+      <QualityContext.Provider value={tier}>{children}</QualityContext.Provider>
+    </RequestContext.Provider>
+  );
 }

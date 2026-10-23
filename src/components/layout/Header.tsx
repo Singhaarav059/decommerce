@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { companyGroup, solutionGroups, type NavGroup } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { SceneThumb } from "@/components/ui/SceneThumb";
@@ -17,7 +16,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
   const panelId = useId();
 
   // Close menus on navigation.
@@ -58,6 +56,10 @@ export function Header() {
   }, [mobileOpen]);
 
   const active = groups.find((g) => g.label === open);
+  // keep the last group rendered while the panel fades out
+  const [shown, setShown] = useState<NavGroup | undefined>(undefined);
+  if (active && active !== shown) setShown(active);
+  const panel = active ?? shown;
 
   return (
     <header
@@ -85,7 +87,11 @@ export function Header() {
                   }`}
                 >
                   {g.label}
-                  <svg aria-hidden viewBox="0 0 10 10" className={`size-2.5 transition-transform duration-300 ${open === g.label ? "rotate-180" : ""}`}>
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 10 10"
+                    className={`size-2.5 transition-transform duration-300 ${open === g.label ? "rotate-180" : ""}`}
+                  >
                     <path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
                   </svg>
                 </button>
@@ -108,66 +114,72 @@ export function Header() {
             onClick={() => setMobileOpen((v) => !v)}
           >
             <svg viewBox="0 0 20 20" className="size-5" aria-hidden>
-              <path d={mobileOpen ? "M5 5l10 10M15 5 5 15" : "M3 7h14M3 13h14"} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              <path
+                d={mobileOpen ? "M5 5l10 10M15 5 5 15" : "M3 7h14M3 13h14"}
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
             </svg>
           </button>
         </div>
 
-        {/* Desktop mega-menu */}
-        <AnimatePresence>
-          {active && (
-            <motion.div
-              id={panelId}
-              key="panel"
-              initial={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={reduce ? { opacity: 0 } : { opacity: 0, y: -6 }}
-              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(null)}
-              className="absolute inset-x-0 top-[var(--header-h)] hidden border-t border-b border-line bg-stone-50 lg:block"
-            >
-              <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-[220px_1fr] gap-10 px-[var(--gutter)] py-8">
-                <div>
-                  <p className="eyebrow">{active.label}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-                    {active.label === "Company" ? "The people and principles behind the platform." : "Every module shares one catalog, one stock count and one customer record."}
-                  </p>
-                </div>
-                <ul className="grid grid-cols-3 gap-2">
-                  {active.items.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className="group flex items-center gap-4 rounded-[var(--radius-md)] p-3 transition-colors hover:bg-travertine/70"
-                      >
-                        {item.slug && (
-                          <SceneThumb slug={item.slug} className="h-12 w-16 shrink-0 transition-transform duration-500 ease-[var(--ease-overshoot)] group-hover:-translate-y-0.5" />
-                        )}
-                        <span>
-                          <span className="block text-[0.95rem] font-medium">{item.label}</span>
-                          <span className="block text-[0.82rem] leading-snug text-ink-muted">{item.blurb}</span>
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+        {/* Desktop mega-menu: stays mounted, CSS fades it (inert while closed) */}
+        <div
+          id={panelId}
+          inert={!active}
+          onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(null)}
+          className={`absolute inset-x-0 top-[var(--header-h)] hidden border-t border-b border-line bg-stone-50 transition-[opacity,translate,visibility] duration-300 ease-[var(--ease-out)] lg:block ${
+            active ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"
+          }`}
+        >
+          {panel && (
+            <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-[220px_1fr] gap-10 px-[var(--gutter)] py-8">
+              <div>
+                <p className="eyebrow">{panel.label}</p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                  {panel.label === "Company"
+                    ? "The people and principles behind the platform."
+                    : "Every module shares one catalog, one stock count and one customer record."}
+                </p>
               </div>
-            </motion.div>
+              <ul className="grid grid-cols-3 gap-2">
+                {panel.items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="group flex items-center gap-4 rounded-[var(--radius-md)] p-3 transition-colors hover:bg-travertine/70"
+                    >
+                      {item.slug && (
+                        <SceneThumb
+                          slug={item.slug}
+                          className="h-12 w-16 shrink-0 transition-transform duration-500 ease-[var(--ease-overshoot)] group-hover:-translate-y-0.5"
+                        />
+                      )}
+                      <span>
+                        <span className="block text-[0.95rem] font-medium">{item.label}</span>
+                        <span className="block text-[0.82rem] leading-snug text-ink-muted">{item.blurb}</span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
-        </AnimatePresence>
+        </div>
       </div>
 
       {/* Mobile sheet */}
-      <AnimatePresence>
+      <nav
+        aria-label="Main"
+        inert={!mobileOpen}
+        className={`fixed inset-x-0 top-[var(--header-h)] bottom-0 overflow-y-auto bg-stone-50 px-[var(--gutter)] pb-10 transition-[opacity,visibility] duration-200 lg:hidden ${
+          mobileOpen ? "visible opacity-100" : "invisible opacity-0"
+        }`}
+      >
+        {/* links render only while open: hidden-but-mounted links would all be prefetched */}
         {mobileOpen && (
-          <motion.nav
-            aria-label="Main"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-[var(--header-h)] bottom-0 overflow-y-auto bg-stone-50 px-[var(--gutter)] pb-10 lg:hidden"
-          >
+          <>
             {groups.map((g) => (
               <div key={g.label} className="border-b border-line py-5">
                 <p className="eyebrow mb-3">{g.label}</p>
@@ -186,9 +198,9 @@ export function Header() {
             <ButtonLink href="/contact-us" className="mt-6 w-full" arrow>
               Book a demo
             </ButtonLink>
-          </motion.nav>
+          </>
         )}
-      </AnimatePresence>
+      </nav>
     </header>
   );
 }

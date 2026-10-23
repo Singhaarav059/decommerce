@@ -20,7 +20,7 @@ function EtaChip() {
   return (
     <div className="absolute top-[calc(var(--header-h)+20px)] right-[var(--gutter)] z-10 rounded-full bg-ink py-2 pr-4 pl-3 text-stone-50">
       <span className="mr-2 inline-block size-2 rounded-full bg-copper align-middle" />
-      <span className="font-mono text-[0.72rem] text-stone-50/60">{order.id} · </span>
+      <span className="font-mono text-[0.72rem] text-stone-50/70">{order.id} · </span>
       <span ref={label} className="text-[0.85rem]">
         Leaving the store
       </span>{" "}
