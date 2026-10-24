@@ -96,7 +96,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
 
       <Capabilities title={meta.title} items={meta.capabilities} src={m.detail} floor={m.floor} />
 
-      <Rollout title={meta.title} />
+      <Rollout title={meta.title} backdrop={m.detail} />
 
       <Section index="05" eyebrow="Works with" headline="Same catalog, same stock, same customer." lead={`${meta.title} shares its data with every other module. These are the ones it works with most closely.`}>
         <ul className="grid grid-cols-1 gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">

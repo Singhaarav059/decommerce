@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { Headline } from "./Headline";
 
@@ -23,6 +24,7 @@ export function Section({
   children,
   className = "",
   headerAside,
+  backdrop,
 }: {
   id?: string;
   /** Two-digit section number shown before the label, e.g. "02". */
@@ -35,9 +37,19 @@ export function Section({
   className?: string;
   /** Replaces the lead column, e.g. a button. */
   headerAside?: ReactNode;
+  /** A photograph behind the section (night tone): darkened so text stays above 7:1, drifting slowly as you scroll. */
+  backdrop?: string;
 }) {
   return (
-    <section id={id} className={`relative ${tones[tone]} ${className}`}>
+    <section id={id} className={`relative isolate overflow-clip ${tones[tone]} ${className}`}>
+      {backdrop && (
+        <div aria-hidden className="rv-media absolute inset-0 -z-10">
+          <div className="absolute inset-0">
+            <Image src={backdrop} alt="" fill sizes="100vw" quality={70} className="object-cover" />
+          </div>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(28_23_18/0.94)_0%,rgb(28_23_18/0.8)_45%,rgb(28_23_18/0.94)_100%)]" />
+        </div>
+      )}
       <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)]">
         <header className="grid gap-6 border-t border-line-strong pt-6 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">

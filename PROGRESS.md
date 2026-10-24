@@ -94,3 +94,11 @@ Direction agreed with the owner: hyper-real look from AI footage, scrubbed frame
 - One `Section` shell (index, label, revealed headline, lead) for every static section. The eyebrow dash was replaced by a copper dot or the section number; no em or en dashes anywhere in site text.
 - To confirm with the owner: the service descriptions (migration, connections, training, support after launch, data ownership and export) are written as a sensible default for an implementation partner, not taken from a contract.
 - Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; all pinned steps fit; Lighthouse mobile / 92, /pos 93, /storefront 92, /about-us 96, /contact-us 93 (a11y, best practices, SEO 100).
+
+## Legibility and decoration pass (24 Oct 2026)
+
+- Pinned text: column 38 % (max 540 px), a stronger floor-colour wash that covers the whole column, smaller step headlines (`t-step-h`), and a compact mode for short desktop windows (max-height 780 px). Checked at 1000x640, the owner's Chrome size.
+- Palette: the grey studio surface became warm travertine (#e8dfd3) with linen panels (#f6f1ea); dark sections use espresso (#1c1712).
+- Every "how it works" sequence (engagement, solution rollout, contact next steps, partner flow) now uses one dark band over a darkened store photograph (`StepsBand`), with a copper line that draws on scroll.
+- Visuals: photos on the three service pillars, an animated sync diagram (one stock count feeding four channels), a sticky photo beside the homepage FAQ, and an automatic sidebar on company and legal pages (contents list that tracks the heading being read, plus a framed room photo with a demo prompt). The order tracker moved to the bottom right, clear of the text.
+- Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; all pinned steps fit at 390x844, 375x667, 1000x640, 1280x720, 1440x900; Lighthouse mobile / 93, /pos 93, /about-us 97, /contact-us 97.

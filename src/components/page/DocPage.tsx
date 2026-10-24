@@ -4,6 +4,7 @@ import { Scene } from "@/components/layout/Scene";
 import { Headline } from "@/components/ui/Headline";
 import scenes from "@/content/company/scenes.json";
 import { Related } from "./Related";
+import { DocAside } from "./DocAside";
 
 export type SceneKey = keyof typeof scenes;
 
@@ -29,7 +30,7 @@ export function DocPage({ meta, scene, children, aside, after, articleClassName 
             {meta.draftNote && <p className="mb-10 max-w-[62ch] rounded-[var(--radius-md)] border border-copper/60 bg-paper/60 px-4 py-3 text-sm text-ink">{meta.draftNote}</p>}
             {children}
           </article>
-          {aside && <aside className="min-w-0">{aside}</aside>}
+          <aside className="min-w-0">{aside ?? <DocAside image={`/assets/company/scene-${scene}.webp`} />}</aside>
         </div>
         {after}
         <Related />

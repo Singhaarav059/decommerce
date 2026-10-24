@@ -18,9 +18,9 @@ export function ProofChapter() {
         <StepText key="a" label={proof.eyebrow} headline={proof.headline} body={proof.body}>
           <dl className="mt-5 grid max-w-md grid-cols-3 border-t border-line-strong pt-5 md:mt-6">
             {proof.stats.map((st) => (
-              <div key={st.label} className="flex flex-col-reverse">
-                <dt className="mt-2 text-[0.9rem] leading-snug text-ink-2">{st.label}</dt>
-                <dd className="tabular display text-[clamp(1.8rem,3.6vw,3.4rem)]">
+              <div key={st.label} className="flex flex-col">
+                <dt className="order-2 mt-2 pr-3 text-[0.9rem] leading-snug text-ink-2">{st.label}</dt>
+                <dd className="tabular display order-1 text-[clamp(1.8rem,3.2vw,3rem)]">
                   {st.value}
                   {st.suffix}
                 </dd>

@@ -19,8 +19,8 @@ export function StepText({
   return (
     <>
       <p className="eyebrow">{label}</p>
-      <Headline as="h2" text={headline} className="t-h2 mt-3 md:mt-5" />
-      {body && <p className="mt-3 max-w-[42ch] t-step text-ink-2 md:mt-5">{body}</p>}
+      <Headline as="h2" text={headline} className="t-step-h mt-3 md:mt-5" />
+      {body && <p className="mt-3 max-w-[40ch] t-step text-ink-2 md:mt-5">{body}</p>}
       {children}
       {links && links.length > 0 && (
         <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 md:mt-7">

@@ -14,7 +14,8 @@ const STAGES: { label: string; at: [string, number, number] }[] = [
 
 /**
  * A small floating tracker that follows ORD-1042 through the homepage chapters,
- * so the order, pack and delivery films read as one journey (desktop only).
+ * so the order, pack and delivery films read as one journey. It sits bottom right, clear of
+ * the text column (wide screens only).
  */
 export function JourneyRail() {
   const [stage, setStage] = useState(-1);
@@ -47,7 +48,7 @@ export function JourneyRail() {
   return (
     <div
       aria-hidden
-      className={`pointer-events-none fixed bottom-6 left-1/2 z-[var(--z-progress)] hidden -translate-x-1/2 transition-[opacity,translate] duration-500 ease-[var(--ease-out)] md:block ${on ? "opacity-100" : "translate-y-4 opacity-0"}`}
+      className={`pointer-events-none fixed right-[var(--gutter)] bottom-6 z-[var(--z-progress)] hidden transition-[opacity,translate] duration-500 ease-[var(--ease-out)] lg:block ${on ? "opacity-100" : "translate-y-4 opacity-0"}`}
     >
       <div className="flex items-center gap-4 rounded-full border border-line bg-paper py-2 pr-5 pl-2 shadow-[var(--shadow-md)]">
         <span className="tabular rounded-full bg-ink px-3 py-1.5 text-[0.8rem] font-semibold text-paper">{order.id}</span>

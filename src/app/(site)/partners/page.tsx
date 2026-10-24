@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: meta.title, description: meta.descrip
 
 export default function Page() {
   return (
-    <DocPage meta={meta} scene="partners" after={<Steps index="01" {...partnerFlow} />}>
+    <DocPage meta={meta} scene="partners" after={<Steps index="01" {...partnerFlow} backdrop="/assets/company/scene-partners.webp" />}>
       <Content />
     </DocPage>
   );

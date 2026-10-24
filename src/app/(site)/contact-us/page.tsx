@@ -16,7 +16,7 @@ export default function Page() {
       scene="contact-us"
       after={
         <>
-          <Steps index="01" {...contactNext} />
+          <Steps index="01" {...contactNext} backdrop="/assets/company/scene-office.webp" />
           <HomeFaq index="02" />
         </>
       }

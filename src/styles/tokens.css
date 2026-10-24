@@ -1,18 +1,18 @@
-/* Decommerce design tokens: one studio surface, one family, one accent.
-   --studio is the measured mid-tone of the footage's seamless backdrop, so
-   visuals melt into the page. Contrast (WCAG): ink 10.3:1, ink-2 6.0:1,
-   copper 4.7:1 on --studio; ink 12.6:1 on --paper. */
+/* Decommerce design tokens: one warm travertine surface, one family, one accent.
+   --studio is the pale honed travertine of the store's walls; --paper is the lighter
+   linen used for raised panels; --night is the espresso of the store after dark.
+   Contrast (WCAG): ink 13.3:1, ink-2 7.8:1, copper 7.2:1 on --studio. */
 :root {
-  --studio: #cec5bd;
-  --studio-light: #dcd5ce;
-  --paper: #ebe6e0;
+  --studio: #e8dfd3;
+  --studio-light: #ddd2c4;
+  --paper: #f6f1ea;
   --ink: #1b1915;
   --ink-2: #45403a;
   --copper: #74320f;
   --line: rgb(27 25 21 / 0.14);
   --line-strong: rgb(27 25 21 / 0.26);
-  --night: #171512;
-  --night-2: #23201b;
+  --night: #1c1712;
+  --night-2: #2a231c;
 
   /* legacy names, mapped onto the palette so older components follow it */
   --stone-50: var(--studio);
@@ -43,7 +43,7 @@
   --dur-slow: 800ms;
 
   /* type scale */
-  --fs-hero: clamp(2.6rem, 6.4vw, 6.4rem);
+  --fs-hero: clamp(2.6rem, 5vw, 5.4rem);
   --fs-h2: clamp(2.1rem, 4.4vw, 4.4rem);
   --fs-h3: clamp(1.5rem, 2.4vw, 2.1rem);
   --fs-lead: clamp(1.05rem, 1.25vw, 1.2rem);

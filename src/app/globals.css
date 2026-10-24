@@ -89,6 +89,11 @@ cite {
   letter-spacing: -0.025em;
   line-height: 1.1;
 }
+/* headline inside a pinned film step: sized to stay inside the text column */
+.t-step-h {
+  font-size: clamp(1.9rem, 3.3vw, 3.4rem);
+  line-height: 1;
+}
 .t-lead {
   font-size: var(--fs-lead);
   line-height: 1.5;
@@ -153,8 +158,11 @@ cite {
   color: #f3eee8;
   --ink: #f3eee8;
   --ink-2: #e6dfd6;
-  --line: rgb(243 238 232 / 0.3);
+  --line: rgb(243 238 232 / 0.18);
+  --line-strong: rgb(243 238 232 / 0.32);
   --copper: #f4c19e;
+  --paper: #2a231c;
+  --studio: #1c1712;
 }
 
 /* Legibility wash behind the text column of a full-bleed scene: the scene's own floor colour,
@@ -162,10 +170,10 @@ cite {
 .scrim {
   background: linear-gradient(
     to right,
-    color-mix(in srgb, var(--floor) 82%, transparent) 0%,
-    color-mix(in srgb, var(--floor) 62%, transparent) 30%,
-    color-mix(in srgb, var(--floor) 18%, transparent) 46%,
-    transparent 58%
+    color-mix(in srgb, var(--floor) 92%, transparent) 0%,
+    color-mix(in srgb, var(--floor) 88%, transparent) min(36%, 600px),
+    color-mix(in srgb, var(--floor) 55%, transparent) min(46%, 760px),
+    transparent min(60%, 980px)
   );
 }
 
@@ -249,11 +257,9 @@ cite {
 @keyframes rv-clip {
   from {
     clip-path: inset(10% 8% 10% 8% round var(--radius-xl));
-    opacity: 0.4;
   }
   to {
     clip-path: inset(0 0 0 0 round var(--radius-lg));
-    opacity: 1;
   }
 }
 @keyframes rv-zoom {
@@ -407,5 +413,97 @@ html.lenis body {
 @keyframes line-draw {
   from {
     transform: scaleX(0);
+  }
+}
+
+/* SyncDiagram: one 6 s loop. store pulse 0 to 25 %, outbound pulses 30 to 55 %, counts flip as they land. */
+.sync-pulse {
+  opacity: 0;
+  offset-distance: 0%;
+  offset-rotate: 0deg;
+}
+.sync-old {
+  opacity: 0;
+}
+.sync-new {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sync-in {
+    animation: sync-travel 6s var(--ease-in-out) infinite;
+  }
+  .sync-out {
+    animation: sync-travel 6s var(--ease-in-out) infinite;
+    animation-delay: 1.8s;
+  }
+  .sync-ring {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: sync-ring 6s var(--ease-out) infinite;
+    animation-delay: 1.5s;
+  }
+  .sync-old {
+    animation: sync-old 6s steps(1) infinite;
+  }
+  .sync-new {
+    animation: sync-new 6s steps(1) infinite;
+  }
+  /* the store sold the item, so its count flips first, as its pulse leaves */
+  .sync-store .sync-old {
+    animation-name: sync-old-first;
+  }
+  .sync-store .sync-new {
+    animation-name: sync-new-first;
+  }
+}
+@keyframes sync-travel {
+  0% { offset-distance: 0%; opacity: 0; }
+  4% { opacity: 1; }
+  24% { offset-distance: 100%; opacity: 1; }
+  27%, 100% { offset-distance: 100%; opacity: 0; }
+}
+@keyframes sync-ring {
+  0% { transform: scale(0.7); opacity: 0.9; }
+  30%, 100% { transform: scale(1.5); opacity: 0; }
+}
+/* counts read 1 until the outbound pulse lands (~54 %), then 0 until the loop restarts */
+@keyframes sync-old {
+  0% { opacity: 1; }
+  54% { opacity: 0; }
+  92% { opacity: 1; }
+}
+@keyframes sync-new {
+  0% { opacity: 0; }
+  54% { opacity: 1; }
+  92% { opacity: 0; }
+}
+@keyframes sync-old-first {
+  0% { opacity: 1; }
+  3% { opacity: 0; }
+  92% { opacity: 1; }
+}
+@keyframes sync-new-first {
+  0% { opacity: 0; }
+  3% { opacity: 1; }
+  92% { opacity: 0; }
+}
+
+/* Short desktop windows (laptops with toolbars): pinned step text tightens so the whole step fits */
+@media (min-width: 768px) and (max-height: 780px) {
+  [data-film-step] .t-step-h {
+    font-size: clamp(1.7rem, 2.9vw, 2.7rem);
+  }
+  [data-film-step] .t-hero {
+    font-size: clamp(2.4rem, 4.4vw, 4.4rem);
+  }
+  [data-film-step] .t-step {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+  [data-film-step] > * + * {
+    margin-top: 0.85rem;
+  }
+  [data-film-step] li {
+    padding-block: 0.3rem;
   }
 }
