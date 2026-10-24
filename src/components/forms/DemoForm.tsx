@@ -8,8 +8,8 @@ import { demoForm as f } from "@/content/demo";
 type State = "idle" | "sending" | "done" | "error";
 
 const field =
-  "mt-1.5 block w-full rounded-[var(--radius-md)] border border-line bg-studio-light px-3.5 py-3 text-[1rem] text-ink transition-[border-color,box-shadow] " +
-  "placeholder:text-ink-muted focus:border-copper focus:shadow-[0_0_0_3px_rgb(194_96_42/0.18)] focus:outline-none";
+  "mt-2 block w-full rounded-[var(--radius-md)] border border-line-strong bg-studio-light/60 px-4 py-3 text-[1rem] text-ink transition-[border-color,box-shadow,background-color] duration-200 " +
+  "placeholder:text-ink-2/70 hover:border-ink/40 focus:border-copper focus:bg-paper focus:shadow-[0_0_0_4px_rgb(116_50_15/0.12)] focus:outline-none";
 
 export function DemoForm({ className = "" }: { className?: string }) {
   const [state, setState] = useState<State>("idle");
@@ -32,7 +32,7 @@ export function DemoForm({ className = "" }: { className?: string }) {
 
   if (state === "done") {
     return (
-      <div role="status" className={`rounded-[var(--radius-lg)] bg-ink p-8 text-stone-50 ${className}`}>
+      <div role="status" className={`rounded-[var(--radius-xl)] bg-ink p-8 text-paper md:p-10 ${className}`}>
         <p className="display text-4xl">{f.success.title}</p>
         <p className="mt-3 text-stone-50/70">{f.success.body}</p>
       </div>

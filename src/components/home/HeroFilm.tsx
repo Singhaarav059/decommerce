@@ -15,7 +15,7 @@ export function HeroFilm() {
       floor={sequences.hero.floor}
       alt={hero.posterAlt}
       priority
-      length={2.2}
+      length={1.7}
       steps={[
         {
           from: 0,
@@ -23,9 +23,9 @@ export function HeroFilm() {
           node: (
             <>
               <p className="eyebrow">{hero.eyebrow}</p>
-              <Headline text={hero.headline} className="mt-2 text-[clamp(2rem,5vw,5.4rem)] md:mt-4" />
-              <p className="mt-3 max-w-[38ch] text-[0.95rem] leading-snug text-ink-2 md:mt-5 md:text-base md:leading-normal">{hero.body}</p>
-              <div className="mt-5 flex flex-wrap gap-3 md:mt-8">
+              <Headline text={hero.headline} className="t-hero mt-3 md:mt-5" />
+              <p className="mt-3 max-w-[38ch] t-step text-ink-2 md:mt-6">{hero.body}</p>
+              <div className="mt-5 flex flex-wrap gap-3 md:mt-9">
                 <ButtonLink href={hero.primary.href} arrow>
                   {hero.primary.label}
                 </ButtonLink>
@@ -42,7 +42,7 @@ export function HeroFilm() {
           node: (
             <>
               <p className="eyebrow">Inside the store</p>
-              <p className="display mt-2 text-[clamp(1.6rem,3.4vw,3.6rem)] md:mt-4">{hero.arrival}</p>
+              <p className="display mt-3 max-w-[18ch] text-[clamp(1.6rem,3.4vw,3.6rem)] md:mt-5">{hero.arrival}</p>
             </>
           ),
         },

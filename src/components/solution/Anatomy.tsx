@@ -14,22 +14,25 @@ import { inSentence } from "@/lib/text";
 export function Anatomy({ title, parts, src, floor, focus }: { title: string; parts: Part[]; src: string; floor: string; focus: Record<string, [number, number]> }) {
   const [active, setActive] = useState<string | null>(null);
   return (
-    <Scene id="anatomy" src={src} floor={floor} spot={active ? (focus[active] ?? [65, 50]) : null}>
+    <Scene id="anatomy" variant="framed" src={src} floor={floor} spot={active ? (focus[active] ?? [65, 50]) : null}>
       <p className="eyebrow">Anatomy</p>
-      <Headline as="h2" text={`What makes ${inSentence(title)} work.`} className="mt-2 text-[clamp(1.8rem,4vw,4rem)] md:mt-4" />
-      <ul className="mt-6 border-t border-line md:mt-8">
+      <Headline as="h2" reveal text={`What makes ${inSentence(title)} work.`} className="t-h2 mt-5" />
+      <ul className="mt-8 border-t border-line-strong md:mt-10">
         {parts.map((p) => {
           const on = active === p.id;
           return (
             <li key={p.id} className="border-b border-line">
-              <button type="button" aria-pressed={on} onClick={() => setActive(on ? null : p.id)} className="w-full py-3 text-left">
-                <span className={`flex items-center justify-between font-semibold ${on ? "text-copper" : "text-ink"}`}>
+              <button type="button" aria-pressed={on} onClick={() => setActive(on ? null : p.id)} className="group w-full py-4 text-left">
+                <span className={`flex items-center justify-between gap-4 text-[1.05rem] font-semibold transition-colors ${on ? "text-copper" : "text-ink group-hover:text-copper"}`}>
                   {p.label}
-                  <span aria-hidden>{on ? "−" : "+"}</span>
+                  <span aria-hidden className={`relative size-3.5 shrink-0 transition-transform duration-500 ease-[var(--ease-overshoot)] ${on ? "rotate-45" : ""}`}>
+                    <span className="absolute top-1/2 left-0 h-[1.5px] w-full -translate-y-1/2 bg-current" />
+                    <span className="absolute top-0 left-1/2 h-full w-[1.5px] -translate-x-1/2 bg-current" />
+                  </span>
                 </span>
-                <span className={`grid transition-[grid-template-rows] duration-300 ${on ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                <span className={`grid transition-[grid-template-rows] duration-500 ease-[var(--ease-out)] ${on ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                   <span className="overflow-hidden text-[0.95rem] leading-relaxed text-ink-2">
-                    <span className="block pt-1.5">{p.detail}</span>
+                    <span className="block max-w-[46ch] pt-2">{p.detail}</span>
                   </span>
                 </span>
               </button>

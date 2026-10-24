@@ -13,14 +13,14 @@ export function ProofChapter() {
       seq={sequences.proof}
       floor={sequences.proof.floor}
       alt={proof.alt}
-      length={2.6}
+      length={1.9}
       steps={[
         <StepText key="a" label={proof.eyebrow} headline={proof.headline} body={proof.body}>
-          <dl className="mt-4 grid max-w-md md:mt-7 grid-cols-3 border-t border-line pt-4">
+          <dl className="mt-5 grid max-w-md grid-cols-3 border-t border-line-strong pt-5 md:mt-6">
             {proof.stats.map((st) => (
               <div key={st.label} className="flex flex-col-reverse">
                 <dt className="mt-2 text-[0.9rem] leading-snug text-ink-2">{st.label}</dt>
-                <dd className="tabular text-[clamp(1.6rem,3.4vw,3rem)] leading-none font-medium">
+                <dd className="tabular display text-[clamp(1.8rem,3.6vw,3.4rem)]">
                   {st.value}
                   {st.suffix}
                 </dd>

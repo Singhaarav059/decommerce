@@ -75,3 +75,11 @@ Direction agreed with the owner: hyper-real look from AI footage, scrubbed frame
 - Done: 12 solution pages and 9 company/legal pages rebuilt full-bleed (DESIGN-PLAN §10.1). Brand showcase is now styled looks on dress forms.
 - Checks: lint, typecheck, build ✓; axe no WCAG A/AA violations (22 routes, 1440 + 390); no horizontal overflow (360/390/768/1440); every pinned step fits on phones; Lighthouse mobile / 94, /pos 96, /about-us 95 (a11y, best practices, SEO 100).
 - Vertex spend to date: $53.34 of the $100 cap (ledger).
+
+## Design upgrade (24 Oct 2026)
+
+- Done: design system pass (type scale `t-hero/t-h2/t-h3/t-lead/t-step`, paper surface, radius/shadow/z tokens, copper-rule eyebrows, pill buttons with sliding arrow); floating header that tucks away on scroll down, active-section dot, card mega-menu, full-screen phone sheet; footer rebuilt (closing CTA except on / and /contact-us, two-column phone links, large wordmark).
+- Done: legibility wash (`.scrim`, the scene's floor colour) behind every full-bleed text column; anatomy and capabilities on solution pages moved to compact framed sections; pinned scroll lengths cut ~20–25 %.
+- Done: motion: staggered line entrances in pinned steps, CSS scroll-driven word and media reveals (no JS; static where unsupported or reduced motion), fade between routes (not on first load), Lenis glide for in-page links.
+- Done: sharpness: every scroll film re-extracted from the 1080p sources at 1920 px desktop / 864 px phone, q58 (`scripts/v3/hd-frames.sh`; was 1280–1600 / 720); canvas resampling set to high; next/image serves AVIF at q85 for full-bleed photos.
+- Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; all pinned steps fit; Lighthouse mobile / 91, /pos 94, /storefront 94, /oms 93, /about-us 96 (a11y, best practices, SEO 100). Perf is 1–3 points lower than before because the sharper first frame is ~24 KB heavier on phones.

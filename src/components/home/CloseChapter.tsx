@@ -11,14 +11,14 @@ import { StepText } from "./StepText";
 export function CloseChapter() {
   return (
     <>
-      <section id="ch-close" className="border-t border-line">
+      <section id="ch-close">
         <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 px-[var(--gutter)] py-[var(--section-gap)] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
           <div>
             <p className="eyebrow">{close.eyebrow}</p>
-            <Headline as="h2" text={close.headline} className="mt-4 text-[clamp(2.1rem,4vw,4rem)]" />
-            <p className="mt-4 max-w-[40ch] text-ink-2">{close.body}</p>
+            <Headline as="h2" reveal text={close.headline} className="t-h2 mt-5" />
+            <p className="t-lead mt-5 max-w-[40ch] text-ink-2">{close.body}</p>
           </div>
-          <DemoForm />
+          <DemoForm className="rv rounded-[var(--radius-xl)] bg-paper p-6 shadow-[var(--shadow-sm)] md:p-9" />
         </div>
       </section>
       {/* the page darkens from studio to dusk to the night footer */}
@@ -26,7 +26,7 @@ export function CloseChapter() {
         id="ch-close-film"
         seq={sequences.close}
         alt={close.alt}
-        length={1.8}
+        length={1.3}
         floor={sequences.close.floor}
         night
         steps={[<StepText key="a" label={close.film.label} headline={close.film.headline} body={close.film.body} />]}

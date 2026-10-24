@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { Schibsted_Grotesk } from "next/font/google";
 import { brand } from "@/content/site";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
-import { openingHeadScript } from "@/lib/opening";
 import "./globals.css";
 
 // One family for everything: headlines, body, labels and figures. No italics.
@@ -36,9 +34,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${grotesk.variable} antialiased`}
     >
       <body className="min-h-dvh">
-        <Script id="opening-skip" strategy="beforeInteractive">
-          {openingHeadScript}
-        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

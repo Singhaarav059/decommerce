@@ -104,6 +104,9 @@ export function ScrollSequence({
       const dpr = Math.min(devicePixelRatio || 1, 2);
       cv.width = Math.round(cv.clientWidth * dpr);
       cv.height = Math.round(cv.clientHeight * dpr);
+      // resizing the canvas resets its context state: ask for the sharper resampler every time
+      g.imageSmoothingEnabled = true;
+      g.imageSmoothingQuality = "high";
       drawn = -1;
       draw();
     };

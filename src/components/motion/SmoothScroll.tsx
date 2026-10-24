@@ -40,8 +40,19 @@ export function SmoothScroll() {
         if (reduce || coarse) return;
         const { default: Lenis } = await import("lenis");
         if (cancelled) return;
-        const lenis = new Lenis({ lerp: 0.12, wheelMultiplier: 1 });
+        const lenis = new Lenis({ lerp: 0.1, wheelMultiplier: 1 });
         lenis.on("scroll", ScrollTrigger.update);
+        // in-page links glide to their target instead of jumping (the header's height is left clear)
+        const onClick = (e: MouseEvent) => {
+          const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+          const id = a?.getAttribute("href")?.slice(1);
+          const target = id ? document.getElementById(id) : null;
+          if (!target || e.defaultPrevented || e.metaKey || e.ctrlKey) return;
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: 0, duration: 1.4 });
+          history.pushState(null, "", `#${id}`);
+        };
+        document.addEventListener("click", onClick);
         const tick = (time: number) => lenis.raf(time * 1000);
         gsap.ticker.add(tick);
         gsap.ticker.lagSmoothing(0);
@@ -49,6 +60,7 @@ export function SmoothScroll() {
         cleanup = () => {
           prev();
           gsap.ticker.remove(tick);
+          document.removeEventListener("click", onClick);
           lenis.destroy();
         };
       },

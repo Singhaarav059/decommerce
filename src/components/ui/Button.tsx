@@ -4,29 +4,34 @@ import type { ComponentProps, ReactNode } from "react";
 type Variant = "primary" | "secondary" | "ghost";
 
 const base =
-  "group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-md)] px-5 h-12 text-[0.95rem] font-semibold " +
-  "transition-[background-color,color,transform,box-shadow] duration-200 ease-[var(--ease-out)] active:scale-[0.97] " +
+  "group inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full px-6 h-12 text-[0.95rem] font-semibold tracking-[-0.005em] " +
+  "transition-[background-color,color,transform,box-shadow] duration-300 ease-[var(--ease-out)] active:scale-[0.97] " +
   "disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-ink text-studio hover:bg-[#2e2a24]",
-  secondary: "bg-transparent text-ink shadow-[inset_0_0_0_1.5px_var(--ink)] hover:bg-ink hover:text-studio",
-  ghost: "bg-transparent text-ink underline-offset-4 hover:underline px-0",
+  primary: "bg-ink text-paper hover:bg-copper hover:shadow-[var(--shadow-md)]",
+  secondary: "bg-transparent text-ink shadow-[inset_0_0_0_1.5px_var(--line-strong)] hover:shadow-[inset_0_0_0_1.5px_var(--ink)] hover:bg-ink/5",
+  ghost: "bg-transparent text-ink px-0 h-auto link-u rounded-none",
 };
 
 export function buttonClass(variant: Variant = "primary", extra = "") {
   return `${base} ${variants[variant]} ${extra}`;
 }
 
+/** Arrow that slides out to the right on hover while a second one slides in behind it. */
 function Arrow() {
   return (
-    <svg
-      aria-hidden
-      viewBox="0 0 16 16"
-      className="size-3.5 transition-transform duration-300 ease-[var(--ease-overshoot)] group-hover:translate-x-0.5"
-    >
-      <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <span aria-hidden className="relative -mr-1 inline-flex size-4 overflow-hidden">
+      {[0, 1].map((k) => (
+        <svg
+          key={k}
+          viewBox="0 0 16 16"
+          className={`absolute inset-0 size-4 transition-transform duration-500 ease-[var(--ease-out)] ${k ? "-translate-x-full group-hover:translate-x-0" : "group-hover:translate-x-full"}`}
+        >
+          <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      ))}
+    </span>
   );
 }
 

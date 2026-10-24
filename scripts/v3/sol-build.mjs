@@ -12,7 +12,7 @@ for (const k of Object.keys(cfg).filter((k) => !k.startsWith("_") && (!only.leng
   const clip = [`-fix`, `-trim`, ``].map((x) => `assets-src/vertex/v3-sol-${k}${x}.mp4`).find((f) => existsSync(f));
   if (!clip) { console.log("no clip", k); continue; }
   const dir = `public/assets/sol/${k}`, src = "assets-src/stills/v3/sol";
-  sh("scripts/frames-from-video.sh", [clip, `${dir}/seq`, "4", "1280", "720", "50", "4:5@0.7", "none"]);
+  sh("scripts/frames-from-video.sh", [clip, `${dir}/seq`, "4", "1920", "864", "58", "4:5@0.7", "none"]);
   for (const f of ["still.webp", "broken.webp"]) rmSync(`${dir}/${f}`, { force: true });
   sh("cwebp", ["-quiet", "-q", "70", "-resize", "1920", "0", `${src}/${k}-end.png`, "-o", `${dir}/end.webp`]);
   sh("cwebp", ["-quiet", "-q", "70", "-resize", "1920", "0", `${src}/${k}-detail.png`, "-o", `${dir}/detail.webp`]);

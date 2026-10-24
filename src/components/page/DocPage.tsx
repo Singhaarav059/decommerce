@@ -15,15 +15,17 @@ export function DocPage({ meta, scene, children, aside, after }: { meta: DocMeta
   const { floor } = scenes[scene];
   return (
     <main id="main">
-      <Scene src={`/assets/company/scene-${scene}.webp`} floor={floor} label={meta.title}>
-        <p className="eyebrow">{meta.eyebrow}</p>
-        <Headline text={meta.headline} className="mt-2 text-[clamp(2.2rem,5vw,5.2rem)] md:mt-4" />
-        <p className="mt-3 max-w-[44ch] text-ink-2 md:mt-5">{meta.description}</p>
+      <Scene src={`/assets/company/scene-${scene}.webp`} floor={floor} label={meta.title} priority>
+        <div className="intro">
+          <p className="eyebrow">{meta.eyebrow}</p>
+          <Headline text={meta.headline} className="t-hero mt-3 md:mt-5" />
+          <p className="t-lead mt-4 max-w-[44ch] text-ink-2 md:mt-6">{meta.description}</p>
+        </div>
       </Scene>
       <div style={{ background: floor }} className="[--ink-2:var(--ink)] [--ink-soft:var(--ink)]">
-        <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 border-t border-ink/10 px-[var(--gutter)] py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_400px]">
+        <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 border-t border-ink/10 px-[var(--gutter)] py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
           <article className="prose-copy text-[1.05rem] [&>*:first-child]:mt-0">
-            {meta.draftNote && <p className="mb-10 max-w-[62ch] rounded-[var(--radius-md)] border border-copper px-4 py-3 text-sm text-ink">{meta.draftNote}</p>}
+            {meta.draftNote && <p className="mb-10 max-w-[62ch] rounded-[var(--radius-md)] border border-copper/60 bg-paper/60 px-4 py-3 text-sm text-ink">{meta.draftNote}</p>}
             {children}
           </article>
           {aside && <aside className="min-w-0">{aside}</aside>}

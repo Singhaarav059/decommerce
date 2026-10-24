@@ -12,7 +12,7 @@ export default function Page() {
       meta={meta}
       scene="contact-us"
       aside={
-        <div>
+        <div className="rounded-[var(--radius-xl)] bg-paper p-6 shadow-[var(--shadow-sm)] md:p-8 lg:sticky lg:top-[calc(var(--header-h)+24px)]">
           <DemoForm />
         </div>
       }
@@ -20,7 +20,7 @@ export default function Page() {
       <Content />
       <p className="mt-8 text-ink-soft">
         Prefer email? Write to{" "}
-        <a className="text-copper-ink underline underline-offset-4" href={`mailto:${brand.demoEmail}`}>
+        <a className="text-copper-ink underline decoration-copper/40 decoration-[1.5px] underline-offset-4 hover:decoration-copper" href={`mailto:${brand.demoEmail}`}>
           {brand.demoEmail}
         </a>
         .

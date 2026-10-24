@@ -14,7 +14,7 @@ export function StoryChapter({ chapter }: { chapter: Chapter }) {
       seq={seq}
       floor={seq.floor}
       alt={chapter.alt}
-      length={1 + chapter.steps.length * 0.8}
+      length={0.7 + chapter.steps.length * 0.65}
       steps={chapter.steps.map((s, i) => (
         <StepText key={i} label={s.label} headline={s.headline} body={s.body} links={s.links}>
           {s.rows && <RowList active={s.active} rows={s.rows.map((r) => ({ key: r.left, left: r.left, right: r.right }))} />}

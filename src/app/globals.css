@@ -19,21 +19,32 @@
   --color-studio: var(--studio);
   --color-studio-light: var(--studio-light);
   --color-ink-2: var(--ink-2);
+  --color-paper: var(--paper);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
+  --color-line-strong: var(--line-strong);
 }
 
 html {
   background: var(--studio);
   color: var(--ink);
   -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--header-h);
+  text-rendering: optimizeLegibility;
 }
 
 body {
   background: var(--studio);
   color: var(--ink);
   font-family: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.55;
   overflow-x: clip;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
 }
 
 /* no italics anywhere, including emphasis in content */
@@ -55,43 +66,198 @@ cite {
 :focus-visible {
   outline: 2px solid var(--copper);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 /* Headlines: one grotesk, medium weight, tight, sentence case */
 .display {
   font-family: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
   font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.02;
+  letter-spacing: -0.038em;
+  line-height: 0.98;
   text-wrap: balance;
 }
+.t-hero {
+  font-size: var(--fs-hero);
+}
+.t-h2 {
+  font-size: var(--fs-h2);
+  line-height: 1;
+}
+.t-h3 {
+  font-size: var(--fs-h3);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+.t-lead {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+/* body copy inside a pinned step: compact on phones (it shares the screen with the film) */
+.t-step {
+  font-size: 0.98rem;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+@media (min-width: 768px) {
+  .t-step {
+    font-size: var(--fs-lead);
+    line-height: 1.5;
+  }
+}
 
-/* Section labels: plain sentence case, no tracking, no monospace */
+/* Section labels: a short copper rule, then plain sentence case */
 .eyebrow {
-  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.3;
-  letter-spacing: 0;
+  letter-spacing: 0.01em;
   text-transform: none;
   color: var(--ink-2);
+}
+.eyebrow::before {
+  content: "";
+  width: 1.25rem;
+  height: 1.5px;
+  background: var(--copper);
+  flex: none;
 }
 
 .prose-copy p {
   text-wrap: pretty;
-  max-width: 62ch;
+  max-width: 64ch;
+}
+
+/* Text links: an underline that draws in from the left */
+.link-u {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat;
+  transition: background-size var(--dur-base) var(--ease-out);
+  padding-bottom: 2px;
+}
+.link-u:hover,
+.link-u:focus-visible {
+  background-size: 100% 1.5px;
 }
 
 /* Text over a night scene (dusk film): light ink, contrast > 9:1 on its navy floor */
 .tone-night {
   color: #f3eee8;
   --ink: #f3eee8;
-  --ink-2: #f3eee8;
+  --ink-2: #e6dfd6;
   --line: rgb(243 238 232 / 0.3);
   --copper: #f4c19e;
 }
-.tone-night .eyebrow {
-  color: #f3eee8;
+
+/* Legibility wash behind the text column of a full-bleed scene: the scene's own floor colour,
+   strongest under the text and gone by the subject (desktop only; phones put text on a solid panel). */
+.scrim {
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--floor) 82%, transparent) 0%,
+    color-mix(in srgb, var(--floor) 62%, transparent) 30%,
+    color-mix(in srgb, var(--floor) 18%, transparent) 46%,
+    transparent 58%
+  );
+}
+
+/* Page enter: a short fade so route changes never cut hard */
+.page-in {
+  animation: page-in 520ms var(--ease-out) both;
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Load-in for the first screen (hero text): children rise in sequence */
+.intro > * {
+  animation: rise 900ms var(--ease-out) backwards;
+  animation-delay: calc(120ms + var(--i, 0) * 90ms);
+}
+.intro > :nth-child(2) { --i: 1; }
+.intro > :nth-child(3) { --i: 2; }
+.intro > :nth-child(4) { --i: 3; }
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+
+/* Scroll-driven reveals (no JS). Browsers without view timelines show everything as is. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .rv {
+      animation: rv-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 75%;
+    }
+    .rv-words {
+      view-timeline: --rvw block;
+    }
+    .rv-words .w > span {
+      animation: rv-word linear both;
+      animation-timeline: --rvw;
+      animation-range: entry calc(var(--i, 0) * 3%) entry calc(60% + var(--i, 0) * 3%);
+    }
+    .rv-media {
+      view-timeline: --rvm block;
+    }
+    .rv-media > * {
+      animation: rv-clip linear both;
+      animation-timeline: --rvm;
+      animation-range: entry 0% entry 85%;
+    }
+    .rv-media img {
+      animation: rv-zoom linear both;
+      animation-timeline: --rvm;
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+.rv-words .w {
+  display: inline-block;
+  overflow: clip;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+  vertical-align: top;
+}
+.rv-words .w > span {
+  display: inline-block;
+}
+@keyframes rv-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+@keyframes rv-word {
+  from {
+    transform: translateY(105%);
+  }
+}
+@keyframes rv-clip {
+  from {
+    clip-path: inset(10% 8% 10% 8% round var(--radius-xl));
+    opacity: 0.4;
+  }
+  to {
+    clip-path: inset(0 0 0 0 round var(--radius-lg));
+    opacity: 1;
+  }
+}
+@keyframes rv-zoom {
+  from {
+    transform: scale(1.14);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @keyframes piece-in {
@@ -120,7 +286,7 @@ cite {
   transform: translateY(18px);
   transition:
     opacity 700ms var(--ease-out),
-    transform 900ms var(--ease-overshoot);
+    transform 900ms var(--ease-out);
 }
 .reveal-pending.reveal-in {
   opacity: 1;
@@ -198,37 +364,6 @@ cite {
 .range:active::-webkit-slider-thumb {
   transform: scale(1.15);
   background: var(--copper);
-}
-
-/* Opening (homepage chapter 0) */
-html.opened .opening {
-  display: none;
-}
-.opening {
-  /* no-JS fallback: leave on its own */
-  animation: opening-away 600ms var(--ease-out) 3.2s forwards;
-}
-.opening.js {
-  animation: none;
-}
-.opening-shutter {
-  transition: transform 1000ms cubic-bezier(0.7, 0, 0.2, 1);
-}
-.opening-count {
-  transition: opacity 300ms var(--ease-out);
-}
-.opening.is-done {
-  pointer-events: none;
-}
-.opening.is-done .opening-shutter {
-  transform: translateY(-104%);
-}
-.opening.is-done .opening-count,
-.opening.is-done button {
-  opacity: 0;
-}
-@keyframes opening-away {
-  to { opacity: 0; visibility: hidden; }
 }
 
 /* Lenis */

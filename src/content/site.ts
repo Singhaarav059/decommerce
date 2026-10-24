@@ -99,3 +99,18 @@ export const allRoutes: string[] = [
   ...companyGroup.items.map((i) => i.href),
   ...legalLinks.map((l) => l.href),
 ];
+
+/** One line under each group's name in the menu. */
+export const navIntro: Record<string, string> = {
+  Online: "Your own site, wholesale portal, fast delivery and marketplaces, all on one catalog.",
+  "Supply chain": "Orders routed, picked, packed and delivered from one live stock count.",
+  "In-store": "The till, the customer record and the endless aisle at the counter.",
+  Company: "The people and principles behind the platform.",
+};
+
+export const footerCta = {
+  eyebrow: "Book a demo",
+  headline: "See it run on your catalog.",
+  body: "Tell us what you sell and where. We'll show you a working store with a sample of your own products.",
+  primary: { label: "Book a demo", href: "/contact-us" },
+};
