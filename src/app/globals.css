@@ -82,6 +82,16 @@ cite {
   max-width: 62ch;
 }
 
+/* Text on the darker dusk backdrop (#8b888d): full ink everywhere keeps 4.8:1; light text would fail */
+.tone-dark {
+  color: #1b1915;
+  --ink-2: #1b1915;
+  --line: rgb(27 25 21 / 0.3);
+}
+.tone-dark .eyebrow {
+  color: #1b1915;
+}
+
 /* Raised flat surface (was a terrazzo texture) */
 .terrazzo {
   background-color: var(--studio-light);

@@ -8,7 +8,7 @@ import { demoForm as f } from "@/content/demo";
 type State = "idle" | "sending" | "done" | "error";
 
 const field =
-  "mt-1.5 block w-full rounded-[var(--radius-md)] border border-line bg-stone-50 px-3.5 py-3 text-[1rem] text-ink transition-[border-color,box-shadow] " +
+  "mt-1.5 block w-full rounded-[var(--radius-md)] border border-line bg-studio-light px-3.5 py-3 text-[1rem] text-ink transition-[border-color,box-shadow] " +
   "placeholder:text-ink-muted focus:border-copper focus:shadow-[0_0_0_3px_rgb(194_96_42/0.18)] focus:outline-none";
 
 export function DemoForm({ className = "" }: { className?: string }) {

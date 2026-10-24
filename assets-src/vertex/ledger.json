@@ -232,7 +232,126 @@
       "out": "assets-src/vertex/ch4-rail-1080.mp4",
       "prompt": "A slow, smooth sideways camera track along this clothing rail, gliding past the hanging linen shirts, knits and coats. The garments hang still with a barely vis",
       "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:53:51.379Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch5-city.png",
+      "prompt": "A miniature city district model on a thick travertine base: a grid of low pale stone and travertine buildings with flat roofs, quiet streets in pale terrazzo, s"
+    },
+    {
+      "at": "2026-10-24T03:53:53.127Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch10-dusk.png",
+      "prompt": "The same miniature luxury clothing store as the reference image, same model, same angle, at dusk: the sky light has gone soft and cool, the studio backdrop is d"
+    },
+    {
+      "at": "2026-10-24T03:55:16.040Z",
+      "kind": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "res": "720p",
+      "seconds": 8,
+      "usd": 0.24,
+      "out": "assets-src/vertex/ch8-counter-lite.mp4",
+      "prompt": "A customer's hand enters from the right holding a bank card and taps it on the small card terminal on the travertine counter; the terminal screen glows soft gre",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:55:44.932Z",
+      "kind": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "res": "720p",
+      "seconds": 8,
+      "usd": 0.24,
+      "out": "assets-src/vertex/ch6-pack-lite.mp4",
+      "prompt": "A warehouse worker in a plain oatmeal linen apron, seen from the side at mid-distance with face turned away, walks into frame, picks up the handheld barcode sca",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:56:27.788Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 0.6000000000000001,
+      "out": "assets-src/vertex/ch10-dusk-1080.mp4",
+      "prompt": "A very slow, smooth camera push-in toward this miniature store at dusk. The interior lights glow a little warmer and brighter over time. No people. Keep every o",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:57:15.463Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 0.6000000000000001,
+      "out": "assets-src/vertex/ch5-city-1080.mp4",
+      "prompt": "A very slow, smooth camera arc over this miniature city district model, drifting gently closer to the boutique with the copper awning near the front centre. No ",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:59:29.483Z",
+      "kind": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "res": "720p",
+      "seconds": 8,
+      "usd": 0.24,
+      "out": "assets-src/vertex/ch7-van-lite.mp4",
+      "prompt": "A small cream-coloured delivery van, to scale with the miniature buildings, drives smoothly out from beside the steel warehouse at the back, along the pale terr",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:59:37.600Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/ch6-pack-1080.mp4",
+      "prompt": "A warehouse worker in a plain oatmeal linen apron, seen from the side at mid-distance with face turned away, walks into frame, picks up the handheld barcode sca",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:59:49.459Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/ch8-counter-1080.mp4",
+      "prompt": "A customer's hand enters from the right holding a bank card and taps it on the small card terminal on the travertine counter; the terminal screen glows soft gre",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:02:16.484Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/ch7-van-1080.mp4",
+      "prompt": "A small cream-coloured delivery van, to scale with the miniature buildings, drives smoothly out from beside the steel warehouse at the back, along the pale terr",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:14:07.965Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/orbit-169-1080.mp4",
+      "prompt": "One slow, continuous camera orbit from left to right around this exact miniature luxury clothing store diorama on a seamless warm grey backdrop, ending about a ",
+      "filtered": 0
     }
   ],
-  "totalUsd": 7.286
+  "totalUsd": 12.674
 }

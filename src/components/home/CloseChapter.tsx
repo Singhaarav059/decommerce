@@ -1,74 +1,36 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { DemoForm } from "@/components/forms/DemoForm";
+import { PinnedFilm } from "@/components/media/PinnedFilm";
 import { Headline } from "@/components/ui/Headline";
 import { close } from "@/content/home";
-import { brand } from "@/content/site";
+import { sequences } from "@/content/media";
+import { StepText } from "./StepText";
 
-/**
- * Chapter 10: the store lights warm, the shutter rolls halfway down and the
- * wordmark settles on the travertine floor, above the demo form.
- */
+/** Homepage chapter 10: the demo form on the studio surface, then the store closing at dusk, leading into the night footer. */
 export function CloseChapter() {
-  const shutter = useRef<HTMLDivElement>(null);
-  const section = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = section.current;
-    const sh = shutter.current;
-    if (!el || !sh || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0;
-    const update = () => {
-      const r = el.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight * 0.9)));
-      sh.style.transform = `translateY(${(-100 + p * 50).toFixed(2)}%)`;
-      el.style.setProperty("--warm", p.toFixed(3));
-    };
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(update);
-    };
-    update();
-    addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      cancelAnimationFrame(raf);
-      removeEventListener("scroll", onScroll);
-    };
-  }, []);
-
   return (
-    <section id="ch-close" ref={section} className="relative z-10 overflow-hidden" style={{ "--warm": 1 } as React.CSSProperties}>
-      {/* storefront band: warm light + shutter rolling halfway down */}
-      <div className="relative h-[44svh] min-h-[280px] overflow-hidden bg-ink">
-        <div className="absolute inset-0 bg-[#3a2516] opacity-[calc(var(--warm)*0.9)] transition-opacity" />
-        <div className="absolute inset-x-[8%] bottom-0 h-[78%] bg-[#e9c9a4] opacity-[calc(0.25+var(--warm)*0.55)]" />
-        <div ref={shutter} className="absolute inset-x-[8%] top-0 h-full" style={{ transform: "translateY(-50%)" }}>
-          <div className="h-full bg-[repeating-linear-gradient(to_bottom,var(--steel)_0_14px,#8c9294_14px_16px)]" />
-          <div className="h-2 bg-copper" />
-        </div>
-        <div className="absolute inset-x-0 top-0 h-[8%] bg-travertine" />
-      </div>
-      {/* travertine floor with the wordmark */}
-      <div className="terrazzo relative">
-        <p
-          aria-hidden
-          className="pointer-events-none mx-auto max-w-[var(--max-w)] px-[var(--gutter)] pt-6 text-center font-serif text-[clamp(4.5rem,19vw,17rem)] leading-[0.8] tracking-[-0.05em] text-ink/90 select-none"
-        >
-          {brand.name}
-          <span className="text-copper">.</span>
-        </p>
-        <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-10 px-[var(--gutter)] py-16 md:py-24 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:pl-[calc(var(--gutter)+150px)]">
+    <>
+      <section id="ch-close" className="border-t border-line">
+        <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 px-[var(--gutter)] py-[var(--section-gap)] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
           <div>
             <p className="eyebrow">{close.eyebrow}</p>
-            <Headline as="h2" text={close.headline} className="mt-3 text-[clamp(2.6rem,6vw,5rem)]" />
-            <p className="mt-4 max-w-[42ch] text-lg text-ink-soft">{close.body}</p>
+            <Headline as="h2" text={close.headline} className="mt-4 text-[clamp(2.1rem,4vw,4rem)]" />
+            <p className="mt-4 max-w-[40ch] text-ink-2">{close.body}</p>
           </div>
-          <div className="rounded-[var(--radius-lg)] bg-stone-50 p-6 md:p-8">
-            <DemoForm />
-          </div>
+          <DemoForm />
         </div>
-      </div>
-    </section>
+      </section>
+      {/* the page darkens from studio to dusk to the night footer */}
+      <PinnedFilm
+        id="ch-close-film"
+        seq={sequences.close}
+        alt={close.alt}
+        length={1.8}
+        bg="#8b888d"
+        dark
+        steps={[<StepText key="a" label={close.film.label} headline={close.film.headline} body={close.film.body} />]}
+      />
+    </>
   );
 }

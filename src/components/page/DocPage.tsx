@@ -15,7 +15,7 @@ export function DocPage({ meta, children, aside, after }: { meta: DocMeta; child
       <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 px-[var(--gutter)] py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_400px]">
         <article className="prose-copy text-[1.05rem] [&>*:first-child]:mt-0">
           {meta.draftNote && (
-            <p className="mb-10 max-w-[62ch] rounded-[var(--radius-md)] border border-copper/40 bg-copper/5 px-4 py-3 text-sm text-copper-ink">
+            <p className="mb-10 max-w-[62ch] rounded-[var(--radius-md)] border border-copper px-4 py-3 text-sm text-ink">
               {meta.draftNote}
             </p>
           )}

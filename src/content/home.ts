@@ -91,6 +91,10 @@ export const orderLands = {
     { id: "returns", label: "Returns anywhere", detail: "A return can go back to any store, which restocks it into the same shared count.", x: 74, y: 64 },
   ],
   links: [{ label: "Order management", href: "/oms" }],
+  alt: "A miniature city district with a steel warehouse and three boutiques; the camera moves toward the boutique nearest the customer.",
+  arrive: { label: "The order", headline: `${order.id} arrives online.`, body: `One ${order.item.toLowerCase()}, size ${order.size}, ordered from the website for delivery today.` },
+  check: { label: "Checking stock", headline: "Three places could ship it." },
+  route: { label: "Routed", headline: `${order.store} ships it.`, body: `It has the size and the shortest trip: ${order.distance} to the customer's door. Split shipments and returns follow the same rules.` },
 };
 
 export const pack = {
@@ -99,6 +103,7 @@ export const pack = {
   body: "The picker scans the overshirt, the label prints itself and the box rolls onto the conveyor. No searching aisles.",
   steps: ["Bin B-14 lights up", "Scan LIN-OVR-M-SND", "Label prints", "Box onto the conveyor"],
   links: [{ label: "Warehouse management", href: "/wms" }],
+  alt: "A packing station: a picker in a linen apron scans a kraft box and slides it onto the roller conveyor.",
 };
 
 export const delivery = {
@@ -108,7 +113,9 @@ export const delivery = {
     { at: [0.36, 0.66] as [number, number], eyebrow: "On the road", text: "The route is planned around every other stop on the van." },
     { at: [0.72, 1] as [number, number], eyebrow: "Doorstep", text: "Delivered. The customer saw the ETA count down the whole way." },
   ],
-  alt: "A kraft box rides a conveyor into a van, which crosses a miniature city to a doorstep.",
+  alt: "A small delivery van drives through a miniature city and stops at a house with a copper door.",
+  headlines: ["On the first van out.", "One route for every stop.", "Delivered, on time."],
+  eta: ["Arriving in 38 min", "Arriving in 14 min", "Delivered"],
   links: [
     { label: "Transport management", href: "/tms" },
     { label: "Quick commerce", href: "/quick-commerce" },
@@ -124,6 +131,9 @@ export const inStore = {
     { id: "kiosk", scene: "kiosk", title: "Self-checkout", body: "Scan, pay and bag in one step, no queue.", href: "/self-checkout" },
   ],
   more: { label: "Clienteling", href: "/clienteling" },
+  alt: "At a travertine counter a customer taps a card on the terminal and a cashier packs a linen shirt into an orange box.",
+  pay: { label: "In the store, too", headline: "Tap, paid, packed.", body: "The same customer, the same catalog and the same stock count at the counter. The sale updates the website before the box is closed." },
+  modules: { label: "At the counter", headline: "Every in‑store tool on one system." },
 };
 
 export const proof = {
@@ -143,7 +153,11 @@ export const proof = {
   ],
 };
 
+export const proofAlt = "The miniature store turns slowly on the studio floor.";
+
 export const close = {
+  alt: "The miniature store at dusk, lights glowing, as a steel shutter comes down over the glass front.",
+  film: { label: "Closing time", headline: "Every channel, settled at the end of the day.", body: "Stock, orders and takings agree across the website, the stores and the warehouse. Nothing to reconcile tonight." },
   eyebrow: "Book a demo",
   headline: "See it run on your catalog.",
   body: "Tell us what you sell and where. We'll show you a working store with a sample of your own products.",
