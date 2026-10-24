@@ -20,6 +20,8 @@ export const sequences = {
   hero: { pattern: "/assets/seq/hero/d/{i}.webp", mobilePattern: "/assets/seq/hero/m/{i}.webp", count: 48 },
   /** Homepage chapters 2–3: islands arc + joined-store move, crossfaded (assets-src/vertex/ch23-film.mp4) */
   islands: { pattern: "/assets/seq/islands/d/{i}.webp", mobilePattern: "/assets/seq/islands/m/{i}.webp", count: 61 },
+  /** Homepage chapter 4: rail track → laptop push-in (assets-src/vertex/ch4-film.mp4) */
+  storefront: { pattern: "/assets/seq/storefront/d/{i}.webp", mobilePattern: "/assets/seq/storefront/m/{i}.webp", count: 61 },
   /** Homepage chapter 7, captured from scenes/delivery by scripts/capture-sequence.mjs */
   delivery: { pattern: "/assets/seq/delivery/d/{i}.webp", mobilePattern: "/assets/seq/delivery/m/{i}.webp", count: 72 },
 } as const;

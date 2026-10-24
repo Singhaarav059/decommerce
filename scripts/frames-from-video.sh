@@ -1,14 +1,16 @@
 #!/bin/zsh
 # Turn a generated clip into scroll-sequence frames for <ScrollSequence>.
-# Usage: scripts/frames-from-video.sh <clip.mp4> <out_dir> [every_nth=2] [desktop_w=1600] [mobile_w=800] [quality=64] [mobile_aspect=4:3|full]
+# Usage: scripts/frames-from-video.sh <clip.mp4> <out_dir> [every_nth=2] [desktop_w=1600] [mobile_w=800] [quality=64] [mobile_aspect=4:3|full] [match=studio|none]
 # Writes <out_dir>/d/NNN.webp (full frame) and <out_dir>/m/NNN.webp (4:3 centre crop for phones, or the full frame).
 set -e
-in=$1; out=$2; nth=${3:-2}; dw=${4:-1600}; mw=${5:-800}; q=${6:-64}; ma=${7:-4:3}
+in=$1; out=$2; nth=${3:-2}; dw=${4:-1600}; mw=${5:-800}; q=${6:-64}; ma=${7:-4:3}; match=${8:-studio}
 tmp=$(mktemp -d)
 # Colour-match to the page: measure the backdrop (frame edges of the first frame)
 # and scale each channel so it lands on --studio (#cec5bd). Then trim 6 px of
 # edge rows/columns, where generated footage often carries stray lines.
 rgb=$(ffmpeg -loglevel error -i "$in" -vf "select='eq(n\,0)',crop=iw:ih*0.08:0:0,scale=1:1" -frames:v 1 -f rawvideo -pix_fmt rgb24 - | xxd -p)
+# interiors keep their own colour (match=none); only studio-sweep footage is matched
+[ "$match" = "none" ] && rgb=cec5bd
 mix=$(python3 -c "
 r,g,b=int('$rgb'[0:2],16),int('$rgb'[2:4],16),int('$rgb'[4:6],16)
 t=(0xce,0xc5,0xbd)

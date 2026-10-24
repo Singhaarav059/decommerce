@@ -190,7 +190,49 @@
       "out": "assets-src/vertex/ch3-joined-1080.mp4",
       "prompt": "A very slow, smooth camera push-in toward this single connected miniature store, the whole store staying in view. Keep every object, material and colour exactly",
       "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:48:57.461Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch4-rail.png",
+      "prompt": "A slim brushed bronze clothing rail against a travertine wall, seen at a gentle angle so it recedes from the left to the right of the frame. On oak hangers, eve"
+    },
+    {
+      "at": "2026-10-24T03:49:01.331Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch4-laptop.png",
+      "prompt": "The travertine counter from the reference image, seen from slightly above at a three-quarter angle. On it, an open thin silver laptop angled toward the viewer; "
+    },
+    {
+      "at": "2026-10-24T03:51:11.128Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/ch4-laptop-1080.mp4",
+      "prompt": "A slow, smooth camera push-in toward the open laptop on the travertine counter; the product photos on its screen stay sharp and unchanged. Keep every object, ma",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:51:13.588Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/ch4-rail-1080.mp4",
+      "prompt": "A slow, smooth sideways camera track along this clothing rail, gliding past the hanging linen shirts, knits and coats. The garments hang still with a barely vis",
+      "filtered": 0
     }
   ],
-  "totalUsd": 6.218
+  "totalUsd": 7.286
 }

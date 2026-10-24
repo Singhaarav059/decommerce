@@ -61,9 +61,15 @@ export const unify = {
 };
 
 export const storefront = {
+  catalog: {
+    eyebrow: "Storefront",
+    headline: "Your catalog is already a store.",
+    body: "Every garment on the rail has a size, a price and a stock count in Decommerce, the same record the till and the warehouse use.",
+  },
+  alt: "A bronze clothing rail of linen shirts, knits and coats in a travertine boutique, then a laptop on the counter showing the same garments as a web shop.",
   eyebrow: "Storefront",
   headline: "A store website that builds itself from your catalog.",
-  body: "Pick a look from the rail. Products, prices and stock come straight from the same catalog your stores use.",
+  body: "Choose a theme and the site fills itself: products, prices and stock come straight from the catalog your stores use.",
   rackHint: "Drag the rail or use the arrows. Tap a hanger to try it on.",
   links: [
     { label: "Storefront", href: "/storefront" },
