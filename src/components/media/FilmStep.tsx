@@ -23,7 +23,7 @@ export function FilmStep({ from, to, children, label }: { from: number; to: numb
     el.setAttribute("aria-hidden", o < 0.5 ? "true" : "false");
   });
   return (
-    <div ref={ref} aria-label={label} className={`col-start-1 row-start-1 ${first ? "" : "invisible opacity-0"}`}>
+    <div ref={ref} data-film-step aria-label={label} className={`col-start-1 row-start-1 ${first ? "" : "invisible opacity-0"}`}>
       {children}
     </div>
   );

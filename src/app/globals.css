@@ -82,14 +82,23 @@ cite {
   max-width: 62ch;
 }
 
-/* Text on the darker dusk backdrop (#8b888d): full ink everywhere keeps 4.8:1; light text would fail */
-.tone-dark {
-  color: #1b1915;
-  --ink-2: #1b1915;
-  --line: rgb(27 25 21 / 0.3);
+/* Text over a night scene (dusk film): light ink, contrast > 9:1 on its navy floor */
+.tone-night {
+  color: #f3eee8;
+  --ink: #f3eee8;
+  --ink-2: #f3eee8;
+  --line: rgb(243 238 232 / 0.3);
+  --copper: #f4c19e;
 }
-.tone-dark .eyebrow {
-  color: #1b1915;
+.tone-night .eyebrow {
+  color: #f3eee8;
+}
+
+@keyframes piece-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92) rotate(-3deg);
+  }
 }
 
 /* Feathered edges so an image melts into the studio surface */

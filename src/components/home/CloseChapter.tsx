@@ -27,8 +27,8 @@ export function CloseChapter() {
         seq={sequences.close}
         alt={close.alt}
         length={1.8}
-        bg="#8b888d"
-        dark
+        floor={sequences.close.floor}
+        night
         steps={[<StepText key="a" label={close.film.label} headline={close.film.headline} body={close.film.body} />]}
       />
     </>

@@ -1,15 +1,16 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { filmPane, textColumn } from "@/components/layout/split";
+import { useEffect, useRef, type ReactNode } from "react";
+import { FULL_PANE, FULL_TEXT } from "@/components/layout/split";
 import { FilmStep } from "./FilmStep";
 import { ScrollSequence } from "./ScrollSequence";
 
 export type FilmSeq = { pattern: string; mobilePattern?: string; count: number };
 
 /**
- * The standard pinned chapter: a scroll-scrubbed film in its own pane and a
- * text column that steps through `steps` beside it (below it on phones).
+ * The standard pinned chapter: a scroll-scrubbed full-screen film of a real
+ * place, with a text column that steps through `steps` in the calm part of the
+ * shot (below the film on phones, on a panel of the scene's floor colour).
  * Each step owns a slice of the film; slices are split evenly unless given.
  */
 export function PinnedFilm({
@@ -17,33 +18,57 @@ export function PinnedFilm({
   seq,
   alt,
   steps,
-  phone = "4:3",
+  floor = "#d9cfc4",
   length = 2.6,
   priority = false,
-  bg,
-  dark = false,
+  night = false,
 }: {
   id: string;
   seq: FilmSeq;
   alt: string;
   steps: ReactNode[] | { from: number; to: number; node: ReactNode }[];
-  phone?: "4:3" | "16:9";
+  /** The scene's floor colour: the phone text panel and the blend into it. */
+  floor?: string;
   length?: number;
   priority?: boolean;
-  /** Section background (the footage's own backdrop), e.g. for the dusk film. */
-  bg?: string;
-  /** Light text for a dark backdrop. */
-  dark?: boolean;
+  /** Light text for a night scene. */
+  night?: boolean;
 }) {
+  const wrap = useRef<HTMLDivElement>(null);
+  const text = useRef<HTMLDivElement>(null);
+  // phones: give the film whatever height the tallest step leaves (never under 26% of the screen)
+  useEffect(() => {
+    const w = wrap.current, t = text.current;
+    if (!w || !t) return;
+    const mq = matchMedia("(max-width: 767px)");
+    const fit = () => {
+      if (!mq.matches) return w.style.removeProperty("--film-h");
+      const stage = w.querySelector<HTMLElement>("[data-stage]")?.clientHeight ?? innerHeight;
+      const h = Math.max(stage * 0.26, Math.min(stage * 0.58, stage - t.offsetHeight - 28));
+      w.style.setProperty("--film-h", `${Math.round(h)}px`);
+    };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(t);
+    mq.addEventListener("change", fit);
+    addEventListener("resize", fit);
+    return () => {
+      ro.disconnect();
+      mq.removeEventListener("change", fit);
+      removeEventListener("resize", fit);
+    };
+  }, []);
   const n = steps.length;
   const slices = steps.map((s, i) =>
     s && typeof s === "object" && "node" in s ? s : { from: i === 0 ? 0 : i / n + 0.03, to: i === n - 1 ? 1 : (i + 1) / n - 0.03, node: s as ReactNode },
   );
   return (
-    <div id={id} className="relative">
-      <ScrollSequence {...seq} length={length} stillFrame={0} priority={priority} defer alt={alt} bg={bg} frameClassName={filmPane(phone)}>
-        <div className={`${textColumn(phone)} ${dark ? "tone-dark" : ""}`}>
-          <div className="grid">
+    <div ref={wrap} id={id} className="relative">
+      <ScrollSequence {...seq} length={length} stillFrame={0} priority={priority} defer alt={alt} bg={floor} frameClassName={FULL_PANE}>
+        {/* phones: the film melts into the floor-coloured text panel */}
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-[calc(var(--film-h,58svh)-96px)] h-24 md:hidden" style={{ background: `linear-gradient(to bottom, transparent, ${floor})` }} />
+        <div className={`${FULL_TEXT} ${night ? "tone-night" : ""}`}>
+          <div ref={text} className="grid">
             {slices.map((s, i) => (
               <FilmStep key={i} from={s.from} to={s.to}>
                 {s.node}

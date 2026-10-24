@@ -154,3 +154,15 @@ Every clip is drafted in Lite first; only drafts that pass review are made in Fa
 ## 9. Status (24 Oct 2026)
 
 Built as planned: homepage chapters 1–10, the 12 solution pages on the template in section 4, company and legal pages. WebGL, three.js and all 3D-scene code are removed; every visual is Veo footage or a Gemini still. Changes from the plan: the opening loader was dropped (it covered the first image); the clothing-rack interaction became the storefront chapter's rail film; solution heroes use a drag-scrub of each page's fixed-state clip. Generation cost so far is in `assets-src/vertex/ledger.json`.
+
+## 10. Revision after owner review (24 Oct 2026)
+
+Problems found: scenes sit in feathered boxes on an empty grey page; several clips break continuity (second van appears and vanishes, corner house morphs, card vanishes, nobody at the counter, glass front disappears in the orbit); two sections cut between unrelated shots; the order section shows nothing happening; brand showcase puts clothes in picture frames; sections show but do not explain.
+
+New rules, replacing the studio-sweep approach:
+- Every section is a full-screen real place (boutique, stockroom, street, counter), edge to edge, no box, no feather. Each shot is composed so the left 40 % (desktop) is calm empty space (sunlit wall, floor) where the text sits; the subject stays in the right 60 %. On phones the scene fills the top of the screen and blends into a panel of its own floor colour below, where the text sits.
+- One continuous Veo shot per section, from one still: a camera move or one simple physical action. No crossfades between unrelated shots. People appear where the story needs them (cashier behind the counter, customer tapping a card that stays in the hand).
+- Every clip is checked frame by frame before use; any clip where an object appears, vanishes or morphs is rejected.
+- Each section explains: what happens, what goes wrong without Decommerce, what Decommerce does (2–3 text steps).
+- Storefront section: an interactive clothing rack modelled on the Motionary reference (drag the rail, the centred garment grows with name and price, "See the piece" opens it with sizes and "Add to bag"), built in the DOM from cut-out garment photos.
+- Brand showcase: styled looks on mannequins and display tables in the store, not framed pictures.

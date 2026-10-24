@@ -1,0 +1,45 @@
+{
+  "_frame": "Wide cinematic 16:9 photograph, eye level, 35mm lens, shallow depth of field. Strict composition: the LEFT 40 percent of the frame is calm, plain and empty ({calm}) with no objects or people in it, so text can sit there; everything else is in the RIGHT 60 percent. The same calm luxury retail world as the reference: honed travertine, speckled terrazzo, warm oak, brushed copper, linen and wool, olive trees, warm late-afternoon sun. Photorealistic. No text, letters, numbers, logos, signs or labels anywhere.",
+  "problem": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall in soft sunlight",
+    "still": "Inside the boutique: a wall of warm oak shelves holding neat stacks of folded linen overshirts in sand and oat; one shelf slot holds only a single last overshirt. A sales associate in an oatmeal linen apron, seen from the side at mid-distance with face turned away, reaches toward that last overshirt.",
+    "move": "The associate lifts the single last folded overshirt from its shelf slot, leaving that slot empty, holds it against their chest and walks calmly out of the right side of the frame. Only that one shirt and the associate move; every other shirt and object stays exactly in place. The camera holds still."
+  },
+  "order": {
+    "ref": "assets-src/refs/ref-diorama.png",
+    "calm": "the plain pale travertine side wall of a building in soft sunlight",
+    "still": "A quiet street of pale stone shop buildings at golden hour. In the right part, the boutique with a curved glass shopfront and a copper awning, warm lights glowing inside on rails of linen clothes, two olive trees in stone planters, an empty pale terrazzo pavement in front.",
+    "move": "Locked-off tripod shot: the camera does not move at all. Inside the boutique the warm lights slowly brighten as the evening comes, and the sunlight on the pavement softens. Nothing appears or disappears; no people, no vehicles."
+  },
+  "pack": {
+    "ref": "assets-src/refs/ref-packing-169.png",
+    "calm": "a plain warm-white painted warehouse wall in soft sunlight",
+    "still": "Recompose the reference warehouse packing station as a wider shot with everything in the right part of the frame: a stainless steel packing table seen side-on with a handheld barcode scanner, a small label printer and one kraft box on it; behind it steel shelving full of kraft boxes; a short roller conveyor runs from the right end of the table further to the right and out of the frame. A picker in a plain oatmeal linen apron stands behind the table facing the camera at mid-distance, eyes down on the box.",
+    "move": "The picker picks up the handheld barcode scanner, scans the kraft box on the table, puts the scanner down and slides the box onto the roller conveyor on the right, which carries it slowly out of the right side of the frame. Calm, natural movements; every other object stays in place; nothing moves into the left part of the frame. The camera holds still."
+  },
+  "delivery": {
+    "ref": "assets-src/refs/ref-diorama.png",
+    "calm": "a plain sunlit pale stone wall of the neighbouring house",
+    "still": "A quiet residential street of pale stone townhouses at golden hour. In the right part, a townhouse with a copper front door and two olive trees in pots, and one small cream delivery van parked at the kerb right in front of it with its side door open.",
+    "move": "A courier in a plain oatmeal jacket steps out of the van's open side door holding one kraft box, walks to the copper front door and sets the box down on the doorstep, then steps back. The van stays parked and does not move; there is only one van; the houses do not change. The camera holds still."
+  },
+  "counter": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall with soft olive-leaf shadows",
+    "still": "The boutique's curved copper and travertine counter in the right part of the frame. A cashier in an oatmeal linen shirt stands behind the counter; a customer in a camel wool coat stands in front of it, both in three-quarter view at mid-distance, faces turned slightly away. On the counter between them: a card terminal, an orange gift box and a cream paper shopping bag.",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all, framing stays exactly as in the image. The customer holds a bank card to the card terminal and taps it, keeping the card in hand the whole time. Then the cashier slides the cream paper shopping bag across the counter and the customer takes it by the handles. Calm, natural movements; nothing else moves."
+  },
+  "proof": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall in soft sunlight",
+    "still": "A wide view across the whole boutique: bronze rails of linen and wool clothes, warm lit oak shelves of folded knits, two olive trees, the curved copper counter with a card terminal in the middle distance, sunlight across the terrazzo floor. Nobody in the shop.",
+    "move": "A very slow, steady sideways track to the right across the boutique. Every object stays exactly in place; nothing appears or disappears; no people."
+  },
+  "close": {
+    "ref": "assets-src/refs/ref-diorama.png",
+    "calm": "a plain stone building wall in deep blue dusk shadow",
+    "still": "The boutique seen from the street at dusk: warm golden light glowing from inside through the curved glass shopfront, a stainless steel roller shutter lowered halfway over the glass, two olive trees in stone planters, a deep blue dusk sky above.",
+    "move": "A very slow, steady pull-back from the shopfront. The warm lights inside stay on and the shutter stays where it is. Nothing appears or disappears; no people, no vehicles."
+  }
+}
