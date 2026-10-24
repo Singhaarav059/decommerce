@@ -15,7 +15,10 @@ export function Anatomy({ title, parts, src, floor, focus }: { title: string; pa
   const [active, setActive] = useState<string | null>(null);
   return (
     <Scene id="anatomy" variant="framed" src={src} floor={floor} spot={active ? (focus[active] ?? [65, 50]) : null}>
-      <p className="eyebrow">Anatomy</p>
+      <p className="eyebrow border-t border-line-strong pt-6 w-full">
+        <span className="tabular text-copper">02</span>
+        {"Anatomy"}
+      </p>
       <Headline as="h2" reveal text={`What makes ${inSentence(title)} work.`} className="t-h2 mt-5" />
       <ul className="mt-8 border-t border-line-strong md:mt-10">
         {parts.map((p) => {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { smooth } from "@/lib/scroll";
 
 /**
  * Lenis smooth scroll driven by the GSAP ticker so ScrollTrigger and Lenis
@@ -53,6 +54,7 @@ export function SmoothScroll() {
           history.pushState(null, "", `#${id}`);
         };
         document.addEventListener("click", onClick);
+        smooth.current = lenis;
         const tick = (time: number) => lenis.raf(time * 1000);
         gsap.ticker.add(tick);
         gsap.ticker.lagSmoothing(0);
@@ -61,6 +63,7 @@ export function SmoothScroll() {
           prev();
           gsap.ticker.remove(tick);
           document.removeEventListener("click", onClick);
+          smooth.current = null;
           lenis.destroy();
         };
       },

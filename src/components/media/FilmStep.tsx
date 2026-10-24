@@ -5,7 +5,7 @@ import { useSequenceProgress } from "./ScrollSequence";
 
 /**
  * One text state in a pinned film section's text column, shown between two
- * points of the film (0–1). Its lines arrive one after another (label, headline,
+ * points of the film (0 to 1). Its lines arrive one after another (label, headline,
  * body…) rising from below, and leave together upwards. Steps stack in the same
  * grid cell, so the column never changes size or overlaps the film.
  */

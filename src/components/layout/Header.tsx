@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { companyGroup, navIntro, solutionGroups, type NavGroup } from "@/content/site";
+import { companyGroup, navImage, navIntro, solutionGroups, type NavGroup } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
 import { Wordmark } from "@/components/ui/Wordmark";
 
@@ -13,7 +13,8 @@ const groups: NavGroup[] = [...solutionGroups, companyGroup];
 /**
  * A floating bar on a solid paper surface, so it reads over any photograph.
  * It tucks away while you scroll down and comes back as soon as you scroll up.
- * Desktop: one mega-menu panel per group. Phones: a full-screen sheet.
+ * Desktop: each group opens an editorial index, a numbered list in display type
+ * with a photograph of the hovered page beside it. Phones: a full-screen sheet.
  */
 export function Header() {
   const [open, setOpen] = useState<string | null>(null);
@@ -75,6 +76,9 @@ export function Header() {
   if (active && active !== shown) setShown(active);
   const panel = active ?? shown;
   const current = (g: NavGroup) => g.items.some((i) => i.href === pathname);
+  // the item previewed in the open panel (first item until something is hovered)
+  const [hover, setHover] = useState<string | null>(null);
+  const preview = panel?.items.find((i) => i.href === hover) ?? panel?.items[0];
   const tucked = hidden && !open && !mobileOpen;
 
   return (
@@ -94,20 +98,30 @@ export function Header() {
 
           <nav aria-label="Main" className="hidden flex-1 lg:block">
             <ul className="flex items-center justify-center gap-0.5">
-              {groups.map((g) => (
+              {groups.map((g, gi) => (
                 <li key={g.label}>
                   <button
                     type="button"
                     aria-expanded={open === g.label}
                     aria-controls={panelId}
-                    onClick={() => setOpen(open === g.label ? null : g.label)}
-                    onPointerEnter={(e) => e.pointerType === "mouse" && setOpen(g.label)}
-                    className={`relative flex h-10 items-center gap-1.5 rounded-full px-4 text-[0.92rem] font-medium transition-colors duration-200 ${
+                    onClick={() => {
+                      setHover(null);
+                      setOpen(open === g.label ? null : g.label);
+                    }}
+                    onPointerEnter={(e) => {
+                      if (e.pointerType !== "mouse" || open === g.label) return;
+                      setHover(null);
+                      setOpen(g.label);
+                    }}
+                    className={`relative flex h-10 items-center gap-2 rounded-full px-4 text-[0.92rem] font-medium transition-colors duration-200 ${
                       open === g.label ? "bg-studio-light text-ink" : "text-ink-2 hover:text-ink"
                     }`}
                   >
+                    <span aria-hidden className={`tabular text-[0.68rem] font-semibold transition-colors ${open === g.label || current(g) ? "text-copper" : "text-ink-2/85"}`}>
+                      {String(gi + 1).padStart(2, "0")}
+                    </span>
                     {g.label}
-                    {current(g) && <span aria-label="(current section)" className="size-1 rounded-full bg-copper" />}
+                    {current(g) && <span className="sr-only">(current section)</span>}
                     <svg
                       aria-hidden
                       viewBox="0 0 10 10"
@@ -151,43 +165,61 @@ export function Header() {
             active ? "visible translate-y-0 scale-100 opacity-100" : "invisible -translate-y-1.5 scale-[0.985] opacity-0"
           }`}
         >
-          {panel && (
-            <div className="grid grid-cols-[minmax(0,280px)_1fr] gap-10 rounded-[var(--radius-xl)] border border-line bg-paper p-7 shadow-[var(--shadow-md)]">
-              <div className="flex flex-col">
-                <p className="display t-h3">{panel.label}</p>
-                <p className="mt-3 text-[0.92rem] leading-relaxed text-ink-2">{navIntro[panel.label]}</p>
-                <Link href="/contact-us" className="link-u mt-auto self-start pt-6 text-[0.9rem] font-semibold text-copper">
-                  Book a demo →
-                </Link>
-              </div>
-              <ul key={panel.label} className={`grid gap-1.5 ${panel.items.some((i) => i.slug) ? "grid-cols-2 xl:grid-cols-3" : "grid-cols-2"}`}>
-                {panel.items.map((item, i) => (
-                  <li key={item.href} className="animate-[rise_500ms_var(--ease-out)_both]" style={{ animationDelay: `${i * 30}ms` }}>
-                    <Link
-                      href={item.href}
-                      aria-current={item.href === pathname ? "page" : undefined}
-                      className="group flex items-center gap-4 rounded-[var(--radius-lg)] p-2.5 transition-colors duration-200 hover:bg-studio-light aria-[current=page]:bg-studio-light"
-                    >
-                      {item.slug && (
-                        <span className="relative h-[66px] w-[88px] shrink-0 overflow-hidden rounded-[var(--radius-md)] bg-studio">
-                          <Image
-                            src={`/assets/sol/${item.slug}/end.webp`}
-                            alt=""
-                            fill
-                            sizes="88px"
-                            quality={70}
-                            className="object-cover object-[70%_50%] transition-transform duration-500 ease-[var(--ease-out)] group-hover:scale-105"
-                          />
-                        </span>
-                      )}
-                      <span className="min-w-0">
-                        <span className="block text-[0.95rem] font-semibold">{item.label}</span>
-                        <span className="mt-0.5 block text-[0.84rem] leading-snug text-ink-2">{item.blurb}</span>
-                      </span>
+          {panel && preview && (
+            <div className="overflow-hidden rounded-[var(--radius-xl)] border border-line bg-paper shadow-[var(--shadow-md)]">
+              <div className="grid grid-cols-[minmax(0,1fr)_340px] gap-8 p-3 pl-8">
+                <div className="flex flex-col py-5">
+                  <div className="flex items-baseline justify-between gap-6 border-b border-line pb-4">
+                    <p className="display t-h3">{panel.label}</p>
+                    <p className="max-w-[46ch] text-right text-[0.88rem] leading-snug text-ink-2">{navIntro[panel.label]}</p>
+                  </div>
+                  <ul key={panel.label} className="mt-2 grid grid-cols-2 gap-x-8">
+                    {panel.items.map((item, i) => {
+                      const on = item.href === preview.href;
+                      return (
+                        <li key={item.href} className="animate-[rise_500ms_var(--ease-out)_both] border-b border-line/70" style={{ animationDelay: `${i * 35}ms` }}>
+                          <Link
+                            href={item.href}
+                            aria-current={item.href === pathname ? "page" : undefined}
+                            onPointerEnter={() => setHover(item.href)}
+                            onFocus={() => setHover(item.href)}
+                            className="group flex items-baseline gap-3 py-3"
+                          >
+                            <span className={`tabular w-6 shrink-0 text-[0.75rem] font-semibold transition-colors ${on ? "text-copper" : "text-ink-2/85"}`}>{String(i + 1).padStart(2, "0")}</span>
+                            <span className="min-w-0">
+                              <span className={`display block text-[1.35rem] transition-[color,translate] duration-300 ease-[var(--ease-out)] ${on ? "translate-x-1 text-copper" : ""}`}>{item.label}</span>
+                              <span className="mt-0.5 block text-[0.84rem] leading-snug text-ink-2">{item.blurb}</span>
+                            </span>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <p className="mt-auto flex items-center justify-between gap-6 pt-6 text-[0.84rem] text-ink-2">
+                    <span>One catalog, one stock count and one customer record behind every page here.</span>
+                    <Link href="/contact-us" className="link-u shrink-0 font-semibold text-copper">
+                      Book a demo →
                     </Link>
-                  </li>
-                ))}
-              </ul>
+                  </p>
+                </div>
+                <div className={`relative overflow-hidden rounded-[var(--radius-lg)] bg-studio ${panel.items.length > 5 ? "aspect-[4/5]" : "aspect-[20/19]"}`}>
+                  {panel.items.map((item) => (
+                    <Image
+                      key={item.href}
+                      src={navImage(item)}
+                      alt=""
+                      fill
+                      sizes="340px"
+                      quality={75}
+                      className={`object-cover object-[75%_50%] transition-[opacity,scale] duration-700 ease-[var(--ease-out)] ${item.href === preview.href ? "scale-100 opacity-100" : "scale-[1.05] opacity-0"}`}
+                    />
+                  ))}
+                  <p key={preview.href} className="absolute inset-x-3 bottom-3 animate-[rise_400ms_var(--ease-out)_both] rounded-[var(--radius-md)] bg-paper px-4 py-3 text-[0.84rem]">
+                    <span className="block font-semibold">{preview.label}</span>
+                    <span className="text-ink-2">{preview.blurb}</span>
+                  </p>
+                </div>
+              </div>
             </div>
           )}
         </div>

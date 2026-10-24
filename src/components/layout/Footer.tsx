@@ -2,7 +2,12 @@ import Link from "next/link";
 import { brand, companyGroup, legalLinks, solutionGroups } from "@/content/site";
 import { Wordmark } from "@/components/ui/Wordmark";
 import { FooterCta } from "./FooterCta";
+import { BackToTop } from "./BackToTop";
 
+/**
+ * The night floor of every page: the closing call to action, the brand promise set large,
+ * the same numbered groups as the header, and the wordmark cropped by the page's last edge.
+ */
 export function Footer() {
   const columns = [...solutionGroups, companyGroup];
   return (
@@ -10,28 +15,37 @@ export function Footer() {
       <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] pt-20 md:pt-28">
         <FooterCta />
 
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 pt-14 md:gap-x-8 lg:grid-cols-[1.4fr_repeat(4,1fr)] lg:gap-y-12">
-          <div className="col-span-2 lg:col-span-1">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-4">
             <Wordmark className="text-[1.75rem]" />
-            <p className="mt-4 max-w-[32ch] text-[0.95rem] leading-relaxed text-paper/65">{brand.tagline}</p>
+            <p className="display rv mt-8 max-w-[14ch] text-[clamp(1.6rem,2.4vw,2.2rem)] text-paper/90">
+              One catalog. One stock count. One customer record.
+            </p>
+            <p className="mt-5 max-w-[34ch] text-[0.95rem] leading-relaxed text-paper/65">{brand.tagline}</p>
           </div>
-          {columns.map((g) => (
-            <nav key={g.label} aria-label={g.label}>
-              <p className="text-[0.8rem] font-semibold text-paper/60">{g.label}</p>
-              <ul className="mt-4 space-y-2.5">
-                {g.items.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className="link-u text-[0.94rem] text-paper/85 transition-colors hover:text-paper">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 lg:col-span-8">
+            {columns.map((g, gi) => (
+              <nav key={g.label} aria-label={g.label}>
+                <p className="flex items-center gap-2 border-b border-paper/12 pb-3 text-[0.8rem] font-semibold text-paper/60">
+                  <span className="tabular text-copper">{String(gi + 1).padStart(2, "0")}</span>
+                  {g.label}
+                </p>
+                <ul className="mt-4 space-y-2.5">
+                  {g.items.map((item) => (
+                    <li key={item.href}>
+                      <Link href={item.href} className="group inline-flex items-center gap-2 text-[0.94rem] text-paper/85 transition-colors hover:text-paper">
+                        <span aria-hidden className="h-px w-0 bg-copper transition-[width] duration-300 ease-[var(--ease-out)] group-hover:w-3" />
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-paper/12 py-6 text-[0.84rem] text-paper/60 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-5 border-t border-paper/12 py-6 text-[0.84rem] text-paper/60 md:flex-row md:items-center md:justify-between">
           <p>
             © {brand.legalName} · A{" "}
             <a href={brand.parent.href} className="link-u text-paper/80 hover:text-paper">
@@ -42,20 +56,23 @@ export function Footer() {
               {brand.sibling.name}
             </a>
           </p>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            {legalLinks.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className="link-u hover:text-paper">
-                  {l.label}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2">
+              {legalLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="link-u hover:text-paper">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/llms.txt" className="link-u hover:text-paper">
+                  llms.txt
                 </Link>
               </li>
-            ))}
-            <li>
-              <Link href="/llms.txt" className="link-u hover:text-paper">
-                llms.txt
-              </Link>
-            </li>
-          </ul>
+            </ul>
+            <BackToTop />
+          </div>
         </div>
       </div>
       {/* the wordmark set large as the page's last line, cropped by the floor */}

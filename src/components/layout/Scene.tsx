@@ -43,8 +43,9 @@ export function Scene({
 }) {
   if (variant === "framed")
     return (
-      <section id={id} aria-label={label} style={{ background: floor }}>
-        <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 items-center gap-8 px-[var(--gutter)] py-[var(--section-gap)] md:gap-10 lg:grid-cols-12 lg:gap-12 [--ink-2:var(--ink)]">
+      // framed sections sit on the site's one studio surface, like every other static section
+      <section id={id} aria-label={label} className="bg-studio">
+        <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 items-center gap-8 px-[var(--gutter)] py-[var(--section-gap)] md:gap-10 lg:grid-cols-12 lg:gap-12">
           <div className={`rv-media min-w-0 lg:col-span-7 ${flip ? "" : "lg:order-2"}`}>
             {/* cropped to the subject: the photos keep their calm left side empty for full-bleed text */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-ink/5 md:aspect-[5/4]">

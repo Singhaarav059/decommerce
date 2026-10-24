@@ -16,7 +16,7 @@ export const hero = {
   headline: "One system behind every sale.",
   body: "Website, store, warehouse and marketplaces, run from one catalog, one stock count and one customer record.",
   primary: { label: "Book a demo", href: "/contact-us" },
-  secondary: { label: "See it work", href: "#ch-problem" },
+  secondary: { label: "What we do", href: "#what-we-do" },
   posterAlt: "A sunlit clothing boutique with a curved copper counter, oak shelves of folded knits and an olive tree; the camera moves slowly in.",
   arrival: "Every sale here, online or at the counter, runs through the same catalog and the same stock count.",
 };
@@ -37,12 +37,12 @@ export const chapters: Record<string, Chapter> = {
   problem: {
     id: "ch-problem",
     seq: "problem",
-    alt: "A shop assistant lifts the last folded linen overshirt from an oak shelf and carries it away to a customer.",
+    alt: "A shop assistant lifts the last size M linen overshirt from an oak shelf and carries it away to a customer.",
     steps: [
       {
         label: "The problem",
-        headline: "The last one just sold.",
-        body: "In most shops the till, the website and the marketplaces each keep their own count. The store is out, but the website still says 4, so tonight someone buys a shirt that isn't there.",
+        headline: "The last size M just sold.",
+        body: "In most shops the till, the website and the marketplaces each keep their own count. The store has just sold its last overshirt in size M, but the website still says 4, so tonight someone buys a shirt that isn't there.",
         rows: [
           { left: "Store", right: "0" },
           { left: "Website", right: "4" },
@@ -100,7 +100,7 @@ export const chapters: Record<string, Chapter> = {
   pack: {
     id: "ch-pack",
     seq: "pack",
-    alt: "At a stainless steel packing table a picker scans a kraft box and slides it onto a roller conveyor.",
+    alt: "At a stainless steel packing table a picker scans the label on a kraft box, closes it and slides it onto a roller conveyor.",
     steps: [
       {
         label: "Pick and pack",
@@ -132,7 +132,7 @@ export const chapters: Record<string, Chapter> = {
   delivery: {
     id: "ch-delivery",
     seq: "delivery",
-    alt: "A courier steps out of a parked delivery van and leaves a kraft box on the step of a house with a copper door.",
+    alt: "A courier carries a parcel from a parked van to a house with a copper door, hands it to the customer at her door and walks back to the van.",
     steps: [
       {
         label: "Out for delivery",
@@ -142,8 +142,8 @@ export const chapters: Record<string, Chapter> = {
       },
       {
         label: "Delivered",
-        headline: "On the doorstep, on time.",
-        body: "The courier confirms the drop on the same system, so the store, the website and the customer all see it delivered at once.",
+        headline: "Into her hands, on time.",
+        body: "The courier hands it over at the door and confirms on the same system, so the store, the website and the customer all see it delivered at once.",
         rows: [{ left: order.id, right: "Delivered" }],
         links: [
           { label: "Transport management", href: "/tms" },
@@ -155,7 +155,7 @@ export const chapters: Record<string, Chapter> = {
   counter: {
     id: "ch-instore",
     seq: "counter",
-    alt: "At a copper and travertine counter a customer taps a card on the terminal and the cashier hands over a paper shopping bag.",
+    alt: "At a copper and travertine counter a customer taps her card on the terminal, keeps it, and the cashier hands over a paper shopping bag.",
     steps: [
       {
         label: "In the store, too",
@@ -190,6 +190,82 @@ export const storefront = {
   links: [
     { label: "Storefront", href: "/storefront" },
     { label: "Brand showcase", href: "/storefront/brand-showcase" },
+  ],
+};
+
+/** Right after the hero: what Decommerce actually is. A service, not a website. */
+export const service = {
+  eyebrow: "What we do",
+  headline: "Not a website. A commerce system we set up and run with you.",
+  body: "Decommerce is software plus the team that puts it to work. We connect your website, stores, warehouse and marketplaces to one catalog, move your data across, train your staff and stay with you after launch.",
+  pillars: [
+    {
+      n: "01",
+      title: "The platform",
+      body: "Twelve modules for selling online, moving stock and serving customers in the store, all reading one catalog, one stock count and one customer record.",
+      points: ["Storefront, B2B and marketplaces", "Orders, warehouse and delivery", "Till, kiosks and clienteling"],
+    },
+    {
+      n: "02",
+      title: "The setup",
+      body: "We do the switching for you: products, prices, stock and customers move across, and the tools you keep are connected rather than replaced.",
+      points: ["Catalog and data migration", "Payment, courier and marketplace connections", "Staff training in the store and warehouse"],
+    },
+    {
+      n: "03",
+      title: "The running",
+      body: "After go-live the same team stays on. We watch the system, ship updates, and tune routing, stock and pricing rules as your season shows what works.",
+      points: ["One team that knows your business", "Updates without downtime", "Changes as you add stores or channels"],
+    },
+  ],
+};
+
+/** After the problem film: where separate systems cost a retailer, and what changes. */
+export const costs = {
+  eyebrow: "The problem in full",
+  headline: "Separate systems leak sales every day.",
+  body: "Most retailers grow one channel at a time, so each one gets its own software. Each system keeps its own copy of the truth, and staff spend their evenings making the copies agree.",
+  columns: { area: "Where it shows", without: "With separate systems", with: "With Decommerce" },
+  rows: [
+    { area: "Stock", without: "Each channel counts its own stock, so the website sells items the store has already sold.", with: "One stock count. A sale anywhere updates every channel at the same moment." },
+    { area: "Orders", without: "Online orders ship from a fixed warehouse, even when a store nearby has the item.", with: "Each order goes to the location that can deliver it fastest, store or warehouse." },
+    { area: "Customers", without: "The till, the website and the loyalty tool each know a different part of the customer.", with: "One customer record, so staff see every purchase and preference at the counter." },
+    { area: "Prices", without: "Prices and promotions are typed into each system and drift apart.", with: "Set a price once and it applies everywhere it should." },
+    { area: "Reporting", without: "Numbers are exported, merged in spreadsheets and argued over.", with: "One set of numbers for stores, website and warehouse, every morning." },
+    { area: "New channels", without: "Adding a marketplace or a store means another integration project.", with: "A new channel reads the same catalog and stock from its first day." },
+  ],
+};
+
+/** The 12 modules as one index. */
+export const modules = {
+  eyebrow: "The platform",
+  headline: "Twelve modules. One catalog underneath.",
+  body: "Start with the module that hurts most today and add the rest when you are ready. Every module reads the same products, stock and customers, so nothing needs re-entering.",
+};
+
+/** How an engagement runs, step by step, and what the client has at the end of each step. */
+export const engagement = {
+  eyebrow: "How we work with you",
+  headline: "From first call to a running system.",
+  body: "Every engagement follows the same four steps. You keep selling the whole time: modules go live one at a time next to what you run today.",
+  steps: [
+    { n: "01", title: "Discover", body: "We map how you sell today: channels, stores, warehouses, stock rules and the gaps between them.", result: "A written map of your current setup and a plan for which module goes first." },
+    { n: "02", title: "Design", body: "We design one catalog and one stock model around your real products, sizes, locations and prices.", result: "Your catalog, stock and pricing modelled in Decommerce and demoed on your own data." },
+    { n: "03", title: "Build and connect", body: "Modules go live one at a time. We migrate data, connect payments, couriers and marketplaces, and train staff.", result: "Each module live in production, with your team trained to use it." },
+    { n: "04", title: "Run and improve", body: "We stay on through the first season and beyond, watching the numbers and tuning the rules.", result: "A named team, regular reviews and changes as your business grows." },
+  ],
+};
+
+export const homeFaq = {
+  eyebrow: "Questions",
+  headline: "What retailers ask us first.",
+  items: [
+    { q: "Do we have to replace everything at once?", a: "No. Most retailers start with one module, usually orders or the till, and add the rest over time. Decommerce connects to the systems you keep." },
+    { q: "Can we keep our current website or ERP?", a: "Yes. Decommerce can sit behind an existing website or alongside an ERP, sharing catalog, stock and orders with them." },
+    { q: "Is this a website builder?", a: "No. The storefront is one of twelve modules. Decommerce is the system behind every channel, delivered and run by our team." },
+    { q: "Who owns our data?", a: "You do. Your products, customers and orders stay yours, and you can export them at any time." },
+    { q: "How long does it take to go live?", a: "It depends on how many modules and locations you start with. We agree a dated plan at the end of the Discover step, before any build work starts." },
+    { q: "What happens after launch?", a: "The team that set you up stays on: monitoring, updates, support for your staff and changes as you add stores or channels." },
   ],
 };
 

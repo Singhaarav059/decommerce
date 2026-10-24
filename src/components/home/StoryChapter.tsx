@@ -5,7 +5,7 @@ import type { Chapter } from "@/content/home";
 import { sequences } from "@/content/media";
 import { RowList, StepText } from "./StepText";
 
-/** A homepage chapter: one continuous film of a real place, explained in 2–3 text steps. */
+/** A homepage chapter: one continuous film of a real place, explained in two or three text steps. */
 export function StoryChapter({ chapter }: { chapter: Chapter }) {
   const seq = sequences[chapter.seq as keyof typeof sequences];
   return (

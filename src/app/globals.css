@@ -107,7 +107,7 @@ cite {
   }
 }
 
-/* Section labels: a short copper rule, then plain sentence case */
+/* Section labels: a small copper dot, then plain sentence case */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -121,10 +121,15 @@ cite {
 }
 .eyebrow::before {
   content: "";
-  width: 1.25rem;
-  height: 1.5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
   background: var(--copper);
   flex: none;
+}
+/* when a section number leads the label, the number replaces the dot */
+.eyebrow:has(> .tabular)::before {
+  display: none;
 }
 
 .prose-copy p {
@@ -386,5 +391,21 @@ html.lenis body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* a rule that draws itself from left to right while its section scrolls through view */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .line-draw {
+      animation: line-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 60% cover 55%;
+    }
+  }
+}
+@keyframes line-draw {
+  from {
+    transform: scaleX(0);
   }
 }

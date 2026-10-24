@@ -33,6 +33,8 @@ export type NavItem = {
   href: string;
   blurb: string;
   slug?: SolutionSlug;
+  /** Photograph shown when the item is previewed in the menu (solutions use their own scene). */
+  image?: string;
 };
 
 export type NavGroup = { label: string; items: NavItem[] };
@@ -70,13 +72,13 @@ export const solutionGroups: NavGroup[] = [
 export const companyGroup: NavGroup = {
   label: "Company",
   items: [
-    { label: "About us", href: "/about-us", blurb: "Who builds Decommerce" },
-    { label: "Book a demo", href: "/contact-us", blurb: "Talk to the team" },
-    { label: "Security", href: "/security", blurb: "How we protect your data" },
-    { label: "Infrastructure", href: "/infrastructure", blurb: "What runs the platform" },
-    { label: "Partners", href: "/partners", blurb: "Work with Decommerce" },
-    { label: "Glossary", href: "/glossary", blurb: "Commerce terms, explained" },
-    { label: "AI instructions", href: "/ai-instructions", blurb: "How AI agents should read this site" },
+    { label: "About us", href: "/about-us", image: "/assets/company/scene-about-us.webp", blurb: "Who builds Decommerce" },
+    { label: "Book a demo", href: "/contact-us", image: "/assets/company/scene-contact-us.webp", blurb: "Talk to the team" },
+    { label: "Security", href: "/security", image: "/assets/company/scene-security.webp", blurb: "How we protect your data" },
+    { label: "Infrastructure", href: "/infrastructure", image: "/assets/company/scene-infrastructure.webp", blurb: "What runs the platform" },
+    { label: "Partners", href: "/partners", image: "/assets/company/scene-partners.webp", blurb: "Work with Decommerce" },
+    { label: "Glossary", href: "/glossary", image: "/assets/company/scene-office.webp", blurb: "Commerce terms, explained" },
+    { label: "AI instructions", href: "/ai-instructions", image: "/assets/company/scene-office.webp", blurb: "How AI agents should read this site" },
   ],
 };
 
@@ -108,9 +110,25 @@ export const navIntro: Record<string, string> = {
   Company: "The people and principles behind the platform.",
 };
 
+/** Where an item's preview photograph lives. */
+export const navImage = (i: NavItem) => i.image ?? (i.slug ? `/assets/sol/${i.slug}/end.webp` : "/assets/company/scene-office.webp");
+
 export const footerCta = {
   eyebrow: "Book a demo",
   headline: "See it run on your catalog.",
   body: "Tell us what you sell and where. We'll show you a working store with a sample of your own products.",
   primary: { label: "Book a demo", href: "/contact-us" },
+};
+
+/** How every module is rolled out: the service around the software ({x} is the module's name in a sentence). */
+export const rollout = {
+  eyebrow: "How we set it up",
+  headline: "We set it up, connect it and stay with you.",
+  steps: [
+    { title: "Map", body: "We look at how {x} works for you today, who uses it and what it has to connect to." },
+    { title: "Configure", body: "We set up {x} on your catalog, stock and locations, then demo it on your own data." },
+    { title: "Go live", body: "It runs next to what you use today while we train your staff, then you switch over." },
+    { title: "Run", body: "The team that set it up supports it after launch and tunes it with you each season." },
+  ],
+  included: ["Data migration", "Payment, courier and channel connections", "Staff training", "Support after launch"],
 };

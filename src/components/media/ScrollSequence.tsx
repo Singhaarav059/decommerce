@@ -12,7 +12,7 @@ export type Caption = { at: [number, number]; eyebrow?: string; text: string };
 type Listener = (p: number) => void;
 const ProgressContext = createContext<{ subscribe: (l: Listener) => () => void } | null>(null);
 
-/** Subscribe a client child to the sequence's 0–1 scroll progress (no re-renders). */
+/** Subscribe a client child to the sequence's 0 to 1 scroll progress (no re-renders). */
 export function useSequenceProgress(listener: Listener) {
   const ctx = useContext(ProgressContext);
   const ref = useRef(listener);

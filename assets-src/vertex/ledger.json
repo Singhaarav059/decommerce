@@ -1767,7 +1767,102 @@
       "out": "assets-src/vertex/v3-sol-quick-commerce.mp4",
       "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. A delivery rider in an oatmeal jacket walks in from the sunny street through the open roll",
       "filtered": 0
+    },
+    {
+      "at": "2026-10-24T16:09:05.188Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/delivery-end.png",
+      "prompt": "Edit this exact photograph, keep the camera framing, the street, the townhouse, the olive trees, the cream van and its open side door, the light and every mater"
+    },
+    {
+      "at": "2026-10-24T16:12:03.307Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 1.6,
+      "out": "assets-src/vertex/v4-counter.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all, framing stays exactly as in the image. The customer takes a bank card from her coat pocket",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T16:12:13.503Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 1.6,
+      "out": "assets-src/vertex/v4-delivery.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all, framing stays exactly as in the image. A courier in a plain oatmeal jacket steps out from ",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T16:14:24.453Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 1.6,
+      "out": "assets-src/vertex/v4-b2b.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all, framing stays exactly as in the image. The worker grips the pallet jack handle with both h",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T16:14:47.751Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 1.6,
+      "out": "assets-src/vertex/v4-pos.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all, framing stays exactly as in the image. The cashier picks up the small handheld scanner, sc",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T16:16:33.822Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 1.6,
+      "out": "assets-src/vertex/v4-pack.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all, framing stays exactly as in the image. The picker picks up the handheld barcode scanner fr",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T16:23:37.855Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/co/family-demaze.png",
+      "prompt": "A quiet software studio: a long warm oak table with three people working on laptops, seen from the side at mid-distance with faces turned away, travertine walls"
+    },
+    {
+      "at": "2026-10-24T16:23:42.906Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/co/family-decignal.png",
+      "prompt": "A calm research corner: a single person seen from behind at an oak standing desk, looking at a large monitor that shows only soft abstract blurred shapes in san"
+    },
+    {
+      "at": "2026-10-24T16:24:39.668Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/co/family-demaze.png",
+      "prompt": "Edit this exact photograph and keep everything identical, every person, object, colour and the light. Change only the two laptop screens: they now show a plain "
     }
   ],
-  "totalUsd": 53.338
+  "totalUsd": 61.874
 }
