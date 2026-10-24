@@ -1,29 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
 import { brand } from "@/content/site";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { openingHeadScript } from "@/lib/opening";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// One family for everything: headlines, body, labels and figures. No italics.
+const grotesk = Schibsted_Grotesk({
+  variable: "--font-grotesk",
   subsets: ["latin"],
-});
-
-// Mono is for eyebrows and order codes only: keep it off the critical path.
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  preload: false,
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: "variable",
+  style: ["normal"],
 });
 
 export const metadata: Metadata = {
@@ -36,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F5F2ED",
+  themeColor: "#CEC5BD",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -44,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
+      className={`${grotesk.variable} antialiased`}
     >
       <body className="min-h-dvh">
         <Script id="opening-skip" strategy="beforeInteractive">

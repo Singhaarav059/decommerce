@@ -28,7 +28,7 @@ export function AboutExtras({ meta }: { meta: DocMeta }) {
         <section className="border-t border-line">
           <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-20 md:py-28">
             <p className="eyebrow">The family</p>
-            <Headline as="h2" text="Three companies, *one* team." className="mt-3 text-[clamp(2.4rem,5vw,4rem)]" />
+            <Headline as="h2" text="Three companies, one team." className="mt-3 text-[clamp(2.4rem,5vw,4rem)]" />
             <ul className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
               {meta.family.map((f) => {
                 const external = f.href.startsWith("http");

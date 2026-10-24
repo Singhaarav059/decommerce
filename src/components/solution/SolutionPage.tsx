@@ -36,7 +36,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
       <section className="relative z-10 border-t border-line">
         <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-20 md:py-28">
           <p className="eyebrow">Works with</p>
-          <Headline as="h2" text="Same catalog, same stock, *same customer*." className="mt-3 max-w-[18ch] text-[clamp(2.2rem,4.6vw,3.6rem)]" />
+          <Headline as="h2" text="Same catalog, same stock, same customer." className="mt-3 max-w-[18ch] text-[clamp(2.2rem,4.6vw,3.6rem)]" />
           <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {meta.worksWith.map((s) => {
               const other = solutionBySlug(s);
@@ -72,7 +72,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
         <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 px-[var(--gutter)] py-20 md:py-28 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
           <div>
             <p className="eyebrow">Questions</p>
-            <Headline as="h2" text={`${meta.title}, *answered*.`} className="mt-3 text-[clamp(2.2rem,4.6vw,3.6rem)]" />
+            <Headline as="h2" text={`${meta.title}, answered.`} className="mt-3 text-[clamp(2.2rem,4.6vw,3.6rem)]" />
             <div className="mt-8 rounded-[var(--radius-lg)] bg-ink p-7 text-stone-50">
               <p className="display text-3xl">See {meta.title.toLowerCase()} on your catalog.</p>
               <ButtonLink href="/contact-us" variant="secondary" arrow className="mt-6 !text-stone-50 !shadow-[inset_0_0_0_1px_var(--stone-50)] hover:!bg-stone-50 hover:!text-ink">

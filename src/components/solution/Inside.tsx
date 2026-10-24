@@ -33,7 +33,7 @@ export function Inside({ meta }: { meta: SolutionMeta }) {
       <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-10 px-[var(--gutter)] py-20 md:py-28 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
         <div className="order-2 lg:order-1">
           <p className="eyebrow">Anatomy</p>
-          <Headline as="h2" text={`What's *inside*.`} className="mt-3 text-[clamp(2.2rem,4.6vw,3.6rem)]" />
+          <Headline as="h2" text={`What's inside.`} className="mt-3 text-[clamp(2.2rem,4.6vw,3.6rem)]" />
           <ol className="mt-8 space-y-2">
             {meta.anatomy.map((part, i) => {
               const on = focus === part.id;

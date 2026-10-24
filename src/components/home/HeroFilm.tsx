@@ -1,87 +1,73 @@
 "use client";
 
+import { useRef } from "react";
 import { ScrollSequence, useSequenceProgress } from "@/components/media/ScrollSequence";
 import { ButtonLink } from "@/components/ui/Button";
 import { Headline } from "@/components/ui/Headline";
 import { hero } from "@/content/home";
 import { sequences } from "@/content/media";
-import { useRef } from "react";
+import { filmPane, textColumn } from "@/components/layout/split";
 
-/** Fades the hero copy out over the first part of the push-in. */
-function HeroCopy() {
-  const ref = useRef<HTMLDivElement>(null);
+/** Crossfades a text step in the text column between two points of the film. */
+function useStep(ref: React.RefObject<HTMLDivElement | null>, from: number, to: number) {
   useSequenceProgress((p) => {
     const el = ref.current;
     if (!el) return;
-    const fade = Math.min(1, Math.max(0, (p - 0.08) / 0.22));
-    el.style.opacity = String(1 - fade);
-    el.style.transform = `translateY(${(-fade * 24).toFixed(1)}px)`;
-    el.style.pointerEvents = fade > 0.6 ? "none" : "";
+    const fadeIn = from <= 0 ? 1 : Math.min(1, Math.max(0, (p - from) / 0.06));
+    const fadeOut = to >= 1 ? 1 : Math.min(1, Math.max(0, (to - p) / 0.06));
+    const o = Math.min(fadeIn, fadeOut);
+    el.style.opacity = String(o);
+    el.style.transform = `translateY(${((1 - o) * 10).toFixed(1)}px)`;
+    el.style.visibility = o < 0.02 ? "hidden" : "visible";
   });
+}
+
+function Pitch() {
+  const ref = useRef<HTMLDivElement>(null);
+  useStep(ref, 0, 0.62);
   return (
-    <div
-      ref={ref}
-      className="absolute inset-x-0 top-[calc(var(--header-h)+3svh)] z-10 mx-auto max-w-[var(--max-w)] px-[var(--gutter)] will-change-transform md:top-1/2 md:-translate-y-1/2 lg:pl-[calc(var(--gutter)+150px)]"
-    >
-      <div className="md:max-w-[520px] md:rounded-[var(--radius-lg)] md:bg-stone-50 md:p-9">
-        {/* on phones the copy sits on the film backdrop, not the stone card: use the darker ink */}
-        <p className="eyebrow max-md:!text-ink-soft">{hero.eyebrow}</p>
-        <Headline text={hero.headline} className="mt-4 max-w-[11ch] text-[clamp(2.9rem,7vw,6.2rem)]" />
-        <p className="mt-5 max-w-[38ch] text-[1.05rem] leading-relaxed text-ink-soft md:text-lg">{hero.body}</p>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <ButtonLink href={hero.primary.href} arrow>
-            {hero.primary.label}
-          </ButtonLink>
-          <ButtonLink href={hero.secondary.href} variant="secondary">
-            {hero.secondary.label}
-          </ButtonLink>
-        </div>
+    <div ref={ref} className="col-start-1 row-start-1">
+      <p className="eyebrow">{hero.eyebrow}</p>
+      <Headline text={hero.headline} className="mt-4 text-[clamp(2.4rem,5.2vw,5.6rem)]" />
+      <p className="mt-5 max-w-[38ch] text-ink-2">{hero.body}</p>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <ButtonLink href={hero.primary.href} arrow>
+          {hero.primary.label}
+        </ButtonLink>
+        <ButtonLink href={hero.secondary.href} variant="secondary">
+          {hero.secondary.label}
+        </ButtonLink>
       </div>
     </div>
   );
 }
 
-/** Shows once the camera is inside the store. */
 function Arrival() {
   const ref = useRef<HTMLDivElement>(null);
-  useSequenceProgress((p) => {
-    const el = ref.current;
-    if (!el) return;
-    const show = Math.min(1, Math.max(0, (p - 0.72) / 0.14));
-    el.style.opacity = String(show);
-    el.style.transform = `translateY(${((1 - show) * 16).toFixed(1)}px)`;
-  });
+  useStep(ref, 0.68, 1);
   return (
-    <div
-      ref={ref}
-      aria-hidden
-      className="absolute inset-x-0 top-[calc(var(--header-h)+3svh)] z-10 mx-auto max-w-[var(--max-w)] px-[var(--gutter)] opacity-0 md:top-auto md:bottom-[8svh] lg:pl-[calc(var(--gutter)+150px)]"
-    >
-      <p className="inline-block max-w-sm rounded-[var(--radius-md)] bg-stone-50 p-5 text-lg leading-snug">{hero.arrival}</p>
+    <div ref={ref} aria-hidden className="invisible col-start-1 row-start-1 opacity-0">
+      <p className="eyebrow">Inside the store</p>
+      <p className="display mt-4 text-[clamp(2rem,3.4vw,3.6rem)]">{hero.arrival}</p>
     </div>
   );
 }
 
 /**
  * Homepage chapter 1: a photoreal push-in from the miniature store into its
- * counter, scrubbed by scroll (Veo footage → frames). Phones get the same
- * film in a 4:3 band under the headline, on the footage's own backdrop colour.
+ * counter, scrubbed by scroll (Veo footage → frames). The film has its own
+ * pane; the text column steps beside it (below it on phones). Nothing overlaps.
  */
 export function HeroFilm() {
   return (
     <div id="ch-store" className="relative">
-      <ScrollSequence
-        {...sequences.hero}
-        length={2.4}
-        stillFrame={0}
-        priority
-        defer
-        alt={hero.posterAlt}
-        bg={sequences.hero.bg}
-        frameClassName="absolute inset-x-0 bottom-[6svh] aspect-[4/3] [mask-image:linear-gradient(to_bottom,transparent,#000_14%,#000_86%,transparent)] md:inset-0 md:aspect-auto md:[mask-image:none]"
-      >
-        <HeroCopy />
-        <Arrival />
+      <ScrollSequence {...sequences.hero} length={2.6} stillFrame={0} priority defer alt={hero.posterAlt} frameClassName={filmPane("16:9")}>
+        <div className={textColumn("16:9")}>
+          <div className="grid">
+            <Pitch />
+            <Arrival />
+          </div>
+        </div>
       </ScrollSequence>
     </div>
   );

@@ -13,28 +13,43 @@
   --color-olive: var(--olive);
   --color-steel: var(--steel);
   --color-line: var(--line);
-  --font-sans: var(--font-geist-sans);
-  --font-serif: var(--font-instrument-serif);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-grotesk);
+  --font-serif: var(--font-grotesk);
+  --font-mono: var(--font-grotesk);
+  --color-studio: var(--studio);
+  --color-studio-light: var(--studio-light);
+  --color-ink-2: var(--ink-2);
 }
 
 html {
-  background: var(--stone-50);
+  background: var(--studio);
   color: var(--ink);
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--stone-50);
+  background: var(--studio);
   color: var(--ink);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv11";
+  font-family: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
   overflow-x: clip;
 }
 
+/* no italics anywhere, including emphasis in content */
+em,
+i,
+cite {
+  font-style: normal;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
 ::selection {
-  background: var(--copper);
-  color: var(--stone-50);
+  background: var(--ink);
+  color: var(--studio);
 }
 
 :focus-visible {
@@ -43,25 +58,23 @@ body {
   border-radius: 4px;
 }
 
-/* Headline pattern: plain words + one italic accent word */
+/* Headlines: one grotesk, medium weight, tight, sentence case */
 .display {
-  font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 0.98;
+  font-family: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
   text-wrap: balance;
 }
-.display em {
-  font-style: italic;
-  color: var(--copper-ink);
-}
 
+/* Section labels: plain sentence case, no tracking, no monospace */
 .eyebrow {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-2);
 }
 
 .prose-copy p {
@@ -69,16 +82,9 @@ body {
   max-width: 62ch;
 }
 
-/* Terrazzo texture for light pages (no WebGL) */
+/* Raised flat surface (was a terrazzo texture) */
 .terrazzo {
-  background-color: var(--travertine);
-  background-image:
-    radial-gradient(circle at 12% 18%, var(--terrazzo-chip) 0 2px, transparent 3px),
-    radial-gradient(circle at 63% 41%, var(--steel) 0 1.5px, transparent 2.5px),
-    radial-gradient(circle at 38% 77%, var(--terrazzo-chip) 0 2.5px, transparent 3.5px),
-    radial-gradient(circle at 86% 83%, var(--olive) 0 1px, transparent 2px),
-    radial-gradient(circle at 79% 12%, var(--copper) 0 1px, transparent 2px);
-  background-size: 140px 140px, 90px 90px, 170px 170px, 110px 110px, 200px 200px;
+  background-color: var(--studio-light);
 }
 
 /* Reveal */

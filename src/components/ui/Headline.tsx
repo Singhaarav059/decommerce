@@ -1,6 +1,6 @@
 import type { ElementType } from "react";
 
-/** Renders "plain words *accent* words" with the accent in serif italic. */
+/** Section headline: one grotesk, sentence case, no italic accent words. */
 export function Headline({
   text,
   as: Tag = "h1",
@@ -10,12 +10,5 @@ export function Headline({
   as?: ElementType;
   className?: string;
 }) {
-  const parts = text.split(/(\*[^*]+\*)/g).filter(Boolean);
-  return (
-    <Tag className={`display ${className}`}>
-      {parts.map((part, i) =>
-        part.startsWith("*") && part.endsWith("*") ? <em key={i}>{part.slice(1, -1)}</em> : part,
-      )}
-    </Tag>
-  );
+  return <Tag className={`display ${className}`}>{text.replace(/\*/g, "")}</Tag>;
 }

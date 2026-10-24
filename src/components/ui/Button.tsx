@@ -4,14 +4,14 @@ import type { ComponentProps, ReactNode } from "react";
 type Variant = "primary" | "secondary" | "ghost";
 
 const base =
-  "group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 h-11 text-[0.92rem] font-medium tracking-tight " +
+  "group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-md)] px-5 h-12 text-[0.95rem] font-semibold " +
   "transition-[background-color,color,transform,box-shadow] duration-200 ease-[var(--ease-out)] active:scale-[0.97] " +
   "disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-ink text-stone-50 hover:bg-copper",
-  secondary: "bg-transparent text-ink shadow-[inset_0_0_0_1px_var(--ink)] hover:bg-ink hover:text-stone-50",
-  ghost: "bg-transparent text-ink hover:text-copper-ink px-2",
+  primary: "bg-ink text-studio hover:bg-[#2e2a24]",
+  secondary: "bg-transparent text-ink shadow-[inset_0_0_0_1.5px_var(--ink)] hover:bg-ink hover:text-studio",
+  ghost: "bg-transparent text-ink underline-offset-4 hover:underline px-0",
 };
 
 export function buttonClass(variant: Variant = "primary", extra = "") {

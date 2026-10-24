@@ -56,12 +56,12 @@ export default function LabPage() {
         className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] pt-[calc(var(--header-h)+48px)] pb-24 lg:pl-[calc(var(--gutter)+170px)]"
       >
         <ChapterRail chapters={chapters} />
-        <Headline text="Component *lab*." className="text-[clamp(3rem,9vw,7rem)]" />
+        <Headline text="Component lab." className="text-[clamp(3rem,9vw,7rem)]" />
 
         <Section id="lab-type" title="01 · Type, colour, buttons">
           <Reveal className="grid gap-10 lg:grid-cols-2">
             <div data-reveal-item>
-              <Headline as="h2" text="One catalog, one stock count, *everywhere*." className="text-5xl md:text-6xl" />
+              <Headline as="h2" text="One catalog, one stock count, everywhere." className="text-5xl md:text-6xl" />
               <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-ink-soft">
                 Body copy in Geist. Headlines in Instrument Serif with one italic accent word. Copper is the only accent.
               </p>

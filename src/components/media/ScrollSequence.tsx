@@ -237,7 +237,7 @@ export function ScrollSequence({
   return (
     <ProgressContext.Provider value={ctxValue}>
       <section ref={section} className={`relative ${className}`} style={{ height: `${length * 100}svh` }} aria-label={alt}>
-        <div className="sticky top-0 h-[100svh] overflow-hidden" style={bg ? { background: bg } : undefined}>
+        <div className="sticky top-0 h-[100svh] overflow-hidden" style={{ background: bg ?? "var(--studio)" }}>
           <div className={`overflow-hidden ${frameClassName}`}>
             {keyImg}
             <canvas ref={canvas} aria-hidden className="absolute inset-0 size-full opacity-0" />

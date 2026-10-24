@@ -30,7 +30,7 @@ export const opening = { label: "Opening", skip: "Skip" };
 
 export const hero = {
   eyebrow: "Unified commerce",
-  headline: "One system behind *every sale*.",
+  headline: "One system behind every sale.",
   body: "Website, store, warehouse and marketplaces, run from one catalog, one stock count and one customer record.",
   primary: { label: "Book a demo", href: "/contact-us" },
   secondary: { label: "See it work", href: "#ch-islands" },
@@ -39,8 +39,8 @@ export const hero = {
 };
 
 export const islands = {
-  eyebrow: "02 · The problem",
-  headline: "Four systems, four *answers*.",
+  eyebrow: "The problem",
+  headline: "Four systems, four answers.",
   body: "Your website says 4. Your store sold the last one an hour ago.",
   zones: [
     { id: "web", name: "Website", stock: 4 },
@@ -53,15 +53,15 @@ export const islands = {
 };
 
 export const unify = {
-  eyebrow: "03 · The fix",
-  headline: "One catalog, one stock count, *everywhere*.",
+  eyebrow: "The fix",
+  headline: "One catalog, one stock count, everywhere.",
   body: "Every channel reads the same number at the same moment. Sell it in the store and the website knows before the next visitor loads the page.",
   stock: 5,
 };
 
 export const storefront = {
-  eyebrow: "04 · Storefront",
-  headline: "A store website that *builds itself* from your catalog.",
+  eyebrow: "Storefront",
+  headline: "A store website that builds itself from your catalog.",
   body: "Pick a look from the rail. Products, prices and stock come straight from the same catalog your stores use.",
   rackHint: "Drag the rail or use the arrows. Tap a hanger to try it on.",
   links: [
@@ -71,8 +71,8 @@ export const storefront = {
 };
 
 export const orderLands = {
-  eyebrow: "05 · The order",
-  headline: `${order.id} finds the *nearest* shelf.`,
+  eyebrow: "The order",
+  headline: `${order.id} finds the nearest shelf.`,
   body: `A ${order.item.toLowerCase()} in size ${order.size}, ordered online. Order management checks three locations and routes it to the store ${order.distance} away, because it has the item and the shortest trip.`,
   locations: [
     { id: "wh", name: "Central warehouse", detail: "In stock · 18 km", chosen: false },
@@ -87,15 +87,15 @@ export const orderLands = {
 };
 
 export const pack = {
-  eyebrow: "06 · Pick and pack",
-  headline: "Bins light up in *pick order*.",
+  eyebrow: "Pick and pack",
+  headline: "Bins light up in pick order.",
   body: "The picker scans the overshirt, the label prints itself and the box rolls onto the conveyor. No searching aisles.",
   steps: ["Bin B-14 lights up", "Scan LIN-OVR-M-SND", "Label prints", "Box onto the conveyor"],
   links: [{ label: "Warehouse management", href: "/wms" }],
 };
 
 export const delivery = {
-  eyebrow: "07 · Out for delivery",
+  eyebrow: "Out for delivery",
   captions: [
     { at: [0.04, 0.3] as [number, number], eyebrow: "Dispatch", text: "The box leaves the store on the first van out." },
     { at: [0.36, 0.66] as [number, number], eyebrow: "On the road", text: "The route is planned around every other stop on the van." },
@@ -109,8 +109,8 @@ export const delivery = {
 };
 
 export const inStore = {
-  eyebrow: "08 · In the store, too",
-  headline: "The same system at the *counter*.",
+  eyebrow: "In the store, too",
+  headline: "The same system at the counter.",
   panels: [
     { id: "pos", scene: "pos", title: "Point of sale", body: "Tap to pay, receipt prints, stock updates everywhere.", href: "/pos" },
     { id: "aisle", scene: "aisle", title: "Endless aisle", body: "Out of a size? The shelf goes on: order it from another location to the customer's home.", href: "/endless-aisle" },
@@ -120,8 +120,8 @@ export const inStore = {
 };
 
 export const proof = {
-  eyebrow: "09 · Who builds it",
-  headline: "Built by the team behind *Demaze*.",
+  eyebrow: "Who builds it",
+  headline: "Built by the team behind Demaze.",
   body: "Decommerce comes from Demaze Technologies, the team that also builds Decignal. These are Demaze's own numbers.",
   stats: [
     { value: 45, suffix: "+", label: "Projects delivered" },
@@ -137,7 +137,7 @@ export const proof = {
 };
 
 export const close = {
-  eyebrow: "10 · Book a demo",
-  headline: "See it run on *your* catalog.",
+  eyebrow: "Book a demo",
+  headline: "See it run on your catalog.",
   body: "Tell us what you sell and where. We'll show you a working store with a sample of your own products.",
 };

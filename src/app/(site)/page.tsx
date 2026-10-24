@@ -1,4 +1,4 @@
-import { ChapterRail } from "@/components/ui/ChapterRail";
+import { StoryProgress } from "@/components/layout/StoryProgress";
 import { HeroFilm } from "@/components/home/HeroFilm";
 import { WorldChapter } from "@/components/home/WorldChapter";
 import { StorefrontChapter } from "@/components/home/StorefrontChapter";
@@ -9,13 +9,12 @@ import { InStoreChapter } from "@/components/home/InStoreChapter";
 import { ProofChapter } from "@/components/home/ProofChapter";
 import { CloseChapter } from "@/components/home/CloseChapter";
 import { Opening } from "@/components/home/Opening";
-import { chapters } from "@/content/home";
 
 export default function HomePage() {
   return (
     <main id="main">
       <Opening />
-      <ChapterRail chapters={[...chapters]} />
+      <StoryProgress />
       <HeroFilm />
       <WorldChapter />
       <StorefrontChapter />
