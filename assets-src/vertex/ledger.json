@@ -1164,7 +1164,610 @@
       "out": "assets-src/vertex/v3-order.mp4",
       "prompt": "Static locked-off camera on a tripod, the framing never changes. Late afternoon slowly turns to early evening: the sunlight on the wall and pavement fades and t",
       "filtered": 0
+    },
+    {
+      "at": "2026-10-24T07:13:22.261Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/storefront.png",
+      "prompt": "The boutique's back-office studio: in the right part, a warm oak desk with a large slim monitor seen at a three-quarter angle. The monitor shows an online shop "
+    },
+    {
+      "at": "2026-10-24T07:13:40.670Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/brand-showcase.png",
+      "prompt": "The boutique floor: in the right part, three headless tailor's dress forms on oak stands in a row on a low travertine plinth, each styled in a complete outfit: "
+    },
+    {
+      "at": "2026-10-24T07:14:49.609Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/b2b.png",
+      "prompt": "A bright wholesale stockroom: in the right part, two wooden pallets stacked with kraft cardboard boxes wrapped in clear stretch film; the front pallet sits on a"
+    },
+    {
+      "at": "2026-10-24T07:21:39.272Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/oms.png",
+      "prompt": "The boutique's stockroom: in the right part, warm oak shelves with neat stacks of folded linen overshirts in sand, oat and rust, and a small oak counter in fron"
+    },
+    {
+      "at": "2026-10-24T07:27:03.610Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/wms.png",
+      "prompt": "A warehouse aisle seen from the side: in the right part, tall brushed steel shelving holding rows of identical pale grey plastic bins, a small warm amber light "
+    },
+    {
+      "at": "2026-10-24T07:30:06.633Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/clienteling.png",
+      "prompt": "Inside the boutique by a bronze clothing rail of linen and wool garments on wooden hangers, including one rust knit polo: a store associate in an oatmeal linen "
+    },
+    {
+      "at": "2026-10-24T07:30:30.027Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/endless-aisle.png",
+      "prompt": "Inside the boutique: in the right part, warm oak shelves of folded linen shirts in neat stacks of sand, oat, rust and charcoal, with one obvious empty gap in th"
+    },
+    {
+      "at": "2026-10-24T07:31:21.129Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/self-checkout.png",
+      "prompt": "Inside the boutique: in the right part, a slim travertine self-checkout kiosk with a dark angled screen showing a product photograph, a small glass scanner wind"
+    },
+    {
+      "at": "2026-10-24T07:33:25.850Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/pos.png",
+      "prompt": "A closer view of the boutique's curved copper and travertine counter: in the right part, a slim till screen on a stand facing the cashier, a card terminal, a sm"
+    },
+    {
+      "at": "2026-10-24T07:34:06.049Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "/tmp/x.png",
+      "prompt": "A closer view of the boutique's curved copper and travertine counter: in the right part, a slim till screen on a stand facing the cashier, a card terminal, a sm"
+    },
+    {
+      "at": "2026-10-24T07:36:02.520Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/tms.png",
+      "prompt": "A loading bay behind the boutique at golden hour: in the right part, one small cream delivery van parked with both rear doors open, a steel trolley beside it wi"
+    },
+    {
+      "at": "2026-10-24T07:36:12.707Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/marketplace.png",
+      "prompt": "A small product photography corner at the back of the boutique: in the right part, a pale seamless paper sweep on an oak table with one neatly folded sand linen"
+    },
+    {
+      "at": "2026-10-24T07:37:10.475Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/quick-commerce.png",
+      "prompt": "A small, bright delivery-only grocery stockroom: in the right part, tall brushed steel shelves of neatly arranged groceries, a stainless dispatch counter with o"
+    },
+    {
+      "at": "2026-10-24T07:38:10.417Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/endless-aisle.png",
+      "prompt": "Edit this exact photograph. Keep exactly the same framing, camera, light, people and every other object. Only this changes: on the oak shelf, remove the whole s"
+    },
+    {
+      "at": "2026-10-24T07:39:18.083Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/b2b-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:39:37.731Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/storefront-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:40:11.715Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/quick-commerce-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:41:23.943Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/wms-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:42:14.968Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/tms-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:43:20.847Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/pos-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:44:28.511Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/clienteling-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:45:14.748Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/endless-aisle-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:46:11.327Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/self-checkout-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:47:36.504Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/brand-showcase-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:49:20.089Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/oms-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this"
+    },
+    {
+      "at": "2026-10-24T07:50:04.621Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/b2b-detail.png",
+      "prompt": "A close view of the slim oak standing desk: a tablet showing a grid of product photographs of folded linen shirts on a pale background, a handheld barcode scann"
+    },
+    {
+      "at": "2026-10-24T07:50:48.573Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/brand-showcase-detail.png",
+      "prompt": "A close view of the oak display table: folded pieces from the outfits arranged as a styled group, a sand linen overshirt, a cream knit, a rust knit polo and a c"
+    },
+    {
+      "at": "2026-10-24T07:52:02.451Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/quick-commerce-detail.png",
+      "prompt": "A close view of the stainless dispatch counter: a filled kraft paper delivery bag with fresh groceries showing at the top and a handheld scanner beside it, stee"
+    },
+    {
+      "at": "2026-10-24T07:52:28.442Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/storefront-detail.png",
+      "prompt": "A close view of the oak desk: the slim monitor shows a full grid of product photographs of linen and wool garments on a pale background, a hand rests on a mouse"
+    },
+    {
+      "at": "2026-10-24T07:55:06.597Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/wms-detail.png",
+      "prompt": "A close view of a steel shelf: the front of a pale grey bin with a small glowing warm amber light, and a hand holding a handheld barcode scanner to a folded lin"
+    },
+    {
+      "at": "2026-10-24T07:57:16.667Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/b2b-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light and every other object. Only this changes: the righ"
+    },
+    {
+      "at": "2026-10-24T07:57:22.427Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/wms-end.png",
+      "prompt": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light and every other object. Only this changes: the smal"
+    },
+    {
+      "at": "2026-10-24T07:57:36.251Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/tms-detail.png",
+      "prompt": "A close view into the open rear of the cream delivery van: kraft cardboard boxes stacked in a neat row in warm golden light. Close-up 16:9 photograph, 50mm lens"
+    },
+    {
+      "at": "2026-10-24T07:57:54.678Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/marketplace-detail.png",
+      "prompt": "A close view of the camera's rear screen on the tripod showing a clean photograph of the folded sand linen overshirt, with the real shirt on the pale paper swee"
+    },
+    {
+      "at": "2026-10-24T07:58:18.946Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/pos-detail.png",
+      "prompt": "A close view of the card terminal on the copper counter: a customer's hand holds a phone against it, with a short plain paper receipt and a cream paper bag besi"
+    },
+    {
+      "at": "2026-10-24T07:59:24.572Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/oms-detail.png",
+      "prompt": "A close view of the oak counter: a small white receipt printer with a short plain paper slip coming out of it, beside an open cream paper bag holding a folded s"
+    },
+    {
+      "at": "2026-10-24T08:04:41.650Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-storefront.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. On the monitor the four empty tiles fill in one after another with product photographs of ",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:07:39.536Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/co/partners.png",
+      "prompt": "The boutique's back-office studio: a long oak worktable with fabric swatches in linen and wool, a closed laptop, a tape measure and a small stack of kraft boxes"
+    },
+    {
+      "at": "2026-10-24T08:08:21.717Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-brand-showcase.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The stylist drapes the folded charcoal scarf around the neck of the third dress form, smoo",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:08:43.175Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/self-checkout-detail.png",
+      "prompt": "A close view of the kiosk's glass scanner window glowing faint copper, with a hand holding a folded oat linen shirt over it and a cream paper bag beside. Close-"
+    },
+    {
+      "at": "2026-10-24T08:08:57.029Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/co/about-us.png",
+      "prompt": "Inside the boutique before opening: three members of the store team in oatmeal linen shirts and aprons stand together talking beside the curved copper and trave"
+    },
+    {
+      "at": "2026-10-24T08:10:39.075Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/co/office.png",
+      "prompt": "The boutique's back office: an oak desk with a neat stack of printed paper documents whose lines are blurred and unreadable, a fountain pen, a ceramic cup, an o"
+    },
+    {
+      "at": "2026-10-24T08:21:34.015Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-pos.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The cashier scans the folded rust knit with the small handheld scanner and puts it in the ",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:22:42.349Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/co/infrastructure.png",
+      "prompt": "The boutique's back room: a slim brushed steel server cabinet with a glass door, small green status lights glowing on the equipment inside, neat cables, standin"
+    },
+    {
+      "at": "2026-10-24T08:26:03.926Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-endless-aisle.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The customer points at the empty gap on the shelf. The associate taps the tablet a few tim",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:27:42.123Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-self-checkout.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The shopper holds the shirt over the glass scanner window, taps their phone on the card re",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:28:58.852Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/co/security.png",
+      "prompt": "The boutique's stockroom entrance: a solid brushed steel door with a small keypad lock set into a travertine wall, an oak bench beside it, an olive tree in a st"
+    },
+    {
+      "at": "2026-10-24T08:30:40.398Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/co/contact-us.png",
+      "prompt": "A quiet corner of the boutique's back office: a round oak table with two linen-upholstered chairs, two ceramic coffee cups and a closed notebook on it, an olive"
+    },
+    {
+      "at": "2026-10-24T08:30:50.651Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-quick-commerce.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The rider walks in through the open roller door to the dispatch counter, picks up the kraf",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:31:06.579Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-b2b.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The worker pulls the front pallet on its pallet jack slowly to the right and out of the ri",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:34:22.471Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-marketplace.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The photographer presses the shutter and the softbox flashes once; they step to the table,",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:34:43.428Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-oms.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. A short plain white paper slip feeds out of the small printer. The associate tears it off,",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:36:44.981Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/quick-commerce.png",
+      "prompt": "Edit this exact photograph. Keep exactly the same framing, camera, light and every object, including the scooter, the delivery box on it and the kraft bag on th"
+    },
+    {
+      "at": "2026-10-24T08:37:18.890Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-wms.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The picker reaches into the bin with the glowing amber light, takes out a folded linen shi",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:37:50.785Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-tms.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The courier lifts the kraft boxes from the trolley one at a time and places them in the ba",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:42:14.911Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-clienteling.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The associate turns the tablet toward the customer, then lifts the rust knit polo on its h",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T08:48:14.331Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/clienteling-detail.png",
+      "prompt": "A close view of hands holding a tablet that shows a grid of four product photographs of one outfit on a pale background, a bronze rail of linen garments softly "
+    },
+    {
+      "at": "2026-10-24T08:48:21.666Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v3/sol/endless-aisle-detail.png",
+      "prompt": "A close view of the oak shelf of neat folded linen shirt stacks with one empty gap in the oat row, and a hand in the foreground holding a tablet that shows a ph"
+    },
+    {
+      "at": "2026-10-24T08:50:26.690Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v3-sol-quick-commerce.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom at all. A delivery rider in an oatmeal jacket walks in from the sunny street through the open roll",
+      "filtered": 0
     }
   ],
-  "totalUsd": 36.774
+  "totalUsd": 53.338
 }

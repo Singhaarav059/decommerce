@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { FULL_PANE, FULL_TEXT } from "@/components/layout/split";
+import { Scene } from "@/components/layout/Scene";
+import { frameUrl, wantsStill } from "@/lib/media";
 import { FilmStep } from "./FilmStep";
 import { ScrollSequence } from "./ScrollSequence";
 
@@ -58,10 +60,27 @@ export function PinnedFilm({
       removeEventListener("resize", fit);
     };
   }, []);
+  // reduced motion / save-data: no pinning; the finished scene with every step listed
+  const [still, setStill] = useState(false);
+  useEffect(() => {
+    if (!wantsStill()) return;
+    const raf = requestAnimationFrame(() => setStill(true));
+    return () => cancelAnimationFrame(raf);
+  }, []);
   const n = steps.length;
   const slices = steps.map((s, i) =>
     s && typeof s === "object" && "node" in s ? s : { from: i === 0 ? 0 : i / n + 0.03, to: i === n - 1 ? 1 : (i + 1) / n - 0.03, node: s as ReactNode },
   );
+  if (still)
+    return (
+      <Scene id={id} src={frameUrl(seq.pattern, seq.count - 1)} floor={floor} label={alt}>
+        <div className={`grid gap-14 ${night ? "tone-night" : ""}`}>
+          {slices.map((s, i) => (
+            <div key={i}>{s.node}</div>
+          ))}
+        </div>
+      </Scene>
+    );
   return (
     <div ref={wrap} id={id} className="relative">
       <ScrollSequence {...seq} length={length} stillFrame={0} priority={priority} defer alt={alt} bg={floor} frameClassName={FULL_PANE}>

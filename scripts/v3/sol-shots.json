@@ -1,0 +1,100 @@
+{
+  "_detail": "Close-up 16:9 photograph, 50mm lens, shallow depth of field. Strict composition: the LEFT 40 percent of the frame is calm, plain and empty ({calm}, softly out of focus) with no objects or people in it, so text can sit there; the subject is in the RIGHT 60 percent. The same calm luxury retail world as the reference: honed travertine, speckled terrazzo, warm oak, brushed copper, linen and wool, warm late-afternoon sun. Photorealistic. No text, letters, numbers, logos, signs or labels anywhere.",
+  "_end": "This is the same photograph a few seconds later. Keep exactly the same framing, camera position, lens, light, every person's clothes and every object. Only this changes: {end}. Photorealistic. No text, letters, numbers or logos.",
+  "storefront": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall in soft sunlight",
+    "still": "The boutique's back-office studio: in the right part, a warm oak desk with a large slim monitor seen at a three-quarter angle. The monitor shows an online shop page laid out as a clean grid of six large tiles on a pale background: the top two tiles show product photographs of folded linen shirts, the other four tiles are still plain empty pale grey. Beside the desk stands a bronze clothing rail with the same linen shirts in sand, oat and rust on wooden hangers. A merchandiser in an oatmeal linen shirt sits at the desk, seen from behind in three-quarter view, one hand on the mouse.",
+    "end": "all six tiles on the monitor now show product photographs of linen and wool garments; none are empty",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. On the monitor the four empty tiles fill in one after another with product photographs of linen and wool garments, as if loading. The merchandiser stays seated and moves the mouse slightly. The rail and every other object stay exactly in place.",
+    "detail": "A close view of the oak desk: the slim monitor shows a full grid of product photographs of linen and wool garments on a pale background, a hand rests on a mouse, and a folded sand linen shirt lies beside the keyboard."
+  },
+  "brand-showcase": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall in soft sunlight",
+    "still": "The boutique floor: in the right part, three headless tailor's dress forms on oak stands in a row on a low travertine plinth, each styled in a complete outfit: the first in a sand linen overshirt over oat trousers, the second in a camel wool coat over a cream knit, the third in a rust knit polo with charcoal trousers. In front of them a low oak display table with neatly folded pieces from the same outfits. A stylist in an oatmeal linen apron stands beside the third dress form in three-quarter view at mid-distance, face turned away, holding a folded charcoal scarf.",
+    "end": "the charcoal scarf now hangs loosely around the neck of the third dress form, and the stylist's hands are empty, lowered at their sides",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The stylist drapes the folded charcoal scarf around the neck of the third dress form, smooths it once, and lowers their hands to look at the three outfits. Calm, natural movements; the dress forms, plinth and table stay exactly in place.",
+    "detail": "A close view of the oak display table: folded pieces from the outfits arranged as a styled group, a sand linen overshirt, a cream knit, a rust knit polo and a charcoal scarf, with the hem of a camel wool coat on a dress form just visible behind."
+  },
+  "b2b": {
+    "ref": "assets-src/refs/ref-packing.png",
+    "calm": "a plain warm-white painted warehouse wall in soft sunlight",
+    "still": "A bright wholesale stockroom: in the right part, two wooden pallets stacked with kraft cardboard boxes wrapped in clear stretch film; the front pallet sits on a manual pallet jack. Steel shelving with more kraft boxes behind, and a slim oak standing desk with a tablet on it. A warehouse worker in an oatmeal work jacket stands beside the front pallet holding the pallet jack's handle, seen in three-quarter view at mid-distance, face turned away.",
+    "end": "the front pallet, its pallet jack and the worker are gone from the picture; the floor where the front pallet stood is empty, the back pallet stays",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The worker pulls the front pallet on its pallet jack slowly to the right and out of the right side of the frame. The back pallet, the shelves and the desk stay exactly in place; nothing moves into the left part of the frame.",
+    "detail": "A close view of the slim oak standing desk: a tablet showing a grid of product photographs of folded linen shirts on a pale background, a handheld barcode scanner beside it, and a film-wrapped pallet of kraft boxes softly out of focus behind."
+  },
+  "quick-commerce": {
+    "ref": "assets-src/refs/ref-packing.png",
+    "calm": "a plain warm-white painted wall in soft daylight",
+    "still": "A small, bright delivery-only grocery stockroom: in the right part, tall brushed steel shelves of neatly arranged groceries, a stainless dispatch counter with one filled kraft paper delivery bag on it, and beyond it a wide open roller door to a sunny street where a delivery rider in an oatmeal jacket stands beside a small copper-coloured electric scooter with a delivery box on the back.",
+    "end": "the kraft paper bag is no longer on the dispatch counter; the counter is empty; the rider stands beside the scooter as before",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. A delivery rider in an oatmeal jacket walks in from the sunny street through the open roller door to the dispatch counter, picks up the kraft bag by its handles, walks back out and stops beside the scooter, putting the bag in its delivery box. There is only one rider. The shelves and the scooter stay exactly in place.",
+    "detail": "A close view of the stainless dispatch counter: a filled kraft paper delivery bag with fresh groceries showing at the top and a handheld scanner beside it, steel shelves of neat groceries softly out of focus behind."
+  },
+  "marketplace": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain warm-white wall in soft daylight",
+    "still": "A small product photography corner at the back of the boutique: in the right part, a pale seamless paper sweep on an oak table with one neatly folded sand linen overshirt on it, a large softbox light on a stand, and a camera on a tripod facing the shirt. A photographer in an oatmeal linen shirt stands behind the camera, seen from the side at mid-distance, looking at the camera's screen.",
+    "end": "same",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The photographer presses the shutter and the softbox flashes once; they step to the table, straighten the shirt's collar, and step back behind the camera to the same place. Every object stays exactly in place.",
+    "detail": "A close view of the camera's rear screen on the tripod showing a clean photograph of the folded sand linen overshirt, with the real shirt on the pale paper sweep softly out of focus behind."
+  },
+  "oms": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall in soft sunlight",
+    "still": "The boutique's stockroom: in the right part, warm oak shelves with neat stacks of folded linen overshirts in sand, oat and rust, and a small oak counter in front with a compact white receipt printer and an open cream paper bag. A store associate in an oatmeal linen apron stands at the counter in three-quarter view at mid-distance, face turned away.",
+    "end": "a folded sand linen overshirt now sits inside the open cream paper bag, with the corner of a plain white paper slip beside it",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. A short plain white paper slip feeds out of the small printer. The associate tears it off, glances at it, turns to the shelf, takes one folded sand overshirt from the top of a stack and places it with the slip in the cream paper bag. Calm, natural movements; the shelves stay exactly in place.",
+    "detail": "A close view of the oak counter: a small white receipt printer with a short plain paper slip coming out of it, beside an open cream paper bag holding a folded sand linen overshirt, oak shelves of folded shirts softly out of focus behind."
+  },
+  "wms": {
+    "ref": "assets-src/refs/ref-packing.png",
+    "calm": "a plain warm-white painted warehouse wall in soft sunlight",
+    "still": "A warehouse aisle seen from the side: in the right part, tall brushed steel shelving holding rows of identical pale grey plastic bins, a small warm amber light glowing on the front of one bin at chest height, all other bin lights dark. A picker in an oatmeal work jacket stands right beside that bin holding a handheld barcode scanner, in three-quarter view, face turned away.",
+    "end": "the amber light on the bin is now dark like all the others, and the picker holds a folded linen shirt in one hand and the scanner in the other",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The picker reaches into the bin with the glowing amber light, takes out a folded linen shirt and scans it with the handheld scanner; the amber light on that bin goes dark. The shelving and bins stay exactly in place.",
+    "detail": "A close view of a steel shelf: the front of a pale grey bin with a small glowing warm amber light, and a hand holding a handheld barcode scanner to a folded linen shirt in front of it."
+  },
+  "tms": {
+    "ref": "assets-src/refs/ref-diorama.png",
+    "calm": "a plain sunlit pale stone wall",
+    "still": "A loading bay behind the boutique at golden hour: in the right part, one small cream delivery van parked with both rear doors open, a steel trolley beside it with four kraft cardboard boxes stacked on it, and a courier in an oatmeal jacket standing at the trolley in three-quarter view, face turned away. Pale stone walls and a terrazzo ground.",
+    "end": "the steel trolley is now empty and the four kraft boxes stand in a neat row inside the back of the van",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The courier lifts the kraft boxes from the trolley one at a time and places them in the back of the van in a neat row. The van does not move; there is only one van; the walls do not change.",
+    "detail": "A close view into the open rear of the cream delivery van: kraft cardboard boxes stacked in a neat row in warm golden light."
+  },
+  "pos": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall with soft olive-leaf shadows",
+    "still": "A closer view of the boutique's curved copper and travertine counter: in the right part, a slim till screen on a stand facing the cashier, a card terminal, a small receipt printer, a small handheld scanner, an open cream paper bag and a folded rust knit on the counter. A cashier in an oatmeal linen shirt stands behind the counter in three-quarter view, face lowered to the till; a customer in a camel wool coat stands in front of the counter, seen from the side.",
+    "end": "the rust knit is now inside the cream paper bag and a short plain white paper receipt sticks out of the printer",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The cashier scans the folded rust knit with the small handheld scanner and puts it in the cream paper bag. The customer holds a phone to the card terminal and taps it, keeping the phone in hand. A short plain receipt feeds out of the printer. Calm, natural movements.",
+    "detail": "A close view of the card terminal on the copper counter: a customer's hand holds a phone against it, with a short plain paper receipt and a cream paper bag beside it."
+  },
+  "clienteling": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall in soft sunlight",
+    "still": "Inside the boutique by a bronze clothing rail of linen and wool garments on wooden hangers, including one rust knit polo: a store associate in an oatmeal linen shirt holds a tablet and stands beside a customer in a camel wool coat, both in three-quarter view at mid-distance, faces turned slightly away, looking at the tablet together.",
+    "end": "the associate now holds the rust knit polo on its hanger up in front of the customer with one hand, the tablet in the other; that hanger's place on the rail is empty",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The associate turns the tablet toward the customer, then lifts the rust knit polo on its hanger from the rail and holds it up in front of the customer; the customer nods. Calm, natural movements; the rail and the other garments stay in place.",
+    "detail": "A close view of hands holding a tablet that shows a grid of four product photographs of one outfit on a pale background, a bronze rail of linen garments softly out of focus behind."
+  },
+  "endless-aisle": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall in soft sunlight",
+    "still": "Inside the boutique: in the right part, warm oak shelves of folded linen shirts in neat stacks of sand, oat, rust and charcoal, with one obvious empty gap in the middle of the oat row. A store associate holding a tablet and a customer in a camel wool coat stand in front of the shelf at mid-distance, in three-quarter view, faces turned away.",
+    "end": "the associate holds the tablet turned toward the customer; the gap on the shelf is still empty",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The customer points at the empty gap on the shelf. The associate taps the tablet a few times and turns it so the customer can see it; the customer nods. The gap on the shelf stays empty and the shelves stay exactly in place.",
+    "detail": "A close view of the oak shelf of neat folded linen shirt stacks with one empty gap in the oat row, and a hand in the foreground holding a tablet that shows a photograph of a folded oat shirt."
+  },
+  "self-checkout": {
+    "ref": "assets-src/refs/ref-counter.png",
+    "calm": "a plain honed travertine wall in soft sunlight",
+    "still": "Inside the boutique: in the right part, a slim travertine self-checkout kiosk with a dark angled screen showing a product photograph, a small glass scanner window and a card reader, and an open cream paper bag on its side shelf. A shopper in a camel wool coat stands at the kiosk holding a folded oat linen shirt, in three-quarter view, face turned away.",
+    "end": "the shopper and the paper bag are gone; the kiosk stands alone",
+    "move": "Locked-off tripod shot: the camera does not move, pan or zoom at all. The shopper holds the shirt over the glass scanner window, taps their phone on the card reader keeping the phone in hand, puts the shirt in the cream paper bag, picks the bag up by its handles and walks out of the right side of the frame. The kiosk stays exactly in place.",
+    "detail": "A close view of the kiosk's glass scanner window glowing faint copper, with a hand holding a folded oat linen shirt over it and a cream paper bag beside."
+  }
+}

@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: meta.title, description: meta.descrip
 
 export default function Page() {
   return (
-    <DocPage meta={meta}>
+    <DocPage meta={meta} scene="office">
       <Content />
     </DocPage>
   );

@@ -10,6 +10,7 @@ export default function Page() {
   return (
     <DocPage
       meta={meta}
+      scene="contact-us"
       aside={
         <div>
           <DemoForm />

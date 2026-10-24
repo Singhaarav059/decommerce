@@ -166,3 +166,12 @@ New rules, replacing the studio-sweep approach:
 - Each section explains: what happens, what goes wrong without Decommerce, what Decommerce does (2–3 text steps).
 - Storefront section: an interactive clothing rack modelled on the Motionary reference (drag the rail, the centred garment grows with name and price, "See the piece" opens it with sizes and "Add to bag"), built in the DOM from cut-out garment photos.
 - Brand showcase: styled looks on mannequins and display tables in the store, not framed pictures.
+
+### 10.1 Status after the revision (24 Oct 2026)
+
+- Homepage, all 12 solution pages and all 9 company/legal pages are full-bleed real places; no feathered boxes remain on public pages.
+- Solution pages (`SolutionPage`): one pinned film per page (pitch → problem → steps that tick off as the action happens), Anatomy on the finished scene with a spotlight per part (a zoom pulled busy detail under the text), Capabilities on a close-up of the same place, Works with and Questions on the scene's floor colour. Media: `scripts/v3/sol-shots.json` → `sol.mjs` (start, end, detail stills; clips with first and last frame for a locked camera) → `sol-build.mjs`.
+- Company pages (`DocPage`): a room of the store that fits the page (`scripts/v3/co-shots.json`), body text on its floor colour; Security and Infrastructure keep their section legend.
+- Rejected and fixed: quick commerce (a second, identical rider appeared, so the start frame was re-made without the rider); storefront (Veo morphed the screen, so `screen-fill.py` composites the tiles filling in one by one over the locked shot); endless aisle start still had no gap on the shelf (edited in).
+- Phones: each pinned film's height adapts so its tallest step fits (`--film-h`, checked by `scripts/checks/fit.mjs` at 390×844, 375×667, 360×740). Reduced motion gets a static scene with every step listed.
+- Floor colours are lightened where needed so ink and copper text pass AA (`scripts/v3/floor.py`); copper darkened to #74320f.

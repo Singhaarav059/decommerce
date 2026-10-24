@@ -1,17 +1,17 @@
 import type { SolutionSlug } from "../site";
 
-/** Centre of each anatomy part in its page's still, in percent [x, y] (set by reviewing each still). */
+/** Centre of each anatomy part in its page's end still, in percent [x, y] (set by reviewing each still). */
 export const solutionFocus: Partial<Record<SolutionSlug, Record<string, [number, number]>>> = {
-  storefront: { screen: [28, 35], reader: [69, 48], box: [80, 33], counter: [55, 78] },
-  "brand-showcase": { frame: [37, 20], row: [62, 20], wall: [18, 45], bench: [60, 77] },
-  b2b: { portal: [79, 30], tiers: [80, 38], pallets: [58, 52], shelves: [90, 30] },
-  "quick-commerce": { shelves: [26, 57], dispatch: [44, 70], rider: [58, 77], block: [75, 32] },
-  marketplace: { box: [57, 64], shelf: [40, 42], badge: [62, 28], count: [50, 55] },
-  oms: { lanes: [28, 35], split: [36, 40], inbox: [78, 57] },
-  wms: { bins: [66, 15], scanner: [46, 50], printer: [67, 52], conveyor: [20, 40] },
-  tms: { bay: [45, 25], route: [55, 55], stop: [82, 78] },
-  pos: { screen: [72, 37], reader: [84, 46], box: [63, 47], counter: [55, 76] },
-  clienteling: { tablet: [55, 72], rack: [42, 30], sizes: [60, 66], look: [52, 78] },
-  "endless-aisle": { shelf: [18, 70], stack: [35, 58], network: [78, 45] },
-  "self-checkout": { screen: [55, 30], scanner: [63, 45], bag: [58, 88] },
+  storefront: { screen: [74, 43], rail: [52, 35], desk: [88, 66] },
+  "brand-showcase": { look: [83, 40], forms: [64, 38], table: [74, 85], stylist: [92, 47] },
+  b2b: { portal: [94, 47], tiers: [94, 47], pallets: [57, 62], shelves: [72, 25] },
+  "quick-commerce": { shelves: [52, 52], dispatch: [69, 70], rider: [81, 42], block: [86, 35] },
+  marketplace: { product: [66, 60], camera: [76, 50], shelves: [93, 40] },
+  oms: { printer: [64, 56], shelves: [62, 30], bag: [75, 53] },
+  wms: { light: [70, 49], bins: [80, 30], scanner: [76, 46] },
+  tms: { bay: [62, 80], van: [68, 52], boxes: [70, 50] },
+  pos: { screen: [72, 46], reader: [81, 52], bag: [49, 51], counter: [55, 75] },
+  clienteling: { tablet: [70, 48], rack: [83, 40], sizes: [70, 48], look: [81, 55] },
+  "endless-aisle": { shelf: [64, 45], stack: [60, 32], network: [73, 49] },
+  "self-checkout": { screen: [61, 40], scanner: [62, 62], bag: [52, 72] },
 };

@@ -14,7 +14,7 @@ const swatches = [
   ["studio-light", "#DCD5CE"],
   ["ink", "#1B1915"],
   ["ink-2", "#45403A"],
-  ["copper", "#843B13"],
+  ["copper", "#74320F"],
 ];
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {

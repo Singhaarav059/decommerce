@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: meta.title, description: meta.descrip
 
 export default function Page() {
   return (
-    <DocPage meta={meta} after={<AboutExtras meta={meta} />}>
+    <DocPage meta={meta} scene="about-us" after={<AboutExtras meta={meta} />}>
       <Content />
     </DocPage>
   );

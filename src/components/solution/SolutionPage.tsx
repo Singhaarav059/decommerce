@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PinnedFilm } from "@/components/media/PinnedFilm";
-import { DragFilm } from "@/components/media/DragFilm";
-import { RowList, StepText } from "@/components/home/StepText";
+import { FilmRows } from "@/components/media/FilmRows";
+import { StepText } from "@/components/home/StepText";
 import { ButtonLink } from "@/components/ui/Button";
 import { Faq } from "@/components/ui/Faq";
 import { Headline } from "@/components/ui/Headline";
@@ -26,78 +26,84 @@ export function solutionMetadata(slug: SolutionSlug): Metadata {
 }
 
 /**
- * The solution template (DESIGN-PLAN §4): hero with a drag-scrub film, the
- * problem → fix film, anatomy, capabilities, works with, questions. Every
- * visual sits in its own pane; text never overlaps it.
+ * The solution template (DESIGN-PLAN §10): every section is a full-bleed real
+ * place. 1. One continuous film of the product at work: the pitch, the
+ * problem, then the steps ticking off as they happen. 2. Anatomy on the
+ * finished scene. 3. Capabilities on a close-up. 4. Works with. 5. Questions.
  */
 export function SolutionPage({ slug }: { slug: SolutionSlug }) {
   const { meta, Content } = solutions[slug];
   const m = solutionMedia(slug);
+  const n = meta.fix.steps.length;
   return (
     <main id="main">
-      {/* 1. Hero */}
-      <section className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 items-center gap-8 pt-[calc(var(--header-h)+24px)] pb-[var(--section-gap)] lg:min-h-[100svh] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10 lg:pt-[var(--header-h)]">
-        <div className="order-2 px-[var(--gutter)] lg:order-1 lg:pr-0">
-          <p className="eyebrow">{meta.eyebrow}</p>
-          <Headline text={meta.headline} className="mt-4 text-[clamp(2.4rem,5vw,5.2rem)]" />
-          <p className="mt-5 max-w-[42ch] text-ink-2">{meta.promise}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/contact-us" arrow>
-              Book a demo
-            </ButtonLink>
-            <ButtonLink href="#fix" variant="secondary">
-              See it work
-            </ButtonLink>
-          </div>
-        </div>
-        <DragFilm
-          className="order-1 lg:order-2"
-          pattern={m.seq.pattern}
-          mobilePattern={m.seq.mobilePattern}
-          from={m.fixedFrom}
-          to={m.seq.count - 1}
-          label="Drag to look around"
-          alt={`${meta.title}: ${meta.fix.fixed}`}
-          priority
-        />
-      </section>
-
-      {/* 2–3. Problem → fix */}
       <PinnedFilm
-        id="fix"
+        id="film"
         seq={m.seq}
-        alt={`${meta.title}: from ${meta.problem.broken.toLowerCase()} to ${meta.fix.fixed.toLowerCase()}`}
+        floor={m.floor}
+        priority
+        length={1 + 3 * 0.9}
+        alt={`${meta.title}: ${meta.fix.fixed}`}
         steps={[
-          <StepText key="p" label="The problem" headline={meta.problem.title}>
-            <div className="mt-4 max-w-[40ch] text-ink-2 [&_p]:m-0 [&_p]:max-w-none [&_p]:text-ink-2">
-              <Content />
-            </div>
-          </StepText>,
-          <StepText key="f" label="The fix" headline={meta.fix.title}>
-            <RowList rows={meta.fix.steps.map((s, i) => ({ key: s, left: `${i + 1}. ${s}` }))} />
-          </StepText>,
+          {
+            from: 0,
+            to: 0.24,
+            node: (
+              <>
+                <p className="eyebrow">{meta.eyebrow}</p>
+                <Headline text={meta.headline} className="mt-2 text-[clamp(2rem,5vw,5.2rem)] md:mt-4" />
+                <p className="mt-3 max-w-[42ch] text-[0.95rem] leading-snug text-ink-2 md:mt-5 md:text-base md:leading-normal">{meta.promise}</p>
+                <div className="mt-5 flex flex-wrap gap-3 md:mt-8">
+                  <ButtonLink href="/contact-us" arrow>
+                    Book a demo
+                  </ButtonLink>
+                  <ButtonLink href="#anatomy" variant="secondary">
+                    What&rsquo;s inside
+                  </ButtonLink>
+                </div>
+              </>
+            ),
+          },
+          {
+            from: 0.28,
+            to: 0.46,
+            node: (
+              <StepText label="The problem" headline={meta.problem.title}>
+                <div className="mt-2 max-w-[40ch] text-[0.95rem] leading-snug text-ink-2 md:mt-4 md:text-base md:leading-normal [&_p]:m-0 [&_p]:max-w-none [&_p]:text-ink-2">
+                  <Content />
+                </div>
+              </StepText>
+            ),
+          },
+          {
+            from: 0.5,
+            to: 1,
+            node: (
+              <StepText label="With Decommerce" headline={meta.fix.title}>
+                <FilmRows rows={meta.fix.steps} from={0.5} to={0.5 + 0.5 * (n / (n + 0.4))} />
+              </StepText>
+            ),
+          },
         ]}
       />
 
-      {/* 4. Anatomy */}
-      <Anatomy title={meta.title} parts={meta.anatomy} still={m.still} focus={solutionFocus[slug] ?? {}} />
+      <Anatomy title={meta.title} parts={meta.anatomy} src={m.end} floor={m.floor} focus={solutionFocus[slug] ?? {}} />
 
-      {/* 5. Capabilities */}
-      <Capabilities title={meta.title} items={meta.capabilities} frames={m.tabFrames} />
+      <Capabilities title={meta.title} items={meta.capabilities} src={m.detail} floor={m.floor} />
 
-      {/* 6. Works with */}
-      <section className="border-t border-line">
-        <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)]">
+      {/* Works with */}
+      <section style={{ background: m.floor }}>
+        <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)] [--ink-2:var(--ink)]">
           <p className="eyebrow">Works with</p>
-          <Headline as="h2" text="Same catalog, same stock, same customer." className="mt-4 max-w-[20ch] text-[clamp(2.1rem,4vw,4rem)]" />
+          <Headline as="h2" text="Same catalog, same stock, same customer." className="mt-4 max-w-[20ch] text-[clamp(1.8rem,4vw,4rem)]" />
           <ul className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {meta.worksWith.map((s) => {
               const other = solutionBySlug(s);
               return (
                 <li key={s}>
                   <Link href={other.href} className="group block">
-                    <div className="feather relative aspect-[4/3] overflow-hidden">
-                      <Image src={solutionMedia(s).still} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.04]" />
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-md)]">
+                      <Image src={solutionMedia(s).end} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-[70%_50%] transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.04]" />
                     </div>
                     <p className="mt-3 font-semibold">
                       {other.label} <span aria-hidden className="text-copper">→</span>
@@ -111,12 +117,12 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
         </div>
       </section>
 
-      {/* 7. Questions + demo */}
-      <section className="border-t border-line">
-        <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 px-[var(--gutter)] py-[var(--section-gap)] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+      {/* Questions + demo */}
+      <section className="border-t border-ink/10" style={{ background: m.floor }}>
+        <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 px-[var(--gutter)] py-[var(--section-gap)] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] [--ink-2:var(--ink)]">
           <div>
             <p className="eyebrow">Questions</p>
-            <Headline as="h2" text={`${meta.title}, answered.`} className="mt-4 text-[clamp(2.1rem,4vw,4rem)]" />
+            <Headline as="h2" text={`${meta.title}, answered.`} className="mt-4 text-[clamp(1.8rem,4vw,4rem)]" />
             <p className="mt-6 max-w-[40ch] text-ink-2">See {inSentence(meta.title)} running on a sample of your own catalog.</p>
             <ButtonLink href="/contact-us" arrow className="mt-6">
               Book a demo

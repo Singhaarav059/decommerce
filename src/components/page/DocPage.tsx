@@ -1,30 +1,35 @@
 import type { ReactNode } from "react";
 import type { DocMeta } from "@/content/types";
+import { Scene } from "@/components/layout/Scene";
 import { Headline } from "@/components/ui/Headline";
+import scenes from "@/content/company/scenes.json";
 
-/** Company and legal pages: type-led on the studio surface, an optional sticky still beside the text. */
-export function DocPage({ meta, children, aside, after }: { meta: DocMeta; children: ReactNode; aside?: ReactNode; after?: ReactNode }) {
+export type SceneKey = keyof typeof scenes;
+
+/**
+ * Company and legal pages: the page opens on a full-bleed room of the store
+ * that fits the page (the meeting table for Contact, the server cabinet for
+ * Infrastructure), and the text continues on that room's floor colour.
+ */
+export function DocPage({ meta, scene, children, aside, after }: { meta: DocMeta; scene: SceneKey; children: ReactNode; aside?: ReactNode; after?: ReactNode }) {
+  const { floor } = scenes[scene];
   return (
     <main id="main">
-      <section className="border-b border-line pt-[calc(var(--header-h)+clamp(56px,8vw,112px))] pb-[clamp(48px,6vw,88px)]">
-        <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)]">
-          <p className="eyebrow">{meta.eyebrow}</p>
-          <Headline text={meta.headline} className="mt-4 max-w-[18ch] text-[clamp(2.6rem,6vw,6rem)]" />
-          <p className="mt-5 max-w-[52ch] text-ink-2">{meta.description}</p>
+      <Scene src={`/assets/company/scene-${scene}.webp`} floor={floor} label={meta.title}>
+        <p className="eyebrow">{meta.eyebrow}</p>
+        <Headline text={meta.headline} className="mt-2 text-[clamp(2.2rem,5vw,5.2rem)] md:mt-4" />
+        <p className="mt-3 max-w-[44ch] text-ink-2 md:mt-5">{meta.description}</p>
+      </Scene>
+      <div style={{ background: floor }} className="[--ink-2:var(--ink)] [--ink-soft:var(--ink)]">
+        <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 border-t border-ink/10 px-[var(--gutter)] py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_400px]">
+          <article className="prose-copy text-[1.05rem] [&>*:first-child]:mt-0">
+            {meta.draftNote && <p className="mb-10 max-w-[62ch] rounded-[var(--radius-md)] border border-copper px-4 py-3 text-sm text-ink">{meta.draftNote}</p>}
+            {children}
+          </article>
+          {aside && <aside className="min-w-0">{aside}</aside>}
         </div>
-      </section>
-      <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-12 px-[var(--gutter)] py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_400px]">
-        <article className="prose-copy text-[1.05rem] [&>*:first-child]:mt-0">
-          {meta.draftNote && (
-            <p className="mb-10 max-w-[62ch] rounded-[var(--radius-md)] border border-copper px-4 py-3 text-sm text-ink">
-              {meta.draftNote}
-            </p>
-          )}
-          {children}
-        </article>
-        {aside && <aside className="min-w-0">{aside}</aside>}
+        {after}
       </div>
-      {after}
     </main>
   );
 }

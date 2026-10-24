@@ -11,33 +11,28 @@ export const meta = {
   "fix": {
     "title": "Lit bins, one scan, done.",
     "steps": [
-      "Bin lights up",
+      "Next pick sent to the picker",
+      "Its bin lights up",
       "Scan confirms the item",
-      "Label prints",
-      "Box onto the conveyor"
+      "Light goes out, next bin lights"
     ],
-    "fixed": "Bins light in pick order"
+    "fixed": "The lit bin is picked and scanned, and its light goes out"
   },
   "anatomy": [
     {
+      "id": "light",
+      "label": "Bin light",
+      "detail": "The next pick lights its bin, so pickers walk straight to it instead of searching."
+    },
+    {
       "id": "bins",
       "label": "Bin locations",
-      "detail": "Every shelf position is a bin with a count; the next one to pick is shown on the handheld."
+      "detail": "Every bin has a location; stock is counted per bin, not per building."
     },
     {
       "id": "scanner",
       "label": "Scanner",
-      "detail": "Each scan checks the item against the order before it is packed."
-    },
-    {
-      "id": "printer",
-      "label": "Label printer",
-      "detail": "Prints the shipping label as soon as the last item is scanned."
-    },
-    {
-      "id": "conveyor",
-      "label": "Conveyor",
-      "detail": "Packed orders roll to dispatch, sorted by carrier."
+      "detail": "One scan confirms the right item and quantity before it leaves the shelf."
     }
   ],
   "capabilities": [

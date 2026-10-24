@@ -16,23 +16,23 @@ export const meta = {
       "Van loaded in stop order",
       "Live ETA for every customer"
     ],
-    "fixed": "One optimised route"
+    "fixed": "Boxes loaded into one van in stop order"
   },
   "anatomy": [
     {
       "id": "bay",
       "label": "Loading bay",
-      "detail": "Vans are loaded in reverse stop order, so the first parcel is at the door."
+      "detail": "Orders for the route are staged here in the order the van will deliver them."
     },
     {
-      "id": "route",
-      "label": "Optimised route",
-      "detail": "Stops are ordered to cut distance and keep promised windows."
+      "id": "van",
+      "label": "One van, one route",
+      "detail": "Stops are ordered into one loop, so drivers never cross each other or backtrack."
     },
     {
-      "id": "stop",
-      "label": "Stop",
-      "detail": "Customers get a narrow window and a live countdown."
+      "id": "boxes",
+      "label": "Loaded in stop order",
+      "detail": "The first stop is loaded last, nearest the doors; each customer gets a live arrival time."
     }
   ],
   "capabilities": [

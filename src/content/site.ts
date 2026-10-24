@@ -39,7 +39,7 @@ export const solutionGroups: NavGroup[] = [
     label: "Online",
     items: [
       { slug: "storefront", label: "Storefront", href: "/storefront", blurb: "Launch and run your own store website" },
-      { slug: "brand-showcase", label: "Brand showcase", href: "/storefront/brand-showcase", blurb: "Curated storefront themes for your brand" },
+      { slug: "brand-showcase", label: "Brand showcase", href: "/storefront/brand-showcase", blurb: "Styled looks, shoppable as one outfit" },
       { slug: "b2b", label: "B2B commerce", href: "/b2b", blurb: "Buyer portals with tiered wholesale prices" },
       { slug: "quick-commerce", label: "Quick commerce", href: "/quick-commerce", blurb: "Fast delivery from dark stores" },
       { slug: "marketplace", label: "Marketplace", href: "/marketplace", blurb: "One listing, many sales channels" },

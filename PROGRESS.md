@@ -68,3 +68,10 @@ Direction agreed with the owner: hyper-real look from AI footage, scrubbed frame
 - Learned: Veo letterboxes a start image whose aspect differs from the output (pad/outpaint the start image to 16:9 or 9:16 first). Veo grain is real detail; denoise/AVIF don't shrink frames much, so budget by frame count.
 - Next: chapters 2–3 photoreal (islands + unified stills, then Veo first/last-frame transitions); counter (POS) and pick-and-pack from the other two renders; character loops (cashier, picker, shopper) from reference stills + local background removal; then solution heroes.
 - Open: private GitHub repo not created yet (owner to decide); cloud session would need a service-account key for Vertex and loses Blender/Mac encoders.
+
+## Revision after owner review (24 Oct 2026)
+
+- Done: homepage v3 (full-bleed real places, locked cameras, Motionary-style rack, continuity fixes), committed b004803.
+- Done: 12 solution pages and 9 company/legal pages rebuilt full-bleed (DESIGN-PLAN §10.1). Brand showcase is now styled looks on dress forms.
+- Checks: lint, typecheck, build ✓; axe no WCAG A/AA violations (22 routes, 1440 + 390); no horizontal overflow (360/390/768/1440); every pinned step fits on phones; Lighthouse mobile / 94, /pos 96, /about-us 95 (a11y, best practices, SEO 100).
+- Vertex spend to date: $53.34 of the $100 cap (ledger).

@@ -8,11 +8,11 @@ Every asset on the site, where it came from and under what licence. Update this 
 | --- | --- | --- |
 | Three reference renders (`assets-src/refs/ref-counter`, `ref-packing`, `ref-diorama`) | Supplied by the site owner | Owner to confirm rights for commercial use |
 | Homepage films (`public/assets/seq/*`) | Google Veo 3.1 on Vertex AI, from the owner's renders and generated stills; frames by `scripts/frames-from-video.sh` | Google Cloud generative AI terms (owner's project `silicon-alchemy-476503-i4`) |
-| Solution page films and stills (`public/assets/sol/*`) | Google Gemini 3 Pro Image + Veo 3.1 on Vertex AI, prompts in `scripts/solutions/assets.json` | Same |
-| Company stills (`public/assets/company/*`) | Gemini 3 Pro Image on Vertex AI | Same |
+| Solution page films and stills (`public/assets/sol/*`) | Google Gemini 3 Pro Image + Veo 3.1 on Vertex AI, prompts in `scripts/v3/sol-shots.json`; the storefront screen is composited by `scripts/v3/screen-fill.py` | Same |
+| Company scenes (`public/assets/company/*`) | Gemini 3 Pro Image on Vertex AI, prompts in `scripts/v3/co-shots.json` | Same |
 | Social card (`src/app/opengraph-image.png`) | Screenshot of `/capture/og` using a hero frame | Own work |
 
-Every paid generation is listed with its prompt and cost in `assets-src/vertex/ledger.json`. People in the footage (the picker, the cashier's hands, shoppers) are AI-generated and are not real individuals. Before launch, check Google's current terms for commercial use of generated media and keep any required disclosure.
+Every paid generation is listed with its prompt and cost in `assets-src/vertex/ledger.json`. People in the footage (pickers, cashiers, couriers, associates, shoppers) are AI-generated and are not real individuals. Before launch, check Google's current terms for commercial use of generated media and keep any required disclosure.
 
 ## Fonts
 
