@@ -13,6 +13,7 @@ import { solutionFocus } from "@/content/solutions/focus";
 import { solutionMedia } from "@/content/solutions/media";
 import { Anatomy } from "./Anatomy";
 import { Capabilities } from "./Capabilities";
+import { inSentence } from "@/lib/text";
 
 export function solutionMetadata(slug: SolutionSlug): Metadata {
   const { meta } = solutions[slug];
@@ -116,7 +117,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
           <div>
             <p className="eyebrow">Questions</p>
             <Headline as="h2" text={`${meta.title}, answered.`} className="mt-4 text-[clamp(2.1rem,4vw,4rem)]" />
-            <p className="mt-6 max-w-[40ch] text-ink-2">See {meta.title.toLowerCase()} running on a sample of your own catalog.</p>
+            <p className="mt-6 max-w-[40ch] text-ink-2">See {inSentence(meta.title)} running on a sample of your own catalog.</p>
             <ButtonLink href="/contact-us" arrow className="mt-6">
               Book a demo
             </ButtonLink>

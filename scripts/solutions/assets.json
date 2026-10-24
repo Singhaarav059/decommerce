@@ -50,7 +50,7 @@
     "pos": {
       "ref": "assets-src/refs/ref-counter.png", "style": "interior",
       "broken": "The same boutique counter as the reference but with an old beige cash register and a tangled receipt roll on it, and a long queue of out-of-focus shoppers in linen and wool waiting in front of the counter, seen from behind at mid-distance.",
-      "fixed": { "still": "assets-src/refs/ref-counter-169.png", "clip": "assets-src/vertex/ch8-counter-1080.mp4" },
+      "fixed": { "still": "assets-src/refs/ref-counter-169.png", "clip": "assets-src/vertex/ch8-counter-v2-1080.mp4" },
       "match": "none"
     },
     "clienteling": {

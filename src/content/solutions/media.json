@@ -1,1 +1,38 @@
-{}
+{
+  "storefront": {
+    "count": 46
+  },
+  "brand-showcase": {
+    "count": 46
+  },
+  "b2b": {
+    "count": 46
+  },
+  "quick-commerce": {
+    "count": 46
+  },
+  "marketplace": {
+    "count": 46
+  },
+  "oms": {
+    "count": 46
+  },
+  "wms": {
+    "count": 46
+  },
+  "tms": {
+    "count": 46
+  },
+  "pos": {
+    "count": 46
+  },
+  "clienteling": {
+    "count": 46
+  },
+  "endless-aisle": {
+    "count": 46
+  },
+  "self-checkout": {
+    "count": 46
+  }
+}

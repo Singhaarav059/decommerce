@@ -680,7 +680,139 @@
       "out": "assets-src/vertex/sol-marketplace-fixed.mp4",
       "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
       "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:56:05.135Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-oms-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:57:48.577Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-oms-fixed.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:59:13.748Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-tms-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:59:38.999Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-wms-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T05:00:56.138Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-pos-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T05:02:42.207Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-clienteling-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T05:03:41.409Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-clienteling-fixed.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T05:04:48.340Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-endless-aisle-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T05:06:26.461Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-endless-aisle-fixed.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T05:06:54.096Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-self-checkout-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T05:08:32.852Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-self-checkout-fixed.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T05:20:03.367Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 0.8,
+      "out": "assets-src/vertex/ch8-counter-v2-1080.mp4",
+      "prompt": "A customer's hand enters from the right holding a bank card and taps it on the small card terminal on the travertine counter; the terminal's small screen stays ",
+      "filtered": 0
     }
   ],
-  "totalUsd": 19.356
+  "totalUsd": 24.556
 }

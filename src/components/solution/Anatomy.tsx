@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Headline } from "@/components/ui/Headline";
 import type { Part } from "@/content/types";
+import { inSentence } from "@/lib/text";
 
 /**
  * Anatomy: a legend beside one still. Choosing a part zooms the still to that
@@ -19,7 +20,7 @@ export function Anatomy({ title, parts, still, focus }: { title: string; parts: 
       <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 gap-10 px-[var(--gutter)] py-[var(--section-gap)] lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center">
         <div className="order-2 lg:order-1">
           <p className="eyebrow">Anatomy</p>
-          <Headline as="h2" text={`What makes ${title.toLowerCase()} work.`} className="mt-4 text-[clamp(2.1rem,4vw,4rem)]" />
+          <Headline as="h2" text={`What makes ${inSentence(title)} work.`} className="mt-4 text-[clamp(2.1rem,4vw,4rem)]" />
           <ul className="mt-8 border-t border-line">
             {parts.map((p) => {
               const on = active === p.id;

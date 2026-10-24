@@ -72,7 +72,7 @@ if (stage === "frames") {
     await sh("ffmpeg", ["-y", "-loglevel", "error", "-i", b, "-i", f, "-filter_complex",
       "[0]trim=0:4,setpts=PTS-STARTPTS,scale=1920:1080,fps=24,format=yuv420p[a];[1]trim=0:4,setpts=PTS-STARTPTS,scale=1920:1080,fps=24,format=yuv420p[c];[a][c]xfade=transition=fade:duration=0.4:offset=3.6",
       "-c:v", "libx264", "-crf", "14", film]);
-    console.log(await sh("scripts/frames-from-video.sh", [film, `${dir}/seq`, "3", "1280", "720", "54", "4:3", s.match ?? (s.style === "miniature" ? "studio" : "none")]));
+    console.log(await sh("scripts/frames-from-video.sh", [film, `${dir}/seq`, "4", "1280", "640", "46", "4:3", s.match ?? (s.style === "miniature" ? "studio" : "none")]));
     for (const [kind, name] of [["fixed", "still"], ["broken", "broken"]]) {
       await sh("cwebp", ["-quiet", "-q", "72", "-resize", "1600", "0", stillPath(slug, kind), "-o", `${dir}/${name}.webp`]);
     }

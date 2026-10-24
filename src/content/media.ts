@@ -12,7 +12,7 @@ export const sequences = {
   pack: { pattern: "/assets/seq/pack/d/{i}.webp", mobilePattern: "/assets/seq/pack/m/{i}.webp", count: 48 },
   /** Homepage chapter 7: van to the doorstep (ch7-van-film.mp4, Lite draft trimmed + upscaled) */
   van: { pattern: "/assets/seq/van/d/{i}.webp", mobilePattern: "/assets/seq/van/m/{i}.webp", count: 50 },
-  /** Homepage chapter 8: tap to pay at the counter (ch8-counter-1080.mp4, from ref-counter) */
+  /** Homepage chapter 8: tap to pay at the counter (ch8-counter-v2-1080.mp4, from ref-counter) */
   counter: { pattern: "/assets/seq/counter/d/{i}.webp", mobilePattern: "/assets/seq/counter/m/{i}.webp", count: 48 },
   /** Homepage chapter 9: store orbit (orbit-169-1080.mp4) */
   orbit: { pattern: "/assets/seq/orbit/d/{i}.webp", mobilePattern: "/assets/seq/orbit/m/{i}.webp", count: 48 },

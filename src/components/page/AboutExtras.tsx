@@ -36,7 +36,7 @@ export function AboutExtras({ meta }: { meta: DocMeta }) {
                   <>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-travertine">
                       <Image src={f.poster} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.04]" />
-                      {f.current && <span className="absolute top-3 left-3 rounded-full bg-ink px-2.5 py-1 font-mono text-[0.68rem] text-stone-50">YOU ARE HERE</span>}
+                      
                     </div>
                     <p className="mt-4 flex items-center justify-between text-lg font-medium">
                       {f.name}

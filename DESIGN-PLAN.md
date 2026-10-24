@@ -150,3 +150,7 @@ Every clip is drafted in Lite first; only drafts that pass review are made in Fa
 - Give Veo a start image in the output aspect (16:9); otherwise it letterboxes with black.
 - Gemini 3 Pro Image returns a "thought" image before the final one; the image script keeps the final one. Edits that move or split objects are ignored; generate those as new images from text, and use edits only for lighting and colour.
 - The frame script colour-matches every clip's backdrop to `--studio` and trims 6 px of edge rows, so footage melts into the page.
+
+## 9. Status (24 Oct 2026)
+
+Built as planned: homepage chapters 1–10, the 12 solution pages on the template in section 4, company and legal pages. WebGL, three.js and all 3D-scene code are removed; every visual is Veo footage or a Gemini still. Changes from the plan: the opening loader was dropped (it covered the first image); the clothing-rack interaction became the storefront chapter's rail film; solution heroes use a drag-scrub of each page's fixed-state clip. Generation cost so far is in `assets-src/vertex/ledger.json`.
