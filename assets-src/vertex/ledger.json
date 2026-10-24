@@ -351,7 +351,336 @@
       "out": "assets-src/vertex/orbit-169-1080.mp4",
       "prompt": "One slow, continuous camera orbit from left to right around this exact miniature luxury clothing store diorama on a seamless warm grey backdrop, ending about a ",
       "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:27:24.826Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-storefront-broken.png",
+      "prompt": "A travertine shop counter with a thin silver laptop showing a completely blank white screen, beside it a messy pile of printed spreadsheets with unreadable blur"
+    },
+    {
+      "at": "2026-10-24T04:27:32.836Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-brand-showcase-broken.png",
+      "prompt": "Seven framed photographs of different clothing shop websites, in mismatched oak, steel and copper frames, leaning haphazardly against a travertine wall on a ter"
+    },
+    {
+      "at": "2026-10-24T04:28:31.996Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-brand-showcase-fixed.png",
+      "prompt": "A long travertine gallery wall with seven matching thin oak frames hung in one perfectly straight row at even spacing, each frame showing a calm product photogr"
+    },
+    {
+      "at": "2026-10-24T04:29:02.891Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-b2b-broken.png",
+      "prompt": "A wholesale stockroom desk in oak: a thick paper order book open with handwritten scribbles that cannot be read, a carbon-copy pad, an old calculator, a telepho"
+    },
+    {
+      "at": "2026-10-24T04:29:40.518Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-b2b-fixed.png",
+      "prompt": "A wholesale stockroom: three neat wooden pallets stacked with kraft cardboard boxes wrapped in clear film, and on a slim oak standing desk in front a tablet sho"
+    },
+    {
+      "at": "2026-10-24T04:30:22.268Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-quick-commerce-broken.png",
+      "prompt": "A miniature dark store on a travertine base: brushed steel shelves of groceries and kraft bags, a pile of unpacked paper bags on the floor, and a small copper-c"
+    },
+    {
+      "at": "2026-10-24T04:31:25.357Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-quick-commerce-fixed.png",
+      "prompt": "A miniature dark store on a travertine base with its roller door open, neat steel shelves of groceries and kraft bags, and a small copper-coloured delivery scoo"
+    },
+    {
+      "at": "2026-10-24T04:32:34.414Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-marketplace-broken.png",
+      "prompt": "One single kraft cardboard product box standing alone on a small travertine plinth in the middle of an empty travertine room with bare oak shelves on the walls."
+    },
+    {
+      "at": "2026-10-24T04:33:54.251Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-marketplace-fixed.png",
+      "prompt": "A travertine room with four oak wall shelves, each holding an identical kraft cardboard product box; each shelf has a small round coloured disc above it (copper"
+    },
+    {
+      "at": "2026-10-24T04:34:33.772Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-oms-broken.png",
+      "prompt": "A travertine counter with an overflowing tray of paper order tickets, more tickets scattered and curling across the counter and falling to the floor; the ticket"
+    },
+    {
+      "at": "2026-10-24T04:35:26.773Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-oms-fixed.png",
+      "prompt": "A travertine wall board with three tall slim brushed-copper slots, each holding a neat stack of paper order tickets standing upright and perfectly aligned; the "
+    },
+    {
+      "at": "2026-10-24T04:36:30.088Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-wms-broken.png",
+      "prompt": "A dim warehouse aisle between tall brushed steel shelving full of kraft boxes and grey crates, unlit, with boxes pulled out and left on the floor and a handheld"
+    },
+    {
+      "at": "2026-10-24T04:37:32.734Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-tms-broken.png",
+      "prompt": "The same miniature city district model as the reference, but five small cream delivery vans are jammed together at one crossroads facing different directions, b"
+    },
+    {
+      "at": "2026-10-24T04:38:48.080Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-pos-broken.png",
+      "prompt": "The same boutique counter as the reference but with an old beige cash register and a tangled receipt roll on it, and a long queue of out-of-focus shoppers in li"
+    },
+    {
+      "at": "2026-10-24T04:39:28.150Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-clienteling-broken.png",
+      "prompt": "A store associate's tablet lying face-up on a travertine counter showing a plain empty white screen, next to a bronze clothing rail of linen and wool garments; "
+    },
+    {
+      "at": "2026-10-24T04:40:39.014Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-clienteling-fixed.png",
+      "prompt": "A store associate's hands holding a tablet in front of a bronze clothing rail of linen and wool garments; the tablet screen shows a calm grid of four product ph"
+    },
+    {
+      "at": "2026-10-24T04:41:27.036Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-endless-aisle-broken.png",
+      "prompt": "A short oak shelf unit in a travertine boutique with neat stacks of folded linen shirts in sand, oat, rust and charcoal, and one obvious empty gap in the middle"
+    },
+    {
+      "at": "2026-10-24T04:42:28.077Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-endless-aisle-fixed.png",
+      "prompt": "A very long oak shelf corridor of neat folded linen shirts in sand, oat, rust and charcoal, receding far into the distance in one-point perspective with warm li"
+    },
+    {
+      "at": "2026-10-24T04:43:42.813Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-self-checkout-broken.png",
+      "prompt": "A queue of out-of-focus shoppers in linen and wool holding a few items each, waiting in a line in a travertine boutique in front of a single counter, seen from "
+    },
+    {
+      "at": "2026-10-24T04:44:29.241Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-self-checkout-fixed.png",
+      "prompt": "A slim travertine self-checkout kiosk with a dark angled touch screen showing a single product photograph of a folded linen shirt, no words, a small glass scann"
+    },
+    {
+      "at": "2026-10-24T04:46:00.317Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/sol-quick-commerce-broken.png",
+      "prompt": "The same miniature dark store model as the reference, same materials, light, backdrop and camera angle, but in a stalled state: the roller door is pulled half d"
+    },
+    {
+      "at": "2026-10-24T04:47:51.024Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-storefront-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:48:05.348Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-brand-showcase-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:48:22.359Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/co-security.png",
+      "prompt": "A sculptural block made of four thick stacked horizontal slabs with small even gaps between them, slightly offset like an exploded view: from bottom to top hone"
+    },
+    {
+      "at": "2026-10-24T04:49:41.192Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-b2b-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:49:43.467Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-brand-showcase-fixed.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:50:06.934Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/co-infra.png",
+      "prompt": "A slim, elegant server rack cabinet in brushed steel with a honed travertine top and base, its front open, showing five neat dark server units stacked with smal"
+    },
+    {
+      "at": "2026-10-24T04:51:15.720Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-quick-commerce-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:52:27.560Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-b2b-fixed.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:53:12.107Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-quick-commerce-fixed.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:54:22.575Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-marketplace-broken.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T04:55:12.701Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/sol-marketplace-fixed.mp4",
+      "prompt": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photoreal",
+      "filtered": 0
     }
   ],
-  "totalUsd": 12.674
+  "totalUsd": 19.356
 }

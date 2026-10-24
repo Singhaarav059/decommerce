@@ -11,7 +11,7 @@ export default function Page() {
     <DocPage
       meta={meta}
       aside={
-        <div className="rounded-[var(--radius-lg)] bg-stone-50 p-6 shadow-[inset_0_0_0_1px_var(--line)] md:p-8 lg:-mt-48">
+        <div>
           <DemoForm />
         </div>
       }

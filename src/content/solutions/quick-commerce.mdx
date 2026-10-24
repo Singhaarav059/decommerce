@@ -4,18 +4,6 @@ export const meta = {
   "eyebrow": "Online",
   "headline": "Ten minutes, door to door.",
   "promise": "Orders go straight to the nearest dark store, are picked in seconds and handed to the closest rider.",
-  "scene": "quick",
-  "interaction": {
-    "kind": "slider",
-    "label": "Rider on the route",
-    "hint": "Drag the rider along the street; the timer follows.",
-    "readout": {
-      "from": 10,
-      "to": 0,
-      "unit": " min left"
-    },
-    "drag": true
-  },
   "problem": {
     "title": "A ten-minute promise, *forty-five* on the clock.",
     "broken": "45-minute timer"
@@ -34,7 +22,12 @@ export const meta = {
     {
       "id": "shelves",
       "label": "Dark store shelves",
-      "detail": "Laid out for picking, with fast movers closest to the dispatch point."
+      "detail": "Laid out for picking, with fast movers closest to the door."
+    },
+    {
+      "id": "dispatch",
+      "label": "Dispatch point",
+      "detail": "Bags go straight from the shelves to the next free rider."
     },
     {
       "id": "rider",
@@ -42,14 +35,9 @@ export const meta = {
       "detail": "Assigned automatically by distance and current load."
     },
     {
-      "id": "timer",
-      "label": "Live timer",
-      "detail": "The customer sees the same countdown your team does."
-    },
-    {
       "id": "block",
       "label": "Delivery zone",
-      "detail": "Each dark store serves the blocks it can reach within the promise."
+      "detail": "Each dark store serves the streets it can reach within the promise."
     }
   ],
   "capabilities": [

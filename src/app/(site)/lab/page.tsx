@@ -1,211 +1,78 @@
 import type { Metadata } from "next";
+import { DragFilm } from "@/components/media/DragFilm";
+import { RowList, StackList } from "@/components/home/StepText";
 import { Button, ButtonLink } from "@/components/ui/Button";
-import { ChapterRail } from "@/components/ui/ChapterRail";
 import { Faq } from "@/components/ui/Faq";
 import { Headline } from "@/components/ui/Headline";
-import { Hotspots } from "@/components/ui/Hotspots";
-import { Marquee } from "@/components/ui/Marquee";
-import { Reveal } from "@/components/ui/Reveal";
-import { Scene } from "@/components/scene/Scene";
-import { AlphaVideo } from "@/components/media/AlphaVideo";
-import { ScrollSequence } from "@/components/media/ScrollSequence";
-import { clips, sequences } from "@/content/media";
-import { ClothingRack } from "@/components/rack/ClothingRack";
-import { SceneThumb } from "@/components/ui/SceneThumb";
-import { StatCounter } from "@/components/ui/StatCounter";
 import { Tabs } from "@/components/ui/Tabs";
-import { allSolutions } from "@/content/site";
+import { sequences } from "@/content/media";
 
 export const metadata: Metadata = { title: "Lab", robots: { index: false, follow: false } };
 
-// Lab-only sample data (illustrative).
-const chapters = [
-  { id: "lab-type", label: "Type and buttons" },
-  { id: "lab-counters", label: "Counters" },
-  { id: "lab-hotspots", label: "Hotspots" },
-  { id: "lab-tabs", label: "Tabs" },
-  { id: "lab-faq", label: "FAQ" },
-  { id: "lab-marquee", label: "Marquee" },
-  { id: "lab-3d", label: "3D foundation" },
-  { id: "lab-media", label: "Media" },
-  { id: "lab-rack", label: "Clothing rack" },
+const swatches = [
+  ["studio", "#CEC5BD"],
+  ["studio-light", "#DCD5CE"],
+  ["ink", "#1B1915"],
+  ["ink-2", "#45403A"],
+  ["copper", "#843B13"],
 ];
 
-const hotspots = [
-  { id: "screen", label: "Order screen", detail: "Shows ORD-1042 with its route and ETA.", x: 30, y: 30 },
-  { id: "reader", label: "Card reader", detail: "Tap-to-pay, receipt in under two seconds (illustrative).", x: 58, y: 62 },
-  { id: "printer", label: "Receipt printer", detail: "Prints the receipt and the return label.", x: 82, y: 40 },
-];
-
-const swatches = ["stone-50", "travertine", "terrazzo-chip", "ink", "copper", "olive", "steel"];
-
-function Section({ id, title, children }: { id: string; title: string; children: React.ReactNode }) {
+function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section id={id} className="scroll-mt-24 border-t border-line py-16 md:py-24">
+    <section className="border-t border-line py-16">
       <p className="eyebrow mb-8">{title}</p>
       {children}
     </section>
   );
 }
 
+/** The design system on one page (not linked, not indexed). */
 export default function LabPage() {
   return (
-    <>
-      <main
-        id="main"
-        className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] pt-[calc(var(--header-h)+48px)] pb-24 lg:pl-[calc(var(--gutter)+170px)]"
-      >
-        <ChapterRail chapters={chapters} />
-        <Headline text="Component lab." className="text-[clamp(3rem,9vw,7rem)]" />
-
-        <Section id="lab-type" title="01 · Type, colour, buttons">
-          <Reveal className="grid gap-10 lg:grid-cols-2">
-            <div data-reveal-item>
-              <Headline as="h2" text="One catalog, one stock count, everywhere." className="text-5xl md:text-6xl" />
-              <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-ink-soft">
-                Body copy in Geist. Headlines in Instrument Serif with one italic accent word. Copper is the only accent.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <ButtonLink href="/contact-us" arrow>
-                  Book a demo
-                </ButtonLink>
-                <Button variant="secondary">See it work</Button>
-                <Button variant="ghost" arrow>
-                  Read more
-                </Button>
-              </div>
-            </div>
-            <ul data-reveal-item className="grid grid-cols-4 gap-3 sm:grid-cols-7 lg:grid-cols-4">
-              {swatches.map((s) => (
-                <li key={s}>
-                  <span
-                    className="block aspect-square rounded-[var(--radius-md)] shadow-[inset_0_0_0_1px_var(--line)]"
-                    style={{ background: `var(--${s})` }}
-                  />
-                  <span className="mt-2 block font-mono text-[0.68rem] text-ink-muted">{s}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-          <ul className="mt-14 grid grid-cols-3 gap-6 sm:grid-cols-6">
-            {allSolutions.map((s) => (
-              <li key={s.href} className="text-center">
-                {s.slug && <SceneThumb slug={s.slug} className="mx-auto h-14 w-20" />}
-                <span className="mt-2 block text-[0.75rem] text-ink-muted">{s.label}</span>
-              </li>
-            ))}
-          </ul>
-        </Section>
-
-        <Section id="lab-counters" title="02 · Stat counters">
-          <div className="grid gap-10 sm:grid-cols-3">
-            <StatCounter value={45} suffix="+" label="Projects delivered by Demaze" />
-            <StatCounter value={35} suffix="+" label="People at Demaze" />
-            <StatCounter value={6} label="Years building software" />
-          </div>
-        </Section>
-
-        <Section id="lab-hotspots" title="03 · Hotspots">
-          <Hotspots items={hotspots} className="max-w-3xl">
-            <div className="terrazzo aspect-[16/10] rounded-[var(--radius-lg)]">
-              <SceneThumb slug="pos" className="size-full p-[12%]" />
-            </div>
-          </Hotspots>
-        </Section>
-
-        <Section id="lab-tabs" title="04 · Tabs">
-          <Tabs
-            label="Capabilities"
-            className="max-w-2xl"
-            items={[
-              {
-                id: "route",
-                label: "Routing",
-                content: <p className="text-ink-soft">Each order checks nearby locations and picks the closest one with stock.</p>,
-              },
-              {
-                id: "split",
-                label: "Split shipment",
-                content: <p className="text-ink-soft">When no single location has everything, the order ships from two.</p>,
-              },
-              {
-                id: "returns",
-                label: "Returns",
-                content: <p className="text-ink-soft">A return can go back to any store, not only the one that shipped it.</p>,
-              },
-            ]}
-          />
-        </Section>
-
-        <Section id="lab-faq" title="05 · FAQ">
-          <Faq
-            className="max-w-3xl"
-            items={[
-              { q: "Is the order data in these scenes real?", a: "No. ORD-1042 and every SKU shown are illustrative examples." },
-              {
-                q: "Does it work on phones?",
-                a: "Yes. Phones get lighter scenes, and the slowest devices get still images and short video loops.",
-              },
-              { q: "Can I use only one module?", a: "Yes. Each module works alone and connects to the others when you add them." },
-            ]}
-          />
-        </Section>
-
-        <Section id="lab-marquee" title="06 · Marquee">
-          <Marquee
-            label="Channels"
-            items={["Website", "Store", "Warehouse", "Marketplace", "B2B portal", "Quick commerce"].map((t) => (
-              <span key={t} className="display text-4xl md:text-6xl">
-                {t} <span className="text-copper">·</span>
-              </span>
-            ))}
-          />
-        </Section>
-
-        <Section id="lab-3d" title="07 · 3D foundation">
-          <p className="mb-6 max-w-[60ch] text-ink-soft">
-            Placeholder scene in the shared canvas. Add <code className="font-mono text-sm">?tier=low</code> to see the poster-only path.
-          </p>
-          <div className="grid gap-6 md:grid-cols-2">
-            {[0, 1].map((i) => (
-              <Scene
-                key={i}
-                scene="placeholder"
-                alt="Copper cube on a travertine plinth (placeholder scene)"
-                className="terrazzo aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)]"
-                fallback={<SceneThumb slug="storefront" className="size-full p-[18%]" />}
-                sceneProps={{ progress: i * 0.5 }}
-              />
-            ))}
-          </div>
-        </Section>
-
-        <Section id="lab-media" title="08 · Alpha video + scroll sequence">
-          <div className="grid items-end gap-8 md:grid-cols-[1fr_2fr]">
-            <div className="terrazzo relative flex aspect-[9/12] items-end justify-center overflow-hidden rounded-[var(--radius-lg)]">
-              <AlphaVideo clip={clips.walker} className="h-[92%] w-auto" />
-            </div>
-            <p className="max-w-[48ch] text-ink-soft">
-              Placeholder character loop (Blender render, VP9 alpha / HEVC alpha). The real cashier, picker and shopper clips replace it
-              with the same keys.
-            </p>
-          </div>
-        </Section>
-
-        <Section id="lab-rack" title="09 · Clothing rack">
-          <ClothingRack className="max-w-5xl" />
-        </Section>
-      </main>
-      <ScrollSequence
-        {...sequences.labOrbit}
-        length={2.5}
-        alt="Camera circles a copper cube on a travertine plinth (test sequence)"
-        captions={[
-          { at: [0.05, 0.35], eyebrow: "Frame 0–20", text: "Scroll position picks the frame." },
-          { at: [0.4, 0.7], eyebrow: "Frame 24–42", text: "Frames load ends-first, then fill in." },
-          { at: [0.75, 1], eyebrow: "Frame 45–59", text: "Reduced motion shows one still instead." },
-        ]}
-      />
-    </>
+    <main id="main" className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] pt-[calc(var(--header-h)+56px)] pb-24">
+      <Headline text="Design system." className="text-[clamp(2.6rem,6vw,6rem)]" />
+      <Block title="Colour">
+        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-5">
+          {swatches.map(([name, hex]) => (
+            <li key={name}>
+              <span className="block aspect-[4/3] rounded-[var(--radius-md)] shadow-[inset_0_0_0_1px_var(--line)]" style={{ background: hex }} />
+              <span className="mt-2 block text-[0.9rem] font-semibold">{name}</span>
+              <span className="block text-[0.9rem] text-ink-2">{hex}</span>
+            </li>
+          ))}
+        </ul>
+      </Block>
+      <Block title="Type">
+        <Headline as="p" text="One system behind every sale." className="text-[clamp(2.4rem,5.2vw,5.6rem)]" />
+        <Headline as="p" text="Four systems, four answers." className="mt-8 text-[clamp(2.1rem,4vw,4rem)]" />
+        <p className="mt-6 max-w-[60ch] text-ink-2">Body text is 18 pixels at 1.55 line height, never wider than sixty characters, in the same family as every headline.</p>
+      </Block>
+      <Block title="Buttons and links">
+        <div className="flex flex-wrap items-center gap-3">
+          <ButtonLink href="/contact-us" arrow>
+            Book a demo
+          </ButtonLink>
+          <Button variant="secondary">See it work</Button>
+          <a href="#" className="font-semibold text-copper underline-offset-4 hover:underline">
+            Order management →
+          </a>
+        </div>
+      </Block>
+      <Block title="Lists">
+        <div className="grid gap-12 md:grid-cols-2">
+          <RowList active={1} rows={[{ key: "a", left: "Central warehouse", right: "In stock · 18 km" }, { key: "b", left: "Riverside store", right: "In stock · 2.4 km" }, { key: "c", left: "Old Town store", right: "Out of size M" }]} />
+          <StackList rows={[{ key: "a", title: "Discover", body: "We map how you sell today." }, { key: "b", title: "Design", body: "One catalog and one stock model." }]} />
+        </div>
+      </Block>
+      <Block title="Tabs and questions">
+        <div className="grid gap-12 md:grid-cols-2">
+          <Tabs label="Capabilities" items={[{ id: "a", label: "Routing", content: <p className="text-ink-2">Each order checks every location.</p> }, { id: "b", label: "Returns", content: <p className="text-ink-2">Return anything anywhere.</p> }]} />
+          <Faq items={[{ q: "Is the order data real?", a: "No. ORD-1042 and every SKU shown are illustrative." }, { q: "Does it work on phones?", a: "Yes. Every film has a phone crop and loads after the page." }]} />
+        </div>
+      </Block>
+      <Block title="Drag film">
+        <DragFilm pattern={sequences.hero.pattern} mobilePattern={sequences.hero.mobilePattern} from={0} to={sequences.hero.count - 1} label="Drag to look around" alt="The miniature store" className="max-w-4xl" />
+      </Block>
+    </main>
   );
 }

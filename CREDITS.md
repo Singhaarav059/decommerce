@@ -2,20 +2,17 @@
 
 Every asset on the site, where it came from and under what licence. Update this file whenever an asset is added or replaced.
 
-## 3D, images, video
+## Images and video
 
-| Asset | Source | Licence |
+| Asset | Source | Licence / terms |
 | --- | --- | --- |
-| Store-world props (counters, shelves, boxes, POS, laptop, van, city, olive trees) | Built in code: `src/three/kit.tsx`, scenes in `src/scenes` | Own work |
-| Terrazzo, travertine, kraft, brushed-steel textures | Procedural canvas textures, `src/three/textures.ts` | Own work |
-| Reflections | `RoomEnvironment` from three.js examples | MIT |
-| Rack garments + hanger (`public/assets/models/rack.glb`) | Blender script `scripts/blender/garments.py` | Own work (placeholder) |
-| Character loop (`public/assets/video/placeholder-walker.*`) | Blender script `scripts/blender/figure_walk.py` | Own work (placeholder for AI character clips) |
-| Lab test sequence (`public/assets/seq/lab-orbit`) | Blender script `scripts/blender/lab_orbit.py` | Own work |
-| Delivery film (`public/assets/seq/delivery`) | Captured from `scenes/delivery` by `scripts/capture-sequence.mjs` | Own work |
-| Posters and social card (`public/assets/posters`, `src/app/opengraph-image.png`) | Captured from the live scenes by `scripts/posters.mjs`, `scripts/og.mjs` | Own work |
+| Three reference renders (`assets-src/refs/ref-counter`, `ref-packing`, `ref-diorama`) | Supplied by the site owner | Owner to confirm rights for commercial use |
+| Homepage films (`public/assets/seq/*`) | Google Veo 3.1 on Vertex AI, from the owner's renders and generated stills; frames by `scripts/frames-from-video.sh` | Google Cloud generative AI terms (owner's project `silicon-alchemy-476503-i4`) |
+| Solution page films and stills (`public/assets/sol/*`) | Google Gemini 3 Pro Image + Veo 3.1 on Vertex AI, prompts in `scripts/solutions/assets.json` | Same |
+| Company stills (`public/assets/company/*`) | Gemini 3 Pro Image on Vertex AI | Same |
+| Social card (`src/app/opengraph-image.png`) | Screenshot of `/capture/og` using a hero frame | Own work |
 
-No third-party models, HDRIs, photos or AI-generated media are used yet. When the real character clips (Higgsfield / Canva / other image-to-video tools) or CC models arrive, add a row each and check the tool's commercial-use terms first (free tiers often watermark or restrict commercial use).
+Every paid generation is listed with its prompt and cost in `assets-src/vertex/ledger.json`. People in the footage (the picker, the cashier's hands, shoppers) are AI-generated and are not real individuals. Before launch, check Google's current terms for commercial use of generated media and keep any required disclosure.
 
 ## Fonts
 
@@ -29,10 +26,8 @@ No third-party models, HDRIs, photos or AI-generated media are used yet. When th
 | Library | Licence |
 | --- | --- |
 | Next.js, React | MIT |
-| three.js, @react-three/fiber, @react-three/drei | MIT |
 | GSAP (+ ScrollTrigger) | GSAP Standard License (free, including commercial use) |
 | Lenis | MIT |
-| detect-gpu | MIT |
 | @next/mdx, @mdx-js | MIT |
 | @vercel/analytics | MPL-2.0 |
 

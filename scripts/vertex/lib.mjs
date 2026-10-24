@@ -55,14 +55,23 @@ export const IMAGE_PRICE = {
 export async function vertex(path, body, location = REGION) {
   const host = location === "global" ? "aiplatform.googleapis.com" : `${location}-aiplatform.googleapis.com`;
   const url = `https://${host}/v1/projects/${PROJECT}/locations/${location}/${path}`;
-  const res = await fetch(url, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token()}`, "Content-Type": "application/json", "x-goog-user-project": PROJECT },
-    body: JSON.stringify(body),
-  });
-  const json = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(`Vertex ${res.status}: ${JSON.stringify(json.error ?? json).slice(0, 600)}`);
-  return json;
+  // Rate limits (429) and transient server errors are retried with backoff; nothing is billed for them.
+  for (let attempt = 0; ; attempt++) {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token()}`, "Content-Type": "application/json", "x-goog-user-project": PROJECT },
+      body: JSON.stringify(body),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (res.ok) return json;
+    if ((res.status === 429 || res.status >= 500) && attempt < 6) {
+      const wait = Math.min(120_000, 8_000 * 2 ** attempt);
+      console.log(`[vertex] ${res.status}, retrying in ${wait / 1000}s`);
+      await sleep(wait);
+      continue;
+    }
+    throw new Error(`Vertex ${res.status}: ${JSON.stringify(json.error ?? json).slice(0, 600)}`);
+  }
 }
 
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

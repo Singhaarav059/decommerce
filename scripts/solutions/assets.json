@@ -1,0 +1,72 @@
+{
+  "_style": {
+    "interior": "Photorealistic interior photography of the same calm luxury retail world as the reference: honed travertine, speckled terrazzo, brushed steel, oak, copper accents, linen and wool, olive trees. Low warm late-afternoon sunlight from the upper left with soft leaf shadows, shallow depth of field, 50mm lens, three-quarter view. The subject sits in the central part of the frame with calm space around it so it can be cropped to 4:3. No text, letters, numbers, logos, signs or labels anywhere.",
+    "miniature": "Photorealistic architectural miniature photography on a light warm grey seamless studio backdrop, low warm late-afternoon sunlight from the upper left, soft shadows, shallow depth of field, three-quarter view from above, 50mm lens. Materials: honed travertine, speckled terrazzo, brushed steel, oak, copper. The model is centred and fills about 65 percent of the frame width with even backdrop around it. No text, letters, numbers, logos, signs or labels anywhere.",
+    "move": "A slow, smooth camera move: a gentle push-in with a slight sideways drift. Keep every object, material and colour exactly as in the image. Same light. Photorealistic, steady, no shake, no text, no letters, no signs."
+  },
+  "solutions": {
+    "storefront": {
+      "ref": "assets-src/refs/ref-counter.png", "style": "interior",
+      "broken": "A travertine shop counter with a thin silver laptop showing a completely blank white screen, beside it a messy pile of printed spreadsheets with unreadable blurred rows, loose sticky notes, a pen and a coffee cup. Slightly cluttered, flat light, a little chaotic.",
+      "fixed": { "still": "assets-src/stills/ch4-laptop.png", "clip": "assets-src/vertex/ch4-laptop-1080.mp4" },
+      "match": "none"
+    },
+    "brand-showcase": {
+      "ref": "assets-src/refs/ref-counter.png", "style": "interior",
+      "broken": "Seven framed photographs of different clothing shop websites, in mismatched oak, steel and copper frames, leaning haphazardly against a travertine wall on a terrazzo floor, overlapping and tilted, some face-down; the frames show only abstract product photography of clothes, no words.",
+      "fixed": "A long travertine gallery wall with seven matching thin oak frames hung in one perfectly straight row at even spacing, each frame showing a calm product photograph of linen and wool clothing on a pale background, no words; a low travertine bench in front, an olive tree at the end, warm wall-washer light."
+    },
+    "b2b": {
+      "ref": "assets-src/refs/ref-packing.png", "style": "interior",
+      "broken": "A wholesale stockroom desk in oak: a thick paper order book open with handwritten scribbles that cannot be read, a carbon-copy pad, an old calculator, a telephone handset off the hook, scattered paper invoices, kraft boxes stacked untidily behind.",
+      "fixed": "A wholesale stockroom: three neat wooden pallets stacked with kraft cardboard boxes wrapped in clear film, and on a slim oak standing desk in front a tablet showing a clean grid of product photographs of folded linen shirts and three simple horizontal price bars of different lengths, no words or numbers."
+    },
+    "quick-commerce": {
+      "ref": "assets-src/refs/ref-diorama-169.png", "style": "miniature",
+      "broken": "A miniature dark store on a travertine base: brushed steel shelves of groceries and kraft bags, a pile of unpacked paper bags on the floor, and a small copper-coloured delivery scooter parked idle outside the closed roller door, the street in front empty.",
+      "fixed": "A miniature dark store on a travertine base with its roller door open, neat steel shelves of groceries and kraft bags, and a small copper-coloured delivery scooter with a kraft delivery box on the back riding out along a pale terrazzo street toward a row of small travertine houses."
+    },
+    "marketplace": {
+      "ref": "assets-src/refs/ref-diorama-169.png", "style": "miniature",
+      "broken": "One single kraft cardboard product box standing alone on a small travertine plinth in the middle of an empty travertine room with bare oak shelves on the walls.",
+      "fixed": "A travertine room with four oak wall shelves, each holding an identical kraft cardboard product box; each shelf has a small round coloured disc above it (copper, olive, ink black, stone) and no letters; the same box also stands on a travertine plinth in the centre."
+    },
+    "oms": {
+      "ref": "assets-src/refs/ref-counter.png", "style": "interior",
+      "broken": "A travertine counter with an overflowing tray of paper order tickets, more tickets scattered and curling across the counter and falling to the floor; the tickets show only blurred unreadable lines and barcodes.",
+      "fixed": "A travertine wall board with three tall slim brushed-copper slots, each holding a neat stack of paper order tickets standing upright and perfectly aligned; the tickets show only blurred unreadable lines and barcodes; a calm, ordered counter below with a card terminal."
+    },
+    "wms": {
+      "ref": "assets-src/refs/ref-packing.png", "style": "interior",
+      "broken": "A dim warehouse aisle between tall brushed steel shelving full of kraft boxes and grey crates, unlit, with boxes pulled out and left on the floor and a handheld scanner lying unused on a crate; the picking looks lost and messy.",
+      "fixed": { "still": "assets-src/refs/ref-packing-169.png", "clip": "assets-src/vertex/ch6-pack-1080.mp4" },
+      "match": "none"
+    },
+    "tms": {
+      "ref": "assets-src/stills/ch5-city.png", "style": "miniature",
+      "broken": "The same miniature city district model as the reference, but five small cream delivery vans are jammed together at one crossroads facing different directions, blocking each other, while other streets are empty.",
+      "fixed": { "still": "assets-src/stills/ch5-city.png", "clip": "assets-src/vertex/ch7-van-film.mp4" }
+    },
+    "pos": {
+      "ref": "assets-src/refs/ref-counter.png", "style": "interior",
+      "broken": "The same boutique counter as the reference but with an old beige cash register and a tangled receipt roll on it, and a long queue of out-of-focus shoppers in linen and wool waiting in front of the counter, seen from behind at mid-distance.",
+      "fixed": { "still": "assets-src/refs/ref-counter-169.png", "clip": "assets-src/vertex/ch8-counter-1080.mp4" },
+      "match": "none"
+    },
+    "clienteling": {
+      "ref": "assets-src/refs/ref-counter.png", "style": "interior",
+      "broken": "A store associate's tablet lying face-up on a travertine counter showing a plain empty white screen, next to a bronze clothing rail of linen and wool garments; nothing on the screen.",
+      "fixed": "A store associate's hands holding a tablet in front of a bronze clothing rail of linen and wool garments; the tablet screen shows a calm grid of four product photographs of an outfit (overshirt, knit, trousers, coat) on a pale background, no words; one garment on the rail is pulled slightly forward."
+    },
+    "endless-aisle": {
+      "ref": "assets-src/refs/ref-counter.png", "style": "interior",
+      "broken": "A short oak shelf unit in a travertine boutique with neat stacks of folded linen shirts in sand, oat, rust and charcoal, and one obvious empty gap in the middle of the shelf where a stack is missing.",
+      "fixed": "A very long oak shelf corridor of neat folded linen shirts in sand, oat, rust and charcoal, receding far into the distance in one-point perspective with warm light along it, as if the shelf goes on endlessly; the near shelf has no gaps."
+    },
+    "self-checkout": {
+      "ref": "assets-src/refs/ref-counter.png", "style": "interior",
+      "broken": "A queue of out-of-focus shoppers in linen and wool holding a few items each, waiting in a line in a travertine boutique in front of a single counter, seen from behind at mid-distance.",
+      "fixed": "A slim travertine self-checkout kiosk with a dark angled touch screen showing a single product photograph of a folded linen shirt, no words, a small glass scanner window glowing faint copper, and an open kraft paper bag with a folded linen shirt beside it, in a calm travertine boutique."
+    }
+  }
+}

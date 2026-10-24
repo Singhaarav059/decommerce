@@ -13,21 +13,6 @@ export const order = {
 
 export type Step = { eyebrow: string; headline: string; body?: string };
 
-export const chapters = [
-  { id: "ch-store", label: "The store" },
-  { id: "ch-islands", label: "Four islands" },
-  { id: "ch-unify", label: "One count" },
-  { id: "ch-storefront", label: "Storefront" },
-  { id: "ch-order", label: "The order" },
-  { id: "ch-pack", label: "Pick and pack" },
-  { id: "ch-delivery", label: "Delivery" },
-  { id: "ch-instore", label: "In the store" },
-  { id: "ch-proof", label: "How we work" },
-  { id: "ch-close", label: "Book a demo" },
-] as const;
-
-export const opening = { label: "Opening", skip: "Skip" };
-
 export const hero = {
   eyebrow: "Unified commerce",
   headline: "One system behind every sale.",
@@ -70,7 +55,6 @@ export const storefront = {
   eyebrow: "Storefront",
   headline: "A store website that builds itself from your catalog.",
   body: "Choose a theme and the site fills itself: products, prices and stock come straight from the catalog your stores use.",
-  rackHint: "Drag the rail or use the arrows. Tap a hanger to try it on.",
   links: [
     { label: "Storefront", href: "/storefront" },
     { label: "Brand showcase", href: "/storefront/brand-showcase" },
@@ -85,10 +69,6 @@ export const orderLands = {
     { id: "wh", name: "Central warehouse", detail: "In stock · 18 km", chosen: false },
     { id: "st", name: order.store, detail: `In stock · ${order.distance}`, chosen: true },
     { id: "st2", name: "Old Town store", detail: "Out of size M", chosen: false },
-  ],
-  hotspots: [
-    { id: "split", label: "Split shipment", detail: "If no single location has every item, the order ships from two and the customer sees one tracking page.", x: 58, y: 24 },
-    { id: "returns", label: "Returns anywhere", detail: "A return can go back to any store, which restocks it into the same shared count.", x: 74, y: 64 },
   ],
   links: [{ label: "Order management", href: "/oms" }],
   alt: "A miniature city district with a steel warehouse and three boutiques; the camera moves toward the boutique nearest the customer.",
@@ -126,9 +106,9 @@ export const inStore = {
   eyebrow: "In the store, too",
   headline: "The same system at the counter.",
   panels: [
-    { id: "pos", scene: "pos", title: "Point of sale", body: "Tap to pay, receipt prints, stock updates everywhere.", href: "/pos" },
-    { id: "aisle", scene: "aisle", title: "Endless aisle", body: "Out of a size? The shelf goes on: order it from another location to the customer's home.", href: "/endless-aisle" },
-    { id: "kiosk", scene: "kiosk", title: "Self-checkout", body: "Scan, pay and bag in one step, no queue.", href: "/self-checkout" },
+    { id: "pos", title: "Point of sale", body: "Tap to pay, receipt prints, stock updates everywhere.", href: "/pos" },
+    { id: "aisle", title: "Endless aisle", body: "Out of a size? The shelf goes on: order it from another location to the customer's home.", href: "/endless-aisle" },
+    { id: "kiosk", title: "Self-checkout", body: "Scan, pay and bag in one step, no queue.", href: "/self-checkout" },
   ],
   more: { label: "Clienteling", href: "/clienteling" },
   alt: "At a travertine counter a customer taps a card on the terminal and a cashier packs a linen shirt into an orange box.",

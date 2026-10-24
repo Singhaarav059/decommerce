@@ -4,29 +4,6 @@ export const meta = {
   "eyebrow": "Supply chain",
   "headline": "Every order finds the right shelf.",
   "promise": "Orders check every location and route themselves to the one that can ship fastest and cheapest.",
-  "scene": "oms",
-  "interaction": {
-    "kind": "pick",
-    "label": "Follow an order",
-    "hint": "Tap a ticket to follow its route.",
-    "options": [
-      {
-        "id": "t1",
-        "label": "ORD-1042",
-        "detail": "Linen overshirt · to Riverside store"
-      },
-      {
-        "id": "t2",
-        "label": "ORD-1043",
-        "detail": "Two items · split shipment"
-      },
-      {
-        "id": "t3",
-        "label": "ORD-1044",
-        "detail": "Wholesale · central warehouse"
-      }
-    ]
-  },
   "problem": {
     "title": "Tickets piling up.",
     "broken": "Tickets stacked, routed by hand"
@@ -43,16 +20,6 @@ export const meta = {
   },
   "anatomy": [
     {
-      "id": "inbox",
-      "label": "Incoming orders",
-      "detail": "Website, marketplace, B2B and store orders land in one queue."
-    },
-    {
-      "id": "rules",
-      "label": "Routing rules",
-      "detail": "Distance, stock, cost and store workload decide the location."
-    },
-    {
       "id": "lanes",
       "label": "Location lanes",
       "detail": "Each warehouse and store gets its own lane of orders to fulfil."
@@ -60,7 +27,12 @@ export const meta = {
     {
       "id": "split",
       "label": "Split shipment",
-      "detail": "When no location has everything, the order ships from two."
+      "detail": "When no location has everything, the order ships from two with one tracking page."
+    },
+    {
+      "id": "inbox",
+      "label": "Incoming orders",
+      "detail": "Website, marketplace, wholesale and till orders land in one queue."
     }
   ],
   "capabilities": [

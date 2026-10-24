@@ -4,13 +4,6 @@ export const meta = {
   "eyebrow": "In-store",
   "headline": "The shelf goes on.",
   "promise": "Out of a size? Order it from any location in the network, delivered to the customer's home.",
-  "scene": "aisle",
-  "interaction": {
-    "kind": "slider",
-    "label": "Push the shelf",
-    "hint": "Slide to push the shelf deeper into the network's stock.",
-    "drag": true
-  },
   "problem": {
     "title": "A gap where *size M* should be.",
     "broken": "Gap on the shelf"
@@ -27,24 +20,19 @@ export const meta = {
   },
   "anatomy": [
     {
-      "id": "gap",
-      "label": "The gap",
-      "detail": "The size the customer wants, missing from this store."
-    },
-    {
       "id": "shelf",
       "label": "This store's shelf",
       "detail": "What the shop floor holds today."
     },
     {
-      "id": "network",
-      "label": "Network stock",
-      "detail": "Every other store and warehouse, searchable from the floor."
+      "id": "stack",
+      "label": "Every size, every colour",
+      "detail": "Search all sizes and colours across the network from the shop floor."
     },
     {
-      "id": "till",
-      "label": "Pay here, ship home",
-      "detail": "The customer pays in store; the order ships from wherever it is."
+      "id": "network",
+      "label": "Network stock",
+      "detail": "Every other store and warehouse, ordered to the customer's home in one step."
     }
   ],
   "capabilities": [

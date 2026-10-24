@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { companyGroup, solutionGroups, type NavGroup } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
-import { SceneThumb } from "@/components/ui/SceneThumb";
+import Image from "next/image";
 import { Wordmark } from "@/components/ui/Wordmark";
 
 const groups: NavGroup[] = [...solutionGroups, companyGroup];
@@ -151,9 +151,12 @@ export function Header() {
                       className="group flex items-center gap-4 rounded-[var(--radius-md)] p-3 transition-colors hover:bg-travertine/70"
                     >
                       {item.slug && (
-                        <SceneThumb
-                          slug={item.slug}
-                          className="h-12 w-16 shrink-0 transition-transform duration-500 ease-[var(--ease-overshoot)] group-hover:-translate-y-0.5"
+                        <Image
+                          src={`/assets/sol/${item.slug}/thumb.webp`}
+                          alt=""
+                          width={80}
+                          height={60}
+                          className="h-[60px] w-20 shrink-0 rounded-[var(--radius-sm)] object-cover"
                         />
                       )}
                       <span>
@@ -187,7 +190,7 @@ export function Header() {
                   {g.items.map((item) => (
                     <li key={item.href}>
                       <Link href={item.href} className="flex min-h-11 items-center gap-3 text-[1.05rem]">
-                        {item.slug && <SceneThumb slug={item.slug} className="h-8 w-11 shrink-0" />}
+                        {item.slug && <Image src={`/assets/sol/${item.slug}/thumb.webp`} alt="" width={48} height={36} className="h-9 w-12 shrink-0 rounded-[var(--radius-sm)] object-cover" />}
                         {item.label}
                       </Link>
                     </li>

@@ -92,6 +92,14 @@ cite {
   color: #1b1915;
 }
 
+/* Feathered edges so an image melts into the studio surface */
+.feather {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+  mask-composite: intersect;
+}
+
 /* Raised flat surface (was a terrazzo texture) */
 .terrazzo {
   background-color: var(--studio-light);

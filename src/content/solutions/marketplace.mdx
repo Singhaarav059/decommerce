@@ -4,31 +4,6 @@ export const meta = {
   "eyebrow": "Online",
   "headline": "One listing, every shelf.",
   "promise": "Write a product once; it appears on each marketplace you switch on, with shared stock.",
-  "scene": "market",
-  "interaction": {
-    "kind": "toggles",
-    "label": "Channels",
-    "hint": "Switch channels on and off.",
-    "options": [
-      {
-        "id": "a",
-        "label": "Channel A"
-      },
-      {
-        "id": "b",
-        "label": "Channel B"
-      },
-      {
-        "id": "c",
-        "label": "Channel C"
-      },
-      {
-        "id": "d",
-        "label": "Channel D"
-      }
-    ],
-    "initial": 7
-  },
   "problem": {
     "title": "One product, *four* copies.",
     "broken": "One listing, copied by hand"
@@ -52,7 +27,7 @@ export const meta = {
     {
       "id": "shelf",
       "label": "Channel shelves",
-      "detail": "Each channel gets the listing in its own format. (Channel names here are generic.)"
+      "detail": "Each marketplace gets the listing in its own format. Channels here are generic."
     },
     {
       "id": "badge",
@@ -60,9 +35,9 @@ export const meta = {
       "detail": "Turn a channel on or off without touching the listing."
     },
     {
-      "id": "queue",
-      "label": "One order queue",
-      "detail": "Marketplace orders arrive alongside website and store orders."
+      "id": "count",
+      "label": "One stock count",
+      "detail": "Every channel draws from one count, so no channel sells what another already sold."
     }
   ],
   "capabilities": [
