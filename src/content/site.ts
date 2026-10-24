@@ -7,7 +7,10 @@ export const brand = {
   tagline: "Unified commerce for online, supply chain and in-store.",
   parent: { name: "Demaze Technologies", href: "https://www.demazetech.com/" },
   sibling: { name: "Decignal", href: "https://decignal.com/" },
-  siteUrl: "https://decommerce.example",
+  // canonical origin: NEXT_PUBLIC_SITE_URL if set, else Vercel's production domain (follows a custom domain once one is added)
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "https://decommerce-lime.vercel.app"),
   demoEmail: "hello@decommerce.example",
 } as const;
 
