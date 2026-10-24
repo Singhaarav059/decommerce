@@ -1,6 +1,6 @@
 import { StoryProgress } from "@/components/layout/StoryProgress";
 import { HeroFilm } from "@/components/home/HeroFilm";
-import { WorldChapter } from "@/components/home/WorldChapter";
+import { IslandsChapter } from "@/components/home/IslandsChapter";
 import { StorefrontChapter } from "@/components/home/StorefrontChapter";
 import { OrderChapter } from "@/components/home/OrderChapter";
 import { PackChapter } from "@/components/home/PackChapter";
@@ -16,7 +16,7 @@ export default function HomePage() {
       <Opening />
       <StoryProgress />
       <HeroFilm />
-      <WorldChapter />
+      <IslandsChapter />
       <StorefrontChapter />
       <OrderChapter />
       <PackChapter />

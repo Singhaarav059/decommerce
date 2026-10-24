@@ -54,7 +54,143 @@
       "out": "assets-src/vertex/hero-pushin-169-1080.mp4",
       "prompt": "One slow, continuous camera move that starts at this exact framing, then glides forward and gently down toward the open front of this miniature luxury clothing ",
       "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:30:49.616Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch2-cluster.png",
+      "prompt": "Using the first image as the exact style, lighting, camera angle and backdrop reference (and the second only for warehouse props), create one photorealistic arc"
+    },
+    {
+      "at": "2026-10-24T03:31:38.801Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch2-apart.png",
+      "prompt": "Edit this image. Keep the exact same camera angle, lighting, studio backdrop, materials and every object. Split the miniature into four separate square islands,"
+    },
+    {
+      "at": "2026-10-24T03:32:23.252Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch2-apart.png",
+      "prompt": "Create a NEW image, a different composition from the reference: the reference miniature has been broken into four separate pieces that have moved away from each"
+    },
+    {
+      "at": "2026-10-24T03:33:35.550Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch2-apart.png",
+      "prompt": "Create a NEW image, a different composition from the reference: the reference miniature has been broken into four separate pieces that have moved away from each"
+    },
+    {
+      "at": "2026-10-24T03:35:02.622Z",
+      "kind": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "res": "720p",
+      "seconds": 8,
+      "usd": 0.24,
+      "out": "assets-src/vertex/ch2-split-lite.mp4",
+      "prompt": "The camera holds almost still, drifting back very slightly. The miniature slowly comes apart along its inner walls into four separate square islands: the wareho",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:36:24.273Z",
+      "kind": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "res": "720p",
+      "seconds": 8,
+      "usd": 0.24,
+      "out": "assets-src/vertex/ch2-split-lite2.mp4",
+      "prompt": "Locked-off camera: the camera does not move, rotate or zoom at all; the framing stays exactly as in the first frame. The miniature slowly separates into four sq",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:37:34.492Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch2-apart.png",
+      "prompt": "Style, materials, lighting, backdrop and camera angle exactly as in the reference image. Subject: four small, completely separate square miniature dioramas floa"
+    },
+    {
+      "at": "2026-10-24T03:38:26.205Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch2-apart.png",
+      "prompt": "Photorealistic architectural miniature photography. Four small, completely separate square miniature rooms float in the air above a seamless warm grey studio ba"
+    },
+    {
+      "at": "2026-10-24T03:39:19.314Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/ch2-apart.png",
+      "prompt": "Edit the first image only. Keep the four floating rooms exactly as they are: same positions, objects, materials and shadows. Change only the studio backdrop and"
+    },
+    {
+      "at": "2026-10-24T03:40:37.138Z",
+      "kind": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "res": "720p",
+      "seconds": 8,
+      "usd": 0.24,
+      "out": "assets-src/vertex/ch2-split-fl-lite.mp4",
+      "prompt": "A smooth, slow transformation: the single miniature store comes apart and its four rooms lift off the floor and drift away from each other until they float as f",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:42:48.216Z",
+      "kind": "video",
+      "model": "veo-3.1-lite-generate-001",
+      "res": "720p",
+      "seconds": 8,
+      "usd": 0.24,
+      "out": "assets-src/vertex/ch23-join-lite.mp4",
+      "prompt": "The camera stays completely still. The four floating miniature rooms slowly glide toward each other and settle down onto the floor, locking together edge to edg",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:44:36.972Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/ch2-islands-1080.mp4",
+      "prompt": "A very slow, smooth camera arc around these four floating miniature rooms, moving a little to the side and slightly closer. The rooms hover gently in place with",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-24T03:44:52.284Z",
+      "kind": "video",
+      "model": "veo-3.1-fast-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.4,
+      "out": "assets-src/vertex/ch3-joined-1080.mp4",
+      "prompt": "A very slow, smooth camera push-in toward this single connected miniature store, the whole store staying in view. Keep every object, material and colour exactly",
+      "filtered": 0
     }
   ],
-  "totalUsd": 3.52
+  "totalUsd": 6.218
 }

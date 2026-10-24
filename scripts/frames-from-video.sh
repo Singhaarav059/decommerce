@@ -5,7 +5,17 @@
 set -e
 in=$1; out=$2; nth=${3:-2}; dw=${4:-1600}; mw=${5:-800}; q=${6:-64}; ma=${7:-4:3}
 tmp=$(mktemp -d)
-ffmpeg -loglevel error -i "$in" -vf "select='not(mod(n\,$nth))'" -fps_mode vfr "$tmp/f_%03d.png"
+# Colour-match to the page: measure the backdrop (frame edges of the first frame)
+# and scale each channel so it lands on --studio (#cec5bd). Then trim 6 px of
+# edge rows/columns, where generated footage often carries stray lines.
+rgb=$(ffmpeg -loglevel error -i "$in" -vf "select='eq(n\,0)',crop=iw:ih*0.08:0:0,scale=1:1" -frames:v 1 -f rawvideo -pix_fmt rgb24 - | xxd -p)
+mix=$(python3 -c "
+r,g,b=int('$rgb'[0:2],16),int('$rgb'[2:4],16),int('$rgb'[4:6],16)
+t=(0xce,0xc5,0xbd)
+k=[max(0.85,min(1.15,t[i]/max(1,c))) for i,c in enumerate((r,g,b))]
+print(f'colorchannelmixer=rr={k[0]:.3f}:gg={k[1]:.3f}:bb={k[2]:.3f}')")
+echo "backdrop #$rgb -> $mix"
+ffmpeg -loglevel error -i "$in" -vf "select='not(mod(n\,$nth))',crop=iw-12:ih-12:6:6,$mix" -fps_mode vfr "$tmp/f_%03d.png"
 rm -rf "$out"; mkdir -p "$out/d" "$out/m"
 i=0
 for f in "$tmp"/f_*.png; do

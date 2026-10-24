@@ -49,7 +49,8 @@ export const islands = {
     { id: "marketplace", name: "Marketplace", stock: 6 },
   ],
   unit: "in stock",
-  item: `${order.item}, size ${order.size}`,
+  alt: "Four separate miniature rooms float apart: a warehouse, a market stall, an office and a boutique; then they stand together as one connected store.",
+  item: `Stock of one ${order.item.toLowerCase()} in size ${order.size}`,
 };
 
 export const unify = {

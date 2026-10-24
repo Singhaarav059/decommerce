@@ -94,8 +94,7 @@ One continuous world: the camera starts on the store diorama and every later cha
 | # | Text column (left / below) | Visual pane (right / top) | Interaction | Source |
 | --- | --- | --- | --- | --- |
 | 1 Hero | Label "Unified commerce", headline "One system behind every sale.", body, two buttons | Store diorama → push-in to the copper counter | Scroll scrub, 48 frames | Done (ref-diorama → Veo). Re-frame to the safe area and re-pane |
-| 2 The problem | "Four systems, four answers." + body + the four stock counts as a list (Website 4, Store 1, Warehouse 0, Marketplace 6) | The diorama splits into four floating islands on the sweep | Scroll scrub | Still: islands (image model, from ref-diorama). Clip: Veo first frame = diorama, last frame = islands |
-| 3 The fix | "One catalog, one stock count, everywhere." + the four counts now all 5 | The islands glide back together; a copper line traces through them | Scroll scrub | Still: unified with copper inlay line. Clip: islands → unified |
+| 2–3 Problem → fix (one pinned section) | Step 1: "Four systems, four answers." with the four mismatched counts as a list. Step 2: "One catalog, one stock count, everywhere." with every count at 5 | Four separate floating rooms (camera arc), then one joined store (camera move); a 0.4 s cut between them at the step change | Scroll scrub, 61 frames | Done. Stills: `ch2-apart.png` (text-only generation), `ch2-cluster.png`. Veo cannot reliably rearrange objects (morphs, dropped rooms) or interpolate between different camera angles (ghosting), so each step is one camera move on one still |
 | 4 Storefront | "A store website that builds itself from your catalog." + links | The clothing rack in the store: hangers slide past, one lifts | Drag scrub (theme browsing) + slider | Still: rack close-up (from ref-counter world). Clip: slow pan along the rack, then a hanger lifting |
 | 5 The order | "ORD-1042 finds the nearest shelf." + the three locations as a list, the chosen one highlighted as you scroll | Miniature city diorama: three stores and a warehouse; a copper route draws to the nearest store | Scroll scrub | Still: city diorama. Clip: route drawing / camera move |
 | 6 Pick and pack | "Bins light up in pick order." + four steps | Packing station (your render 2): picker scans, label prints, box goes onto the conveyor | Scroll scrub | ref-packing → Veo with a person |
@@ -143,3 +142,11 @@ Each step ends with screenshots at 1440 and 390 px, a check that nothing overlap
 | **Total** | | | **~$55** (plus $3.52 already spent) |
 
 Every clip is drafted in Lite first; only drafts that pass review are made in Fast.
+
+## 8. Lessons from production (keep these rules)
+
+- Veo is reliable for camera moves around a still; unreliable for rearranging objects or morphing between different stills. Design each step as one camera move on one still; join steps with a short cut.
+- Never put position words (front left, back right) in video prompts; Veo may write them into the image as text.
+- Give Veo a start image in the output aspect (16:9); otherwise it letterboxes with black.
+- Gemini 3 Pro Image returns a "thought" image before the final one; the image script keeps the final one. Edits that move or split objects are ignored; generate those as new images from text, and use edits only for lighting and colour.
+- The frame script colour-matches every clip's backdrop to `--studio` and trims 6 px of edge rows, so footage melts into the page.

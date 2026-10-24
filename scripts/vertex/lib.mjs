@@ -39,14 +39,22 @@ export function guard(estimateUsd, label) {
 export function record(entry) {
   const l = ledger();
   l.entries.push({ at: new Date().toISOString(), ...entry });
-  l.totalUsd = +(l.totalUsd + entry.usd).toFixed(4);
+  // recompute from the entries so parallel runs can never drift the total
+  l.totalUsd = +l.entries.reduce((sum, e) => sum + e.usd, 0).toFixed(4);
   mkdirSync(dirname(LEDGER), { recursive: true });
   writeFileSync(LEDGER, JSON.stringify(l, null, 2) + "\n");
   console.log(`[cost] recorded $${entry.usd.toFixed(2)} · total $${l.totalUsd.toFixed(2)}`);
 }
 
-export async function vertex(path, body) {
-  const url = `https://${REGION}-aiplatform.googleapis.com/v1/projects/${PROJECT}/locations/${REGION}/${path}`;
+/** USD per generated image (Vertex/Gemini pricing, Oct 2026; 1K–2K output). */
+export const IMAGE_PRICE = {
+  "gemini-3-pro-image": 0.134,
+  "gemini-3.1-flash-image": 0.101,
+};
+
+export async function vertex(path, body, location = REGION) {
+  const host = location === "global" ? "aiplatform.googleapis.com" : `${location}-aiplatform.googleapis.com`;
+  const url = `https://${host}/v1/projects/${PROJECT}/locations/${location}/${path}`;
   const res = await fetch(url, {
     method: "POST",
     headers: { Authorization: `Bearer ${token()}`, "Content-Type": "application/json", "x-goog-user-project": PROJECT },
