@@ -50,7 +50,7 @@ export function Section({
   );
   // the section number set large in outline: quiet decoration that also says where you are
   const numeral = index && (
-    <span aria-hidden className="numeral rv block select-none">
+    <span aria-hidden className="numeral block select-none">
       {index}
     </span>
   );
@@ -69,7 +69,7 @@ export function Section({
             <header className="lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:col-span-5 lg:self-start">
               {label}
               <Headline as="h2" reveal text={headline} className="t-h2 mt-6 max-w-[14ch]" />
-              {lead && <p className="rv t-lead mt-6 max-w-[42ch] text-ink-2">{lead}</p>}
+              {lead && <p className="t-lead mt-6 max-w-[42ch] text-ink-2">{lead}</p>}
               {headerAside}
               <div className="mt-10 hidden lg:block">{numeral}</div>
             </header>

@@ -198,6 +198,11 @@ export const ribbon = ["One catalog", "One stock count", "One customer record", 
 
 /** Right after the hero: what Decommerce actually is. A service, not a website. */
 export const service = {
+  idea: {
+    eyebrow: "The idea",
+    headline: "One stock count, read by every channel at the same moment.",
+    steps: ["The last size M sells at the store counter.", "The one stock count drops to zero.", "Website, warehouse and marketplace show zero at once. Nobody oversells."],
+  },
   eyebrow: "What we do",
   headline: "Not a website. A commerce system we set up and run with you.",
   body: "Decommerce is software plus the team that puts it to work. We connect your website, stores, warehouse and marketplaces to one catalog, move your data across, train your staff and stay with you after launch.",

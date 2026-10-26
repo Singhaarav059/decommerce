@@ -110,3 +110,10 @@ Direction agreed with the owner: hyper-real look from AI footage, scrubbed frame
 - Every Section header now draws a copper rule on scroll and carries its number large in outline; framed anatomy and capabilities headers use the same rule (`SectionLabel`). A moving ribbon of the platform's promise and modules sits under the hero. The closing demo form uses the split Section (06).
 - Solution "before and after" now shows the film's opening frame as Before and the finished scene as After.
 - Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 91, /pos 91, /about-us 96.
+
+## Fix pass after owner review (26 Oct 2026)
+
+- Bug: scroll-driven fades (`.rv`, `.rv-media`) on sticky elements froze half-transparent, so the "What we do" cards looked washed out and showed through each other. Removed every scroll animation from sticky elements (split Section header, FAQ photo, company sidebar) and dropped the stacking-card layout.
+- "What we do" rebuilt: a solid full-width dark panel (the idea in three numbered steps beside the animated sync diagram), then three equal photo cards. Scroll fades now finish within the first 40 % of entry.
+- Palette brighter and warmer: travertine #f2eadf, linen #fbf7f1, copper #a8481a (AA as text) with #c8693a for fills, lines and dots; primary buttons are copper; outline section numbers have a copper stroke.
+- Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit at 390x844, 375x667, 1000x570, 1440x900; Lighthouse mobile / 93, /pos 92, /about-us 96.

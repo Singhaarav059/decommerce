@@ -71,7 +71,7 @@ export function CostsSection() {
           {costs.rows.map((r, i) => {
             const v = r.visual;
             return (
-              <li key={r.area} className={`flex min-h-[19rem] flex-col rounded-[var(--radius-lg)] p-6 transition-colors duration-700 ${on ? "bg-white/[0.05]" : "bg-paper"}`}>
+              <li key={r.area} className={`flex min-h-[15rem] flex-col rounded-[var(--radius-lg)] p-6 transition-colors duration-700 ${on ? "bg-white/[0.05]" : "bg-paper"}`}>
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="display t-h3">{r.area}</h3>
                   <span className="tabular text-[0.8rem] font-semibold text-copper">{String(i + 1).padStart(2, "0")}</span>

@@ -19,6 +19,7 @@
   --color-studio: var(--studio);
   --color-studio-light: var(--studio-light);
   --color-ink-2: var(--ink-2);
+  --color-copper-bright: var(--copper-bright);
   --color-paper: var(--paper);
   --color-night: var(--night);
   --color-night-2: var(--night-2);
@@ -129,7 +130,7 @@ cite {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--copper);
+  background: var(--copper-bright);
   flex: none;
 }
 /* when a section number leads the label, the number replaces the dot */
@@ -160,7 +161,8 @@ cite {
   --ink-2: #e6dfd6;
   --line: rgb(243 238 232 / 0.18);
   --line-strong: rgb(243 238 232 / 0.32);
-  --copper: #f4c19e;
+  --copper: #f0a774;
+  --copper-bright: #f0a774;
   --paper: #2a231c;
   --studio: #1c1712;
 }
@@ -208,7 +210,8 @@ cite {
     .rv {
       animation: rv-up linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 75%;
+      /* done early, so nothing sits half-faded on screen */
+      animation-range: entry 0% entry 40%;
     }
     .rv-words {
       view-timeline: --rvw block;
@@ -224,7 +227,7 @@ cite {
     .rv-media > * {
       animation: rv-clip linear both;
       animation-timeline: --rvm;
-      animation-range: entry 0% entry 85%;
+      animation-range: entry 0% entry 60%;
     }
     .rv-media img {
       animation: rv-zoom linear both;
@@ -246,7 +249,7 @@ cite {
 @keyframes rv-up {
   from {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(24px);
   }
 }
 @keyframes rv-word {
@@ -516,5 +519,5 @@ html.lenis body {
   letter-spacing: -0.05em;
   font-variant-numeric: tabular-nums;
   color: transparent;
-  -webkit-text-stroke: 1.2px var(--line-strong);
+  -webkit-text-stroke: 1.2px color-mix(in srgb, var(--copper-bright) 55%, transparent);
 }

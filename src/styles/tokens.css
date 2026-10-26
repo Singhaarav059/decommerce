@@ -1,14 +1,16 @@
 /* Decommerce design tokens: one warm travertine surface, one family, one accent.
    --studio is the pale honed travertine of the store's walls; --paper is the lighter
    linen used for raised panels; --night is the espresso of the store after dark.
-   Contrast (WCAG): ink 13.3:1, ink-2 7.8:1, copper 7.2:1 on --studio. */
+   Contrast (WCAG) on --studio: ink 14:1, ink-2 8.6:1, copper 4.9:1; paper on copper 5.6:1. */
 :root {
-  --studio: #e8dfd3;
-  --studio-light: #ddd2c4;
-  --paper: #f6f1ea;
+  --studio: #f2eadf;
+  --studio-light: #e8dccc;
+  --paper: #fbf7f1;
   --ink: #1b1915;
   --ink-2: #45403a;
-  --copper: #74320f;
+  --copper: #a8481a;
+  /* brighter copper for fills, lines and dots only (never small text) */
+  --copper-bright: #c8693a;
   --line: rgb(27 25 21 / 0.14);
   --line-strong: rgb(27 25 21 / 0.26);
   --night: #1c1712;

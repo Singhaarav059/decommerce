@@ -16,7 +16,7 @@ export function FooterCta() {
         <Headline as="h2" reveal text={footerCta.headline} className="t-h2 mt-5 max-w-[16ch]" />
         <p className="t-lead mt-5 max-w-[46ch] text-paper/70">{footerCta.body}</p>
       </div>
-      <ButtonLink href={footerCta.primary.href} arrow className="!bg-paper !text-ink hover:!bg-copper hover:!text-paper">
+      <ButtonLink href={footerCta.primary.href} arrow className="!bg-paper !text-ink !shadow-none hover:!bg-[#f0a774] hover:!text-night">
         {footerCta.primary.label}
       </ButtonLink>
     </div>
