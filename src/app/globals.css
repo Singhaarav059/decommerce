@@ -709,3 +709,23 @@ html.lenis body {
     transition: none;
   }
 }
+
+/* The hero's hang tag sways a little on its string, from the top */
+@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
+  .hang {
+    transform-origin: 50% 0;
+    animation: hang-sway 7s var(--ease-in-out) infinite alternate;
+  }
+}
+@keyframes hang-sway {
+  from {
+    rotate: -1.4deg;
+  }
+  to {
+    rotate: 1.4deg;
+  }
+}
+.hang:hover,
+.hang:focus-within {
+  animation-play-state: paused;
+}

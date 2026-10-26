@@ -49,7 +49,7 @@ export function DocAside({ image }: { image: string }) {
       <div className="tag tag-sm tag-plain overflow-hidden bg-studio-light">
         <div>
           <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src={image} alt="" fill sizes="440px" quality={80} className="object-cover object-[72%_50%]" />
+            <Image src={image} alt="" fill sizes="440px" quality={80} className="object-cover object-[85%_50%]" />
           </div>
         </div>
         <div className="p-5">

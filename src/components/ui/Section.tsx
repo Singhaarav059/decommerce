@@ -73,18 +73,15 @@ export function Section({
         </div>
       )}
       <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)]">
-        <header className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-12">
-          <div className="lg:col-span-7">
-            <Headline as="h2" reveal media={headlineMedia} text={headline} className="t-h2 lg:max-w-[20ch]" />
-          </div>
-          <div className="lg:col-span-5">
-            {(lead || headerAside) && (
-              <div className="rv">
-                {lead && <p className="t-lead max-w-[46ch] text-ink-2">{lead}</p>}
-                {headerAside}
-              </div>
-            )}
-          </div>
+        {/* one header shape on every section: headline, then its lead directly under it, on the left margin */}
+        <header className="max-w-[880px]">
+          <Headline as="h2" reveal media={headlineMedia} text={headline} className="t-h2 lg:max-w-[20ch]" />
+          {(lead || headerAside) && (
+            <div className="rv mt-6">
+              {lead && <p className="t-lead max-w-[56ch] text-ink-2">{lead}</p>}
+              {headerAside}
+            </div>
+          )}
         </header>
         {children && <div className="mt-12 md:mt-16">{children}</div>}
       </div>

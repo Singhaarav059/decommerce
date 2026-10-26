@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { scrollToTop } from "@/lib/scroll";
 import { useEffect, useId, useRef, useState } from "react";
 import { companyGroup, navImage, navIntro, solutionGroups, type NavGroup } from "@/content/site";
 import { ButtonLink } from "@/components/ui/Button";
@@ -93,7 +94,18 @@ export function Header() {
             scrolled || open ? "bg-paper" : "bg-paper/95"
           }`}
         >
-          <Link href="/" aria-label="Decommerce home" className="mr-8 shrink-0">
+          <Link
+            href="/"
+            aria-label="Decommerce home"
+            className="mr-8 shrink-0"
+            onClick={(e) => {
+              // already home: glide back up to the hero instead of doing nothing
+              if (pathname !== "/") return;
+              e.preventDefault();
+              setOpen(null);
+              scrollToTop();
+            }}
+          >
             <Wordmark />
           </Link>
 

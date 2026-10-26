@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { brand, companyGroup, legalLinks, solutionGroups } from "@/content/site";
 import { Wordmark } from "@/components/ui/Wordmark";
@@ -18,10 +19,16 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
             <Wordmark className="text-[1.75rem]" />
-            <p className="display rv mt-8 max-w-[14ch] text-[clamp(1.6rem,2.4vw,2.2rem)] text-ink">
-              One catalog. One stock count. One customer record.
-            </p>
-            <p className="mt-5 max-w-[34ch] text-[0.95rem] leading-relaxed text-ink-2">{brand.tagline}</p>
+            <p className="display rv mt-8 max-w-[14ch] text-[clamp(1.6rem,2.4vw,2.2rem)] text-ink">{brand.promise}</p>
+            <p className="mt-5 max-w-[34ch] leading-relaxed text-ink-2">{brand.tagline}</p>
+            <Link href={brand.team.href} className="group mt-8 flex max-w-[360px] items-center gap-4">
+              <span className="tag tag-sm relative block aspect-[4/3] w-28 shrink-0 overflow-hidden">
+                <Image src={brand.team.image} alt="" fill sizes="112px" quality={70} className="object-cover object-right transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.08]" />
+              </span>
+              <span className="font-semibold transition-colors group-hover:text-copper">
+                {brand.team.label} <span aria-hidden>→</span>
+              </span>
+            </Link>
           </div>
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 lg:col-span-8">
             {columns.map((g) => (

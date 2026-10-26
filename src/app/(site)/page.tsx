@@ -1,5 +1,5 @@
 import { StoryProgress } from "@/components/layout/StoryProgress";
-import { HeroFilm } from "@/components/home/HeroFilm";
+import { HomeHero } from "@/components/home/HomeHero";
 import { ServiceSection } from "@/components/home/ServiceSection";
 import { Collapse } from "@/components/home/Collapse";
 import { CostsSection } from "@/components/home/CostsSection";
@@ -26,7 +26,7 @@ export default function HomePage() {
   return (
     <main id="main">
       <StoryProgress />
-      <HeroFilm />
+      <HomeHero />
       <TrustStrip />
       <ServiceSection />
       <Collapse />

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { companyGroup, navImage } from "@/content/site";
+import { companyGroup, navImage, focusOf } from "@/content/site";
 
 /** The other company pages as a row of photographs, so no company page is a dead end. */
 export function Related() {
@@ -19,8 +19,8 @@ export function Related() {
           {items.map((i) => (
             <li key={i.href} className="rv">
               <Link href={i.href} className="group block">
-                <span className="relative block aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-ink/5">
-                  <Image src={navImage(i)} alt="" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover object-[72%_50%] transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" />
+                <span className="tag tag-sm relative block aspect-[4/3] overflow-hidden bg-ink/5">
+                  <Image src={navImage(i)} alt="" fill sizes="(max-width: 1024px) 50vw, 25vw" style={{ objectPosition: focusOf(i.slug) }} className="object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" />
                 </span>
                 <span className="mt-3 flex items-center justify-between gap-3 font-semibold">
                   {i.label}

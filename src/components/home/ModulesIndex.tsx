@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Section } from "@/components/ui/Section";
 import { modules } from "@/content/home";
-import { navIntro, solutionGroups, type NavGroup } from "@/content/site";
+import { focusOf, navIntro, solutionGroups, type NavGroup } from "@/content/site";
 
 /**
  * The twelve modules in their three groups, side by side. Each group stands under one large
@@ -14,7 +14,7 @@ import { navIntro, solutionGroups, type NavGroup } from "@/content/site";
  */
 export function ModulesIndex() {
   return (
-    <Section id="modules" tone="soft" headlineMedia={{ after: 1, srcs: ["/assets/sol/storefront/end.webp", "/assets/sol/wms/end.webp", "/assets/sol/pos/end.webp"] }} headline={modules.headline} lead={modules.body}>
+    <Section id="modules" tone="soft" headline={modules.headline} lead={modules.body}>
       <div className="grid gap-16 md:grid-cols-3 md:gap-6 lg:gap-10">
         {solutionGroups.map((g, i) => (
           <Group key={g.label} group={g} offset={i * 1800} />
@@ -45,7 +45,7 @@ function Group({ group, offset }: { group: NavGroup; offset: number }) {
 
   return (
     <div className="rv flex flex-col" onPointerLeave={() => setHeld(false)}>
-      <div className="tag tag-lg relative aspect-[4/3] overflow-hidden bg-studio md:aspect-[4/5]">
+      <div className="tag tag-lg relative aspect-[4/3] overflow-hidden bg-studio md:aspect-square">
         {group.items.map((item, i) => (
           <Image
             key={item.slug}
@@ -54,7 +54,9 @@ function Group({ group, offset }: { group: NavGroup; offset: number }) {
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
             quality={80}
-            className={`object-cover object-[72%_50%] transition-[opacity,scale] duration-[1600ms] ease-[var(--ease-in-out)] ${i === active ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"}`}
+            style={{ objectPosition: focusOf(item.slug) }}
+            // the new photo fades in over the old one, which only leaves once covered (no ghosting)
+            className={`object-cover transition-[opacity,scale] ease-[var(--ease-in-out)] ${i === active ? "z-[1] scale-100 opacity-100 duration-[1000ms]" : "z-0 scale-[1.03] opacity-0 delay-[1000ms] duration-0"}`}
           />
         ))}
       </div>

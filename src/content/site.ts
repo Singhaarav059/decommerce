@@ -5,6 +5,8 @@ export const brand = {
   name: "decommerce",
   legalName: "Decommerce",
   tagline: "Unified commerce for online, supply chain and in-store.",
+  promise: "One catalog. One stock count. One customer record.",
+  team: { label: "Meet the team behind it", href: "/about-us", image: "/assets/company/scene-about-us.webp" },
   parent: { name: "Demaze Technologies", href: "https://www.demazetech.com/" },
   sibling: { name: "Decignal", href: "https://decignal.com/" },
   // canonical origin: NEXT_PUBLIC_SITE_URL if set, else Vercel's production domain (follows a custom domain once one is added)
@@ -110,6 +112,27 @@ export const navIntro: Record<string, string> = {
   "In-store": "The till, the customer record and the endless aisle at the counter.",
   Company: "The people and principles behind the platform.",
 };
+
+/**
+ * Where the people and the subject sit in each module's photograph (horizontal %, for
+ * object-position), so square and portrait crops keep them whole. The left of every photo is
+ * plain wall, so the default leans right.
+ */
+export const moduleFocus: Record<SolutionSlug, number> = {
+  storefront: 96,
+  "brand-showcase": 96,
+  b2b: 96,
+  "quick-commerce": 100,
+  marketplace: 87,
+  oms: 85,
+  wms: 100,
+  tms: 96,
+  pos: 100,
+  clienteling: 82,
+  "endless-aisle": 100,
+  "self-checkout": 78,
+};
+export const focusOf = (slug?: SolutionSlug) => `${slug ? moduleFocus[slug] : 75}% 50%`;
 
 /** Where an item's preview photograph lives. */
 export const navImage = (i: NavItem) => i.image ?? (i.slug ? `/assets/sol/${i.slug}/end.webp` : "/assets/company/scene-office.webp");

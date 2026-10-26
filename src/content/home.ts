@@ -21,6 +21,20 @@ export const hero = {
   arrival: "Every sale here, online or at the counter, runs through the same catalog and the same stock count.",
 };
 
+/** The hang tag on the hero: one shirt, one stock count that every channel reads. Try it. Illustrative. */
+export const heroTag = {
+  label: "Linen overshirt, Sand",
+  order: "ORD-1042",
+  sizes: ["S", "M", "L"] as const,
+  start: { S: 3, M: 2, L: 4 } as Record<"S" | "M" | "L", number>,
+  unit: (size: string) => `in stock in size ${size}`,
+  channels: ["Website", "Store", "Warehouse", "Marketplace"],
+  sell: "Sell one at the counter",
+  restock: "Restock",
+  note: "Example. Every channel reads the same count.",
+  hint: "Try it",
+};
+
 export type Row = { left: string; right?: string };
 export type StoryStep = {
   label: string;
