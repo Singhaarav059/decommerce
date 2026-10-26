@@ -184,6 +184,8 @@ export const chapters: Record<string, Chapter> = {
 };
 
 export const storefront = {
+  /** set huge behind the rail, so the garments hang in front of it */
+  backdrop: "online.",
   eyebrow: "Storefront",
   headline: "Your rail, online.",
   body: "Every garment on the rail is already in your catalog with its sizes, price and stock. Decommerce turns that catalog into your shop website. Try it: scroll or drag along the rail and open a piece.",
@@ -243,11 +245,11 @@ export const journey = {
   headline: "ORD-1042, from click to doorstep.",
   body: "One linen overshirt in size M, ordered online on a quiet afternoon. Every step below runs on the same system.",
   steps: [
-    { n: "01", title: "Ordered online", body: "The customer buys the last size M on the website. The order lands in Decommerce with the stock it reserves.", image: "/assets/sol/storefront/detail.webp", ui: { title: "ORD-1042", rows: [["Item", "Linen overshirt · M"], ["Channel", "Website"], ["Payment", "Paid"]] }, href: "/storefront" },
-    { n: "02", title: "Routed in a second", body: "Every store and warehouse is checked. Riverside has the size and the shortest trip, so it ships.", image: "/assets/seq/order/d/030.webp", ui: { title: "Routing", rows: [["Central warehouse", "18 km"], ["Riverside store", "2.4 km ✓"], ["Old Town store", "No size M"]] }, href: "/oms" },
-    { n: "03", title: "Picked and packed", body: "The handheld shows the shelf, the scan confirms the item, the label prints and the box rolls to dispatch.", image: "/assets/seq/pack/d/024.webp", ui: { title: "Pick list", rows: [["Shelf", "B-14"], ["Scan", "LIN-OVR-M-SND ✓"], ["Label", "Printed"]] }, href: "/wms" },
-    { n: "04", title: "Into her hands", body: "The van follows one efficient route. The courier hands the parcel over at the door and confirms on the same system.", image: "/assets/seq/delivery/d/034.webp", ui: { title: "Delivery", rows: [["Route", "7 · stop 3"], ["ETA", "12 min"], ["Status", "Delivered"]] }, href: "/tms" },
-    { n: "05", title: "And at the counter", body: "Back in the store the count already reads zero, so nobody sells a shirt that is not there. The next customer taps to pay.", image: "/assets/seq/counter/d/036.webp", ui: { title: "Same stock count", rows: [["Website", "0"], ["Store", "0"], ["Marketplace", "0"]] }, href: "/pos" },
+    { tag: "Paid online", n: "01", title: "Ordered online", body: "The customer buys the last size M on the website. The order lands in Decommerce with the stock it reserves.", image: "/assets/sol/storefront/detail.webp", ui: { title: "ORD-1042", rows: [["Item", "Linen overshirt · M"], ["Channel", "Website"], ["Payment", "Paid"]] }, href: "/storefront" },
+    { tag: "2.4 km route", n: "02", title: "Routed in a second", body: "Every store and warehouse is checked. Riverside has the size and the shortest trip, so it ships.", image: "/assets/seq/order/d/030.webp", ui: { title: "Routing", rows: [["Central warehouse", "18 km"], ["Riverside store", "2.4 km ✓"], ["Old Town store", "No size M"]] }, href: "/oms" },
+    { tag: "Scan confirmed", n: "03", title: "Picked and packed", body: "The handheld shows the shelf, the scan confirms the item, the label prints and the box rolls to dispatch.", image: "/assets/seq/pack/d/024.webp", ui: { title: "Pick list", rows: [["Shelf", "B-14"], ["Scan", "LIN-OVR-M-SND ✓"], ["Label", "Printed"]] }, href: "/wms" },
+    { tag: "Handed over", n: "04", title: "Into her hands", body: "The van follows one efficient route. The courier hands the parcel over at the door and confirms on the same system.", image: "/assets/seq/delivery/d/034.webp", ui: { title: "Delivery", rows: [["Route", "7 · stop 3"], ["ETA", "12 min"], ["Status", "Delivered"]] }, href: "/tms" },
+    { tag: "Store shows 0", n: "05", title: "And at the counter", body: "Back in the store the count already reads zero, so nobody sells a shirt that is not there. The next customer taps to pay.", image: "/assets/seq/counter/d/036.webp", ui: { title: "Same stock count", rows: [["Website", "0"], ["Store", "0"], ["Marketplace", "0"]] }, href: "/pos" },
   ],
 };
 

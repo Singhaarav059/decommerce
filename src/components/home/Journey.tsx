@@ -63,6 +63,11 @@ export function Journey() {
                   </dl>
                 </div>
                 <span className="display mono absolute top-4 left-4 rounded-full bg-night/80 px-3 py-1 text-[0.8rem] text-[#f4eee6]">{s.n} / 05</span>
+                {/* a small floating tag, like a price tag on a product photo */}
+                <span className="absolute top-4 right-4 flex items-center gap-2 rounded-full bg-paper/95 py-1.5 pr-3.5 pl-1.5 text-[0.8rem] font-semibold shadow-[var(--shadow-md)]">
+                  <span className="flex size-6 items-center justify-center rounded-full bg-copper text-[0.7rem] text-paper">✓</span>
+                  {s.tag}
+                </span>
               </div>
               <div className="flex items-start justify-between gap-6 p-5 md:p-6">
                 <div>

@@ -79,6 +79,10 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
                 <Link href={other.href} className="group block">
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-ink/5">
                     <Image src={solutionMedia(s).end} alt="" fill quality={85} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-[70%_50%] transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" />
+                    <span className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-paper/95 px-3 py-1 text-[0.75rem] font-semibold shadow-[var(--shadow-sm)]">
+                      <span aria-hidden className="size-1.5 rounded-full bg-copper-bright" />
+                      Shares catalog and stock
+                    </span>
                   </div>
                   <p className="mt-4 flex items-center justify-between gap-3 text-[1.05rem] font-semibold">
                     {other.label}

@@ -17,6 +17,7 @@ export function HeroFilm() {
       length={2.6}
       eyebrow={hero.eyebrow}
       headline={hero.headline}
+      media={{ after: 1, srcs: ["/assets/sol/pos/end.webp"] }}
       body={hero.body}
       actions={
         <>

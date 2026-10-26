@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { Headline } from "./Headline";
+import type { HeadlineMedia } from "./InlinePhotos";
 
 type Tone = "studio" | "soft" | "paper" | "night";
 
@@ -27,6 +28,7 @@ export function Section({
   headerAside,
   backdrop,
   layout = "stack",
+  headlineMedia,
 }: {
   id?: string;
   /** Two-digit section number shown before the label, e.g. "02". */
@@ -43,6 +45,8 @@ export function Section({
   backdrop?: string;
   /** stack: header above the content. split: the header stays pinned on the left while the content scrolls on the right. */
   layout?: "stack" | "split";
+  /** Small photos set inside the headline, after the given word. */
+  headlineMedia?: HeadlineMedia;
 }) {
   const rule = (
     <div aria-hidden className="relative h-px bg-line-strong">
@@ -69,7 +73,7 @@ export function Section({
           <div className="grid gap-12 pt-6 lg:grid-cols-12 lg:gap-12">
             <header className="lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:col-span-5 lg:self-start">
               {label}
-              <Headline as="h2" reveal text={headline} className="t-h2 mt-6 max-w-[14ch]" />
+              <Headline as="h2" reveal media={headlineMedia} text={headline} className="t-h2 mt-6 max-w-[14ch]" />
               {lead && <p className="t-lead mt-6 max-w-[42ch] text-ink-2">{lead}</p>}
               {headerAside}
               <div className="mt-10 hidden lg:block">{numeral}</div>
@@ -95,7 +99,7 @@ export function Section({
         <header className="grid gap-6 pt-6 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
             {label}
-            <Headline as="h2" reveal text={headline} className="t-h2 mt-6 max-w-[18ch]" />
+            <Headline as="h2" reveal media={headlineMedia} text={headline} className="t-h2 mt-6 max-w-[18ch]" />
           </div>
           <div className="flex flex-col justify-between gap-6 lg:col-span-5">
             <div className="hidden justify-end lg:flex">{numeral}</div>

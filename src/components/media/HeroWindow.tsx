@@ -4,6 +4,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import Image from "next/image";
 import { frameUrl, wantsStill } from "@/lib/media";
 import { ScrollSequence, useSequenceProgress } from "./ScrollSequence";
+import { InlinePhotos, type HeadlineMedia } from "@/components/ui/InlinePhotos";
+import { ScrollBadge } from "@/components/ui/ScrollBadge";
 import type { FilmSeq } from "./PinnedFilm";
 
 /**
@@ -24,6 +26,7 @@ export function HeroWindow({
   length = 2.4,
   priority = false,
   id,
+  media,
 }: {
   seq: FilmSeq;
   alt: string;
@@ -37,6 +40,8 @@ export function HeroWindow({
   length?: number;
   priority?: boolean;
   id?: string;
+  /** Small photos inside the headline, after the given word. */
+  media?: HeadlineMedia;
 }) {
   const head = useRef<HTMLDivElement>(null);
   const [still, setStill] = useState(false);
@@ -58,12 +63,16 @@ export function HeroWindow({
               {i < words.length - 1 ? "\u00a0" : ""}
             </span>
           </span>
-        ))}
+        )).flatMap((el, i) => (media && media.after === i ? [el, <InlinePhotos key="media" srcs={media.srcs} delay={200 + i * 70} />] : [el]))}
       </h1>
       </div>
       {/* the window's two upper corners hang from the bottom of this edge */}
       <span aria-hidden className="hero-corner tl absolute top-full left-[var(--side)]" />
       <span aria-hidden className="hero-corner tr absolute top-full right-[var(--side)]" />
+      {/* a turning scroll badge on the seam between the headline and the window; it leaves with the headline */}
+      <span className="hero-only absolute top-full right-[calc(var(--side)+48px)] z-[3] -translate-y-1/2">
+        <ScrollBadge />
+      </span>
     </div>
   );
   // the pitch rests on the film in a panel, so the window can start right under the headline

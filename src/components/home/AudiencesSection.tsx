@@ -6,7 +6,7 @@ import { audiences } from "@/content/home";
 /** Who Decommerce is for: three kinds of retailer, each with what it usually starts with. */
 export function AudiencesSection() {
   return (
-    <Section id="who-its-for" index="05" eyebrow={audiences.eyebrow} headline={audiences.headline} lead={audiences.body}>
+    <Section id="who-its-for" index="05" headlineMedia={{ after: 3, srcs: audiences.groups.map((g) => g.image) }} eyebrow={audiences.eyebrow} headline={audiences.headline} lead={audiences.body}>
       <ul className="grid gap-4 md:grid-cols-3">
         {audiences.groups.map((g) => (
           <li key={g.title} className="rv">

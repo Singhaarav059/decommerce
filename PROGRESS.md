@@ -168,3 +168,16 @@ Owner asked for a complete rehaul, not tweaks. New concept:
 - Solution pages: "What's included" with six features per module and the kinds of systems it connects to (replaces the three capability tabs), and a closing demo form (07).
 - Items that need real input from Demaze are listed in LAUNCH.md (logos, case studies, figures, ratings, certifications, pricing, AI tools, PIM, named connectors, resources).
 - Checks: lint, typecheck, build ✓ (34 pages); axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 91, /pos 92, /integrations 91 (a11y, best practices, SEO 100).
+
+## Blended text and image techniques (26 Oct 2026)
+
+From the owner's references (Visumind skincare, Aristide Benoist, Kombai Selects: travel, canyon, Sixfold dock, ThisUX, Proply, yacht, motion navbar):
+- Giant "online." between the boutique wall and the clothing rail, so the cut-out garments swing in front of the letters (yacht technique).
+- Photos dissolve into the page: company/legal heroes fade out at the foot; a turning "scroll" badge sits on the seam (hero window: on the seam under the headline; company pages: on the fade).
+- Small photos inside headlines (`InlinePhotos`, `Headline media`, `HeroWindow media`): the hero ("One system [photo] behind every sale"), modules and who-it's-for headlines; in revealed headlines they pop in with the words.
+- Phone menu: the menu button morphs into a compact card of links over a dimmed backdrop instead of a full-screen sheet.
+- Lens page transitions (`LensTransition`): an internal link click grows an ink circle from the click point, the next page loads under it, the lens closes into the centre. Skipped for reduced motion, modified clicks, new tabs, hash links and the current page; a 6 s safety reveal.
+- 3D module ring: the 12 module photos on a CSS 3D ring that turns with the list scroll and swings the short way to a hovered module, with its example screen under the front card (no WebGL).
+- Floating tags on journey panels (step results) and works-with photos.
+- Not taken: pastel and lime palettes, serif italic headlines (DESIGN-PLAN: one sans family, no italics), WebGPU.
+- Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; scroll 60 fps (hero, rail, journey); Lighthouse mobile / 91, /pos 91, /about-us 95 (a11y, best practices, SEO 100).

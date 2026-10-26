@@ -8,7 +8,8 @@ import { storefront } from "@/content/home";
 import { Rack } from "./Rack";
 
 /**
- * The storefront chapter: the boutique wall as background, the clothing rack on it. On wide
+ * The storefront chapter: the boutique wall as background, a huge word on it, and the clothing
+ * rack hung in front of the word. On wide
  * screens the section holds still while you scroll and the scroll moves the rail along, hangers
  * swinging as it goes (drag and the arrow keys still work). On phones it is a normal section
  * and the rail is dragged.
@@ -57,7 +58,11 @@ export function RackChapter() {
           <div aria-hidden className="scrim absolute inset-0 hidden md:block" />
           <div aria-hidden className="absolute inset-x-0 bottom-0 h-24 md:hidden" style={{ background: "linear-gradient(to bottom, transparent, #ceb9a4)" }} />
         </div>
-        <div className="relative mx-auto grid min-h-[100svh] max-w-[var(--max-w)] grid-cols-1 content-center gap-8 px-[var(--gutter)] pt-[calc(var(--header-h)+24px)] pb-16 md:h-full md:min-h-0 md:grid-cols-[minmax(0,4fr)_minmax(0,6fr)] md:items-center md:gap-10 [--ink-2:var(--ink)]">
+        {/* the word sits between the wall and the rail: the garments swing in front of it */}
+        <p aria-hidden className="rack-word display pointer-events-none absolute top-[21svh] right-[-0.04em] left-0 text-right text-[25vw] leading-[0.8] tracking-[-0.06em] text-ink/90 select-none md:top-1/2 md:left-auto md:-translate-y-[38%] md:text-[15.5vw]">
+          {storefront.backdrop}
+        </p>
+        <div className="relative z-[1] mx-auto grid min-h-[100svh] max-w-[var(--max-w)] grid-cols-1 content-center gap-8 px-[var(--gutter)] pt-[calc(var(--header-h)+24px)] pb-16 md:h-full md:min-h-0 md:grid-cols-[minmax(0,4fr)_minmax(0,6fr)] md:items-center md:gap-10 [--ink-2:var(--ink)]">
           <div className="order-2 md:order-1">
             <p className="eyebrow">{storefront.eyebrow}</p>
             <Headline as="h2" reveal text={storefront.headline} className="t-h2 mt-5" />

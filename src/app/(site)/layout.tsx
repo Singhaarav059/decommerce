@@ -1,5 +1,6 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { LensTransition } from "@/components/motion/LensTransition";
 
 export default function SiteLayout({ children }: LayoutProps<"/">) {
   return (
@@ -13,6 +14,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
       <Header />
       {children}
       <Footer />
+      <LensTransition />
     </>
   );
 }

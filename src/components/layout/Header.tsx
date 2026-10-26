@@ -14,7 +14,8 @@ const groups: NavGroup[] = [...solutionGroups, companyGroup];
  * A floating bar on a solid paper surface, so it reads over any photograph.
  * It tucks away while you scroll down and comes back as soon as you scroll up.
  * Desktop: each group opens an editorial index, a numbered list in display type
- * with a photograph of the hovered page beside it. Phones: a full-screen sheet.
+ * with a photograph of the hovered page beside it. Phones: the menu button morphs
+ * into a compact card of links.
  */
 export function Header() {
   const [open, setOpen] = useState<string | null>(null);
@@ -225,33 +226,38 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile sheet */}
+      {/* Phones: the menu button morphs into a compact card that grows from the top-right corner */}
+      <button
+        type="button"
+        aria-hidden
+        tabIndex={-1}
+        onClick={() => setMobileOpen(false)}
+        className={`fixed inset-0 -z-10 bg-ink/25 transition-opacity duration-500 lg:hidden ${mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"}`}
+      />
       <nav
         aria-label="Main"
         inert={!mobileOpen}
-        className={`fixed inset-0 -z-10 overflow-y-auto bg-paper px-[var(--gutter)] pt-[calc(var(--header-h)+8px)] pb-10 transition-[opacity,visibility] duration-300 lg:hidden ${
-          mobileOpen ? "visible opacity-100" : "invisible opacity-0"
+        className={`absolute top-[76px] right-[var(--gutter)] left-[var(--gutter)] max-h-[calc(100svh-96px)] origin-top-right overflow-y-auto rounded-[var(--radius-xl)] bg-paper p-5 shadow-[0_30px_60px_-20px_rgb(18_17_16/0.35)] ring-1 ring-black/5 transition-[opacity,transform,visibility] duration-500 ease-[var(--ease-overshoot)] sm:left-auto sm:w-[420px] lg:hidden ${
+          mobileOpen ? "visible translate-y-0 scale-100 opacity-100" : "invisible -translate-y-2 scale-[0.88] opacity-0"
         }`}
       >
         {/* links render only while open: hidden-but-mounted links would all be prefetched */}
         {mobileOpen && (
           <>
             {groups.map((g, gi) => (
-              <div key={g.label} className="animate-[rise_600ms_var(--ease-out)_both] border-b border-line py-5" style={{ animationDelay: `${gi * 60}ms` }}>
-                <p className="eyebrow mb-3">{g.label}</p>
-                <ul className="grid gap-0.5">
+              <div key={g.label} className="animate-[rise_500ms_var(--ease-out)_both] border-b border-line pt-3 pb-4 first:pt-0" style={{ animationDelay: `${80 + gi * 50}ms` }}>
+                <p className="mb-2 text-[0.75rem] font-semibold text-ink-2">
+                  <span className="tabular mr-2 text-copper">{String(gi + 1).padStart(2, "0")}</span>
+                  {g.label}
+                </p>
+                <ul className="grid grid-cols-2 gap-x-3">
                   {g.items.map((item) => (
                     <li key={item.href}>
                       <Link
                         href={item.href}
                         aria-current={item.href === pathname ? "page" : undefined}
-                        className="flex min-h-12 items-center gap-3.5 text-[1.15rem] font-medium tracking-[-0.01em] aria-[current=page]:text-copper"
+                        className="flex min-h-11 items-center text-[0.98rem] font-medium tracking-[-0.01em] aria-[current=page]:text-copper"
                       >
-                        {item.slug && (
-                          <span className="relative h-10 w-[52px] shrink-0 overflow-hidden rounded-[var(--radius-sm)] bg-studio">
-                            <Image src={`/assets/sol/${item.slug}/thumb.webp`} alt="" fill sizes="52px" className="object-cover" />
-                          </span>
-                        )}
                         {item.label}
                       </Link>
                     </li>
@@ -259,9 +265,11 @@ export function Header() {
                 </ul>
               </div>
             ))}
-            <ButtonLink href="/contact-us" className="mt-8 w-full animate-[rise_600ms_var(--ease-out)_both] [animation-delay:240ms]" arrow>
-              Book a demo
-            </ButtonLink>
+            <div className="mt-4 flex animate-[rise_500ms_var(--ease-out)_both] items-center justify-between gap-3 [animation-delay:300ms]">
+              <ButtonLink href="/contact-us" className="h-11 flex-1" arrow>
+                Book a demo
+              </ButtonLink>
+            </div>
           </>
         )}
       </nav>

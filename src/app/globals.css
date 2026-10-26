@@ -245,6 +245,13 @@ cite {
       animation-timeline: --rvw;
       animation-range: entry calc(var(--i, 0) * 3%) entry calc(60% + var(--i, 0) * 3%);
     }
+    /* photos inside a revealed headline pop in with its words, not on page load */
+    .rv-words .inline-photos {
+      animation: inline-pop linear both;
+      animation-delay: 0s;
+      animation-timeline: --rvw;
+      animation-range: entry 20% entry 80%;
+    }
     .rv-media {
       view-timeline: --rvm block;
     }
@@ -696,4 +703,50 @@ html.lenis body {
   10% { opacity: 1; }
   45% { offset-distance: 100%; opacity: 1; }
   55%, 100% { offset-distance: 100%; opacity: 0; }
+}
+
+/* InlinePhotos: the little photos pop into the headline after its words */
+.inline-photos {
+  animation: inline-pop 700ms var(--ease-overshoot) both;
+  animation-delay: 300ms;
+}
+@keyframes inline-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-0.06em) scale(0.4);
+  }
+}
+
+/* ScrollBadge: circular lettering that turns slowly around an arrow */
+.badge-ring {
+  transform-origin: 50% 50%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .badge-ring {
+    animation: badge-spin 16s linear infinite;
+  }
+}
+@keyframes badge-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* pieces of the hero frame that only make sense inside the pinned stage (wide screens) */
+.hero-only {
+  display: none;
+}
+@media (min-width: 768px) {
+  [data-stage] .hero-only {
+    display: block;
+  }
+}
+
+/* ModulesIndex ring: eases round to the chosen module (no turning for reduced motion) */
+.ring-turn {
+  transition: transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ring-turn {
+    transition: none;
+  }
 }
