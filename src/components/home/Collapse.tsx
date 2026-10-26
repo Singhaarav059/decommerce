@@ -22,7 +22,7 @@ export function Collapse() {
   const ref = useRef<HTMLElement>(null);
   useScrollVar(ref);
   return (
-    <section ref={ref} id="problem" aria-label={c.eyebrow} className="converge relative h-[260svh]" style={{ "--c": 0 } as CSSProperties}>
+    <section ref={ref} id="problem" aria-label={c.eyebrow} className="converge relative h-[260svh] bg-studio-light" style={{ "--c": 0 } as CSSProperties}>
       <div className="sticky top-0 grid h-[100svh] grid-rows-[auto_1fr] overflow-hidden lg:grid-cols-12 lg:grid-rows-1">
         <div className="relative z-[1] mx-auto w-full max-w-[var(--max-w)] px-[var(--gutter)] pt-[calc(var(--header-h)+16px)] lg:col-span-5 lg:flex lg:flex-col lg:justify-center lg:pt-0 lg:pr-0 lg:pl-[max(var(--gutter),calc((100vw-var(--max-w))/2+var(--gutter)))]">
           <p className="eyebrow">

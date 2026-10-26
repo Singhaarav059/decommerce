@@ -2,10 +2,11 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { Headline } from "./Headline";
 
-type Tone = "studio" | "paper" | "night";
+type Tone = "studio" | "soft" | "paper" | "night";
 
 const tones: Record<Tone, string> = {
   studio: "bg-studio text-ink",
+  soft: "bg-studio-light text-ink",
   paper: "bg-paper text-ink",
   night: "tone-night bg-night",
 };
@@ -86,7 +87,7 @@ export function Section({
             <Image src={backdrop} alt="" fill sizes="100vw" quality={70} className="object-cover" />
           </div>
           {/* the photo is washed toward the section's own surface so text stays well above 7:1 */}
-          <div className={`absolute inset-0 ${tone === "night" ? "bg-[linear-gradient(180deg,rgb(28_23_18/0.94)_0%,rgb(28_23_18/0.8)_45%,rgb(28_23_18/0.94)_100%)]" : "bg-[linear-gradient(180deg,rgb(242_234_223/0.96)_0%,rgb(242_234_223/0.86)_45%,rgb(242_234_223/0.96)_100%)]"}`} />
+          <div className={`absolute inset-0 ${tone === "night" ? "bg-[linear-gradient(180deg,rgb(28_23_18/0.94)_0%,rgb(28_23_18/0.8)_45%,rgb(28_23_18/0.94)_100%)]" : "bg-[linear-gradient(180deg,rgb(245_244_241/0.96)_0%,rgb(245_244_241/0.86)_45%,rgb(245_244_241/0.96)_100%)]"}`} />
         </div>
       )}
       <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)]">

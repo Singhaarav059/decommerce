@@ -1,25 +1,25 @@
-/* Decommerce design tokens. A light site: pale honed travertine, linen panels, warm ink and
-   copper as the one accent. --night is the store after dark, kept for a few dark cards and the
-   dusk film (.tone-night).
-   Contrast (WCAG) on --studio: ink 14:1, ink-2 8.6:1, copper 4.9:1; paper on copper 5.6:1. */
+/* Decommerce design tokens. A bright, clean light site: white pages, soft stone-grey sections
+   and panels, near-black ink, and copper as the one accent (the photographs bring the warmth).
+   --night is kept for a few dark cards and the dusk film (.tone-night).
+   Contrast (WCAG) on white: ink 18.9:1, ink-2 7.7:1, copper 5.8:1; on --studio-light all above 5:1. */
 :root {
-  --studio: #f2eadf;
-  --studio-light: #e8dccc;
-  --paper: #fbf7f1;
-  --ink: #1b1915;
-  --ink-2: #45403a;
+  --studio: #ffffff;
+  --studio-light: #f5f4f1;
+  --paper: #ffffff;
+  --ink: #121110;
+  --ink-2: #57524b;
   --copper: #a8481a;
   /* brighter copper for fills, lines and dots only (never small text) */
   --copper-bright: #c8693a;
-  --line: rgb(27 25 21 / 0.13);
-  --line-strong: rgb(27 25 21 / 0.24);
+  --line: rgb(18 17 16 / 0.09);
+  --line-strong: rgb(18 17 16 / 0.18);
   --night: #1c1712;
   --night-2: #2a231c;
   /* the daylight palette, used by .tone-light panels */
-  --day: #efe7dc;
-  --day-paper: #fbf7f1;
-  --day-ink: #1b1915;
-  --day-ink-2: #4a433c;
+  --day: #f5f4f1;
+  --day-paper: #ffffff;
+  --day-ink: #121110;
+  --day-ink-2: #57524b;
   --day-copper: #a8481a;
 
   /* legacy names, mapped onto the palette so older components follow it */

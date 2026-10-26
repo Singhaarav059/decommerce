@@ -91,6 +91,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
 
       <Section
         index="06"
+        tone="soft"
         eyebrow="Questions"
         headline={`${meta.title}, answered.`}
         lead={`See ${inSentence(meta.title)} running on a sample of your own catalog.`}

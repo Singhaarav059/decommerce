@@ -31,6 +31,7 @@ export function Scene({
   variant = "full",
   flip = false,
   light = true,
+  soft = false,
 }: {
   id?: string;
   src: string;
@@ -43,11 +44,13 @@ export function Scene({
   flip?: boolean;
   /** Full scenes sit on a light floor wash, so their text uses the daylight palette (off for night scenes). */
   light?: boolean;
+  /** Framed sections: sit on the soft stone tone instead of white (for alternating sections). */
+  soft?: boolean;
 }) {
   if (variant === "framed")
     return (
       // framed sections sit on the site's one studio surface, like every other static section
-      <section id={id} aria-label={label} className="bg-studio">
+      <section id={id} aria-label={label} className={soft ? "bg-studio-light" : "bg-studio"}>
         <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 items-center gap-8 px-[var(--gutter)] py-[var(--section-gap)] md:gap-10 lg:grid-cols-12 lg:gap-12">
           <div className={`rv-media min-w-0 lg:col-span-7 ${flip ? "" : "lg:order-2"}`}>
             {/* cropped to the subject: the photos keep their calm left side empty for full-bleed text */}

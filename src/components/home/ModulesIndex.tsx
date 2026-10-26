@@ -17,7 +17,7 @@ export function ModulesIndex() {
   const current = all.find((i) => i.slug === active)!;
   let n = 0;
   return (
-    <Section id="modules" index="04" eyebrow={modules.eyebrow} headline={modules.headline} lead={modules.body}>
+    <Section id="modules" index="04" tone="soft" eyebrow={modules.eyebrow} headline={modules.headline} lead={modules.body}>
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-7">
           {solutionGroups.map((g) => (

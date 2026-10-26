@@ -44,8 +44,8 @@ export function SolutionHeroCards({ slug, label, fix, steps }: { slug: SolutionS
         </div>
       </div>
       <div className="absolute right-[22%] bottom-[14%] w-[300px]">
-        <div className="float-b rounded-[var(--radius-lg)] bg-night/90 p-5 text-[#f4eee6] shadow-[0_24px_48px_-16px_rgb(0_0_0/0.55)] ring-1 ring-white/10">
-          <p className="eyebrow !text-[#c9bfb3]">With Decommerce</p>
+        <div className="float-b tone-night rounded-[var(--radius-lg)] bg-night/90 p-5 text-[#f4eee6] shadow-[0_24px_48px_-16px_rgb(0_0_0/0.55)] ring-1 ring-white/10">
+          <p className="eyebrow">With Decommerce</p>
           <p className="display mt-2 text-[1.3rem] leading-tight">{fix.replace(/\*/g, "")}</p>
           <ol className="mt-3 space-y-2 text-[0.85rem]">
             {steps.map((s, i) => (

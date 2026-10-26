@@ -15,7 +15,7 @@ import { inSentence } from "@/lib/text";
 export function Anatomy({ title, parts, src, floor, focus }: { title: string; parts: Part[]; src: string; floor: string; focus: Record<string, [number, number]> }) {
   const [active, setActive] = useState<string | null>(null);
   return (
-    <Scene id="anatomy" variant="framed" src={src} floor={floor} spot={active ? (focus[active] ?? [65, 50]) : null}>
+    <Scene id="anatomy" variant="framed" soft src={src} floor={floor} spot={active ? (focus[active] ?? [65, 50]) : null}>
       <SectionLabel index="02" eyebrow="Anatomy" />
       <Headline as="h2" reveal text={`What makes ${inSentence(title)} work.`} className="t-h2 mt-5" />
       <ul className="mt-8 border-t border-line-strong md:mt-10">

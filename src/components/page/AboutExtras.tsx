@@ -23,7 +23,7 @@ export function AboutExtras({ meta }: { meta: DocMeta }) {
           </ol>
         </Section>
       )}
-      <Section index="02" eyebrow={aboutNumbers.eyebrow} headline={aboutNumbers.headline} lead={aboutNumbers.body}>
+      <Section index="02" tone="soft" eyebrow={aboutNumbers.eyebrow} headline={aboutNumbers.headline} lead={aboutNumbers.body}>
         <dl className="grid grid-cols-1 border-t border-line sm:grid-cols-3 sm:divide-x sm:divide-line">
           {proof.stats.map((st) => (
             <div key={st.label} className="rv flex flex-col-reverse border-b border-line py-8 sm:border-b-0 sm:px-8 sm:first:pl-0">

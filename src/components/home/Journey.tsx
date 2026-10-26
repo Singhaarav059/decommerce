@@ -30,7 +30,7 @@ export function Journey() {
     };
   }, []);
   return (
-    <section ref={ref} id="journey" aria-label={j.headline} className="journey relative h-[420svh]" style={{ "--c": 0, "--travel": "0px" } as CSSProperties}>
+    <section ref={ref} id="journey" aria-label={j.headline} className="journey relative h-[420svh] bg-studio-light" style={{ "--c": 0, "--travel": "0px" } as CSSProperties}>
       <div className="sticky top-0 flex h-[100svh] flex-col overflow-hidden pt-[calc(var(--header-h)+8px)] pb-6">
         <div className="mx-auto flex w-full max-w-[var(--max-w)] flex-wrap items-end justify-between gap-4 px-[var(--gutter)]">
           <div>

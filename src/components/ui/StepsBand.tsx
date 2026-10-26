@@ -30,13 +30,13 @@ export function StepsBand({
   headerAside?: ReactNode;
 }) {
   return (
-    <Section id={id} index={index} eyebrow={eyebrow} headline={headline} lead={lead} backdrop={backdrop} headerAside={headerAside}>
+    <Section id={id} index={index} eyebrow={eyebrow} headline={headline} lead={lead} tone="soft" backdrop={backdrop} headerAside={headerAside}>
       <ol className="relative grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         <span aria-hidden className="absolute top-[11px] right-0 left-0 hidden h-px bg-line-strong lg:block" />
         <span aria-hidden className="line-draw absolute top-[11px] right-0 left-0 hidden h-[2px] origin-left bg-copper lg:block" />
         {steps.map((s, i) => (
           <li key={s.title} className="rv relative flex flex-col">
-            <span aria-hidden className="relative z-[1] flex size-6 items-center justify-center rounded-full bg-studio shadow-[inset_0_0_0_1.5px_var(--copper)]">
+            <span aria-hidden className="relative z-[1] flex size-6 items-center justify-center rounded-full bg-studio-light shadow-[inset_0_0_0_1.5px_var(--copper)]">
               <span className="size-2 animate-pulse rounded-full bg-copper [animation-duration:2.4s]" style={{ animationDelay: `${i * 0.6}s` }} />
             </span>
             <p className="tabular mt-6 text-[0.84rem] font-semibold text-copper">Step {String(i + 1).padStart(2, "0")}</p>
