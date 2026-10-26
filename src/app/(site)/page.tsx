@@ -14,8 +14,6 @@ import { IntegrationsSection } from "@/components/home/IntegrationsSection";
 import { CompareSection } from "@/components/home/CompareSection";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { CloseChapter } from "@/components/home/CloseChapter";
-import { MarqueeBand } from "@/components/ui/MarqueeBand";
-import { ribbon } from "@/content/home";
 
 /**
  * The homepage as one story, after hours in the store: the system opening onto the shop,
@@ -30,7 +28,6 @@ export default function HomePage() {
       <StoryProgress />
       <HeroFilm />
       <TrustStrip />
-      <MarqueeBand items={ribbon} />
       <ServiceSection />
       <Collapse />
       <CostsSection />

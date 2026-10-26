@@ -31,8 +31,8 @@ export function HeroFilm() {
       }
       overlay={<HeroCards />}
       caption={
-        <p className="tone-night max-w-[34ch] rounded-[var(--radius-lg)] bg-night/85 px-5 py-4 text-[0.95rem] leading-snug text-[#f4eee6] ring-1 ring-white/10">
-          <span className="eyebrow mb-3 !flex">Inside the store</span>
+        <p className="tag tag-sm tag-plain max-w-[34ch] bg-paper px-5 py-4 pl-6 text-[0.95rem] leading-snug text-ink">
+          <span className="mb-1 block font-semibold">Inside the store</span>
           {hero.arrival}
         </p>
       }

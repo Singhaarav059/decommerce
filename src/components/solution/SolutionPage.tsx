@@ -70,25 +70,25 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
 
       <Rollout title={meta.title} backdrop={m.detail} />
 
-      <Section index="05" eyebrow="Works with" headline="Same catalog, same stock, same customer." lead={`${meta.title} shares its data with every other module. These are the ones it works with most closely.`}>
+      <Section eyebrow="Works with" headline="Same catalog, same stock, same customer." lead={`${meta.title} shares its data with every other module. These are the ones it works with most closely.`}>
         <ul className="grid grid-cols-1 gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {meta.worksWith.map((s) => {
             const other = solutionBySlug(s);
             return (
               <li key={s} className="rv">
                 <Link href={other.href} className="group block">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-ink/5">
+                  <div className="tag tag-lg relative aspect-[4/3] overflow-hidden bg-ink/5">
                     <Image src={solutionMedia(s).end} alt="" fill quality={85} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-[70%_50%] transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" />
-                    <span className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-paper/95 px-3 py-1 text-[0.75rem] font-semibold shadow-[var(--shadow-sm)]">
-                      <span aria-hidden className="size-1.5 rounded-full bg-copper-bright" />
+                    <span className="tag tag-xs tag-plain absolute right-3 bottom-3 flex items-center gap-2 bg-paper py-1.5 pr-3 pl-4 text-[0.8125rem] font-semibold">
+                      <span aria-hidden className="tag tag-plain size-2.5 bg-copper [--cut:4px]" />
                       Shares catalog and stock
                     </span>
                   </div>
                   <p className="mt-4 flex items-center justify-between gap-3 text-[1.05rem] font-semibold">
                     {other.label}
-                    <span aria-hidden className="flex size-8 items-center justify-center rounded-full text-copper shadow-[inset_0_0_0_1.5px_var(--line-strong)] transition-[background-color,color,translate] duration-300 group-hover:translate-x-0.5 group-hover:bg-ink group-hover:text-paper group-hover:shadow-none">→</span>
+                    <span aria-hidden className="text-copper transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </p>
-                  <p className="mt-1 text-[0.95rem] text-ink-2">{other.blurb}</p>
+                  <p className="mt-1 text-ink-2">{other.blurb}</p>
                 </Link>
               </li>
             );
@@ -97,7 +97,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
       </Section>
 
       <Section
-        index="06"
+       
         tone="soft"
         eyebrow="Questions"
         headline={`${meta.title}, answered.`}
@@ -116,8 +116,8 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
         </div>
       </Section>
 
-      <Section id="demo" index="07" eyebrow="Book a demo" headline={`See ${inSentence(meta.title)} on your catalog.`} lead="Tell us what you sell and where. We usually reply within one working day and show you a working setup on a sample of your own products." layout="split">
-        <DemoForm className="rv rounded-[var(--radius-xl)] bg-studio-light p-6 md:p-9" />
+      <Section id="demo" eyebrow="Book a demo" headline={`See ${inSentence(meta.title)} on your catalog.`} lead="Tell us what you sell and where. We usually reply within one working day and show you a working setup on a sample of your own products." layout="split">
+        <DemoForm className="rv tag tag-lg tag-plain bg-studio-light p-6 pt-12 md:p-10 md:pt-16" />
       </Section>
     </main>
   );

@@ -15,7 +15,6 @@
   --color-line: var(--line);
   --font-sans: var(--font-grotesk);
   --font-serif: var(--font-grotesk);
-  --font-mono: var(--font-geist-mono);
   --color-studio: var(--studio);
   --color-studio-light: var(--studio-light);
   --color-ink-2: var(--ink-2);
@@ -113,39 +112,33 @@ cite {
   }
 }
 
-/* Section labels: a small rounded pill with a copper dot, sentence case */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: fit-content;
-  padding: 0.3rem 0.8rem 0.3rem 0.65rem;
-  border-radius: 999px;
-  background: var(--paper);
-  box-shadow: inset 0 0 0 1px var(--line-strong);
-  font-size: 0.8rem;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--ink);
+/* The hang tag on ORD-1042's overshirt: a rectangle with its top-left corner clipped and a
+   punched eyelet. It masks every photograph, shapes the button and makes the list bullet.
+   --cut sets the scale (a size class, or an arbitrary [--cut:…] utility, which this rule must
+   not override, so it only reads the variable); the eyelet sits on the corner's diagonal. */
+.tag {
+  clip-path: polygon(var(--cut, 28px) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut, 28px));
+  -webkit-mask: radial-gradient(circle at calc(var(--cut, 28px) * 0.92) calc(var(--cut, 28px) * 0.92), #0000 calc(var(--cut, 28px) * 0.13), #000 calc(var(--cut, 28px) * 0.13 + 0.5px)); /* taste-skill-ignore: tag eyelet mask */
+  mask: radial-gradient(circle at calc(var(--cut, 28px) * 0.92) calc(var(--cut, 28px) * 0.92), #0000 calc(var(--cut, 28px) * 0.13), #000 calc(var(--cut, 28px) * 0.13 + 0.5px)); /* taste-skill-ignore: tag eyelet mask */
 }
-.eyebrow::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--copper-bright);
-  flex: none;
+.tag-xs {
+  --cut: 10px;
 }
-.mono {
-  font-family: var(--font-geist-mono), ui-monospace, monospace;
-  letter-spacing: 0.02em;
+.tag-sm {
+  --cut: 16px;
 }
-/* when a section number leads the label, the number replaces the dot */
-.eyebrow:has(> .tabular)::before {
-  display: none;
+.tag-lg {
+  --cut: clamp(36px, 5vw, 72px);
 }
+.tag-xl {
+  --cut: clamp(56px, 9vw, 140px);
+}
+/* the clipped corner alone, no eyelet (for controls where a hole would read as a dot) */
+.tag-plain {
+  -webkit-mask: none;
+  mask: none;
+}
+
 
 .prose-copy p {
   text-wrap: pretty;
@@ -154,7 +147,7 @@ cite {
 
 /* Text links: an underline that draws in from the left */
 .link-u {
-  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat; /* taste-skill-ignore: underline drawn by a background */
   transition: background-size var(--dur-base) var(--ease-out);
   padding-bottom: 2px;
 }
@@ -187,20 +180,25 @@ cite {
   --copper-bright: #c8693a;
   --line: rgb(27 25 21 / 0.12);
   --line-strong: rgb(27 25 21 / 0.24);
-  --shadow-sm: 0 1px 2px rgb(27 25 21 / 0.06), 0 2px 8px rgb(27 25 21 / 0.05);
-  --shadow-md: 2px 8px 24px rgb(27 25 21 / 0.12), 0 1px 2px rgb(27 25 21 / 0.06);
+  --shadow-sm: none;
+  --shadow-md: none;
 }
 
 /* Legibility wash behind the text column of a full-bleed scene: the scene's own floor colour,
    strongest under the text and gone by the subject (desktop only; phones put text on a solid panel). */
 .scrim {
-  background: linear-gradient(
+  --scrim: 250 249 247;
+  background: linear-gradient( /* taste-skill-ignore: neutral scrim over a photo */
     to right,
-    color-mix(in srgb, var(--floor) 92%, transparent) 0%,
-    color-mix(in srgb, var(--floor) 88%, transparent) min(36%, 600px),
-    color-mix(in srgb, var(--floor) 55%, transparent) min(46%, 760px),
+    rgb(var(--scrim) / 0.9) 0%,
+    rgb(var(--scrim) / 0.84) min(36%, 600px),
+    rgb(var(--scrim) / 0.5) min(46%, 760px),
     transparent min(60%, 980px)
   );
+}
+.tone-night .scrim,
+.scrim.night {
+  --scrim: 14 14 14;
 }
 
 /* Page enter: a short fade so route changes never cut hard */
@@ -314,9 +312,9 @@ cite {
 
 /* Feathered edges so an image melts into the studio surface */
 .feather {
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent); /* taste-skill-ignore: feathered photo edge mask */
   -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent); /* taste-skill-ignore: feathered photo edge mask */
   mask-composite: intersect;
 }
 
@@ -339,14 +337,6 @@ cite {
 }
 
 /* Hotspots */
-.hotspot-ping {
-  box-shadow: 0 0 0 0 rgb(194 96 42 / 0.55);
-  animation: hotspot-ping 2.4s var(--ease-out) infinite;
-}
-@keyframes hotspot-ping {
-  0% { box-shadow: 0 0 0 0 rgb(194 96 42 / 0.55); }
-  70%, 100% { box-shadow: 0 0 0 12px rgb(194 96 42 / 0); }
-}
 .hotspot-pop {
   animation: hotspot-pop 320ms var(--ease-overshoot);
 }
@@ -396,7 +386,7 @@ cite {
   margin-top: -9px;
   border-radius: 50%;
   background: var(--ink);
-  box-shadow: 0 0 0 4px var(--stone-50), 0 0 0 5px var(--line);
+  box-shadow: 0 0 0 4px var(--stone-50), 0 0 0 5px var(--line); /* taste-skill-ignore: range thumb, a form control */
   transition: transform 200ms var(--ease-overshoot);
 }
 .range::-moz-range-thumb {
@@ -662,29 +652,22 @@ html.lenis body {
   --hb: clamp(16px, 4vh, 40px);
 }
 .hero-corner {
+  --hero-cut: clamp(44px, 6vw, 96px);
   display: none;
-  width: 28px;
-  height: 28px;
+  width: calc(var(--hero-cut) * 1.1);
+  height: calc(var(--hero-cut) * 1.1);
   will-change: transform;
 }
-[data-stage] .hero-corner {
+[data-stage] .hero-corner.tl {
   display: block;
 }
+/* the window onto the film is the hang tag: its top-left corner clipped, the eyelet punched
+   through (both painted in the page colour); the other corners stay square */
 .hero-corner.tl {
   transform-origin: top left;
-  background: radial-gradient(circle at 100% 100%, transparent 27.5px, var(--studio) 28px);
-}
-.hero-corner.tr {
-  transform-origin: top right;
-  background: radial-gradient(circle at 0 100%, transparent 27.5px, var(--studio) 28px);
-}
-.hero-corner.bl {
-  transform-origin: bottom left;
-  background: radial-gradient(circle at 100% 0, transparent 27.5px, var(--studio) 28px);
-}
-.hero-corner.br {
-  transform-origin: bottom right;
-  background: radial-gradient(circle at 0 0, transparent 27.5px, var(--studio) 28px);
+  background:
+    radial-gradient(circle at calc(var(--hero-cut) * 0.92) calc(var(--hero-cut) * 0.92), var(--studio) calc(var(--hero-cut) * 0.13), transparent calc(var(--hero-cut) * 0.13 + 0.5px)), /* taste-skill-ignore: tag eyelet painted in page colour */
+    linear-gradient(135deg, var(--studio) 50%, transparent calc(50% + 0.5px)) 0 0 / var(--hero-cut) var(--hero-cut) no-repeat; /* taste-skill-ignore: tag corner painted in page colour */
 }
 
 /* IntegrationHub: a copper pulse travels out along each spoke in turn */
@@ -714,30 +697,6 @@ html.lenis body {
   from {
     opacity: 0;
     transform: translateY(-0.06em) scale(0.4);
-  }
-}
-
-/* ScrollBadge: circular lettering that turns slowly around an arrow */
-.badge-ring {
-  transform-origin: 50% 50%;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .badge-ring {
-    animation: badge-spin 16s linear infinite;
-  }
-}
-@keyframes badge-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-/* pieces of the hero frame that only make sense inside the pinned stage (wide screens) */
-.hero-only {
-  display: none;
-}
-@media (min-width: 768px) {
-  [data-stage] .hero-only {
-    display: block;
   }
 }
 

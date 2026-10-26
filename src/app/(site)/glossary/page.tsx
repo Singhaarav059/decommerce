@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: meta.title, description: meta.descrip
 
 export default function Page() {
   return (
-    <DocPage meta={meta} scene="office" articleClassName="xl:columns-2 xl:gap-12 [&>h3]:break-after-avoid [&>h3]:border-t [&>h3]:border-line [&>h3]:pt-5 [&>h3]:text-[1.25rem] [&>h3]:first:mt-0 [&>p]:break-inside-avoid">
+    <DocPage meta={meta} scene="office" articleClassName="xl:columns-2 xl:gap-12 [&>h3]:break-after-avoid [&>h3]:pt-5 [&>h3]:text-[1.25rem] [&>h3]:first:mt-0 [&>p]:break-inside-avoid">
       <Content />
     </DocPage>
   );

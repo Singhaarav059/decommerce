@@ -181,3 +181,12 @@ From the owner's references (Visumind skincare, Aristide Benoist, Kombai Selects
 - Floating tags on journey panels (step results) and works-with photos.
 - Not taken: pastel and lime palettes, serif italic headlines (DESIGN-PLAN: one sans family, no italics), WebGPU.
 - Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; scroll 60 fps (hero, rail, journey); Lighthouse mobile / 91, /pos 91, /about-us 95 (a11y, best practices, SEO 100).
+
+## Hang-tag redesign (26 Oct 2026)
+
+The owner rejected the module ring and asked for a real redesign, not patches. Run through the design-taste skill (direction "One motif", seed 1024702630):
+- Idea: the hang tag on ORD-1042's linen overshirt (a rectangle with its top-left corner clipped and a punched eyelet) is the one shape of the site. `.tag` in globals.css masks every photograph (hero window, module groups, journey, pillars, audiences, page heroes), shapes every button and filled tile, and is the list bullet. One 4px radius otherwise; nothing has a shadow at rest.
+- Removed site-wide: section labels and pills, 01/02 numbering and outline numerals, copper rules, hairline dividers, mono captions, uppercase labels, the scroll badge, the marquee ribbon, pinging dots, emoji ticks, tinted gradient washes.
+- Rebuilt: modules as three large tag photographs (Online, Supply chain, In-store) that crossfade to the module you point at and drift slowly on their own; the costs board as a six-row ledger that turns copper when switched; the problem scene as four disagreeing tags merging into one copper tag; how we work as a row of tinted panels (dark to light) that open on click; who it's for as one square plate with three text tabs; FAQs as filled tag tiles (open tile turns copper); compare table with a copper Decommerce column; footer as a copper band cut like a giant tag with one word ("Book.") as the link, then the wordmark built large.
+- Headlines now carry their text as aria-label (no hidden duplicate), so line counts are measured honestly.
+- Checks: skill lint 0 fail / 0 warn; skill inspector 0 fail (warnings defended: brand stone #f5f4f1, frame-sequence films instead of video, hero window opening under the headline, journey track, comparison table scroll on phones); lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 92, /oms 91, /about-us 96 (a11y, best practices, SEO 100).

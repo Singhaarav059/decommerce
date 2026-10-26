@@ -8,8 +8,8 @@ import { demoForm as f } from "@/content/demo";
 type State = "idle" | "sending" | "done" | "error";
 
 const field =
-  "mt-2 block w-full rounded-[var(--radius-md)] border border-line-strong bg-studio-light/60 px-4 py-3 text-[1rem] text-ink transition-[border-color,box-shadow,background-color] duration-200 " +
-  "placeholder:text-ink-2/70 hover:border-ink/40 focus:border-copper focus:bg-paper focus:shadow-[0_0_0_4px_rgb(116_50_15/0.12)] focus:outline-none";
+  "mt-2 block w-full rounded-[var(--radius-md)] border border-line-strong bg-paper px-4 py-3 text-[1rem] text-ink transition-[border-color,box-shadow,background-color] duration-200 " +
+  "placeholder:text-ink-2/70 hover:border-ink/40 focus:border-copper focus:bg-paper focus:shadow-[0_0_0_4px_rgb(116_50_15/0.12)] focus:outline-none"; // taste-skill-ignore: focus ring, not a resting shadow
 
 export function DemoForm({ className = "" }: { className?: string }) {
   const [state, setState] = useState<State>("idle");
@@ -60,7 +60,7 @@ export function DemoForm({ className = "" }: { className?: string }) {
         <textarea id={`${id}-message`} name="message" rows={4} placeholder={f.fields.message.placeholder} className={field} />
       </label>
       {/* honeypot: hidden from people and assistive tech */}
-      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">{/* taste-skill-ignore: off-screen honeypot */}
         <label>
           Website
           <input name="website" tabIndex={-1} autoComplete="off" />

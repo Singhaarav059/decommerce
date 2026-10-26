@@ -4,17 +4,17 @@ import { IntegrationHub } from "@/components/page/IntegrationHub";
 import { integrations as it } from "@/content/integrations";
 
 /** Works with what you run today: connect, sync, migrate, consolidate, beside the integration hub. */
-export function IntegrationsSection({ index = "06", link = true }: { index?: string; link?: boolean }) {
+export function IntegrationsSection({ link = true }: { link?: boolean }) {
   return (
-    <Section id="integrations" index={index} tone="soft" eyebrow={it.eyebrow} headline={it.headline} lead={it.body}>
+    <Section id="integrations" tone="soft" eyebrow={it.eyebrow} headline={it.headline} lead={it.body}>
       <div className="grid items-center gap-12 lg:grid-cols-12">
-        <ol className="space-y-3 lg:col-span-5">
-          {it.steps.map((s, i) => (
-            <li key={s.title} className="rv flex gap-5 rounded-[var(--radius-lg)] bg-paper p-5 ring-1 ring-black/5">
-              <span className="display flex size-10 shrink-0 items-center justify-center rounded-full bg-ink text-[0.95rem] text-paper">{i + 1}</span>
+        <ol className="space-y-5 lg:col-span-5">
+          {it.steps.map((s) => (
+            <li key={s.title} className="rv flex gap-5 py-2">
+              <span aria-hidden className="tag tag-plain mt-[0.45em] size-3.5 shrink-0 bg-copper [--cut:5px]" />
               <div>
-                <h3 className="text-[1.1rem] font-semibold">{s.title}</h3>
-                <p className="mt-1 text-[0.95rem] text-ink-2">{s.body}</p>
+                <h3 className="display text-[1.5rem] leading-tight">{s.title}</h3>
+                <p className="mt-1.5 text-ink-2">{s.body}</p>
               </div>
             </li>
           ))}

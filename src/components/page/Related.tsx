@@ -12,8 +12,8 @@ export function Related() {
   return (
     <section aria-labelledby="related" className="bg-studio">
       <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] pb-[var(--section-gap)]">
-        <div className="flex items-end justify-between gap-6 border-t border-line-strong pt-6">
-          <h2 id="related" className="eyebrow">More about Decommerce</h2>
+        <div className="flex items-end justify-between gap-6 pt-6">
+          <h2 id="related" className="text-[0.875rem] font-semibold">More about Decommerce</h2>
         </div>
         <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4 lg:gap-x-5">
           {items.map((i) => (

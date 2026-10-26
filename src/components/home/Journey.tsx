@@ -34,26 +34,22 @@ export function Journey() {
       <div className="sticky top-0 flex h-[100svh] flex-col overflow-hidden pt-[calc(var(--header-h)+8px)] pb-6">
         <div className="mx-auto flex w-full max-w-[var(--max-w)] flex-wrap items-end justify-between gap-4 px-[var(--gutter)]">
           <div>
-            <p className="eyebrow">
-              <span className="tabular text-copper">03</span>
-              {j.eyebrow}
-            </p>
-            <h2 className="display mt-3 text-[clamp(1.8rem,3.6vw,3.4rem)] leading-[1] tracking-[-0.035em]">{j.headline}</h2>
+            <h2 className="display text-[clamp(1.8rem,3.6vw,3.4rem)] leading-[1] tracking-[-0.035em]">{j.headline}</h2>
           </div>
           <p className="max-w-[44ch] text-[0.95rem] text-ink-2 max-md:hidden">{j.body}</p>
         </div>
         <div ref={track} className="journey-track mt-6 flex min-h-0 flex-1 gap-4 px-[var(--gutter)] md:gap-6">
           {j.steps.map((s) => (
-            <article key={s.n} className="relative flex w-[86vw] shrink-0 flex-col overflow-hidden rounded-[var(--radius-xl)] bg-paper shadow-[var(--shadow-md)] ring-1 ring-black/5 md:w-[64vw] lg:w-[54vw]">
-              <div className="relative min-h-0 flex-1">
+            <article key={s.title} className="relative flex w-[86vw] shrink-0 flex-col md:w-[64vw] lg:w-[54vw]">
+              <div className="tag tag-lg relative min-h-0 flex-1 overflow-hidden bg-studio">
                 <Image src={s.image} alt="" fill sizes="(max-width: 768px) 86vw, 60vw" quality={80} className="object-cover object-[72%_50%]" />
                 {/* the product screen for this step */}
-                <div className="tone-light absolute right-4 bottom-4 w-[min(300px,78%)] rounded-[var(--radius-lg)] bg-paper/95 p-4 shadow-[var(--shadow-md)]">
-                  <div className="flex items-center justify-between text-[0.7rem]">
-                    <span className="eyebrow">{s.ui.title}</span>
-                    <span className="mono text-ink-2">Example</span>
+                <div className="tone-light absolute right-4 bottom-4 w-[min(300px,78%)] bg-paper p-4">
+                  <div className="flex items-center justify-between text-[0.8125rem]">
+                    <span className="text-[0.875rem] font-semibold">{s.ui.title}</span>
+                    <span className="text-ink-2">Example</span>
                   </div>
-                  <dl className="mt-2 divide-y divide-line text-[0.82rem]">
+                  <dl className="mt-2 text-[0.82rem]">
                     {s.ui.rows.map(([k, v]) => (
                       <div key={k} className="flex items-baseline justify-between gap-3 py-1.5">
                         <dt className="min-w-0 text-ink-2">{k}</dt>
@@ -62,19 +58,18 @@ export function Journey() {
                     ))}
                   </dl>
                 </div>
-                <span className="display mono absolute top-4 left-4 rounded-full bg-night/80 px-3 py-1 text-[0.8rem] text-[#f4eee6]">{s.n} / 05</span>
                 {/* a small floating tag, like a price tag on a product photo */}
-                <span className="absolute top-4 right-4 flex items-center gap-2 rounded-full bg-paper/95 py-1.5 pr-3.5 pl-1.5 text-[0.8rem] font-semibold shadow-[var(--shadow-md)]">
-                  <span className="flex size-6 items-center justify-center rounded-full bg-copper text-[0.7rem] text-paper">✓</span>
+                <span className="tag tag-xs tag-plain absolute top-4 right-4 flex items-center gap-2 bg-paper py-2 pr-4 pl-4 text-[0.875rem] font-semibold">
+                  <span aria-hidden className="tag tag-plain size-3 bg-copper [--cut:5px]" />
                   {s.tag}
                 </span>
               </div>
-              <div className="flex items-start justify-between gap-6 p-5 md:p-6">
+              <div className="flex items-start justify-between gap-6 pt-5">
                 <div>
                   <h3 className="display t-h3">{s.title}</h3>
                   <p className="mt-2 max-w-[52ch] text-[0.95rem] text-ink-2">{s.body}</p>
                 </div>
-                <Link href={s.href} aria-label={`More about ${s.title.toLowerCase()}`} className="flex size-10 shrink-0 items-center justify-center rounded-full text-copper shadow-[inset_0_0_0_1.5px_var(--line-strong)] transition-colors hover:bg-copper hover:text-paper">
+                <Link href={s.href} aria-label={`More about ${s.title.toLowerCase()}`} className="tag tag-xs tag-plain flex size-11 shrink-0 items-center justify-center bg-ink text-paper transition-colors hover:bg-copper">
                   →
                 </Link>
               </div>
@@ -82,8 +77,8 @@ export function Journey() {
           ))}
         </div>
         <div className="mx-auto mt-5 w-full max-w-[var(--max-w)] px-[var(--gutter)]">
-          <div className="relative h-[3px] overflow-hidden rounded-full bg-line-strong">
-            <span className="journey-bar absolute inset-y-0 left-0 w-full origin-left rounded-full bg-copper" />
+          <div className="relative h-[3px] overflow-hidden bg-ink/10">
+            <span className="journey-bar absolute inset-y-0 left-0 w-full origin-left bg-copper" />
           </div>
         </div>
       </div>

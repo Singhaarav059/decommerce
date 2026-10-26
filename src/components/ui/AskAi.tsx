@@ -9,13 +9,13 @@ export function AskAi({ prompt = askAi.prompt, className = "" }: { prompt?: stri
     { name: "Ask Perplexity", href: `https://www.perplexity.ai/search?q=${q}` },
   ];
   return (
-    <div className={`rounded-[var(--radius-xl)] bg-paper p-6 ring-1 ring-black/5 md:p-7 ${className}`}>
+    <div className={className}>
       <p className="text-[1.05rem] font-semibold">{askAi.title}</p>
-      <p className="mt-1 max-w-[52ch] text-[0.95rem] text-ink-2">{askAi.body}</p>
+      <p className="mt-1 max-w-[42ch] text-ink-2">{askAi.body}</p>
       <ul className="mt-5 flex flex-wrap gap-2">
         {links.map((l) => (
           <li key={l.name}>
-            <a href={l.href} target="_blank" rel="noopener noreferrer" className="inline-flex h-10 items-center gap-2 rounded-full px-4 text-[0.9rem] font-semibold shadow-[inset_0_0_0_1px_var(--line-strong)] transition-colors hover:bg-ink hover:text-paper">
+            <a href={l.href} target="_blank" rel="noopener noreferrer" className="tag tag-xs tag-plain inline-flex h-10 items-center gap-2 bg-ink/[0.06] pr-4 pl-5 text-[0.94rem] font-semibold transition-colors hover:bg-ink hover:text-paper">
               {l.name}
               <span aria-hidden>↗</span>
               <span className="sr-only">(opens in a new tab)</span>

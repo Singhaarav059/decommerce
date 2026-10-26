@@ -14,12 +14,11 @@ export default function Page() {
   return (
     <main id="main">
       <PageHero eyebrow="Company" headline="Keep what works. Connect the rest." description={it.meta.description} image="/assets/company/scene-infrastructure.webp" />
-      <IntegrationsSection index="01" link={false} />
-      <Section index="02" eyebrow="By kind of system" headline="What Decommerce connects to." lead="Ready connections and custom links, set up by our team as part of every engagement.">
+      <IntegrationsSection link={false} />
+      <Section eyebrow="By kind of system" headline="What Decommerce connects to." lead="Ready connections and custom links, set up by our team as part of every engagement.">
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {it.categories.map((c, i) => (
+          {it.categories.map((c) => (
             <li key={c.name} className="rv flex flex-col rounded-[var(--radius-lg)] bg-studio-light p-6">
-              <span className="tabular text-[0.8rem] font-semibold text-copper">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="mt-4 text-[1.15rem] font-semibold">{c.name}</h3>
               <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-2">{c.body}</p>
             </li>
@@ -30,7 +29,7 @@ export default function Page() {
           </li>
         </ul>
       </Section>
-      <Section index="03" tone="soft" eyebrow="Questions" headline="Integrations, answered.">
+      <Section tone="soft" eyebrow="Questions" headline="Integrations, answered.">
         <div className="grid lg:grid-cols-12">
           <div className="lg:col-span-7 lg:col-start-6">
             <Faq items={it.faq} />

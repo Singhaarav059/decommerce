@@ -89,17 +89,17 @@ export function Header() {
     >
       <div ref={navRef} className="relative mx-auto max-w-[var(--max-w)] px-[var(--gutter)] pt-3">
         <div
-          className={`relative z-10 flex h-14 items-center rounded-full border border-line bg-paper pr-2 pl-5 transition-shadow duration-300 ${
-            scrolled || open ? "shadow-[var(--shadow-md)]" : "shadow-[var(--shadow-sm)]"
+          className={`tag tag-sm tag-plain relative z-10 flex h-14 items-center bg-paper pr-2 pl-6 transition-colors duration-300 ${
+            scrolled || open ? "bg-paper" : "bg-paper/95"
           }`}
         >
-          <Link href="/" aria-label="Decommerce home" className="mr-8 shrink-0 rounded-full">
+          <Link href="/" aria-label="Decommerce home" className="mr-8 shrink-0">
             <Wordmark />
           </Link>
 
           <nav aria-label="Main" className="hidden flex-1 lg:block">
             <ul className="flex items-center justify-center gap-0.5">
-              {groups.map((g, gi) => (
+              {groups.map((g) => (
                 <li key={g.label}>
                   <button
                     type="button"
@@ -114,13 +114,10 @@ export function Header() {
                       setHover(null);
                       setOpen(g.label);
                     }}
-                    className={`relative flex h-10 items-center gap-2 rounded-full px-4 text-[0.92rem] font-medium transition-colors duration-200 ${
+                    className={`relative flex h-10 items-center gap-2 px-4 text-[0.94rem] font-medium transition-colors duration-200 ${
                       open === g.label ? "bg-studio-light text-ink" : "text-ink-2 hover:text-ink"
                     }`}
                   >
-                    <span aria-hidden className={`tabular text-[0.68rem] font-semibold transition-colors ${open === g.label || current(g) ? "text-copper" : "text-ink-2/85"}`}>
-                      {String(gi + 1).padStart(2, "0")}
-                    </span>
                     {g.label}
                     {current(g) && <span className="sr-only">(current section)</span>}
                     <svg
@@ -144,7 +141,7 @@ export function Header() {
             </span>
             <button
               type="button"
-              className="flex size-10 items-center justify-center rounded-full transition-colors hover:bg-studio-light lg:hidden"
+              className="flex size-10 items-center justify-center transition-colors hover:bg-studio-light lg:hidden"
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
@@ -167,10 +164,10 @@ export function Header() {
           }`}
         >
           {panel && preview && (
-            <div className="overflow-hidden rounded-[var(--radius-xl)] border border-line bg-paper shadow-[var(--shadow-md)]">
+            <div className="overflow-hidden rounded-[var(--radius-md)] bg-paper shadow-[var(--shadow-lift)]">{/* taste-skill-ignore: a real overlay (menu) */}
               <div className="grid grid-cols-[minmax(0,1fr)_340px] gap-8 p-3 pl-8">
                 <div className="flex flex-col py-5">
-                  <div className="flex items-baseline justify-between gap-6 border-b border-line pb-4">
+                  <div className="flex items-baseline justify-between gap-6 pb-4">
                     <p className="display t-h3">{panel.label}</p>
                     <p className="max-w-[46ch] text-right text-[0.88rem] leading-snug text-ink-2">{navIntro[panel.label]}</p>
                   </div>
@@ -178,7 +175,7 @@ export function Header() {
                     {panel.items.map((item, i) => {
                       const on = item.href === preview.href;
                       return (
-                        <li key={item.href} className="animate-[rise_500ms_var(--ease-out)_both] border-b border-line/70" style={{ animationDelay: `${i * 35}ms` }}>
+                        <li key={item.href} className="animate-[rise_500ms_var(--ease-out)_both]" style={{ animationDelay: `${i * 35}ms` }}>
                           <Link
                             href={item.href}
                             aria-current={item.href === pathname ? "page" : undefined}
@@ -186,7 +183,6 @@ export function Header() {
                             onFocus={() => setHover(item.href)}
                             className="group flex items-baseline gap-3 py-3"
                           >
-                            <span className={`tabular w-6 shrink-0 text-[0.75rem] font-semibold transition-colors ${on ? "text-copper" : "text-ink-2/85"}`}>{String(i + 1).padStart(2, "0")}</span>
                             <span className="min-w-0">
                               <span className={`display block text-[1.35rem] transition-[color,translate] duration-300 ease-[var(--ease-out)] ${on ? "translate-x-1 text-copper" : ""}`}>{item.label}</span>
                               <span className="mt-0.5 block text-[0.84rem] leading-snug text-ink-2">{item.blurb}</span>
@@ -237,7 +233,7 @@ export function Header() {
       <nav
         aria-label="Main"
         inert={!mobileOpen}
-        className={`absolute top-[76px] right-[var(--gutter)] left-[var(--gutter)] max-h-[calc(100svh-96px)] origin-top-right overflow-y-auto rounded-[var(--radius-xl)] bg-paper p-5 shadow-[0_30px_60px_-20px_rgb(18_17_16/0.35)] ring-1 ring-black/5 transition-[opacity,transform,visibility] duration-500 ease-[var(--ease-overshoot)] sm:left-auto sm:w-[420px] lg:hidden ${
+        className={`absolute top-[76px] right-[var(--gutter)] left-[var(--gutter)] max-h-[calc(100svh-96px)] origin-top-right overflow-y-auto rounded-[var(--radius-md)] bg-paper p-5 shadow-[var(--shadow-lift)] transition-[opacity,transform,visibility] duration-500 ease-[var(--ease-overshoot)] sm:left-auto sm:w-[420px] lg:hidden ${ /* taste-skill-ignore: a real overlay (menu) */
           mobileOpen ? "visible translate-y-0 scale-100 opacity-100" : "invisible -translate-y-2 scale-[0.88] opacity-0"
         }`}
       >
@@ -245,9 +241,8 @@ export function Header() {
         {mobileOpen && (
           <>
             {groups.map((g, gi) => (
-              <div key={g.label} className="animate-[rise_500ms_var(--ease-out)_both] border-b border-line pt-3 pb-4 first:pt-0" style={{ animationDelay: `${80 + gi * 50}ms` }}>
-                <p className="mb-2 text-[0.75rem] font-semibold text-ink-2">
-                  <span className="tabular mr-2 text-copper">{String(gi + 1).padStart(2, "0")}</span>
+              <div key={g.label} className="animate-[rise_500ms_var(--ease-out)_both] pt-3 pb-4 first:pt-0" style={{ animationDelay: `${80 + gi * 50}ms` }}>
+                <p className="mb-2 text-[0.8125rem] font-semibold text-ink-2">
                   {g.label}
                 </p>
                 <ul className="grid grid-cols-2 gap-x-3">

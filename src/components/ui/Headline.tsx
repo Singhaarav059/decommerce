@@ -4,7 +4,7 @@ import { InlinePhotos, type HeadlineMedia } from "./InlinePhotos";
 /**
  * Section headline: one grotesk, sentence case, no italic accent words.
  * `reveal` lifts the words into place as the headline scrolls into view
- * (CSS view timeline, no JS); screen readers get the plain sentence.
+ * (CSS view timeline, no JS); screen readers get the plain sentence as the heading's label.
  * `media` sets small photos inside the line, after the given word.
  */
 export function Headline({
@@ -25,8 +25,7 @@ export function Headline({
   if (!reveal && !media) return <Tag className={`display ${className}`}>{plain}</Tag>;
   if (!reveal)
     return (
-      <Tag className={`display ${className}`}>
-        <span className="sr-only">{plain}</span>
+      <Tag className={`display ${className}`} aria-label={plain}>
         <span aria-hidden>
           {words.map((w, i) => (
             <span key={i}>
@@ -39,8 +38,7 @@ export function Headline({
       </Tag>
     );
   return (
-    <Tag className={`display rv-words ${className}`}>
-      <span className="sr-only">{plain}</span>
+    <Tag className={`display rv-words ${className}`} aria-label={plain}>
       <span aria-hidden>
         {words.map((w, i) => (
           <span key={i}>

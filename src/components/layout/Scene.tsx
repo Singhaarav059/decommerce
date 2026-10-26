@@ -7,7 +7,7 @@ function Spot({ spot, className }: { spot?: [number, number] | null; className: 
     <div
       aria-hidden
       className={`absolute top-1/2 aspect-video min-h-full min-w-full -translate-y-1/2 transition-opacity duration-500 ease-[var(--ease-out)] ${className}`}
-      style={{ opacity: spot ? 1 : 0, background: spot ? `radial-gradient(circle at ${spot[0]}% ${spot[1]}%, transparent 0 9%, rgb(239 231 222 / 0.62) 22%)` : undefined }}
+      style={{ opacity: spot ? 1 : 0, background: spot ? `radial-gradient(circle at ${spot[0]}% ${spot[1]}%, transparent 0 9%, rgb(239 231 222 / 0.62) 22%)` : undefined }} /* taste-skill-ignore: spotlight wash on a photo */
     />
   );
 }
@@ -71,8 +71,7 @@ export function Scene({
           <Image src={src} alt="" fill priority={priority} sizes="100vw" quality={85} className="object-cover object-[70%_50%] md:object-center" />
           {/* the wash is laid out like the cover-fitted photo, so spot coordinates are photo percentages */}
           <Spot spot={spot} className="left-[70%] -translate-x-[70%] md:left-1/2 md:-translate-x-1/2" />
-          <div aria-hidden className="scrim absolute inset-0 hidden md:block" />
-          <div aria-hidden className="absolute inset-x-0 bottom-0 h-24 md:hidden" style={{ background: `linear-gradient(to bottom, transparent, ${floor})` }} />
+          <div aria-hidden className={`scrim absolute inset-0 hidden md:block ${light ? "" : "night"}`} />
         </div>
       </div>
       <div className="relative mx-auto flex max-w-[var(--max-w)] px-[var(--gutter)] pt-[calc(52svh+8px)] pb-16 md:min-h-[100svh] md:items-center md:pt-[calc(var(--header-h)+40px)] md:pb-20 [--ink-2:var(--ink)]">

@@ -7,8 +7,8 @@ import { costs } from "@/content/home";
 type Side = "without" | "with";
 
 /**
- * The problem in full, as a board you can switch: six places where separate systems cost a
- * retailer, each with a small figure. Switching to "With Decommerce" turns the board copper
+ * The problem in full, as a ledger you can switch: six places where separate systems cost a
+ * retailer, each with its figure. Switching to "With Decommerce" turns every row copper
  * and every figure settles. It switches once by itself the first time
  * the board is in view, so the difference is seen even without a click.
  */
@@ -47,15 +47,14 @@ export function CostsSection() {
       headline={costs.headline}
       lead={costs.body}
       headerAside={
-        <div role="group" aria-label="Compare" className="relative mt-8 inline-grid grid-cols-2 rounded-full bg-paper p-1 shadow-[var(--shadow-sm)]">
-          <span aria-hidden className={`absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-full bg-ink transition-transform duration-500 ease-[var(--ease-out)] ${on ? "translate-x-full" : ""}`} />
+        <div role="group" aria-label="Compare" className="mt-8 inline-grid grid-cols-2 gap-1">
           {(["without", "with"] as const).map((s) => (
             <button
               key={s}
               type="button"
               aria-pressed={side === s}
               onClick={() => pick(s)}
-              className={`relative z-[1] h-10 rounded-full px-5 text-[0.9rem] font-semibold whitespace-nowrap transition-colors duration-300 ${side === s ? "text-paper" : "text-ink-2 hover:text-ink"}`}
+              className={`tag tag-xs tag-plain h-11 px-5 text-[0.94rem] font-semibold whitespace-nowrap transition-colors duration-300 ${side === s ? (s === "with" ? "bg-copper text-paper" : "bg-ink text-paper") : "bg-studio-light text-ink-2 hover:text-ink"}`}
             >
               {costs.toggle[s]}
             </button>
@@ -63,47 +62,42 @@ export function CostsSection() {
         </div>
       }
     >
-      <div
-        ref={board}
-        className={`rounded-[var(--radius-xl)] p-2 transition-colors duration-700 ease-[var(--ease-out)] md:p-3 ${on ? "bg-copper" : "bg-studio-light/70"}`}
-      >
-        <ul className="grid gap-2 md:grid-cols-2 md:gap-3 lg:grid-cols-3">
+      {/* a ledger of six rows; switching to "with" turns every row copper and the figures settle */}
+      <div ref={board} className={`tag tag-lg tag-plain transition-colors duration-700 ${on ? "text-paper" : "text-ink"}`}>
+        <ul className="grid gap-[3px]">
           {costs.rows.map((r, i) => {
             const v = r.visual;
             return (
-              <li key={r.area} className={`flex min-h-[15rem] flex-col rounded-[var(--radius-lg)] p-6 transition-colors duration-700 bg-paper`}>
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="display t-h3">{r.area}</h3>
-                  <span className="tabular text-[0.8rem] font-semibold text-copper">{String(i + 1).padStart(2, "0")}</span>
-                </div>
-                <div key={side} className="mt-6 animate-[slide-up_600ms_var(--ease-out)_both]" style={{ animationDelay: `${i * 70}ms` }}>
+              <li key={r.area} className={`grid items-center gap-4 px-6 py-8 md:py-10 transition-colors duration-700 ease-[var(--ease-out)] md:grid-cols-12 md:gap-8 md:px-10 ${on ? "bg-copper" : "bg-studio-light"}`} style={{ transitionDelay: `${i * 60}ms` }}>
+                <h3 className="display t-h3 md:col-span-3">{r.area}</h3>
+                <div key={side} className="animate-[slide-up_600ms_var(--ease-out)_both] md:col-span-4" style={{ animationDelay: `${i * 70}ms` }}>
                   {v.kind === "counts" && v.labels && (
-                    <div className="grid grid-cols-4 gap-1.5">
+                    <div className="flex gap-5">
                       {v.labels.map((l, k) => (
-                        <div key={l} className="rounded-[var(--radius-sm)] p-2 text-center shadow-[inset_0_0_0_1px_var(--line)]">
-                          <p className="display tabular text-[1.6rem]">{v[side][k]}</p>
-                          <p className="mt-1 truncate text-[0.72rem] text-ink-2">{l}</p>
+                        <div key={l}>
+                          <p className="display tabular text-[clamp(2rem,3vw,2.6rem)] leading-none">{v[side][k]}</p>
+                          <p className={`mt-1 text-[0.8125rem] ${on ? "text-paper/85" : "text-ink-2"}`}>{l}</p>
                         </div>
                       ))}
                     </div>
                   )}
                   {v.kind === "big" && v.note && (
                     <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <span className={`display whitespace-nowrap text-[clamp(2.6rem,4vw,3.4rem)] leading-none ${on ? "text-copper" : ""}`}>{v[side]}</span>
-                      <span className="text-[0.9rem] text-ink-2">{v.note[side]}</span>
+                      <span className="display text-[clamp(2.4rem,3.6vw,3.2rem)] leading-none whitespace-nowrap">{v[side]}</span>
+                      <span className={`text-[1.06rem] ${on ? "text-paper/90" : "text-ink-2"}`}>{v.note[side]}</span>
                     </p>
                   )}
-                  {v.kind === "word" && <p className={`display text-[clamp(1.8rem,2.6vw,2.3rem)] leading-none ${on ? "text-copper" : ""}`}>{v[side]}</p>}
+                  {v.kind === "word" && <p className="display text-[clamp(1.8rem,2.6vw,2.3rem)] leading-none">{v[side]}</p>}
                 </div>
-                <p key={`${side}-t`} className="mt-auto animate-[slide-up_600ms_var(--ease-out)_both] pt-6 text-[0.98rem] leading-relaxed text-ink-2" style={{ animationDelay: `${i * 70 + 60}ms` }}>
+                <p key={`${side}-t`} className={`animate-[slide-up_600ms_var(--ease-out)_both] text-[1.03rem] leading-relaxed md:col-span-5 ${on ? "text-paper/90" : "text-ink-2"}`} style={{ animationDelay: `${i * 70 + 60}ms` }}>
                   {r[side]}
                 </p>
               </li>
             );
           })}
         </ul>
-        <p className={`px-4 pt-3 pb-2 text-[0.8rem] transition-colors duration-700 ${on ? "text-paper" : "text-ink-2"}`}>{costs.toggle.hint}</p>
       </div>
+      <p className="mt-4 text-[0.875rem] text-ink-2">{costs.toggle.hint}</p>
     </Section>
   );
 }

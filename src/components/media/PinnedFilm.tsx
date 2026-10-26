@@ -88,9 +88,7 @@ export function PinnedFilm({
     <div ref={wrap} id={id} className={`relative ${night ? "" : "tone-light"}`} style={{ "--floor": floor } as CSSProperties}>
       <ScrollSequence {...seq} length={length} stillFrame={0} priority={priority} defer alt={alt} bg={floor} frameClassName={FULL_PANE}>
         {/* desktop: a wash of the floor colour under the text column, so copy reads over any frame */}
-        <div aria-hidden className="scrim pointer-events-none absolute inset-0 hidden md:block" />
-        {/* phones: the film melts into the floor-coloured text panel */}
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-[calc(var(--film-h,58svh)-96px)] h-24 md:hidden" style={{ background: `linear-gradient(to bottom, transparent, ${floor})` }} />
+        <div aria-hidden className={`scrim pointer-events-none absolute inset-0 hidden md:block ${night ? "night" : ""}`} />
         {overlay}
         <div className={`${FULL_TEXT} ${night ? "tone-night" : ""}`}>
           <div ref={text} className="grid">

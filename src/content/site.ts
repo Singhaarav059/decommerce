@@ -116,6 +116,8 @@ export const navImage = (i: NavItem) => i.image ?? (i.slug ? `/assets/sol/${i.sl
 
 export const footerCta = {
   eyebrow: "Book a demo",
+  /** The one word set across the closing band; the whole band is the link. */
+  word: "Book",
   headline: "See it run on your catalog.",
   body: "Tell us what you sell and where. We'll show you a working store with a sample of your own products.",
   primary: { label: "Book a demo", href: "/contact-us" },

@@ -3,18 +3,18 @@ import { rollout } from "@/content/site";
 import { inSentence } from "@/lib/text";
 
 /** The service around the module: four rollout steps and what every engagement includes. */
-export function Rollout({ title, backdrop, index = "04" }: { title: string; backdrop: string; index?: string }) {
+export function Rollout({ title, backdrop }: { title: string; backdrop: string }) {
   const x = inSentence(title);
   return (
     <StepsBand
-      index={index}
       eyebrow={rollout.eyebrow}
       headline={rollout.headline}
       backdrop={backdrop}
       headerAside={
-        <ul className="flex flex-wrap gap-2">
+        <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
           {rollout.included.map((i) => (
-            <li key={i} className="rounded-full px-3.5 py-1.5 text-[0.88rem] shadow-[inset_0_0_0_1px_var(--line-strong)]">
+            <li key={i} className="flex items-center gap-3 text-ink">
+              <span aria-hidden className="tag tag-plain size-3 shrink-0 bg-copper [--cut:5px]" />
               {i}
             </li>
           ))}

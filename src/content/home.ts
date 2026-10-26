@@ -245,11 +245,11 @@ export const journey = {
   headline: "ORD-1042, from click to doorstep.",
   body: "One linen overshirt in size M, ordered online on a quiet afternoon. Every step below runs on the same system.",
   steps: [
-    { tag: "Paid online", n: "01", title: "Ordered online", body: "The customer buys the last size M on the website. The order lands in Decommerce with the stock it reserves.", image: "/assets/sol/storefront/detail.webp", ui: { title: "ORD-1042", rows: [["Item", "Linen overshirt · M"], ["Channel", "Website"], ["Payment", "Paid"]] }, href: "/storefront" },
-    { tag: "2.4 km route", n: "02", title: "Routed in a second", body: "Every store and warehouse is checked. Riverside has the size and the shortest trip, so it ships.", image: "/assets/seq/order/d/030.webp", ui: { title: "Routing", rows: [["Central warehouse", "18 km"], ["Riverside store", "2.4 km ✓"], ["Old Town store", "No size M"]] }, href: "/oms" },
-    { tag: "Scan confirmed", n: "03", title: "Picked and packed", body: "The handheld shows the shelf, the scan confirms the item, the label prints and the box rolls to dispatch.", image: "/assets/seq/pack/d/024.webp", ui: { title: "Pick list", rows: [["Shelf", "B-14"], ["Scan", "LIN-OVR-M-SND ✓"], ["Label", "Printed"]] }, href: "/wms" },
-    { tag: "Handed over", n: "04", title: "Into her hands", body: "The van follows one efficient route. The courier hands the parcel over at the door and confirms on the same system.", image: "/assets/seq/delivery/d/034.webp", ui: { title: "Delivery", rows: [["Route", "7 · stop 3"], ["ETA", "12 min"], ["Status", "Delivered"]] }, href: "/tms" },
-    { tag: "Store shows 0", n: "05", title: "And at the counter", body: "Back in the store the count already reads zero, so nobody sells a shirt that is not there. The next customer taps to pay.", image: "/assets/seq/counter/d/036.webp", ui: { title: "Same stock count", rows: [["Website", "0"], ["Store", "0"], ["Marketplace", "0"]] }, href: "/pos" },
+    { tag: "Paid online", title: "Ordered online", body: "The customer buys the last size M on the website. The order lands in Decommerce with the stock it reserves.", image: "/assets/sol/storefront/detail.webp", ui: { title: "ORD-1042", rows: [["Item", "Linen overshirt · M"], ["Channel", "Website"], ["Payment", "Paid"]] }, href: "/storefront" },
+    { tag: "2.4 km route", title: "Routed in a second", body: "Every store and warehouse is checked. Riverside has the size and the shortest trip, so it ships.", image: "/assets/seq/order/d/030.webp", ui: { title: "Routing", rows: [["Central warehouse", "18 km"], ["Riverside store", "2.4 km, chosen"], ["Old Town store", "No size M"]] }, href: "/oms" },
+    { tag: "Scan confirmed", title: "Picked and packed", body: "The handheld shows the shelf, the scan confirms the item, the label prints and the box rolls to dispatch.", image: "/assets/seq/pack/d/024.webp", ui: { title: "Pick list", rows: [["Shelf", "B-14"], ["Scan", "LIN-OVR-M-SND"], ["Label", "Printed"]] }, href: "/wms" },
+    { tag: "Handed over", title: "Into her hands", body: "The van follows one efficient route. The courier hands the parcel over at the door and confirms on the same system.", image: "/assets/seq/delivery/d/034.webp", ui: { title: "Delivery", rows: [["Route", "7 · stop 3"], ["ETA", "12 min"], ["Status", "Delivered"]] }, href: "/tms" },
+    { tag: "Store shows 0", title: "And at the counter", body: "Back in the store the count already reads zero, so nobody sells a shirt that is not there. The next customer taps to pay.", image: "/assets/seq/counter/d/036.webp", ui: { title: "Same stock count", rows: [["Website", "0"], ["Store", "0"], ["Marketplace", "0"]] }, href: "/pos" },
   ],
 };
 
@@ -268,6 +268,9 @@ export const audiences = {
   eyebrow: "Who it's for",
   headline: "Built for brands and retailers of every size.",
   body: "Start with what your business needs today. The same platform carries you from one website to many stores and channels.",
+  startLabel: "Usually starts with",
+  more: "See the module",
+  demo: "Book a demo",
   groups: [
     {
       title: "Growing brands",
@@ -327,23 +330,20 @@ export const service = {
     steps: ["The last size M sells at the store counter.", "The one stock count drops to zero.", "Website, warehouse and marketplace show zero at once. Nobody oversells."],
   },
   eyebrow: "What we do",
-  headline: "Not a website. A commerce system we set up and run with you.",
+  headline: "Not a website. A system we run.",
   body: "Decommerce is software plus the team that puts it to work. We connect your website, stores, warehouse and marketplaces to one catalog, move your data across, train your staff and stay with you after launch.",
   pillars: [
     {
-      n: "01",
       title: "The platform",
       body: "Twelve modules for selling online, moving stock and serving customers in the store, all reading one catalog, one stock count and one customer record.",
       points: ["Storefront, B2B and marketplaces", "Orders, warehouse and delivery", "Till, kiosks and clienteling"],
     },
     {
-      n: "02",
       title: "The setup",
       body: "We do the switching for you: products, prices, stock and customers move across, and the tools you keep are connected rather than replaced.",
       points: ["Catalog and data migration", "Payment, courier and marketplace connections", "Staff training in the store and warehouse"],
     },
     {
-      n: "03",
       title: "The running",
       body: "After go-live the same team stays on. We watch the system, ship updates, and tune routing, stock and pricing rules as your season shows what works.",
       points: ["One team that knows your business", "Updates without downtime", "Changes as you add stores or channels"],
@@ -352,12 +352,12 @@ export const service = {
 };
 
 /** A statement whose words light up as it scrolls through. */
-export const statement = "Your customers never see channels. They see one shop. So we give you one catalog, one stock count and one customer record, and we run it with you.";
+export const statement = "Customers see one shop. So should you.";
 
 /** After the problem film: where separate systems cost a retailer, and what changes. */
 export const costs = {
   eyebrow: "Where it costs you",
-  headline: "Six places separate systems leak sales.",
+  headline: "Six places sales leak.",
   body: "Most retailers grow one channel at a time, so each one gets its own software. Each system keeps its own copy of the truth, and staff spend their evenings making the copies agree.",
   columns: { area: "Where it shows", without: "With separate systems", with: "With Decommerce" },
   toggle: { without: "Separate systems", with: "With Decommerce", hint: "Illustrative figures for one linen overshirt in size M." },
@@ -406,6 +406,7 @@ export const modules = {
   eyebrow: "The platform",
   headline: "Twelve modules. One catalog underneath.",
   body: "Start with the module that hurts most today and add the rest when you are ready. Every module reads the same products, stock and customers, so nothing needs re-entering.",
+  count: (n: number) => `${n} modules`,
 };
 
 /** How an engagement runs, step by step, and what the client has at the end of each step. */
@@ -414,10 +415,10 @@ export const engagement = {
   headline: "From first call to a running system.",
   body: "Every engagement follows the same four steps. You keep selling the whole time: modules go live one at a time next to what you run today.",
   steps: [
-    { n: "01", title: "Discover", body: "We map how you sell today: channels, stores, warehouses, stock rules and the gaps between them.", result: "A written map of your current setup and a plan for which module goes first." },
-    { n: "02", title: "Design", body: "We design one catalog and one stock model around your real products, sizes, locations and prices.", result: "Your catalog, stock and pricing modelled in Decommerce and demoed on your own data." },
-    { n: "03", title: "Build and connect", body: "Modules go live one at a time. We migrate data, connect payments, couriers and marketplaces, and train staff.", result: "Each module live in production, with your team trained to use it." },
-    { n: "04", title: "Run and improve", body: "We stay on through the first season and beyond, watching the numbers and tuning the rules.", result: "A named team, regular reviews and changes as your business grows." },
+    { title: "Discover", body: "We map how you sell today: channels, stores, warehouses, stock rules and the gaps between them.", result: "A written map of your current setup and a plan for which module goes first." },
+    { title: "Design", body: "We design one catalog and one stock model around your real products, sizes, locations and prices.", result: "Your catalog, stock and pricing modelled in Decommerce and demoed on your own data." },
+    { title: "Build and connect", body: "Modules go live one at a time. We migrate data, connect payments, couriers and marketplaces, and train staff.", result: "Each module live in production, with your team trained to use it." },
+    { title: "Run and improve", body: "We stay on through the first season and beyond, watching the numbers and tuning the rules.", result: "A named team, regular reviews and changes as your business grows." },
   ],
 };
 
@@ -444,10 +445,10 @@ export const proof = {
     { value: 6, suffix: "", label: "Years building software" },
   ],
   process: [
-    { n: "01", title: "Discover", body: "We map how you sell today: channels, stock, stores and the gaps between them." },
-    { n: "02", title: "Design", body: "One catalog and one stock model, designed around your real products." },
-    { n: "03", title: "Build", body: "Modules go live one at a time, so nothing stops selling while you switch." },
-    { n: "04", title: "Launch", body: "We stay on through the first season and tune what the data shows." },
+    { title: "Discover", body: "We map how you sell today: channels, stock, stores and the gaps between them." },
+    { title: "Design", body: "One catalog and one stock model, designed around your real products." },
+    { title: "Build", body: "Modules go live one at a time, so nothing stops selling while you switch." },
+    { title: "Launch", body: "We stay on through the first season and tune what the data shows." },
   ],
   alt: "A slow pan across the sunlit boutique: clothing rails, oak shelves, an olive tree and the copper counter.",
 };

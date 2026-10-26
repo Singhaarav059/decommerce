@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Geist_Mono, Schibsted_Grotesk } from "next/font/google";
+import { Schibsted_Grotesk } from "next/font/google";
 import { brand } from "@/content/site";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import "./globals.css";
@@ -14,11 +14,6 @@ const grotesk = Schibsted_Grotesk({
 });
 
 // Mono for system labels and figures: the product's own voice (order ids, stock, step numbers).
-const mono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(brand.siteUrl),
@@ -38,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${grotesk.variable} ${mono.variable} antialiased`}
+      className={`${grotesk.variable} antialiased`}
     >
       <body className="min-h-dvh">
         <script

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { frameUrl, wantsStill } from "@/lib/media";
 import { ScrollSequence, useSequenceProgress } from "./ScrollSequence";
 import { InlinePhotos, type HeadlineMedia } from "@/components/ui/InlinePhotos";
-import { ScrollBadge } from "@/components/ui/ScrollBadge";
 import type { FilmSeq } from "./PinnedFilm";
 
 /**
@@ -17,7 +16,6 @@ import type { FilmSeq } from "./PinnedFilm";
 export function HeroWindow({
   seq,
   alt,
-  eyebrow,
   headline,
   body,
   actions,
@@ -54,8 +52,7 @@ export function HeroWindow({
   const top = (
     <div ref={head} className="hero-top relative z-[2] bg-studio pb-5 will-change-transform">
       <div className="hero-text mx-auto max-w-[var(--max-w)] px-[var(--gutter)] pt-[calc(var(--header-h)+clamp(12px,3vh,40px))]">
-      <p className="eyebrow intro">{eyebrow}</p>
-      <h1 className="display hero-title mt-4 max-w-[16ch] text-[min(7.4vw,12.5vh)] leading-[0.92] tracking-[-0.045em] max-md:text-[clamp(2.6rem,11vw,4rem)]" aria-label={headline}>
+      <h1 className="display hero-title max-w-[16ch] text-[min(7.4vw,12.5vh)] leading-[0.92] tracking-[-0.045em] max-md:text-[clamp(2.6rem,11vw,4rem)]" aria-label={headline}>
         {words.map((w, i) => (
           <span key={i} aria-hidden className="inline-block overflow-clip pb-[0.06em] align-top">
             <span className="hero-word inline-block" style={{ animationDelay: `${120 + i * 70}ms` }}>
@@ -69,15 +66,11 @@ export function HeroWindow({
       {/* the window's two upper corners hang from the bottom of this edge */}
       <span aria-hidden className="hero-corner tl absolute top-full left-[var(--side)]" />
       <span aria-hidden className="hero-corner tr absolute top-full right-[var(--side)]" />
-      {/* a turning scroll badge on the seam between the headline and the window; it leaves with the headline */}
-      <span className="hero-only absolute top-full right-[calc(var(--side)+48px)] z-[3] -translate-y-1/2">
-        <ScrollBadge />
-      </span>
     </div>
   );
   // the pitch rests on the film in a panel, so the window can start right under the headline
   const panel = (
-    <div className="relative z-[2] max-w-[460px] animate-[slide-up_900ms_var(--ease-out)_both] rounded-[var(--radius-lg)] bg-paper/95 p-5 shadow-[var(--shadow-md)] ring-1 ring-black/5 md:p-6">
+    <div className="relative z-[2] max-w-[460px] animate-[slide-up_900ms_var(--ease-out)_both] tag tag-sm tag-plain bg-paper p-5 md:p-7">
       <p className="text-[1rem] leading-relaxed text-ink-2 md:text-[1.1rem]">{body}</p>
       {actions && <div className="mt-5 flex flex-wrap gap-3">{actions}</div>}
     </div>
@@ -89,7 +82,7 @@ export function HeroWindow({
         {top}
         <div className="mx-auto mt-6 max-w-[var(--max-w)] px-[var(--gutter)]">{panel}</div>
         <div className="mx-auto mt-8 max-w-[var(--max-w)] px-[var(--gutter)] pb-16">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-[var(--radius-xl)]">
+          <div className="tag tag-xl relative aspect-[16/9] overflow-hidden">
             <Image src={frameUrl(seq.pattern, seq.count - 1)} alt="" fill priority={priority} sizes="100vw" className="object-cover" />
           </div>
         </div>

@@ -165,10 +165,10 @@ export function Rack({ scrub }: { scrub?: RefObject<number | null> } = {}) {
         aria-roledescription="carousel"
         aria-label="Clothing rack. Use the left and right arrows to browse, Enter to see the piece."
         tabIndex={0}
-        className={`relative aspect-square max-h-[60svh] w-full md:aspect-[16/11] cursor-grab touch-pan-y overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_14%)] transition-opacity duration-500 active:cursor-grabbing ${open ? "pointer-events-none opacity-0" : "opacity-100"}`}
+        className={`relative aspect-square max-h-[60svh] w-full md:aspect-[16/11] cursor-grab touch-pan-y overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_14%)] transition-opacity duration-500 active:cursor-grabbing ${open ? "pointer-events-none opacity-0" : "opacity-100"}`} /* taste-skill-ignore: edge fade mask */
       >
         {/* the rail */}
-        <div aria-hidden className="absolute inset-x-0 top-[7%] h-[5px] rounded-full bg-[linear-gradient(to_bottom,#e9e6e2,#8c9294_55%,#5d6264)] shadow-[0_3px_6px_rgb(27_25_21/0.18)]" />
+        <div aria-hidden className="absolute inset-x-0 top-[7%] h-[5px] bg-[#8c9294]" />
         {rack.map((g, i) => (
           <div
             key={g.id}
@@ -179,7 +179,7 @@ export function Rack({ scrub }: { scrub?: RefObject<number | null> } = {}) {
             className="absolute top-[5.4%] left-1/2 w-[30%] origin-top will-change-transform"
             style={{ marginLeft: "-15%" }}
           >
-            <Image src={g.image} alt={i === index ? `${g.name}, ${g.colour}` : ""} width={600} height={800} sizes="(max-width: 768px) 30vw, 16vw" className="h-auto w-full drop-shadow-[0_18px_18px_rgb(27_25_21/0.22)]" draggable={false} />
+            <Image src={g.image} alt={i === index ? `${g.name}, ${g.colour}` : ""} width={600} height={800} sizes="(max-width: 768px) 30vw, 16vw" className="h-auto w-full drop-shadow-[0_18px_18px_rgb(27_25_21/0.22)]" draggable={false} />{/* taste-skill-ignore: the garment's own shadow on the wall */}
           </div>
         ))}
       </div>
@@ -190,7 +190,7 @@ export function Rack({ scrub }: { scrub?: RefObject<number | null> } = {}) {
           {item.name}, {item.colour}
         </p>
         <p className="tabular text-ink-2">${item.price}</p>
-        <button type="button" onClick={() => setOpen(true)} className="mt-4 h-11 rounded-[var(--radius-md)] px-5 text-[0.95rem] font-semibold shadow-[inset_0_0_0_1.5px_var(--ink)] transition-colors hover:bg-ink hover:text-studio">
+        <button type="button" onClick={() => setOpen(true)} className="tag tag-xs tag-plain mt-4 h-11 bg-ink pr-5 pl-6 text-[0.95rem] font-semibold text-paper transition-colors hover:bg-copper">
           See the piece
         </button>
       </div>
@@ -204,19 +204,19 @@ export function Rack({ scrub }: { scrub?: RefObject<number | null> } = {}) {
         className={`absolute inset-0 grid grid-rows-[1fr_auto] transition-[opacity,transform] duration-500 ease-[var(--ease-out)] ${open ? "opacity-100" : "pointer-events-none translate-y-4 opacity-0"}`}
       >
         <div className="relative flex min-h-0 items-center justify-center">
-          <button type="button" aria-label="Previous piece" onClick={() => go(index - 1)} disabled={index === 0} className="absolute left-0 z-10 flex size-11 items-center justify-center rounded-full shadow-[inset_0_0_0_1.5px_var(--ink)] disabled:opacity-30">
+          <button type="button" aria-label="Previous piece" onClick={() => go(index - 1)} disabled={index === 0} className="absolute left-0 z-10 tag tag-xs tag-plain flex size-11 items-center justify-center bg-studio-light transition-colors hover:bg-ink hover:text-paper disabled:opacity-30">
             ←
           </button>
           <div className="relative h-full max-h-[min(48svh,440px)] w-[52%] max-w-[340px]">
-            <Image key={item.id} src={item.image} alt={`${item.name}, ${item.colour}`} fill sizes="340px" className="animate-[piece-in_600ms_var(--ease-out)] object-contain drop-shadow-[0_24px_24px_rgb(27_25_21/0.25)]" />
+            <Image key={item.id} src={item.image} alt={`${item.name}, ${item.colour}`} fill sizes="340px" className="animate-[piece-in_600ms_var(--ease-out)] object-contain drop-shadow-[0_24px_24px_rgb(27_25_21/0.25)]" />{/* taste-skill-ignore: the garment's own shadow */}
           </div>
-          <button type="button" aria-label="Next piece" onClick={() => go(index + 1)} disabled={index === rack.length - 1} className="absolute right-0 z-10 flex size-11 items-center justify-center rounded-full shadow-[inset_0_0_0_1.5px_var(--ink)] disabled:opacity-30">
+          <button type="button" aria-label="Next piece" onClick={() => go(index + 1)} disabled={index === rack.length - 1} className="absolute right-0 z-10 tag tag-xs tag-plain flex size-11 items-center justify-center bg-studio-light transition-colors hover:bg-ink hover:text-paper disabled:opacity-30">
             →
           </button>
         </div>
         <div className="text-center">
           <p className="tabular text-[0.9rem] text-ink-2">
-            {String(index + 1).padStart(2, "0")} / {String(rack.length).padStart(2, "0")}
+            {index + 1} / {rack.length}
           </p>
           <p id={`${id}-name`} className="mt-1 text-[1.4rem] font-semibold">
             {item.name}, {item.colour}
@@ -226,7 +226,7 @@ export function Rack({ scrub }: { scrub?: RefObject<number | null> } = {}) {
           </p>
           <div className="mt-4 flex justify-center gap-2" role="radiogroup" aria-label="Size">
             {SIZES.map((sz) => (
-              <button key={sz} type="button" role="radio" aria-checked={size === sz} onClick={() => setSize(sz)} className={`size-11 rounded-full text-[0.9rem] font-semibold transition-colors ${size === sz ? "bg-ink text-studio" : "shadow-[inset_0_0_0_1.5px_var(--line)]"}`}>
+              <button key={sz} type="button" role="radio" aria-checked={size === sz} onClick={() => setSize(sz)} className={`tag tag-xs tag-plain size-11 text-[0.94rem] font-semibold transition-colors ${size === sz ? "bg-ink text-studio" : "bg-studio-light hover:bg-ink/10"}`}>
                 {sz}
               </button>
             ))}

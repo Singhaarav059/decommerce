@@ -16,23 +16,23 @@ export default function Page() {
       scene="contact-us"
       after={
         <>
-          <Steps index="01" {...contactNext} backdrop="/assets/company/scene-office.webp" />
-          <HomeFaq index="02" />
+          <Steps {...contactNext} backdrop="/assets/company/scene-office.webp" />
+          <HomeFaq />
         </>
       }
       aside={
-        <div className="rounded-[var(--radius-xl)] bg-paper p-6 shadow-[var(--shadow-sm)] md:p-8 lg:sticky lg:top-[calc(var(--header-h)+24px)]">
+        <div className="tag tag-lg tag-plain bg-studio-light p-6 pt-12 md:p-8 md:pt-14 lg:sticky lg:top-[calc(var(--header-h)+24px)]">
           <DemoForm />
         </div>
       }
     >
       <Content />
-      <div className="not-prose mt-10 max-w-[56ch] rounded-[var(--radius-lg)] border border-line-strong p-6">
-        <p className="eyebrow">{contactInclude.title}</p>
+      <div className="not-prose tag tag-sm tag-plain mt-10 max-w-[56ch] bg-studio-light p-6 pt-8">
+        <p className="text-[0.875rem] font-semibold">{contactInclude.title}</p>
         <ul className="mt-4 space-y-2.5">
           {contactInclude.items.map((i) => (
             <li key={i} className="flex items-baseline gap-3 text-ink">
-              <span aria-hidden className="size-1.5 shrink-0 translate-y-[-2px] rounded-full bg-copper" />
+              <span aria-hidden className="tag tag-plain size-2.5 shrink-0 [--cut:4px] bg-copper" />
               {i}
             </li>
           ))}

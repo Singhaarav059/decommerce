@@ -4,13 +4,13 @@ import type { ComponentProps, ReactNode } from "react";
 type Variant = "primary" | "secondary" | "ghost";
 
 const base =
-  "group inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-full px-6 h-12 text-[0.95rem] font-semibold tracking-[-0.005em] " +
+  "group inline-flex items-center justify-center gap-2.5 whitespace-nowrap px-6 pl-7 h-12 text-[0.95rem] font-semibold tracking-[-0.005em] " +
   "transition-[background-color,color,transform,box-shadow] duration-300 ease-[var(--ease-out)] active:scale-[0.97] " +
   "disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-ink text-paper hover:bg-copper hover:shadow-[0_8px_20px_-8px_rgb(168_72_26/0.6)]",
-  secondary: "bg-paper text-ink shadow-[inset_0_0_0_1px_var(--line-strong)] hover:shadow-[inset_0_0_0_1px_var(--ink)]",
+  primary: "tag tag-xs tag-plain bg-ink text-paper hover:bg-copper",
+  secondary: "tag tag-xs tag-plain bg-studio-light text-ink hover:bg-ink hover:text-paper",
   ghost: "bg-transparent text-ink px-0 h-auto link-u rounded-none",
 };
 

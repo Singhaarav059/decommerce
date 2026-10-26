@@ -34,12 +34,11 @@ export function DocAside({ image }: { image: string }) {
     <div className="sticky top-[calc(var(--header-h)+24px)] space-y-8">
       {heads.length > 1 && (
         <nav aria-label="On this page">
-          <p className="eyebrow">On this page</p>
-          <ol className="mt-4 border-t border-line">
+          <p className="text-[0.875rem] font-semibold">On this page</p>
+          <ol className="mt-4">
             {heads.map((h, i) => (
-              <li key={h.id} className="border-b border-line">
+              <li key={h.id} className="">
                 <a href={`#${h.id}`} className={`flex items-baseline gap-3 py-2.5 text-[0.95rem] transition-colors ${i === active ? "font-semibold text-ink" : "text-ink-2 hover:text-ink"}`}>
-                  <span className={`tabular text-[0.75rem] ${i === active ? "text-copper" : ""}`}>{String(i + 1).padStart(2, "0")}</span>
                   {h.text}
                 </a>
               </li>
@@ -47,7 +46,7 @@ export function DocAside({ image }: { image: string }) {
           </ol>
         </nav>
       )}
-      <div className="overflow-hidden rounded-[var(--radius-lg)] bg-paper shadow-[var(--shadow-sm)]">
+      <div className="tag tag-sm tag-plain overflow-hidden bg-studio-light">
         <div>
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image src={image} alt="" fill sizes="440px" quality={80} className="object-cover object-[72%_50%]" />

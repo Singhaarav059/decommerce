@@ -19,8 +19,8 @@ const swatches = [
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="border-t border-line py-16">
-      <p className="eyebrow mb-8">{title}</p>
+    <section className=" py-16">
+      <p className="text-[0.875rem] font-semibold mb-8">{title}</p>
       {children}
     </section>
   );
@@ -35,7 +35,7 @@ export default function LabPage() {
         <ul className="grid grid-cols-2 gap-4 sm:grid-cols-5">
           {swatches.map(([name, hex]) => (
             <li key={name}>
-              <span className="block aspect-[4/3] rounded-[var(--radius-md)] shadow-[inset_0_0_0_1px_var(--line)]" style={{ background: hex }} />
+              <span className="block aspect-[4/3] rounded-[var(--radius-md)]" style={{ background: hex }} />
               <span className="mt-2 block text-[0.9rem] font-semibold">{name}</span>
               <span className="block text-[0.9rem] text-ink-2">{hex}</span>
             </li>

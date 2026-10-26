@@ -44,7 +44,7 @@ export function Tabs({
 
   return (
     <div className={className}>
-      <div role="tablist" aria-label={label} onKeyDown={onKey} className="flex gap-1 overflow-x-auto border-b border-line [scrollbar-width:none]">
+      <div role="tablist" aria-label={label} onKeyDown={onKey} className="flex gap-1 overflow-x-auto [scrollbar-width:none]">
         {items.map((t, i) => (
           <button
             key={t.id}

@@ -14,7 +14,7 @@ export function MarqueeBand({ items, seconds = 60, className = "" }: { items: st
     </ul>
   );
   return (
-    <div aria-hidden className={`marquee overflow-hidden border-y border-line py-6 md:py-8 ${className}`}>
+    <div aria-hidden className={`marquee overflow-hidden py-6 md:py-8 ${className}`}>
       <div className="marquee-track flex w-max" style={{ animationDuration: `${seconds}s` }}>
         {row(false)}
         {row(true)}

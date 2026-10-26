@@ -16,13 +16,13 @@ export function Anatomy({ title, parts, src, floor, focus }: { title: string; pa
   const [active, setActive] = useState<string | null>(null);
   return (
     <Scene id="anatomy" variant="framed" soft src={src} floor={floor} spot={active ? (focus[active] ?? [65, 50]) : null}>
-      <SectionLabel index="02" eyebrow="Anatomy" />
+      <SectionLabel eyebrow="Anatomy" />
       <Headline as="h2" reveal text={`What makes ${inSentence(title)} work.`} className="t-h2 mt-5" />
-      <ul className="mt-8 border-t border-line-strong md:mt-10">
+      <ul className="mt-8 md:mt-10">
         {parts.map((p) => {
           const on = active === p.id;
           return (
-            <li key={p.id} className="border-b border-line">
+            <li key={p.id} className="">
               <button type="button" aria-pressed={on} onClick={() => setActive(on ? null : p.id)} className="group w-full py-4 text-left">
                 <span className={`flex items-center justify-between gap-4 text-[1.05rem] font-semibold transition-colors ${on ? "text-copper" : "text-ink group-hover:text-copper"}`}>
                   {p.label}

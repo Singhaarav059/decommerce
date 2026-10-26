@@ -230,7 +230,7 @@ export function ScrollSequence({
           <ol className="mx-auto grid max-w-[var(--max-w)] gap-6 px-[var(--gutter)] py-10 md:grid-cols-3">
             {captions.map((c) => (
               <li key={c.text}>
-                {c.eyebrow && <p className="eyebrow mb-2">{c.eyebrow}</p>}
+                {c.eyebrow && <p className="mb-2 text-[0.875rem] font-semibold">{c.eyebrow}</p>}
                 <p className="text-lg">{c.text}</p>
               </li>
             ))}
@@ -258,7 +258,7 @@ export function ScrollSequence({
               }`}
             >
               <div className="inline-block max-w-md rounded-[var(--radius-md)] bg-stone-50 p-5">
-                {c.eyebrow && <p className="eyebrow mb-2">{c.eyebrow}</p>}
+                {c.eyebrow && <p className="mb-2 text-[0.875rem] font-semibold">{c.eyebrow}</p>}
                 <p className="text-lg leading-snug">{c.text}</p>
               </div>
             </div>

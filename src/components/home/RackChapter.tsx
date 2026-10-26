@@ -56,7 +56,6 @@ export function RackChapter() {
         <div className="absolute inset-x-0 top-0 h-[64svh] md:inset-0 md:h-auto">
           <Image src="/assets/rack/wall.webp" alt="" fill sizes="100vw" quality={85} className="object-cover" />
           <div aria-hidden className="scrim absolute inset-0 hidden md:block" />
-          <div aria-hidden className="absolute inset-x-0 bottom-0 h-24 md:hidden" style={{ background: "linear-gradient(to bottom, transparent, #ceb9a4)" }} />
         </div>
         {/* the word sits between the wall and the rail: the garments swing in front of it */}
         <p aria-hidden className="rack-word display pointer-events-none absolute top-[21svh] right-[-0.04em] left-0 text-right text-[25vw] leading-[0.8] tracking-[-0.06em] text-ink/90 select-none md:top-1/2 md:left-auto md:-translate-y-[38%] md:text-[15.5vw]">
@@ -64,8 +63,7 @@ export function RackChapter() {
         </p>
         <div className="relative z-[1] mx-auto grid min-h-[100svh] max-w-[var(--max-w)] grid-cols-1 content-center gap-8 px-[var(--gutter)] pt-[calc(var(--header-h)+24px)] pb-16 md:h-full md:min-h-0 md:grid-cols-[minmax(0,4fr)_minmax(0,6fr)] md:items-center md:gap-10 [--ink-2:var(--ink)]">
           <div className="order-2 md:order-1">
-            <p className="eyebrow">{storefront.eyebrow}</p>
-            <Headline as="h2" reveal text={storefront.headline} className="t-h2 mt-5" />
+            <Headline as="h2" reveal text={storefront.headline} className="t-h2" />
             <p className="t-lead mt-5 max-w-[40ch] text-ink-2">{storefront.body}</p>
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
               {storefront.links.map((l) => (
@@ -78,7 +76,7 @@ export function RackChapter() {
             </ul>
             {/* how far along the rail the scroll has moved */}
             <div aria-hidden className="mt-8 hidden max-w-[280px] md:block">
-              <p className="mono text-[0.7rem] tracking-[0.1em] text-ink-2 uppercase">Scroll to move the rail</p>
+              <p className="text-[0.875rem] text-ink-2">Scroll to move the rail</p>
               <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-ink/10">
                 <span ref={bar} className="block h-full origin-left rounded-full bg-copper" style={{ transform: "scaleX(0)" }} />
               </div>
