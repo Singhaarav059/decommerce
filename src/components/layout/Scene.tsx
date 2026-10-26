@@ -30,6 +30,7 @@ export function Scene({
   priority = false,
   variant = "full",
   flip = false,
+  light = true,
 }: {
   id?: string;
   src: string;
@@ -40,6 +41,8 @@ export function Scene({
   priority?: boolean;
   variant?: "full" | "framed";
   flip?: boolean;
+  /** Full scenes sit on a light floor wash, so their text uses the daylight palette (off for night scenes). */
+  light?: boolean;
 }) {
   if (variant === "framed")
     return (
@@ -58,7 +61,7 @@ export function Scene({
       </section>
     );
   return (
-    <section id={id} aria-label={label} className="relative overflow-clip" style={{ background: floor, "--floor": floor } as CSSProperties}>
+    <section id={id} aria-label={label} className={`relative overflow-clip ${light ? "tone-light" : ""}`} style={{ background: floor, "--floor": floor } as CSSProperties}>
       {/* desktop: the photo stays one screen tall (sticky) so a long text column never crops away the calm side */}
       <div className="absolute inset-x-0 top-0 h-[52svh] md:inset-0 md:h-auto">
         <div className="relative h-full overflow-hidden md:sticky md:top-0 md:h-[100svh]">

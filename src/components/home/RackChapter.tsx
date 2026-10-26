@@ -11,7 +11,7 @@ import { Rack } from "./Rack";
  */
 export function RackChapter() {
   return (
-    <section id="ch-storefront" className="relative overflow-hidden" style={{ background: "#ceb9a4", "--floor": "#ceb9a4" } as CSSProperties}>
+    <section id="ch-storefront" className="tone-light relative overflow-hidden" style={{ background: "#ceb9a4", "--floor": "#ceb9a4" } as CSSProperties}>
       <div className="absolute inset-x-0 top-0 h-[64svh] md:inset-0 md:h-auto">
         <Image src="/assets/rack/wall.webp" alt="" fill sizes="100vw" quality={85} className="object-cover" />
         <div aria-hidden className="scrim absolute inset-0 hidden md:block" />

@@ -7,23 +7,26 @@ import { heroCards as c } from "@/content/home";
 /**
  * Three pieces of the product floating over the hero film (wide screens): the example order
  * being routed, the one stock count with a chart line that draws itself, and a sync status.
- * They arrive in sequence, bob gently, drift up at different speeds as you scroll, and leave
- * before the second hero step. Decorative and labelled as an example.
+ * They arrive once the hero window has opened, bob gently, drift up at different speeds as you
+ * scroll, and leave as the hero ends. Decorative and labelled as an example.
  */
 export function HeroCards() {
   const wrap = useRef<HTMLDivElement>(null);
   useSequenceProgress((p) => {
     const el = wrap.current;
     if (!el) return;
-    const out = Math.min(1, Math.max(0, (p - 0.38) / 0.18));
-    el.style.opacity = String(1 - out);
-    el.style.visibility = out >= 1 ? "hidden" : "visible";
+    // arrive once the window has opened onto the film, leave just before the hero ends
+    const inn = Math.min(1, Math.max(0, (p - 0.42) / 0.12));
+    const out = Math.min(1, Math.max(0, (p - 0.9) / 0.1));
+    const o = Math.min(inn, 1 - out);
+    el.style.opacity = String(o);
+    el.style.visibility = o <= 0 ? "hidden" : "visible";
     el.querySelectorAll<HTMLElement>("[data-depth]").forEach((card) => {
-      card.style.translate = `0 ${(-p * Number(card.dataset.depth)).toFixed(1)}px`;
+      card.style.translate = `0 ${(-(p - 0.5) * Number(card.dataset.depth)).toFixed(1)}px`;
     });
   });
   return (
-    <div ref={wrap} aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
+    <div ref={wrap} aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block" style={{ opacity: 0, visibility: "hidden" }}>
       {/* the order card */}
       <div data-depth="220" className="absolute top-[24%] right-[6%] w-[290px]">
         <div className="hero-card float-a rounded-[var(--radius-lg)] bg-paper/95 p-4 shadow-[0_24px_48px_-16px_rgb(27_25_21/0.35)] ring-1 ring-black/5" style={{ animationDelay: "500ms" }}>

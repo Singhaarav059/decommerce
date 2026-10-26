@@ -1,43 +1,40 @@
 import { StoryProgress } from "@/components/layout/StoryProgress";
 import { HeroFilm } from "@/components/home/HeroFilm";
 import { ServiceSection } from "@/components/home/ServiceSection";
-import { StoryChapter } from "@/components/home/StoryChapter";
+import { Collapse } from "@/components/home/Collapse";
 import { CostsSection } from "@/components/home/CostsSection";
-import { KineticStatement } from "@/components/home/KineticStatement";
+import { Journey } from "@/components/home/Journey";
 import { RackChapter } from "@/components/home/RackChapter";
+import { KineticStatement } from "@/components/home/KineticStatement";
 import { ModulesIndex } from "@/components/home/ModulesIndex";
-import { ProofChapter } from "@/components/home/ProofChapter";
 import { EngagementSection } from "@/components/home/EngagementSection";
+import { ProofBand } from "@/components/home/ProofBand";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { CloseChapter } from "@/components/home/CloseChapter";
-import { JourneyRail } from "@/components/home/JourneyRail";
 import { MarqueeBand } from "@/components/ui/MarqueeBand";
-import { chapters, ribbon } from "@/content/home";
+import { ribbon } from "@/content/home";
 
 /**
- * The homepage story: what Decommerce is, the problem it solves, then one order (ORD-1042)
- * followed from the website to the customer's door and the shop counter, the modules behind it,
- * who builds it and how an engagement runs.
+ * The homepage as one story, after hours in the store: the system opening onto the shop,
+ * the product working (01), the problem collapsing into one stock count (02), one order
+ * followed from click to doorstep (03), the rail you can browse, the modules (04), how we
+ * work (05), who builds it (06), questions (07) and the demo (08).
  */
 export default function HomePage() {
   return (
     <main id="main">
       <StoryProgress />
-      <JourneyRail />
       <HeroFilm />
       <MarqueeBand items={ribbon} />
       <ServiceSection />
-      <StoryChapter chapter={chapters.problem} />
+      <Collapse />
       <CostsSection />
-      <KineticStatement />
+      <Journey />
       <RackChapter />
-      <StoryChapter chapter={chapters.order} />
-      <StoryChapter chapter={chapters.pack} />
-      <StoryChapter chapter={chapters.delivery} />
-      <StoryChapter chapter={chapters.counter} />
+      <KineticStatement />
       <ModulesIndex />
-      <ProofChapter />
       <EngagementSection />
+      <ProofBand />
       <HomeFaq />
       <CloseChapter />
     </main>

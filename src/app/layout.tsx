@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Schibsted_Grotesk } from "next/font/google";
+import { Geist_Mono, Schibsted_Grotesk } from "next/font/google";
 import { brand } from "@/content/site";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import "./globals.css";
@@ -13,6 +13,13 @@ const grotesk = Schibsted_Grotesk({
   style: ["normal"],
 });
 
+// Mono for system labels and figures: the product's own voice (order ids, stock, step numbers).
+const mono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(brand.siteUrl),
   title: {
@@ -23,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F2EADF",
+  themeColor: "#12100D",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -31,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${grotesk.variable} antialiased`}
+      className={`${grotesk.variable} ${mono.variable} antialiased`}
     >
       <body className="min-h-dvh">
         <script

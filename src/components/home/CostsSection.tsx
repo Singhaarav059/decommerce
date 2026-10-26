@@ -13,6 +13,7 @@ type Side = "without" | "with";
  * the board is in view, so the difference is seen even without a click.
  */
 export function CostsSection() {
+  // part of section 02 (the problem): no number of its own
   const [side, setSide] = useState<Side>("without");
   const board = useRef<HTMLDivElement>(null);
   const touched = useRef(false);
@@ -41,8 +42,7 @@ export function CostsSection() {
   const on = side === "with";
   return (
     <Section
-      id="problem"
-      index="02"
+      id="where-it-costs"
       eyebrow={costs.eyebrow}
       headline={costs.headline}
       lead={costs.body}
@@ -76,7 +76,7 @@ export function CostsSection() {
                   <h3 className="display t-h3">{r.area}</h3>
                   <span className="tabular text-[0.8rem] font-semibold text-copper">{String(i + 1).padStart(2, "0")}</span>
                 </div>
-                <div key={side} className="mt-6 animate-[rise_600ms_var(--ease-out)_both]" style={{ animationDelay: `${i * 70}ms` }}>
+                <div key={side} className="mt-6 animate-[slide-up_600ms_var(--ease-out)_both]" style={{ animationDelay: `${i * 70}ms` }}>
                   {v.kind === "counts" && v.labels && (
                     <div className="grid grid-cols-4 gap-1.5">
                       {v.labels.map((l, k) => (
@@ -95,7 +95,7 @@ export function CostsSection() {
                   )}
                   {v.kind === "word" && <p className={`display text-[clamp(1.8rem,2.6vw,2.3rem)] leading-none ${on ? "text-copper" : ""}`}>{v[side]}</p>}
                 </div>
-                <p key={`${side}-t`} className="mt-auto animate-[rise_600ms_var(--ease-out)_both] pt-6 text-[0.98rem] leading-relaxed text-ink-2" style={{ animationDelay: `${i * 70 + 60}ms` }}>
+                <p key={`${side}-t`} className="mt-auto animate-[slide-up_600ms_var(--ease-out)_both] pt-6 text-[0.98rem] leading-relaxed text-ink-2" style={{ animationDelay: `${i * 70 + 60}ms` }}>
                   {r[side]}
                 </p>
               </li>

@@ -76,7 +76,7 @@ export function PinnedFilm({
   );
   if (still)
     return (
-      <Scene id={id} src={frameUrl(seq.pattern, seq.count - 1)} floor={floor} label={alt} priority={priority}>
+      <Scene id={id} src={frameUrl(seq.pattern, seq.count - 1)} floor={floor} label={alt} priority={priority} light={!night}>
         <div className={`grid gap-14 ${night ? "tone-night" : ""}`}>
           {slices.map((s, i) => (
             <div key={i}>{s.node}</div>
@@ -85,7 +85,7 @@ export function PinnedFilm({
       </Scene>
     );
   return (
-    <div ref={wrap} id={id} className="relative" style={{ "--floor": floor } as CSSProperties}>
+    <div ref={wrap} id={id} className={`relative ${night ? "" : "tone-light"}`} style={{ "--floor": floor } as CSSProperties}>
       <ScrollSequence {...seq} length={length} stillFrame={0} priority={priority} defer alt={alt} bg={floor} frameClassName={FULL_PANE}>
         {/* desktop: a wash of the floor colour under the text column, so copy reads over any frame */}
         <div aria-hidden className="scrim pointer-events-none absolute inset-0 hidden md:block" />

@@ -3,7 +3,7 @@ import { Section } from "@/components/ui/Section";
 import { Faq } from "@/components/ui/Faq";
 import { homeFaq } from "@/content/home";
 
-export function HomeFaq({ index = "05" }: { index?: string }) {
+export function HomeFaq({ index = "07" }: { index?: string }) {
   return (
     <Section id="questions" index={index} eyebrow={homeFaq.eyebrow} headline={homeFaq.headline}>
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">

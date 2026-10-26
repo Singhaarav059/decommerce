@@ -201,6 +201,56 @@ export const heroCards = {
   sync: "Website, store, warehouse and marketplace in sync",
 };
 
+/** The live system bento: example data only (the ORD-1042 story and its neighbours). */
+export const live = {
+  tag: "Example",
+  orders: {
+    title: "Orders today",
+    rows: [
+      { id: "ORD-1038", channel: "Store", where: "Old Town", status: "Delivered" },
+      { id: "ORD-1039", channel: "Marketplace", where: "Central warehouse", status: "Packed" },
+      { id: "ORD-1040", channel: "Website", where: "Riverside", status: "Delivered" },
+      { id: "ORD-1041", channel: "Website", where: "Central warehouse", status: "Out for delivery" },
+      { id: "ORD-1042", channel: "Website", where: "Riverside", status: "Routed" },
+    ],
+  },
+  mix: { title: "Orders by channel this week", bars: [["Website", 46], ["Store", 31], ["Marketplace", 17], ["Wholesale", 6]] as [string, number][] },
+  stock: { title: "Linen overshirt · M", channels: ["Store", "Website", "Warehouse", "Marketplace"], from: 3, sale: "Sold at the store counter" },
+  route: { title: "Route 7", stop: "ORD-1042", eta: "12 min", note: "Riverside store to customer, 2.4 km" },
+  till: { title: "Till 2", item: "Linen overshirt · M", paid: "Paid by tap", receipt: "Receipt sent to phone" },
+  customer: { title: "Customer", initials: "AK", name: "Returning customer", size: "Usual size M", last: "Linen overshirt, today", seen: ["Website", "Store"] },
+  sync: { title: "Channels", rows: ["Website", "Store", "Warehouse", "Marketplace"], note: "in sync" },
+};
+
+/** The problem as a motion graphic: four systems' counts for one shirt, pulled into one. */
+export const collapse = {
+  eyebrow: "The problem",
+  before: { headline: "Four systems. Four different answers.", body: "Most shops run the website, the till, the warehouse and each marketplace on separate software. Each keeps its own count of the same shirt, and they disagree." },
+  after: { headline: "One system. One answer.", body: "Decommerce keeps one stock count. The sale at the counter is the only number that matters, and every channel shows it at once." },
+  systems: [
+    { name: "Website", count: "4", note: "Still selling it" },
+    { name: "Store till", count: "0", note: "Last one just sold" },
+    { name: "Warehouse", count: "0", note: "Counted last night" },
+    { name: "Marketplace", count: "6", note: "Synced yesterday" },
+  ],
+  one: { label: "One stock count", item: "Linen overshirt · M", count: "0", channels: ["Website", "Store", "Warehouse", "Marketplace"] },
+  hint: "Illustrative counts for one shirt in size M.",
+};
+
+/** Follow one order: the horizontal journey. Frames come from the homepage films. */
+export const journey = {
+  eyebrow: "Follow one order",
+  headline: "ORD-1042, from click to doorstep.",
+  body: "One linen overshirt in size M, ordered online on a quiet afternoon. Every step below runs on the same system.",
+  steps: [
+    { n: "01", title: "Ordered online", body: "The customer buys the last size M on the website. The order lands in Decommerce with the stock it reserves.", image: "/assets/sol/storefront/detail.webp", ui: { title: "ORD-1042", rows: [["Item", "Linen overshirt · M"], ["Channel", "Website"], ["Payment", "Paid"]] }, href: "/storefront" },
+    { n: "02", title: "Routed in a second", body: "Every store and warehouse is checked. Riverside has the size and the shortest trip, so it ships.", image: "/assets/seq/order/d/030.webp", ui: { title: "Routing", rows: [["Central warehouse", "18 km"], ["Riverside store", "2.4 km ✓"], ["Old Town store", "No size M"]] }, href: "/oms" },
+    { n: "03", title: "Picked and packed", body: "The handheld shows the shelf, the scan confirms the item, the label prints and the box rolls to dispatch.", image: "/assets/seq/pack/d/024.webp", ui: { title: "Pick list", rows: [["Shelf", "B-14"], ["Scan", "LIN-OVR-M-SND ✓"], ["Label", "Printed"]] }, href: "/wms" },
+    { n: "04", title: "Into her hands", body: "The van follows one efficient route. The courier hands the parcel over at the door and confirms on the same system.", image: "/assets/seq/delivery/d/034.webp", ui: { title: "Delivery", rows: [["Route", "7 · stop 3"], ["ETA", "12 min"], ["Status", "Delivered"]] }, href: "/tms" },
+    { n: "05", title: "And at the counter", body: "Back in the store the count already reads zero, so nobody sells a shirt that is not there. The next customer taps to pay.", image: "/assets/seq/counter/d/036.webp", ui: { title: "Same stock count", rows: [["Website", "0"], ["Store", "0"], ["Marketplace", "0"]] }, href: "/pos" },
+  ],
+};
+
 /** The ribbon under the hero. */
 export const ribbon = ["One catalog", "One stock count", "One customer record", "Storefront", "Order management", "Warehouse", "Delivery", "Point of sale", "Clienteling", "Marketplaces"];
 
@@ -241,8 +291,8 @@ export const statement = "Your customers never see channels. They see one shop. 
 
 /** After the problem film: where separate systems cost a retailer, and what changes. */
 export const costs = {
-  eyebrow: "The problem in full",
-  headline: "Separate systems leak sales every day.",
+  eyebrow: "Where it costs you",
+  headline: "Six places separate systems leak sales.",
   body: "Most retailers grow one channel at a time, so each one gets its own software. Each system keeps its own copy of the truth, and staff spend their evenings making the copies agree.",
   columns: { area: "Where it shows", without: "With separate systems", with: "With Decommerce" },
   toggle: { without: "Separate systems", with: "With Decommerce", hint: "Illustrative figures for one linen overshirt in size M." },

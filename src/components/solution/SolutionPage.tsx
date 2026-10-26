@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { PinnedFilm } from "@/components/media/PinnedFilm";
-import { FilmRows } from "@/components/media/FilmRows";
-import { StepText } from "@/components/home/StepText";
+import { HeroWindow } from "@/components/media/HeroWindow";
+import { SolutionHeroCards } from "./SolutionHeroCards";
 import { ButtonLink } from "@/components/ui/Button";
 import { Faq } from "@/components/ui/Faq";
-import { Headline } from "@/components/ui/Headline";
 import { solutionBySlug, type SolutionSlug } from "@/content/site";
 import { solutions } from "@/content/solutions";
 import { solutionFocus } from "@/content/solutions/focus";
@@ -37,57 +35,28 @@ export function solutionMetadata(slug: SolutionSlug): Metadata {
 export function SolutionPage({ slug }: { slug: SolutionSlug }) {
   const { meta, Content } = solutions[slug];
   const m = solutionMedia(slug);
-  const n = meta.fix.steps.length;
   return (
     <main id="main">
-      <PinnedFilm
+      <HeroWindow
         id="film"
         seq={m.seq}
-        floor={m.floor}
         priority
-        length={2.8}
+        length={2.6}
         alt={`${meta.title}: ${meta.fix.fixed}`}
-        steps={[
-          {
-            from: 0,
-            to: 0.24,
-            node: (
-              <>
-                <p className="eyebrow">{meta.eyebrow}</p>
-                <Headline text={meta.headline} className="t-hero mt-3 md:mt-5" />
-                <p className="mt-3 max-w-[42ch] t-step text-ink-2 md:mt-6">{meta.promise}</p>
-                <div className="mt-5 flex flex-wrap gap-3 md:mt-9">
-                  <ButtonLink href="/contact-us" arrow>
-                    Book a demo
-                  </ButtonLink>
-                  <ButtonLink href="#anatomy" variant="secondary">
-                    What&rsquo;s inside
-                  </ButtonLink>
-                </div>
-              </>
-            ),
-          },
-          {
-            from: 0.28,
-            to: 0.46,
-            node: (
-              <StepText label="The problem" headline={meta.problem.title}>
-                <div className="mt-3 max-w-[42ch] t-step text-ink-2 md:mt-5 [&_p]:m-0 [&_p]:max-w-none [&_p]:text-ink-2">
-                  <Content />
-                </div>
-              </StepText>
-            ),
-          },
-          {
-            from: 0.5,
-            to: 1,
-            node: (
-              <StepText label="With Decommerce" headline={meta.fix.title}>
-                <FilmRows rows={meta.fix.steps} from={0.5} to={0.5 + 0.5 * (n / (n + 0.4))} />
-              </StepText>
-            ),
-          },
-        ]}
+        eyebrow={meta.eyebrow}
+        headline={meta.headline.replace(/\*/g, "")}
+        body={meta.promise}
+        actions={
+          <>
+            <ButtonLink href="/contact-us" arrow>
+              Book a demo
+            </ButtonLink>
+            <ButtonLink href="#anatomy" variant="secondary">
+              What&rsquo;s inside
+            </ButtonLink>
+          </>
+        }
+        overlay={<SolutionHeroCards slug={slug} label={meta.title} fix={meta.fix.title} steps={meta.fix.steps} />}
       />
 
       <ProblemFix title={meta.title} problem={meta.problem.title} narrative={<Content />} fix={meta.fix.title} steps={meta.fix.steps} image={m.seq.pattern.replace("{i}", "000")} after={m.end} />

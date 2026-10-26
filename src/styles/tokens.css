@@ -1,20 +1,26 @@
-/* Decommerce design tokens: one warm travertine surface, one family, one accent.
-   --studio is the pale honed travertine of the store's walls; --paper is the lighter
-   linen used for raised panels; --night is the espresso of the store after dark.
-   Contrast (WCAG) on --studio: ink 14:1, ink-2 8.6:1, copper 4.9:1; paper on copper 5.6:1. */
+/* Decommerce design tokens. The site is the store after hours: an espresso floor, warm
+   light text and copper as the one lit accent. Product screens and photographs sit on it
+   as light panels (.tone-light restores the daylight palette inside them).
+   Contrast (WCAG) on --studio: ink 16.5:1, ink-2 8.6:1, copper 7.8:1; dark text on copper 7.4:1. */
 :root {
-  --studio: #f2eadf;
-  --studio-light: #e8dccc;
-  --paper: #fbf7f1;
-  --ink: #1b1915;
-  --ink-2: #45403a;
-  --copper: #a8481a;
+  --studio: #12100d;
+  --studio-light: #1b1713;
+  --paper: #211c17;
+  --ink: #f4eee6;
+  --ink-2: #b8ada0;
+  --copper: #e8915a;
   /* brighter copper for fills, lines and dots only (never small text) */
-  --copper-bright: #c8693a;
-  --line: rgb(27 25 21 / 0.14);
-  --line-strong: rgb(27 25 21 / 0.26);
-  --night: #1c1712;
-  --night-2: #2a231c;
+  --copper-bright: #f0a06a;
+  --line: rgb(244 238 230 / 0.1);
+  --line-strong: rgb(244 238 230 / 0.2);
+  --night: #0b0a08;
+  --night-2: #1a1612;
+  /* the daylight palette, used by .tone-light panels */
+  --day: #efe7dc;
+  --day-paper: #fbf7f1;
+  --day-ink: #1b1915;
+  --day-ink-2: #4a433c;
+  --day-copper: #a8481a;
 
   /* legacy names, mapped onto the palette so older components follow it */
   --stone-50: var(--studio);
@@ -34,8 +40,8 @@
   --radius-xl: 28px;
 
   /* one warm light from the upper left: shadows fall down and right, tinted with ink */
-  --shadow-sm: 0 1px 2px rgb(27 25 21 / 0.06), 0 2px 8px rgb(27 25 21 / 0.05);
-  --shadow-md: 2px 8px 24px rgb(27 25 21 / 0.1), 0 1px 2px rgb(27 25 21 / 0.06);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.25), 0 4px 14px rgb(0 0 0 / 0.2);
+  --shadow-md: 4px 16px 40px rgb(0 0 0 / 0.35), 0 1px 2px rgb(0 0 0 / 0.3);
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);

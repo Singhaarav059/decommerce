@@ -126,3 +126,14 @@ Owner shared four Dribbble references (Geex Arts product reel, Bonsai Works iden
 - Module index: an example screen of each module floats over its photo and swaps with it (dashboard + AI platform references).
 - Footer wordmark draws in as an outline, then fills (identity reference).
 - Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 92, /pos 91.
+
+## Concept rebuild: "the store after hours, run by one system" (26 Oct 2026, branch redesign/night-system)
+
+Owner asked for a complete rehaul, not tweaks. New concept:
+- Night site: espresso floor (#12100d), warm light text, copper (#e8915a) as the lit accent; product screens and photo scenes are daylight panels (`.tone-light`). Geist Mono for system labels (order ids, figures, section labels).
+- Every page opens with `HeroWindow`: a giant headline over the night floor and a rounded window onto the store film that widens to full screen as it scrubs; then product cards float over the film (homepage: order, stock, sync; solution pages: the module's example screen and its steps ticking off). Company and legal pages open with `PageHero` (headline + the room in a wide window).
+- Homepage: hero, ribbon, 01 what we do (live bento of six animated example screens: orders, stock across channels, route with a moving van, till tap, customer record, channel sync; then platform/setup/running), 02 the problem as a pinned motion graphic (four systems' counts 4/0/0/6 converge into one copper stock count) plus the switchable cost board, 03 ORD-1042 journey (pinned horizontal scroll through five film frames, each with its product screen), the rack, the kinetic statement, 04 modules, 05 how we work, 06 Demaze numbers (count up), 07 questions, 08 demo and the dusk film.
+- Removed the old full-screen story chapters (problem/order/pack/delivery/counter/proof films with left-column text) and their components.
+- Gotcha: `collapse` is a Tailwind utility (visibility: collapse); the problem section uses the class `converge`.
+- Gotcha: the shared dev server on :3000 served a stale stylesheet for hours; verify styling against `next build` + `next start`.
+- Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 89, /pos 92, /about-us 96.
