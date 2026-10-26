@@ -132,3 +132,19 @@ export const rollout = {
   ],
   included: ["Data migration", "Payment, courier and channel connections", "Staff training", "Support after launch"],
 };
+
+/** A small example screen for each module, floated over its photo in the module index. Illustrative. */
+export const moduleScreens: Record<SolutionSlug, { title: string; rows: [string, string][] }> = {
+  storefront: { title: "Product page", rows: [["Linen overshirt", "Live"], ["Sizes in stock", "S · M · L"]] },
+  "brand-showcase": { title: "Look 04", rows: [["Pieces", "3"], ["Add the look", "One tap"]] },
+  b2b: { title: "Wholesale order", rows: [["Buyer tier", "Trade B"], ["Pallets", "2"]] },
+  "quick-commerce": { title: "Rider ETA", rows: [["Dark store", "Packed"], ["Arriving", "11 min"]] },
+  marketplace: { title: "Listings", rows: [["Channels", "4"], ["Stock shared", "Yes"]] },
+  oms: { title: "ORD-1042", rows: [["Routed to", "Riverside"], ["Distance", "2.4 km"]] },
+  wms: { title: "Pick list", rows: [["Bin", "B-14"], ["Scanned", "1 of 1"]] },
+  tms: { title: "Route 7", rows: [["Stops", "9"], ["Next", "12 min"]] },
+  pos: { title: "Till 2", rows: [["Paid", "Tap"], ["Receipt", "Sent"]] },
+  clienteling: { title: "Customer", rows: [["Usual size", "M"], ["Last visit", "Look 04"]] },
+  "endless-aisle": { title: "Not on the shelf", rows: [["Riverside", "In stock"], ["Delivery", "Tomorrow"]] },
+  "self-checkout": { title: "Kiosk 1", rows: [["Scanned", "2 items"], ["Paid", "Tap"]] },
+};

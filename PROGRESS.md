@@ -117,3 +117,12 @@ Direction agreed with the owner: hyper-real look from AI footage, scrubbed frame
 - "What we do" rebuilt: a solid full-width dark panel (the idea in three numbered steps beside the animated sync diagram), then three equal photo cards. Scroll fades now finish within the first 40 % of entry.
 - Palette brighter and warmer: travertine #f2eadf, linen #fbf7f1, copper #a8481a (AA as text) with #c8693a for fills, lines and dots; primary buttons are copper; outline section numbers have a copper stroke.
 - Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit at 390x844, 375x667, 1000x570, 1440x900; Lighthouse mobile / 93, /pos 92, /about-us 96.
+
+## Reference-led upgrades (26 Oct 2026)
+
+Owner shared four Dribbble references (Geex Arts product reel, Bonsai Works identity, Nickelfox health dashboard, Raihan AI platform). Taken, within the stone and copper rules (none of their purple or blue gradients):
+- Floating product cards over the hero film (dashboard reference): ORD-1042 being routed with progress bars that fill, a dark stock card with a chart line that draws itself, a sync pill. They arrive in turn, bob, drift at different depths on scroll and leave before the second hero step. Wide screens only, labelled Example.
+- Kinetic statement after the problem board (product reel): each word comes into focus as the section scrolls; key phrases in copper.
+- Module index: an example screen of each module floats over its photo and swaps with it (dashboard + AI platform references).
+- Footer wordmark draws in as an outline, then fills (identity reference).
+- Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 92, /pos 91.

@@ -3,6 +3,7 @@ import { HeroFilm } from "@/components/home/HeroFilm";
 import { ServiceSection } from "@/components/home/ServiceSection";
 import { StoryChapter } from "@/components/home/StoryChapter";
 import { CostsSection } from "@/components/home/CostsSection";
+import { KineticStatement } from "@/components/home/KineticStatement";
 import { RackChapter } from "@/components/home/RackChapter";
 import { ModulesIndex } from "@/components/home/ModulesIndex";
 import { ProofChapter } from "@/components/home/ProofChapter";
@@ -28,6 +29,7 @@ export default function HomePage() {
       <ServiceSection />
       <StoryChapter chapter={chapters.problem} />
       <CostsSection />
+      <KineticStatement />
       <RackChapter />
       <StoryChapter chapter={chapters.order} />
       <StoryChapter chapter={chapters.pack} />

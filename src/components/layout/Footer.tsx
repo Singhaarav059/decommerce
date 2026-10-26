@@ -75,8 +75,8 @@ export function Footer() {
           </div>
         </div>
       </div>
-      {/* the wordmark set large as the page's last line, cropped by the floor */}
-      <p aria-hidden className="pointer-events-none mx-auto -mb-[0.24em] max-w-[var(--max-w)] px-[var(--gutter)] text-[clamp(3.5rem,15vw,14rem)] leading-[0.8] font-semibold tracking-[-0.06em] whitespace-nowrap text-paper/[0.07] select-none">
+      {/* the wordmark set large as the page's last line, cropped by the floor; it draws in as an outline, then fills */}
+      <p aria-hidden className="pointer-events-none mx-auto -mb-[0.24em] max-w-[var(--max-w)] px-[var(--gutter)] text-[clamp(3.5rem,15vw,14rem)] leading-[0.8] font-semibold tracking-[-0.06em] wordmark-draw whitespace-nowrap text-paper/[0.07] select-none">
         {brand.name}
         <span className="text-copper/40">.</span>
       </p>

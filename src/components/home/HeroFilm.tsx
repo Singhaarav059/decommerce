@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Headline } from "@/components/ui/Headline";
 import { hero } from "@/content/home";
 import { sequences } from "@/content/media";
+import { HeroCards } from "./HeroCards";
 
 /** Homepage chapter 1: a slow dolly into the boutique at golden hour; the pitch sits on the sunlit wall. */
 export function HeroFilm() {
@@ -15,6 +16,7 @@ export function HeroFilm() {
       floor={sequences.hero.floor}
       alt={hero.posterAlt}
       priority
+      overlay={<HeroCards />}
       length={1.7}
       steps={[
         {

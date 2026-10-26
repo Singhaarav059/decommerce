@@ -24,6 +24,7 @@ export function PinnedFilm({
   length = 2.6,
   priority = false,
   night = false,
+  overlay,
 }: {
   id: string;
   seq: FilmSeq;
@@ -35,6 +36,8 @@ export function PinnedFilm({
   priority?: boolean;
   /** Light text for a night scene. */
   night?: boolean;
+  /** Extra layer over the film (desktop), e.g. floating product cards; it can follow the scroll with useSequenceProgress. */
+  overlay?: ReactNode;
 }) {
   const wrap = useRef<HTMLDivElement>(null);
   const text = useRef<HTMLDivElement>(null);
@@ -88,6 +91,7 @@ export function PinnedFilm({
         <div aria-hidden className="scrim pointer-events-none absolute inset-0 hidden md:block" />
         {/* phones: the film melts into the floor-coloured text panel */}
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-[calc(var(--film-h,58svh)-96px)] h-24 md:hidden" style={{ background: `linear-gradient(to bottom, transparent, ${floor})` }} />
+        {overlay}
         <div className={`${FULL_TEXT} ${night ? "tone-night" : ""}`}>
           <div ref={text} className="grid">
             {slices.map((s, i) => (

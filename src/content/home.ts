@@ -193,6 +193,14 @@ export const storefront = {
   ],
 };
 
+/** Product cards floating over the hero film (illustrative data for the example order). */
+export const heroCards = {
+  tag: "Example",
+  order: { label: "New order", id: "ORD-1042", item: "Linen overshirt · Size M", steps: ["Ordered", "Routed", "Packed"], route: "Riverside store", distance: "2.4 km" },
+  stock: { label: "Stock · Linen overshirt M", value: "1", unit: "left across 4 channels", channels: ["Store", "Website", "Warehouse", "Marketplace"] },
+  sync: "Website, store, warehouse and marketplace in sync",
+};
+
 /** The ribbon under the hero. */
 export const ribbon = ["One catalog", "One stock count", "One customer record", "Storefront", "Order management", "Warehouse", "Delivery", "Point of sale", "Clienteling", "Marketplaces"];
 
@@ -227,6 +235,9 @@ export const service = {
     },
   ],
 };
+
+/** A statement whose words light up as it scrolls through. */
+export const statement = "Your customers never see channels. They see one shop. So we give you one catalog, one stock count and one customer record, and we run it with you.";
 
 /** After the problem film: where separate systems cost a retailer, and what changes. */
 export const costs = {

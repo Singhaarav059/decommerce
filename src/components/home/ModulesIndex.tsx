@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Section } from "@/components/ui/Section";
 import { modules } from "@/content/home";
-import { solutionGroups } from "@/content/site";
+import { moduleScreens, solutionGroups } from "@/content/site";
 
 /**
  * Every module as one numbered index, grouped by where it works. Desktop: hovering or focusing
@@ -51,6 +51,7 @@ export function ModulesIndex() {
         </div>
         <div aria-hidden className="hidden lg:col-span-5 lg:block">
           <div className="sticky top-[calc(var(--header-h)+24px)]">
+            <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-lg)] bg-ink/5">
               {all.map((item) => (
                 <Image
@@ -63,6 +64,26 @@ export function ModulesIndex() {
                   className={`object-cover object-[78%_50%] transition-[opacity,scale] duration-700 ease-[var(--ease-out)] ${item.slug === active ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"}`}
                 />
               ))}
+            </div>
+            {/* an example screen of the module, floating over its photo */}
+            <div key={`ui-${current.slug}`} className="absolute top-5 right-5 w-[230px] animate-[rise_600ms_var(--ease-out)_both] rounded-[var(--radius-lg)] bg-paper/95 p-4 shadow-[0_24px_48px_-16px_rgb(27_25_21/0.4)] ring-1 ring-black/5">
+              <div className="flex items-center justify-between text-[0.72rem] text-ink-2">
+                <span className="flex items-center gap-1.5 font-semibold">
+                  <span className="size-1.5 animate-pulse rounded-full bg-copper-bright" />
+                  {current.label}
+                </span>
+                <span>Example</span>
+              </div>
+              <p className="display mt-2 text-[1.25rem] leading-none">{moduleScreens[current.slug!].title}</p>
+              <dl className="mt-3 divide-y divide-line text-[0.8rem]">
+                {moduleScreens[current.slug!].rows.map(([k, v], i) => (
+                  <div key={k} className="flex animate-[rise_500ms_var(--ease-out)_both] justify-between gap-3 py-1.5" style={{ animationDelay: `${200 + i * 120}ms` }}>
+                    <dt className="text-ink-2">{k}</dt>
+                    <dd className="font-semibold">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
             </div>
             <p key={current.slug} className="mt-5 animate-[rise_500ms_var(--ease-out)_both]">
               <span className="block font-semibold">{current.label}</span>
