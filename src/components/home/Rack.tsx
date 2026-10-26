@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type RefObject } from "react";
 import { rack, type RackItem } from "@/content/rack";
 
 const SPACING = 0.24; // one hanger slot, as a fraction of the rack width
@@ -14,11 +14,11 @@ const SIZES = ["S", "M", "L", "XL"];
  * piece" lifts it off the rail with sizes and Add to bag. Built from cut-out
  * garment photos in the DOM; keyboard: arrows to browse, Enter to open, Escape to close.
  */
-export function Rack() {
+export function Rack({ scrub }: { scrub?: RefObject<number | null> } = {}) {
   const id = useId();
   const box = useRef<HTMLDivElement>(null);
   const els = useRef<(HTMLDivElement | null)[]>([]);
-  const state = useRef({ pos: 0, target: 0, vel: 0, angles: rack.map(() => 0), angVel: rack.map(() => 0), dragging: false, reduced: false });
+  const state = useRef({ pos: 0, target: 0, vel: 0, angles: rack.map(() => 0), angVel: rack.map(() => 0), dragging: false, reduced: false, lastScrub: -1, shown: 0 });
   const [index, setIndex] = useState(0);
   const [open, setOpen] = useState(false);
   const [size, setSize] = useState("M");
@@ -30,15 +30,28 @@ export function Rack() {
     setIndex(n);
   }, []);
 
-  // spring loop: rail position, hanger swing, scale of the centred piece
+  // spring loop: rail position, hanger swing, scale of the centred piece (runs only while on screen)
   useEffect(() => {
     const s = state.current;
     s.reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
     let raf = 0;
     let last = performance.now();
+    let running = false;
     const tick = (now: number) => {
       const dt = Math.min(0.033, (now - last) / 1000);
       last = now;
+      // scrolling drives the rail: the spring heads for the scroll position (a fraction of a slot
+      // is fine, the garment nearest the middle is the one named); drag and keys still work in between
+      const sc = scrub?.current;
+      if (sc != null && sc !== s.lastScrub && !s.dragging) {
+        s.lastScrub = sc;
+        s.target = sc * (rack.length - 1);
+        const r = Math.round(s.target);
+        if (r !== s.shown) {
+          s.shown = r;
+          setIndex(r);
+        }
+      }
       const prev = s.pos;
       if (!s.dragging) {
         if (s.reduced) s.pos = s.target;
@@ -68,9 +81,22 @@ export function Rack() {
       });
       raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !running) {
+        running = true;
+        last = performance.now();
+        raf = requestAnimationFrame(tick);
+      } else if (!e.isIntersecting && running) {
+        running = false;
+        cancelAnimationFrame(raf);
+      }
+    });
+    if (box.current) io.observe(box.current);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [scrub]);
 
   // drag the rail; vertical page scrolling stays native (touch-action: pan-y)
   useEffect(() => {

@@ -540,29 +540,7 @@ html.lenis body {
   }
 }
 
-/* HeroWindow. --p (0 to 1) is set on the section by ScrollSequence. The window opens over the
-   first half of the scroll; the headline lifts away as it does; the caption arrives at the end. */
-.hero-window {
-  --q: min(1, var(--p, 0) * 2.2);
-  clip-path: inset(
-    calc(var(--hw-top) * (1 - var(--q))) calc(var(--gutter) * (1 - var(--q))) calc(clamp(16px, 4vh, 40px) * (1 - var(--q))) calc(var(--gutter) * (1 - var(--q)))
-      round calc(var(--radius-xl) * (1 - var(--q)))
-  );
-  will-change: clip-path;
-}
-.hero-head {
-  opacity: calc(1 - min(1, var(--p, 0) * 3.2));
-  translate: 0 calc(min(1, var(--p, 0) * 3.2) * -40px);
-}
-.hero-panel {
-  opacity: calc(1 - min(1, var(--p, 0) * 3.4));
-  translate: 0 calc(min(1, var(--p, 0) * 3.4) * 24px);
-  pointer-events: auto;
-}
-.hero-caption {
-  opacity: clamp(0, calc((var(--p, 0) - 0.55) * 6), 1);
-  translate: 0 calc((1 - clamp(0, calc((var(--p, 0) - 0.55) * 6), 1)) * 16px);
-}
+/* HeroWindow headline words rise into place on load (the scroll motion is driven in JS) */
 .hero-word {
   animation: hero-word 1000ms var(--ease-out) both;
 }
@@ -665,4 +643,36 @@ html.lenis body {
   from {
     transform: translateY(14px);
   }
+}
+
+/* HeroWindow frame geometry, all in CSS so nothing is measured or shifted on load */
+[data-stage] {
+  /* side edge: the gutter, plus the margin when the screen is wider than the content */
+  --side: max(var(--gutter), calc((100vw - var(--max-w)) / 2 + var(--gutter)));
+  --hb: clamp(16px, 4vh, 40px);
+}
+.hero-corner {
+  display: none;
+  width: 28px;
+  height: 28px;
+  will-change: transform;
+}
+[data-stage] .hero-corner {
+  display: block;
+}
+.hero-corner.tl {
+  transform-origin: top left;
+  background: radial-gradient(circle at 100% 100%, transparent 27.5px, var(--studio) 28px);
+}
+.hero-corner.tr {
+  transform-origin: top right;
+  background: radial-gradient(circle at 0 100%, transparent 27.5px, var(--studio) 28px);
+}
+.hero-corner.bl {
+  transform-origin: bottom left;
+  background: radial-gradient(circle at 100% 0, transparent 27.5px, var(--studio) 28px);
+}
+.hero-corner.br {
+  transform-origin: bottom right;
+  background: radial-gradient(circle at 0 0, transparent 27.5px, var(--studio) 28px);
 }

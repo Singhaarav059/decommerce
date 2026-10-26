@@ -101,7 +101,10 @@ export function ScrollSequence({
     let cancelled = false;
 
     const resize = () => {
-      const dpr = Math.min(devicePixelRatio || 1, 2);
+      // never draw at more pixels than the footage has: past that, upscaling in the canvas
+      // costs a lot per frame and adds no detail (the GPU stretches the canvas for free)
+      const source = frames.find(Boolean)?.naturalWidth ?? (innerWidth < 768 ? 864 : 1920);
+      const dpr = Math.max(1, Math.min(devicePixelRatio || 1, 2, (source * 1.15) / Math.max(1, cv.clientWidth)));
       cv.width = Math.round(cv.clientWidth * dpr);
       cv.height = Math.round(cv.clientHeight * dpr);
       // resizing the canvas resets its context state: ask for the sharper resampler every time
@@ -145,7 +148,9 @@ export function ScrollSequence({
         inFlight++;
         img.onload = img.onerror = () => {
           inFlight--;
+          const first = !frames.some(Boolean);
           if (img.naturalWidth) frames[i] = img;
+          if (first && img.naturalWidth) resize();
           if (!cancelled) {
             draw();
             pump();
@@ -183,7 +188,6 @@ export function ScrollSequence({
       end: "bottom bottom",
       onUpdate: (self) => {
         progress = self.progress;
-        el.style.setProperty("--p", progress.toFixed(4));
         listeners.current.forEach((l) => l(progress));
         draw();
         const next = captions.flatMap((c, i) => (progress >= c.at[0] && progress <= c.at[1] ? [i] : []));

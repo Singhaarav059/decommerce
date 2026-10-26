@@ -186,7 +186,7 @@ export const chapters: Record<string, Chapter> = {
 export const storefront = {
   eyebrow: "Storefront",
   headline: "Your rail, online.",
-  body: "Every garment on the rail is already in your catalog with its sizes, price and stock. Decommerce turns that catalog into your shop website. Try it: drag the rail and open a piece.",
+  body: "Every garment on the rail is already in your catalog with its sizes, price and stock. Decommerce turns that catalog into your shop website. Try it: scroll or drag along the rail and open a piece.",
   links: [
     { label: "Storefront", href: "/storefront" },
     { label: "Brand showcase", href: "/storefront/brand-showcase" },
