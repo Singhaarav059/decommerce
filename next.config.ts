@@ -2,8 +2,6 @@ import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
-  cacheComponents: true,
-  partialPrefetching: true,
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   images: {
     // AVIF first: smaller at the same quality, so photos can be served sharper for the same bytes

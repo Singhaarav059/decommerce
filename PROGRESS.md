@@ -143,3 +143,9 @@ Owner asked for a complete rehaul, not tweaks. New concept:
 - Hero stutter fixed: the window reveal no longer animates clip-path (a full-screen repaint every frame). The headline block is the window's top edge; it, the bottom and side edges and four corner pieces slide out with transforms only, all positioned in CSS (no measuring, CLS 0). The film canvas is capped at the footage's own resolution (no per-frame software upscaling to 2880 px), and ScrollSequence no longer writes a CSS variable on the section every frame.
 - The clothing rail is scroll-driven on tablet and desktop: the section pins for 280svh and the scroll sets the spring's target, so hangers swing as the rail moves; drag and arrow keys still work. Its animation loop now runs only while on screen.
 - Measured (headless Chrome, 1440x900 at 2x, wheel scrolling): hero, rail and journey all median 16.7 ms per frame, no frames over 25 ms. Lighthouse mobile / 91, /pos 93, /about-us 96, CLS 0.
+
+## Cloudflare Workers deploy fix (26 Oct 2026)
+
+- The owner's Cloudflare Worker (decommerce.singhaarav059.workers.dev) returned Error 1101 on every page. Reproduced locally with @opennextjs/cloudflare 1.20.13 + wrangler 4 in a scratch worktree: Next printed "Cache Components ... setTimeout()" and every request hung until the runtime cancelled it.
+- Cause: `cacheComponents` and `partialPrefetching` in next.config.ts (from the Phase 1 scaffold, never used: no `use cache`, `cacheLife` or Suspense boundaries). Removed both. `/llms.txt` marked `force-static` so it stays a static file.
+- Verified in the local Workers runtime: /, /pos, /about-us, /contact-us, /sitemap.xml, /llms.txt, frame assets and /_next/image all 200; POST /api/demo returns ok. Vercel build unchanged (all pages static).

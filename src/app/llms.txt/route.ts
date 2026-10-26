@@ -1,6 +1,9 @@
 import { allSolutions, brand, companyGroup } from "@/content/site";
 import { meta as ai } from "@/content/company/ai-instructions.mdx";
 
+// built once at build time: the content is static
+export const dynamic = "force-static";
+
 /** Plain-text guide for AI assistants (llmstxt.org convention), built from the same content as the site. */
 export function GET() {
   const lines = [
