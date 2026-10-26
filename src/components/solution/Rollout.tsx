@@ -14,7 +14,7 @@ export function Rollout({ title, backdrop }: { title: string; backdrop: string }
         <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
           {rollout.included.map((i) => (
             <li key={i} className="flex items-center gap-3 text-ink">
-              <span aria-hidden className="tag tag-plain size-3 shrink-0 bg-copper [--cut:5px]" />
+              <span aria-hidden className="tag tag-plain size-3 shrink-0 bg-accent [--cut:5px]" />
               {i}
             </li>
           ))}

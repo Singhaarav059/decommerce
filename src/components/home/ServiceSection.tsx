@@ -42,7 +42,7 @@ export function ServiceSection() {
             <ul className="mt-6 space-y-2.5">
               {p.points.map((pt) => (
                 <li key={pt} className="flex items-baseline gap-3">
-                  <span aria-hidden className="tag tag-plain size-2.5 shrink-0 bg-copper [--cut:4px]" />
+                  <span aria-hidden className="tag tag-plain size-2.5 shrink-0 bg-accent [--cut:4px]" />
                   {pt}
                 </li>
               ))}

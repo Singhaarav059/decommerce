@@ -10,7 +10,7 @@ export function TrustStrip() {
           {trust.stats.map((s) => (
             <div key={s.label} className="flex items-baseline gap-2.5">
               <dt className="sr-only">{s.label}</dt>
-              <dd className="display text-[clamp(2.6rem,4.4vw,4.2rem)] leading-none tracking-[-0.04em] text-copper">{s.value}</dd>
+              <dd className="display text-[clamp(2.6rem,4.4vw,4.2rem)] leading-none tracking-[-0.04em] text-accent">{s.value}</dd>
               <span aria-hidden className="max-w-[9ch] text-[0.94rem] leading-tight text-ink-2">{s.label}</span>
             </div>
           ))}

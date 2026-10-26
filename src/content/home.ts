@@ -17,13 +17,13 @@ export const hero = {
   body: "Website, store, warehouse and marketplaces, run from one catalog, one stock count and one customer record.",
   primary: { label: "Book a demo", href: "/contact-us" },
   secondary: { label: "What we do", href: "#what-we-do" },
-  posterAlt: "A sunlit clothing boutique with a curved copper counter, oak shelves of folded knits and an olive tree; the camera moves slowly in.",
+  posterAlt: "A white flagship building cut open like a dollhouse: an associate hands a shopping bag to a customer on the shop floor, a colleague lifts a linen overshirt in the stockroom above, the website glows on a screen upstairs, and a courier loads a white van at the kerb, every place joined by thin green threads of light to one glowing hang tag.",
   arrival: "Every sale here, online or at the counter, runs through the same catalog and the same stock count.",
 };
 
 /** The hang tag on the hero: one shirt, one stock count that every channel reads. Try it. Illustrative. */
 export const heroTag = {
-  label: "Linen overshirt, Sand",
+  label: "Linen overshirt, Ivory",
   order: "ORD-1042",
   sizes: ["S", "M", "L"] as const,
   start: { S: 3, M: 2, L: 4 } as Record<"S" | "M" | "L", number>,
@@ -146,7 +146,7 @@ export const chapters: Record<string, Chapter> = {
   delivery: {
     id: "ch-delivery",
     seq: "delivery",
-    alt: "A courier carries a parcel from a parked van to a house with a copper door, hands it to the customer at her door and walks back to the van.",
+    alt: "A courier carries a parcel from a parked van to a pale stone townhouse, hands it to the customer at her door and walks back to the van.",
     steps: [
       {
         label: "Out for delivery",
@@ -169,7 +169,7 @@ export const chapters: Record<string, Chapter> = {
   counter: {
     id: "ch-instore",
     seq: "counter",
-    alt: "At a copper and travertine counter a customer taps her card on the terminal, keeps it, and the cashier hands over a paper shopping bag.",
+    alt: "At a white terrazzo counter a customer taps her card on the terminal, keeps it, and the cashier hands over a paper shopping bag.",
     steps: [
       {
         label: "In the store, too",
@@ -464,7 +464,7 @@ export const proof = {
     { title: "Build", body: "Modules go live one at a time, so nothing stops selling while you switch." },
     { title: "Launch", body: "We stay on through the first season and tune what the data shows." },
   ],
-  alt: "A slow pan across the sunlit boutique: clothing rails, oak shelves, an olive tree and the copper counter.",
+  alt: "A slow pan across the bright white boutique: rails of sage and white clothes, pale wood shelves, olive trees and the counter.",
 };
 
 export const close = {

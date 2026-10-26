@@ -54,7 +54,7 @@ export function AudiencesSection() {
             <ul className="mt-3 grid gap-2.5">
               {g.points.map((p) => (
                 <li key={p} className="flex items-baseline gap-3 text-[1.06rem]">
-                  <span aria-hidden className="tag tag-plain size-2.5 shrink-0 bg-copper [--cut:4px]" />
+                  <span aria-hidden className="tag tag-plain size-2.5 shrink-0 bg-accent [--cut:4px]" />
                   {p}
                 </li>
               ))}

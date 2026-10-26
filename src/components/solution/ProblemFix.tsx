@@ -19,8 +19,8 @@ export function ProblemFix({ title, problem, narrative, fix, steps, image, after
           </div>
         </div>
         <div className="rv tag tag-lg tag-plain bg-studio-light p-6 pt-12 md:p-8 md:pt-14">
-          <p className="flex items-center gap-2 text-[0.84rem] font-semibold text-copper">
-            <span aria-hidden className="tag tag-plain size-2.5 [--cut:4px] bg-copper" />
+          <p className="flex items-center gap-2 text-[0.84rem] font-semibold text-accent">
+            <span aria-hidden className="tag tag-plain size-2.5 [--cut:4px] bg-accent" />
             With Decommerce
           </p>
           <p className="display t-h3 mt-3">{fix.replace(/\*/g, "")}</p>
@@ -33,7 +33,7 @@ export function ProblemFix({ title, problem, narrative, fix, steps, image, after
           </ol>
           <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-[var(--radius-md)] bg-ink/5">
             <Image src={after} alt="" fill sizes="(max-width: 1024px) 100vw, 45vw" quality={80} className="object-cover object-right" />
-            <span className="absolute top-3 left-3 tag tag-xs tag-plain bg-paper py-1 pr-3 pl-4 text-[0.8125rem] font-semibold text-copper">After</span>
+            <span className="absolute top-3 left-3 tag tag-xs tag-plain bg-paper py-1 pr-3 pl-4 text-[0.8125rem] font-semibold text-accent">After</span>
           </div>
         </div>
       </div>

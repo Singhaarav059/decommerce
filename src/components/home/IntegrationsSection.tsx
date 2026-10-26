@@ -11,7 +11,7 @@ export function IntegrationsSection({ link = true }: { link?: boolean }) {
         <ol className="space-y-5 lg:col-span-5">
           {it.steps.map((s) => (
             <li key={s.title} className="rv flex gap-5 py-2">
-              <span aria-hidden className="tag tag-plain mt-[0.45em] size-3.5 shrink-0 bg-copper [--cut:5px]" />
+              <span aria-hidden className="tag tag-plain mt-[0.45em] size-3.5 shrink-0 bg-accent [--cut:5px]" />
               <div>
                 <h3 className="display text-[1.5rem] leading-tight">{s.title}</h3>
                 <p className="mt-1.5 text-ink-2">{s.body}</p>
@@ -20,7 +20,7 @@ export function IntegrationsSection({ link = true }: { link?: boolean }) {
           ))}
           {link && (
             <li className="pt-3">
-              <Link href="/integrations" className="link-u font-semibold text-copper">
+              <Link href="/integrations" className="link-u font-semibold text-accent">
                 See every kind of integration →
               </Link>
             </li>

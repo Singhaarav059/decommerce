@@ -1,37 +1,37 @@
-/* Decommerce design tokens. A bright, clean light site: white pages, soft stone-grey sections
-   and panels, near-black ink, and copper as the one accent (the photographs bring the warmth).
+/* Decommerce design tokens. A bright, fresh light site: white pages, cool sage-white sections and
+   panels, near-black ink, and one forest-green accent (the films carry the sage and the greenery).
    --night is kept for a few dark cards and the dusk film (.tone-night).
-   Contrast (WCAG) on white: ink 18.9:1, ink-2 7.7:1, copper 5.8:1; on --studio-light all above 5:1. */
+   Contrast (WCAG) on white: ink 19:1, ink-2 7.4:1, accent 6.6:1; on --studio-light all above 6:1. */
 :root {
   --studio: #ffffff;
-  --studio-light: #f5f4f1;
+  --studio-light: #f2f5f2;
   --paper: #ffffff;
-  --ink: #121110;
-  --ink-2: #57524b;
-  --copper: #a8481a;
-  /* brighter copper for fills, lines and dots only (never small text) */
-  --copper-bright: #c8693a;
-  --line: rgb(18 17 16 / 0.09);
-  --line-strong: rgb(18 17 16 / 0.18);
-  --night: #1c1712;
-  --night-2: #2a231c;
+  --ink: #111513;
+  --ink-2: #4c5650;
+  --accent: #2d6a4f;
+  /* brighter sage for fills, lines and dots only (never small text) */
+  --accent-bright: #5c9a78;
+  --line: rgb(17 21 19 / 0.09);
+  --line-strong: rgb(17 21 19 / 0.18);
+  --night: #0f1a15;
+  --night-2: #1a2a22;
   /* the daylight palette, used by .tone-light panels */
-  --day: #f5f4f1;
+  --day: #f2f5f2;
   --day-paper: #ffffff;
-  --day-ink: #121110;
-  --day-ink-2: #57524b;
-  --day-copper: #a8481a;
+  --day-ink: #111513;
+  --day-ink-2: #4c5650;
+  --day-accent: #2d6a4f;
 
   /* legacy names, mapped onto the palette so older components follow it */
   --stone-50: var(--studio);
   --travertine: var(--studio-light);
-  --terrazzo-chip: #b9ada2;
+  --terrazzo-chip: #b7c2bb;
   --ink-soft: var(--ink-2);
   --ink-muted: var(--ink-2);
-  --copper-ink: var(--copper);
+  --accent-ink: var(--accent);
   --olive: #4f5638;
   --steel: #8c9294;
-  --alert: #8a2f12;
+  --alert: #9b2c1f;
 
   /* radius: tight on controls, softer on media and panels */
   /* one small radius site-wide; character comes from the hang-tag shape (.tag), not from rounding */
@@ -43,7 +43,7 @@
   /* one warm light from the upper left; only open menus cast it. Nothing floats at rest: surfaces are told apart by fill */
   --shadow-sm: none;
   --shadow-md: none;
-  --shadow-lift: 6px 18px 40px rgb(27 25 21 / 0.14); /* taste-skill-ignore: open menus only */
+  --shadow-lift: 6px 18px 40px rgb(17 21 19 / 0.14); /* taste-skill-ignore: open menus only */
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);

@@ -54,7 +54,7 @@ export function CostsSection() {
               type="button"
               aria-pressed={side === s}
               onClick={() => pick(s)}
-              className={`tag tag-xs tag-plain h-11 px-5 text-[0.94rem] font-semibold whitespace-nowrap transition-colors duration-300 ${side === s ? (s === "with" ? "bg-copper text-paper" : "bg-ink text-paper") : "bg-studio-light text-ink-2 hover:text-ink"}`}
+              className={`tag tag-xs tag-plain h-11 px-5 text-[0.94rem] font-semibold whitespace-nowrap transition-colors duration-300 ${side === s ? (s === "with" ? "bg-accent text-paper" : "bg-ink text-paper") : "bg-studio-light text-ink-2 hover:text-ink"}`}
             >
               {costs.toggle[s]}
             </button>
@@ -68,7 +68,7 @@ export function CostsSection() {
           {costs.rows.map((r, i) => {
             const v = r.visual;
             return (
-              <li key={r.area} className={`grid items-center gap-4 px-6 py-8 md:py-10 transition-colors duration-700 ease-[var(--ease-out)] md:grid-cols-12 md:gap-8 md:px-10 ${on ? "bg-copper" : "bg-studio-light"}`} style={{ transitionDelay: `${i * 60}ms` }}>
+              <li key={r.area} className={`grid items-center gap-4 px-6 py-8 md:py-10 transition-colors duration-700 ease-[var(--ease-out)] md:grid-cols-12 md:gap-8 md:px-10 ${on ? "bg-accent" : "bg-studio-light"}`} style={{ transitionDelay: `${i * 60}ms` }}>
                 <h3 className="display t-h3 md:col-span-3">{r.area}</h3>
                 <div key={side} className="animate-[slide-up_600ms_var(--ease-out)_both] md:col-span-4" style={{ animationDelay: `${i * 70}ms` }}>
                   {v.kind === "counts" && v.labels && (

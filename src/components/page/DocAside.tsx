@@ -55,7 +55,7 @@ export function DocAside({ image }: { image: string }) {
         <div className="p-5">
           <p className="font-semibold">Questions about this page?</p>
           <p className="mt-1 text-[0.95rem] text-ink-2">Talk to the team that builds and runs Decommerce.</p>
-          <Link href="/contact-us" className="link-u mt-4 inline-block text-[0.95rem] font-semibold text-copper">
+          <Link href="/contact-us" className="link-u mt-4 inline-block text-[0.95rem] font-semibold text-accent">
             Book a demo →
           </Link>
         </div>

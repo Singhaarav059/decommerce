@@ -71,7 +71,7 @@ export function LensTransition() {
       }}
     >
       <span className={`display text-[clamp(2rem,5vw,3.6rem)] text-paper transition-opacity duration-300 ${phase === "cover" ? "opacity-100 delay-200" : "opacity-0"}`}>
-        decommerce<span className="text-copper-bright">.</span>
+        decommerce<span className="text-accent-bright">.</span>
       </span>
     </div>
   );

@@ -15,7 +15,7 @@ export function AboutExtras({ meta }: { meta: DocMeta }) {
           <ol className="">
             {meta.principles.map((p) => (
               <li key={p.title} className="rv group grid grid-cols-[2.5rem_1fr] gap-4 py-7 md:grid-cols-[4rem_minmax(0,1fr)_minmax(0,1.2fr)] md:gap-10">
-                <span aria-hidden className="tag tag-plain mt-1 size-6 bg-copper [--cut:8px] transition-transform duration-500 ease-[var(--ease-out)] group-hover:-translate-y-1 md:size-8 md:[--cut:10px]" />
+                <span aria-hidden className="tag tag-plain mt-1 size-6 bg-accent [--cut:8px] transition-transform duration-500 ease-[var(--ease-out)] group-hover:-translate-y-1 md:size-8 md:[--cut:10px]" />
                 <h3 className="display t-h3 self-center">{p.title}</h3>
                 <p className="col-start-2 max-w-[48ch] self-center leading-relaxed text-ink-2 md:col-start-3">{p.body}</p>
               </li>
@@ -30,7 +30,7 @@ export function AboutExtras({ meta }: { meta: DocMeta }) {
               <dt className="mt-3 text-ink-2">{st.label}</dt>
               <dd className="display tabular text-[clamp(3.4rem,7vw,6.4rem)]">
                 {st.value}
-                <span className="text-copper">{st.suffix}</span>
+                <span className="text-accent">{st.suffix}</span>
               </dd>
             </div>
           ))}
@@ -49,7 +49,7 @@ export function AboutExtras({ meta }: { meta: DocMeta }) {
                   </div>
                   <p className="mt-4 flex items-center justify-between text-lg font-semibold">
                     {f.name}
-                    {!f.current && <span aria-hidden className="text-copper transition-transform duration-300 group-hover:translate-x-1">{external ? "↗" : "→"}</span>}
+                    {!f.current && <span aria-hidden className="text-accent transition-transform duration-300 group-hover:translate-x-1">{external ? "↗" : "→"}</span>}
                   </p>
                   <p className="mt-1 text-ink-2">{f.role}</p>
                 </>

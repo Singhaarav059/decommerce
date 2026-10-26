@@ -5,7 +5,7 @@ export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <span className={`text-[1.4rem] leading-none font-semibold tracking-[-0.035em] ${className}`}>
       {brand.name}
-      <span className="text-copper">.</span>
+      <span className="text-accent">.</span>
     </span>
   );
 }

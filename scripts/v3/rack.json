@@ -1,12 +1,12 @@
 [
-  {"id":"linen-overshirt","name":"Linen overshirt","colour":"Sand","price":128,"desc":"a relaxed sand-coloured washed linen overshirt with two chest pockets and natural horn buttons"},
-  {"id":"wool-crewneck","name":"Wool crewneck","colour":"Oat","price":145,"desc":"a chunky oatmeal wool crewneck sweater with ribbed cuffs and hem"},
-  {"id":"twill-overshirt","name":"Twill overshirt","colour":"Rust","price":138,"desc":"a rust-orange cotton twill overshirt with a point collar and dark buttons"},
-  {"id":"merino-tee","name":"Merino tee","colour":"Ink","price":58,"desc":"a near-black fine merino wool crew-neck t-shirt"},
-  {"id":"linen-shirt","name":"Linen shirt","colour":"Cream","price":96,"desc":"a cream linen long-sleeve shirt with a soft collar"},
-  {"id":"cardigan","name":"Cardigan","colour":"Camel","price":165,"desc":"a camel wool knitted V-neck cardigan with wooden buttons"},
-  {"id":"field-jacket","name":"Field jacket","colour":"Olive","price":210,"desc":"an olive cotton canvas field jacket with four patch pockets"},
-  {"id":"heavy-tee","name":"Heavy tee","colour":"Stone","price":52,"desc":"a light stone-grey heavyweight cotton t-shirt"},
-  {"id":"wool-coat","name":"Wool coat","colour":"Charcoal","price":320,"desc":"a long charcoal wool overcoat with notch lapels"},
-  {"id":"knit-polo","name":"Knit polo","colour":"Clay","price":110,"desc":"a clay-pink textured knit polo shirt with three buttons"}
+  {"id": "linen-overshirt", "name": "Linen overshirt", "colour": "Ivory", "price": 128, "desc": "a relaxed ivory washed linen overshirt with two chest pockets"},
+  {"id": "wool-crewneck", "name": "Wool crewneck", "colour": "Sage", "price": 145, "desc": "a chunky sage-green wool crewneck sweater with ribbed cuffs and hem"},
+  {"id": "twill-overshirt", "name": "Twill overshirt", "colour": "Forest", "price": 138, "desc": "a deep forest-green cotton twill overshirt with a point collar"},
+  {"id": "merino-tee", "name": "Merino tee", "colour": "Ink", "price": 58, "desc": "a near-black fine merino wool crew-neck t-shirt"},
+  {"id": "linen-shirt", "name": "Linen shirt", "colour": "Cream", "price": 96, "desc": "a cream linen long-sleeve shirt with a soft collar"},
+  {"id": "cardigan", "name": "Cardigan", "colour": "Grey", "price": 165, "desc": "a light heather-grey wool knitted V-neck cardigan"},
+  {"id": "field-jacket", "name": "Field jacket", "colour": "Stone", "price": 210, "desc": "a pale stone-grey cotton canvas field jacket with four patch pockets"},
+  {"id": "heavy-tee", "name": "Heavy tee", "colour": "Stone", "price": 52, "desc": "a light stone-grey heavyweight cotton t-shirt"},
+  {"id": "wool-coat", "name": "Wool coat", "colour": "Charcoal", "price": 320, "desc": "a long charcoal wool overcoat with notch lapels"},
+  {"id": "knit-polo", "name": "Knit polo", "colour": "Navy", "price": 110, "desc": "a navy textured knit polo shirt with three buttons"}
 ]

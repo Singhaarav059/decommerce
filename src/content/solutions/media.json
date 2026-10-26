@@ -1,50 +1,50 @@
 {
   "storefront": {
     "count": 48,
-    "floor": "#cab9aa"
+    "floor": "#bfbbbb"
   },
   "brand-showcase": {
     "count": 48,
-    "floor": "#cabcae"
+    "floor": "#c5bab4"
   },
   "b2b": {
     "count": 48,
-    "floor": "#cab9aa"
+    "floor": "#c1bbbb"
   },
   "quick-commerce": {
     "count": 48,
-    "floor": "#cdbbaf"
+    "floor": "#d5ccce"
   },
   "marketplace": {
     "count": 48,
-    "floor": "#ceb8a3"
+    "floor": "#d0c9cc"
   },
   "oms": {
     "count": 48,
-    "floor": "#ccb9aa"
+    "floor": "#d2c6ca"
   },
   "wms": {
     "count": 48,
-    "floor": "#c6baac"
+    "floor": "#ccc8c7"
   },
   "tms": {
     "count": 48,
-    "floor": "#cdb9a8"
+    "floor": "#dcd0ce"
   },
   "pos": {
     "count": 48,
-    "floor": "#ccbaaa"
+    "floor": "#bebdba"
   },
   "clienteling": {
     "count": 48,
-    "floor": "#cabaaa"
+    "floor": "#bebcbb"
   },
   "endless-aisle": {
     "count": 48,
-    "floor": "#ccb9a9"
+    "floor": "#bdbbc1"
   },
   "self-checkout": {
     "count": 48,
-    "floor": "#ccb9a9"
+    "floor": "#c4bbb2"
   }
 }

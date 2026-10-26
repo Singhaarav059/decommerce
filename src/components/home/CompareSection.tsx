@@ -17,7 +17,7 @@ export function CompareSection() {
               </th>
               <th scope="col" className="w-[26%] py-4 pr-6 font-semibold text-ink-2">{a}</th>
               <th scope="col" className="w-[26%] py-4 pr-6 font-semibold text-ink-2">{b}</th>
-              <th scope="col" className="w-[32%] bg-copper px-6 py-4 font-semibold text-paper">
+              <th scope="col" className="w-[32%] bg-accent px-6 py-4 font-semibold text-paper">
                 <span className="flex items-center gap-2">
                   {d}
                 </span>
@@ -37,7 +37,7 @@ export function CompareSection() {
                     <span aria-hidden className="mr-2 text-ink-2/70">×</span>
                     {r.cells[1]}
                   </td>
-                  <td className="bg-copper px-6 py-5 font-medium text-paper">
+                  <td className="bg-accent px-6 py-5 font-medium text-paper">
                     <Check className="mr-2 -translate-y-px" />
                     {r.cells[2]}
                   </td>

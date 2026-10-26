@@ -24,7 +24,7 @@ export function Anatomy({ title, parts, src, floor, focus }: { title: string; pa
           return (
             <li key={p.id} className="">
               <button type="button" aria-pressed={on} onClick={() => setActive(on ? null : p.id)} className="group w-full py-4 text-left">
-                <span className={`flex items-center justify-between gap-4 text-[1.05rem] font-semibold transition-colors ${on ? "text-copper" : "text-ink group-hover:text-copper"}`}>
+                <span className={`flex items-center justify-between gap-4 text-[1.05rem] font-semibold transition-colors ${on ? "text-accent" : "text-ink group-hover:text-accent"}`}>
                   {p.label}
                   <span aria-hidden className={`relative size-3.5 shrink-0 transition-transform duration-500 ease-[var(--ease-overshoot)] ${on ? "rotate-45" : ""}`}>
                     <span className="absolute top-1/2 left-0 h-[1.5px] w-full -translate-y-1/2 bg-current" />

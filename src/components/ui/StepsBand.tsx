@@ -6,13 +6,13 @@ import { Headline } from "./Headline";
 
 export type BandStep = { title: string; body: string; result?: string };
 
-/** Stage fills, darkest first: the order reads dark to light, all in the one copper hue. */
+/** Stage fills, darkest first: the order reads dark to light, all in the one green hue. */
 const FILLS = [
-  { bg: "bg-[#2b1a10]", ink: "text-paper", soft: "text-paper/80" },
-  { bg: "bg-[#5e2a12]", ink: "text-paper", soft: "text-paper/80" },
-  { bg: "bg-copper", ink: "text-paper", soft: "text-paper/85" },
-  { bg: "bg-[#ecdccf]", ink: "text-ink", soft: "text-ink-2" },
-  { bg: "bg-[#f6eee7]", ink: "text-ink", soft: "text-ink-2" },
+  { bg: "bg-[#10261b]", ink: "text-paper", soft: "text-paper/80" },
+  { bg: "bg-[#1d4434]", ink: "text-paper", soft: "text-paper/80" },
+  { bg: "bg-accent", ink: "text-paper", soft: "text-paper/85" },
+  { bg: "bg-[#d6e6db]", ink: "text-ink", soft: "text-ink-2" },
+  { bg: "bg-[#ecf3ee]", ink: "text-ink", soft: "text-ink-2" },
 ];
 
 /**
@@ -142,7 +142,7 @@ export function StepsBand({
           {pinned && (
             <div aria-hidden className="mt-5 grid gap-1" style={{ gridTemplateColumns: `repeat(${n}, 1fr)` }}>
               {steps.map((s, i) => (
-                <span key={s.title} className={`h-1 transition-colors duration-500 ${i <= open ? "bg-copper" : "bg-ink/10"}`} />
+                <span key={s.title} className={`h-1 transition-colors duration-500 ${i <= open ? "bg-accent" : "bg-ink/10"}`} />
               ))}
             </div>
           )}

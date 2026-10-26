@@ -17,7 +17,7 @@ export function KineticStatement() {
         <p className="display text-[clamp(2.2rem,5.6vw,5.6rem)] leading-[1.02] tracking-[-0.04em]">
           <span>
             {words.map((w, i) => (
-              <span key={i} className={`kin-word ${KEY.has(w.toLowerCase()) ? "text-copper" : ""}`} style={{ "--s": `${8 + (i / n) * 52}%`, "--e": `${14 + (i / n) * 52}%` } as CSSProperties}>
+              <span key={i} className={`kin-word ${KEY.has(w.toLowerCase()) ? "text-accent" : ""}`} style={{ "--s": `${8 + (i / n) * 52}%`, "--e": `${14 + (i / n) * 52}%` } as CSSProperties}>
                 {w}{" "}
               </span>
             ))}

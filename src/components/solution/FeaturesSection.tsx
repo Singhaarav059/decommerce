@@ -22,7 +22,7 @@ export function FeaturesSection({ title, features, connects, image }: { title: s
                     </li>
                   ))}
                 </ul>
-                <Link href="/integrations" className="link-u mt-3 inline-block text-[0.85rem] font-semibold text-copper">
+                <Link href="/integrations" className="link-u mt-3 inline-block text-[0.85rem] font-semibold text-accent">
                   All integrations →
                 </Link>
               </div>

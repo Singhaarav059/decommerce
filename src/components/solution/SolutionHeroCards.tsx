@@ -45,13 +45,13 @@ export function SolutionHeroCards({ slug, label, fix, steps }: { slug: SolutionS
         </div>
       </div>
       <div className="absolute right-[22%] bottom-[14%] w-[300px]">
-        <div className="float-b tone-night rounded-[var(--radius-lg)] bg-night/90 p-5 text-[#f4eee6] ring-1 ring-white/10">
+        <div className="float-b tone-night rounded-[var(--radius-lg)] bg-night/90 p-5 text-[#eef4f0] ring-1 ring-white/10">
           <p className="text-[0.875rem] font-semibold">With Decommerce</p>
           <p className="display mt-2 text-[1.3rem] leading-tight">{fix.replace(/\*/g, "")}</p>
           <ol className="mt-3 space-y-2 text-[0.85rem]">
             {steps.map((s, i) => (
               <li key={s} className={`flex items-center gap-2.5 transition-opacity duration-300 ${i <= done ? "opacity-100" : "opacity-45"}`}>
-                <span className={`flex size-5 shrink-0 items-center justify-center rounded-full text-[0.8125rem] transition-colors duration-300 ${i <= done ? "bg-[#f0a774] text-[#1c1712]" : "ring-1 ring-white/30"}`}>{i <= done ? <Check /> : i + 1}</span>
+                <span className={`flex size-5 shrink-0 items-center justify-center rounded-full text-[0.8125rem] transition-colors duration-300 ${i <= done ? "bg-[#9fd1b4] text-[#0f1a15]" : "ring-1 ring-white/30"}`}>{i <= done ? <Check /> : i + 1}</span>
                 {s}
               </li>
             ))}

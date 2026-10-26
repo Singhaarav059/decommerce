@@ -8,7 +8,7 @@ export function MarqueeBand({ items, seconds = 60, className = "" }: { items: st
       {items.map((t) => (
         <li key={t} className="display flex items-center gap-8 px-4 text-[clamp(1.8rem,3.4vw,3rem)] whitespace-nowrap md:gap-12 md:px-6">
           {t}
-          <span aria-hidden className="size-2.5 rounded-full bg-copper" />
+          <span aria-hidden className="size-2.5 rounded-full bg-accent" />
         </li>
       ))}
     </ul>

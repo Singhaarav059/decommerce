@@ -43,3 +43,13 @@ next-env.d.ts
 
 # reference PNGs are regenerated from the .webp originals (sips -s format png)
 /assets-src/refs/*.png
+
+# rejected visual experiments (Oct 2026): kept locally, not part of the build
+/assets-src/stills/v5/
+/assets-src/stills/v5-clay/
+/assets-src/style/
+/assets-src/style2/
+/assets-src/vertex/v5-*.mp4
+/assets-src/vertex/v5clay-*.mp4
+/assets-src/vertex/v6-*-take*.mp4
+/.taste-skill/

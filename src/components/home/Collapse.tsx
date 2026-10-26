@@ -29,7 +29,7 @@ export function Collapse() {
           <h2 className="display grid text-[clamp(2rem,4vw,3.8rem)] leading-[1] tracking-[-0.035em]">
             <span className="converge-before col-start-1 row-start-1">{c.before.headline}</span>
             <span className="converge-after col-start-1 row-start-1">
-              One system. <span className="text-copper">One answer.</span>
+              One system. <span className="text-accent">One answer.</span>
             </span>
           </h2>
           <div className="mt-5 grid max-lg:hidden">
@@ -42,7 +42,7 @@ export function Collapse() {
           {/* doubt lines between the systems, fading as they merge */}
           <svg aria-hidden viewBox="-50 -50 100 100" preserveAspectRatio="none" className="converge-lines absolute inset-[12%] h-[76%] w-[76%]">
             {SPOTS.map((a, i) =>
-              SPOTS.slice(i + 1).map((b, k) => <line key={`${i}-${k}`} x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="var(--copper)" strokeWidth="0.25" strokeDasharray="1.2 1.6" vectorEffect="non-scaling-stroke" />),
+              SPOTS.slice(i + 1).map((b, k) => <line key={`${i}-${k}`} x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke="var(--accent)" strokeWidth="0.25" strokeDasharray="1.2 1.6" vectorEffect="non-scaling-stroke" />),
             )}
           </svg>
           {c.systems.map((s, i) => (
@@ -55,7 +55,7 @@ export function Collapse() {
             </div>
           ))}
           <div className="converge-one absolute top-1/2 left-1/2 w-[min(80%,460px)]">
-            <div className="tag tag-lg -translate-x-1/2 -translate-y-1/2 bg-copper p-7 pt-20 text-paper md:p-10 md:pt-24">
+            <div className="tag tag-lg -translate-x-1/2 -translate-y-1/2 bg-accent p-7 pt-20 text-paper md:p-10 md:pt-24">
               <p className="text-[0.875rem] font-semibold">{c.one.label}</p>
               <div className="mt-3 flex items-end justify-between gap-4">
                 <p className="display text-[clamp(5rem,10vw,8.5rem)] leading-[0.85]">{c.one.count}</p>

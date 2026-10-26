@@ -8,8 +8,8 @@
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-ink-muted: var(--ink-muted);
-  --color-copper: var(--copper);
-  --color-copper-ink: var(--copper-ink);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
   --color-olive: var(--olive);
   --color-steel: var(--steel);
   --color-line: var(--line);
@@ -18,7 +18,7 @@
   --color-studio: var(--studio);
   --color-studio-light: var(--studio-light);
   --color-ink-2: var(--ink-2);
-  --color-copper-bright: var(--copper-bright);
+  --color-accent-bright: var(--accent-bright);
   --color-paper: var(--paper);
   --color-night: var(--night);
   --color-night-2: var(--night-2);
@@ -64,7 +64,7 @@ cite {
 }
 
 :focus-visible {
-  outline: 2px solid var(--copper);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -158,28 +158,28 @@ cite {
 
 /* Text over a night scene (dusk film): light ink, contrast > 9:1 on its navy floor */
 .tone-night {
-  color: #f4eee6;
-  --ink: #f4eee6;
-  --ink-2: #c9bfb3;
-  --line: rgb(244 238 230 / 0.14);
-  --line-strong: rgb(244 238 230 / 0.28);
-  --copper: #f0a774;
-  --copper-bright: #f0a774;
-  --paper: #241e18;
-  --studio: #0b0a08;
+  color: #eef4f0;
+  --ink: #eef4f0;
+  --ink-2: #b9c9bf;
+  --line: rgb(238 244 240 / 0.14);
+  --line-strong: rgb(238 244 240 / 0.28);
+  --accent: #9fd1b4;
+  --accent-bright: #9fd1b4;
+  --paper: #18241e;
+  --studio: #08100c;
 }
 /* Daylight panels on the night site: product screens, photo scenes with text, light cards */
 .tone-light {
   color: var(--day-ink);
   --studio: var(--day);
-  --studio-light: #e6dacb;
+  --studio-light: #e3ebe5;
   --paper: var(--day-paper);
   --ink: var(--day-ink);
   --ink-2: var(--day-ink-2);
-  --copper: var(--day-copper);
-  --copper-bright: #c8693a;
-  --line: rgb(27 25 21 / 0.12);
-  --line-strong: rgb(27 25 21 / 0.24);
+  --accent: var(--day-accent);
+  --accent-bright: #5c9a78;
+  --line: rgb(17 21 19 / 0.12);
+  --line-strong: rgb(17 21 19 / 0.24);
   --shadow-sm: none;
   --shadow-md: none;
 }
@@ -398,7 +398,7 @@ cite {
 }
 .range:active::-webkit-slider-thumb {
   transform: scale(1.15);
-  background: var(--copper);
+  background: var(--accent);
 }
 
 /* Lenis */
@@ -448,7 +448,7 @@ html.lenis body {
   letter-spacing: -0.05em;
   font-variant-numeric: tabular-nums;
   color: transparent;
-  -webkit-text-stroke: 1.2px color-mix(in srgb, var(--copper-bright) 55%, transparent);
+  -webkit-text-stroke: 1.2px color-mix(in srgb, var(--accent-bright) 55%, transparent);
 }
 
 /* HeroCards: arrive one by one, then bob gently; progress bars fill, the chart line draws */
@@ -528,15 +528,15 @@ html.lenis body {
 @keyframes wordmark-draw {
   0% {
     color: transparent;
-    -webkit-text-stroke: 1px rgb(27 25 21 / 0.22);
+    -webkit-text-stroke: 1px rgb(17 21 19 / 0.22);
     letter-spacing: -0.02em;
   }
   60% {
     color: transparent;
-    -webkit-text-stroke: 1px rgb(27 25 21 / 0.28);
+    -webkit-text-stroke: 1px rgb(17 21 19 / 0.28);
   }
   100% {
-    -webkit-text-stroke: 1px rgb(27 25 21 / 0);
+    -webkit-text-stroke: 1px rgb(17 21 19 / 0);
   }
 }
 
@@ -670,7 +670,7 @@ html.lenis body {
     linear-gradient(135deg, var(--studio) 50%, transparent calc(50% + 0.5px)) 0 0 / var(--hero-cut) var(--hero-cut) no-repeat; /* taste-skill-ignore: tag corner painted in page colour */
 }
 
-/* IntegrationHub: a copper pulse travels out along each spoke in turn */
+/* IntegrationHub: a green pulse travels out along each spoke in turn */
 .hub-pulse {
   offset-rotate: 0deg;
   offset-distance: 0%;
@@ -710,22 +710,3 @@ html.lenis body {
   }
 }
 
-/* The hero's hang tag sways a little on its string, from the top */
-@media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
-  .hang {
-    transform-origin: 50% 0;
-    animation: hang-sway 7s var(--ease-in-out) infinite alternate;
-  }
-}
-@keyframes hang-sway {
-  from {
-    rotate: -1.4deg;
-  }
-  to {
-    rotate: 1.4deg;
-  }
-}
-.hang:hover,
-.hang:focus-within {
-  animation-play-state: paused;
-}

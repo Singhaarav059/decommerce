@@ -7,7 +7,7 @@
 - Quality tiers from detect-gpu: high / mid / low. Low = posters + video, no WebGL.
 - Assets live in /public/assets or the CDN; GLB must be Meshopt-compressed, textures KTX2.
 - Content in MDX under /src/content; components never hardcode copy.
-- Design rules: stone + copper palette only, one accent, one warm light from upper left. No purple, no gradients, no glass blobs, no sparkle icons, no icon-card grids.
+- Design rules: white + sage palette only (white, cool sage-white, near-black ink), one forest-green accent, one soft light from upper left. No brown, beige or copper (changed by the owner on 26 Oct 2026). No purple, no gradients, no glass blobs, no sparkle icons, no icon-card grids.
 - Example data is illustrative and labelled so. Never invent customer names, logos or stats.
 - Every PR: run lint, typecheck, build, and Lighthouse mobile; report the scores.
 - Build plan: PLAN.md. Progress log: PROGRESS.md.

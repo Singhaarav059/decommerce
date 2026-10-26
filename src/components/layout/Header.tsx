@@ -196,7 +196,7 @@ export function Header() {
                             className="group flex items-baseline gap-3 py-3"
                           >
                             <span className="min-w-0">
-                              <span className={`display block text-[1.35rem] transition-[color,translate] duration-300 ease-[var(--ease-out)] ${on ? "translate-x-1 text-copper" : ""}`}>{item.label}</span>
+                              <span className={`display block text-[1.35rem] transition-[color,translate] duration-300 ease-[var(--ease-out)] ${on ? "translate-x-1 text-accent" : ""}`}>{item.label}</span>
                               <span className="mt-0.5 block text-[0.84rem] leading-snug text-ink-2">{item.blurb}</span>
                             </span>
                           </Link>
@@ -206,7 +206,7 @@ export function Header() {
                   </ul>
                   <p className="mt-auto flex items-center justify-between gap-6 pt-6 text-[0.84rem] text-ink-2">
                     <span>One catalog, one stock count and one customer record behind every page here.</span>
-                    <Link href="/contact-us" className="link-u shrink-0 font-semibold text-copper">
+                    <Link href="/contact-us" className="link-u shrink-0 font-semibold text-accent">
                       Book a demo →
                     </Link>
                   </p>
@@ -263,7 +263,7 @@ export function Header() {
                       <Link
                         href={item.href}
                         aria-current={item.href === pathname ? "page" : undefined}
-                        className="flex min-h-11 items-center text-[0.98rem] font-medium tracking-[-0.01em] aria-[current=page]:text-copper"
+                        className="flex min-h-11 items-center text-[0.98rem] font-medium tracking-[-0.01em] aria-[current=page]:text-accent"
                       >
                         {item.label}
                       </Link>

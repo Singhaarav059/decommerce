@@ -82,9 +82,9 @@ function Group({ group, offset }: { group: NavGroup; offset: number }) {
                 }}
                 className="group flex items-start gap-4 py-3"
               >
-                <span aria-hidden className={`tag tag-plain mt-[0.4em] size-3.5 shrink-0 transition-colors duration-300 [--cut:5px] ${on ? "bg-copper" : "bg-ink/15"}`} />
+                <span aria-hidden className={`tag tag-plain mt-[0.4em] size-3.5 shrink-0 transition-colors duration-300 [--cut:5px] ${on ? "bg-accent" : "bg-ink/15"}`} />
                 <span className="min-w-0 flex-1">
-                  <span className={`flex items-baseline justify-between gap-3 text-[1.125rem] font-semibold tracking-tight transition-colors duration-300 ${on ? "text-copper" : ""}`}>
+                  <span className={`flex items-baseline justify-between gap-3 text-[1.125rem] font-semibold tracking-tight transition-colors duration-300 ${on ? "text-accent" : ""}`}>
                     {item.label}
                     <span aria-hidden className={`transition-[translate,opacity] duration-300 ease-[var(--ease-out)] ${on ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"}`}>
                       →

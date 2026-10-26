@@ -19,7 +19,7 @@ export function Faq({ items, className = "", tile = "bg-studio-light" }: { items
         const btn = `${base}-q${i}`;
         const panel = `${base}-a${i}`;
         return (
-          <li key={item.q} className={`tag tag-sm transition-colors duration-300 ${isOpen ? "bg-copper text-paper" : `${tile} text-ink hover:bg-ink/[0.07]`}`}>
+          <li key={item.q} className={`tag tag-sm transition-colors duration-300 ${isOpen ? "bg-accent text-paper" : `${tile} text-ink hover:bg-ink/[0.07]`}`}>
             <h3>
               <button
                 id={btn}

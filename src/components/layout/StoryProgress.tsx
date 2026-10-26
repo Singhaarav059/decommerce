@@ -24,7 +24,7 @@ export function StoryProgress() {
   }, []);
   return (
     <div aria-hidden className="pointer-events-none fixed inset-x-0 top-0 z-[calc(var(--z-header)+1)] h-[2px]">
-      <div ref={bar} className="h-full origin-left bg-copper" style={{ transform: "scaleX(0)" }} />
+      <div ref={bar} className="h-full origin-left bg-accent" style={{ transform: "scaleX(0)" }} />
     </div>
   );
 }

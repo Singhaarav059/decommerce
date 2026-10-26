@@ -65,7 +65,7 @@ export function Tabs({
             {t.label}
             <span
               aria-hidden
-              className={`absolute inset-x-3 -bottom-px h-0.5 origin-left bg-copper transition-transform duration-500 ease-[var(--ease-out)] ${
+              className={`absolute inset-x-3 -bottom-px h-0.5 origin-left bg-accent transition-transform duration-500 ease-[var(--ease-out)] ${
                 i === active ? "scale-x-100" : "scale-x-0"
               }`}
             />

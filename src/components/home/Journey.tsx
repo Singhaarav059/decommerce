@@ -60,7 +60,7 @@ export function Journey() {
                 </div>
                 {/* a small floating tag, like a price tag on a product photo */}
                 <span className="tag tag-xs tag-plain absolute top-4 right-4 flex items-center gap-2 bg-paper py-2 pr-4 pl-4 text-[0.875rem] font-semibold">
-                  <span aria-hidden className="tag tag-plain size-3 bg-copper [--cut:5px]" />
+                  <span aria-hidden className="tag tag-plain size-3 bg-accent [--cut:5px]" />
                   {s.tag}
                 </span>
               </div>
@@ -69,7 +69,7 @@ export function Journey() {
                   <h3 className="display t-h3">{s.title}</h3>
                   <p className="mt-2 max-w-[52ch] text-[0.95rem] text-ink-2">{s.body}</p>
                 </div>
-                <Link href={s.href} aria-label={`More about ${s.title.toLowerCase()}`} className="tag tag-xs tag-plain flex size-11 shrink-0 items-center justify-center bg-ink text-paper transition-colors hover:bg-copper">
+                <Link href={s.href} aria-label={`More about ${s.title.toLowerCase()}`} className="tag tag-xs tag-plain flex size-11 shrink-0 items-center justify-center bg-ink text-paper transition-colors hover:bg-accent">
                   →
                 </Link>
               </div>
@@ -78,7 +78,7 @@ export function Journey() {
         </div>
         <div className="mx-auto mt-5 w-full max-w-[var(--max-w)] px-[var(--gutter)]">
           <div className="relative h-[3px] overflow-hidden bg-ink/10">
-            <span className="journey-bar absolute inset-y-0 left-0 w-full origin-left bg-copper" />
+            <span className="journey-bar absolute inset-y-0 left-0 w-full origin-left bg-accent" />
           </div>
         </div>
       </div>

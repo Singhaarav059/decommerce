@@ -15,7 +15,7 @@ export function FooterCta() {
   return (
     <Link
       href={footerCta.primary.href}
-      className="tag tag-xl group relative block bg-copper text-paper transition-colors duration-150 hover:bg-ink focus-visible:bg-ink focus-visible:outline-none"
+      className="tag tag-xl group relative block bg-accent text-paper transition-colors duration-150 hover:bg-ink focus-visible:bg-ink focus-visible:outline-none"
     >
       <div className="mx-auto flex min-h-[46svh] max-w-[var(--max-w)] flex-col justify-between px-[var(--gutter)] pt-[clamp(104px,13vw,196px)] pb-6 md:min-h-[60svh]">
         <div className="flex items-start justify-between gap-6">
@@ -26,7 +26,7 @@ export function FooterCta() {
         </div>
         <p className="text-[clamp(6rem,27vw,24rem)] leading-[0.78] font-bold tracking-[-0.06em] whitespace-nowrap">
           {footerCta.word}
-          <span aria-hidden className="text-ink transition-colors duration-150 group-hover:text-copper-bright">.</span>
+          <span aria-hidden className="text-ink transition-colors duration-150 group-hover:text-accent-bright">.</span>
           <span className="sr-only"> ({footerCta.primary.label})</span>
         </p>
       </div>

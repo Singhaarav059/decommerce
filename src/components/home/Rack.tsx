@@ -190,7 +190,7 @@ export function Rack({ scrub }: { scrub?: RefObject<number | null> } = {}) {
           {item.name}, {item.colour}
         </p>
         <p className="tabular text-ink-2">${item.price}</p>
-        <button type="button" onClick={() => setOpen(true)} className="tag tag-xs tag-plain mt-4 h-11 bg-ink pr-5 pl-6 text-[0.95rem] font-semibold text-paper transition-colors hover:bg-copper">
+        <button type="button" onClick={() => setOpen(true)} className="tag tag-xs tag-plain mt-4 h-11 bg-ink pr-5 pl-6 text-[0.95rem] font-semibold text-paper transition-colors hover:bg-accent">
           See the piece
         </button>
       </div>

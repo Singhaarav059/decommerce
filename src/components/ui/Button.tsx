@@ -9,7 +9,7 @@ const base =
   "disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  primary: "tag tag-xs tag-plain bg-ink text-paper hover:bg-copper",
+  primary: "tag tag-xs tag-plain bg-ink text-paper hover:bg-accent",
   secondary: "tag tag-xs tag-plain bg-studio-light text-ink hover:bg-ink hover:text-paper",
   ghost: "bg-transparent text-ink px-0 h-auto link-u rounded-none",
 };

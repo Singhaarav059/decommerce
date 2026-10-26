@@ -10,11 +10,11 @@ import { sequences } from "@/content/media";
 export const metadata: Metadata = { title: "Lab", robots: { index: false, follow: false } };
 
 const swatches = [
-  ["studio", "#CEC5BD"],
-  ["studio-light", "#DCD5CE"],
-  ["ink", "#1B1915"],
-  ["ink-2", "#45403A"],
-  ["copper", "#74320F"],
+  ["studio", "#FFFFFF"],
+  ["studio-light", "#F2F5F2"],
+  ["ink", "#111513"],
+  ["ink-2", "#4C5650"],
+  ["accent", "#2D6A4F"],
 ];
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
@@ -53,7 +53,7 @@ export default function LabPage() {
             Book a demo
           </ButtonLink>
           <Button variant="secondary">See it work</Button>
-          <a href="#" className="font-semibold text-copper underline-offset-4 hover:underline">
+          <a href="#" className="font-semibold text-accent underline-offset-4 hover:underline">
             Order management →
           </a>
         </div>

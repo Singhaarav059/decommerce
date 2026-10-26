@@ -6,7 +6,6 @@ import { ButtonLink } from "@/components/ui/Button";
 import { hero, heroTag as t } from "@/content/home";
 import { sequences } from "@/content/media";
 import { frameUrl, wantsStill } from "@/lib/media";
-import { HeroCards } from "./HeroCards";
 
 type Size = (typeof t.sizes)[number];
 
@@ -15,11 +14,11 @@ const words = hero.headline.split(" ");
 const LINES = [words.slice(0, 3).join(" "), words.slice(3).join(" ")];
 
 /**
- * The homepage opening, full bleed: the sunlit boutique, its travertine wall carrying the
- * headline, and the shirt's hang tag hanging into the room on its string. The tag is the one
- * live thing: pick a size, sell one at the counter, and every channel's count drops together.
- * Scrolling walks the camera into the store; the words and the tag lift away and the product
- * cards arrive. Reduced motion or save-data: the same first screen over a still photograph.
+ * The homepage opening, full bleed: the flagship cut open like a dollhouse (shop floor, stockroom,
+ * website studio, the van at the kerb), every part threaded to one glowing hang tag. The plain wall
+ * on the left carries the headline and the live tag: pick a size, sell one, and every channel's
+ * count drops together. Scrolling pushes in on the building as everyone works and the threads
+ * pulse; the words lift away. Reduced motion or save-data: the same first screen over a still.
  */
 export function HomeHero() {
   const [still, setStill] = useState(false);
@@ -47,7 +46,6 @@ export function HomeHero() {
         <Lift>
           <Front />
         </Lift>
-        <HeroCards />
       </ScrollSequence>
     </div>
   );
@@ -75,11 +73,13 @@ function Lift({ children }: { children: React.ReactNode }) {
 function Front() {
   return (
     <>
-      <div aria-hidden className="scrim absolute inset-0 hidden md:block" />
-      <div className="relative mx-auto flex h-full max-w-[var(--max-w)] flex-col px-[var(--gutter)] pt-[var(--header-h)] pb-6 md:justify-center md:pb-8">
-        {/* phones: the words sit on a solid band of the page colour above the photograph */}
-        <div className="max-md:-mx-[var(--gutter)] max-md:bg-studio max-md:px-[var(--gutter)] max-md:pt-6 max-md:pb-7">
-          <h1 className="display text-[clamp(2.4rem,6.4vw,7rem)] leading-[0.94] tracking-[-0.045em] text-ink" aria-label={hero.headline}>
+      <div aria-hidden className="scrim absolute inset-0 hidden lg:block" />
+      <div className="relative mx-auto flex h-full max-w-[var(--max-w)] flex-col px-[var(--gutter)] pt-[var(--header-h)] pb-6 lg:justify-center lg:pb-8">
+        {/* everything sits on the plain wall: the left 42% of the frame */}
+        <div className="flex flex-1 flex-col lg:block lg:max-w-[min(40vw,600px)] lg:flex-none">
+        {/* phones and tablets: the words sit on a solid band of the page colour above the film */}
+        <div className="max-lg:-mx-[var(--gutter)] max-lg:bg-studio max-lg:px-[var(--gutter)] max-lg:pt-6 max-lg:pb-7">
+          <h1 className="display text-[clamp(2.4rem,4.6vw,5.6rem)] leading-[0.95] tracking-[-0.045em] text-ink" aria-label={hero.headline}>
             {LINES.map((line, l) => (
               <span key={l} aria-hidden className="block overflow-clip pb-[0.06em]">
                 <span className="hero-word inline-block" style={{ animationDelay: `${120 + l * 140}ms` }}>
@@ -88,8 +88,8 @@ function Front() {
               </span>
             ))}
           </h1>
-          <p className="intro t-lead mt-5 max-w-[38ch] text-ink md:mt-8">{hero.body}</p>
-          <div className="intro mt-6 flex flex-wrap gap-3 md:mt-8">
+          <p className="intro t-lead mt-5 max-w-[38ch] text-ink lg:mt-8">{hero.body}</p>
+          <div className="intro mt-6 flex flex-wrap gap-3 lg:mt-8">
             <ButtonLink href={hero.primary.href} arrow>
               {hero.primary.label}
             </ButtonLink>
@@ -99,12 +99,13 @@ function Front() {
           </div>
         </div>
         <HangTag />
+        </div>
       </div>
     </>
   );
 }
 
-/** The live thing: the shirt's tag on its string, with one stock count every channel reads. */
+/** The live thing: the shirt's tag, with one stock count that every channel reads. Sell one and they all drop together. */
 function HangTag() {
   const [size, setSize] = useState<Size>("M");
   const [stock, setStock] = useState(t.start);
@@ -115,51 +116,42 @@ function HangTag() {
     setTick((k) => k + 1);
   };
   return (
-    <div className="hang mt-auto w-full md:absolute md:top-0 md:right-[max(var(--gutter),calc((100vw-var(--max-w))/2+var(--gutter)))] md:mt-0 md:w-[340px]">
-      {/* the string the tag hangs from */}
-      <span aria-hidden className="mx-auto hidden h-[calc(var(--header-h)+10vh)] w-[3px] bg-ink/70 md:block" />
-      <div className="tag tag-lg bg-copper p-5 pt-8 text-paper md:p-7 md:pt-20">
-        <div className="flex items-baseline justify-between gap-3">
-          <p className="font-semibold">{t.label}</p>
-          <p className="text-[0.8125rem] text-paper/85">{t.order}</p>
+    <div className="intro tag tag-sm mt-auto w-full max-w-[520px] bg-accent p-5 pt-7 text-paper lg:mt-10">
+      <div className="flex items-center justify-between gap-4">
+        <p className="text-[0.94rem] font-semibold">
+          {t.label} <span className="font-normal text-paper/85">· {t.order}</span>
+        </p>
+        <div role="radiogroup" aria-label="Size" className="flex gap-1">
+          {t.sizes.map((s) => (
+            <button
+              key={s}
+              type="button"
+              role="radio"
+              aria-checked={s === size}
+              onClick={() => setSize(s)}
+              className={`size-9 text-[0.875rem] font-semibold transition-colors ${s === size ? "bg-paper text-ink" : "bg-paper/15 text-paper hover:bg-paper/30"}`}
+            >
+              {s}
+            </button>
+          ))}
         </div>
-        <div className="mt-3 flex items-end justify-between gap-4 md:mt-4">
-          <p className="flex items-baseline gap-3">
-            <span key={`${size}-${n}`} className="display tabular animate-[slide-up_500ms_var(--ease-out)_both] text-[clamp(3rem,6vw,5.2rem)] leading-[0.85]">
+      </div>
+      <ul className="mt-4 grid grid-cols-4 gap-1">
+        {t.channels.map((c, i) => (
+          <li key={c} className="min-w-0 bg-ink/20 px-2.5 py-2">
+            <span className="block truncate text-[0.8125rem] text-paper">{c}</span>
+            <span key={`${tick}-${size}`} className="display tabular block animate-[slide-up_500ms_var(--ease-out)_both] text-[1.6rem] leading-tight" style={{ animationDelay: `${i * 70}ms` }}>
               {n}
             </span>
-            <span className="max-w-[10ch] text-[0.875rem] leading-tight text-paper/90">{t.unit(size)}</span>
-          </p>
-          <div role="radiogroup" aria-label="Size" className="flex gap-1">
-            {t.sizes.map((s) => (
-              <button
-                key={s}
-                type="button"
-                role="radio"
-                aria-checked={s === size}
-                onClick={() => setSize(s)}
-                className={`size-10 text-[0.94rem] font-semibold transition-colors ${s === size ? "bg-paper text-ink" : "bg-paper/15 text-paper hover:bg-paper/30"}`}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </div>
-        <ul className="mt-5 grid grid-cols-4 gap-1 md:grid-cols-2">
-          {t.channels.map((c, i) => (
-            <li key={c} className="flex min-w-0 flex-col bg-ink/20 px-2.5 py-2 md:flex-row md:items-baseline md:justify-between">
-              <span className="truncate text-[0.8125rem] text-paper">{c}</span>
-              <span key={`${tick}-${size}`} className="tabular animate-[slide-up_500ms_var(--ease-out)_both] font-semibold" style={{ animationDelay: `${i * 70}ms` }}>
-                {n}
-              </span>
-            </li>
-          ))}
-        </ul>
-        <button type="button" onClick={act} className="tag tag-xs tag-plain mt-4 flex h-12 w-full items-center justify-between bg-paper px-5 font-semibold text-ink transition-colors hover:bg-ink hover:text-paper">
+          </li>
+        ))}
+      </ul>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+        <button type="button" onClick={act} className="tag tag-xs tag-plain flex h-11 items-center gap-3 bg-paper pr-5 pl-6 font-semibold text-ink transition-colors hover:bg-ink hover:text-paper">
           {n > 0 ? t.sell : t.restock}
           <span aria-hidden>→</span>
         </button>
-        <p className="mt-3 text-[0.8125rem] text-paper/85">{t.note}</p>
+        <p className="text-[0.8125rem] text-paper/90">{t.note}</p>
       </div>
     </div>
   );

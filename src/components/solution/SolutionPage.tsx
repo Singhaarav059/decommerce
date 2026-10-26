@@ -80,13 +80,13 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
                   <div className="tag tag-lg relative aspect-[4/3] overflow-hidden bg-ink/5">
                     <Image src={solutionMedia(s).end} alt="" fill quality={85} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-[70%_50%] transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" />
                     <span className="tag tag-xs tag-plain absolute right-3 bottom-3 flex items-center gap-2 bg-paper py-1.5 pr-3 pl-4 text-[0.8125rem] font-semibold">
-                      <span aria-hidden className="tag tag-plain size-2.5 bg-copper [--cut:4px]" />
+                      <span aria-hidden className="tag tag-plain size-2.5 bg-accent [--cut:4px]" />
                       Shares catalog and stock
                     </span>
                   </div>
                   <p className="mt-4 flex items-center justify-between gap-3 text-[1.05rem] font-semibold">
                     {other.label}
-                    <span aria-hidden className="text-copper transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    <span aria-hidden className="text-accent transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </p>
                   <p className="mt-1 text-ink-2">{other.blurb}</p>
                 </Link>

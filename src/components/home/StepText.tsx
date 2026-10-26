@@ -24,7 +24,7 @@ export function StepText({
         <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 md:mt-7">
           {links.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className="link-u font-semibold text-copper">
+              <Link href={l.href} className="link-u font-semibold text-accent">
                 {l.label} →
               </Link>
             </li>
@@ -44,7 +44,7 @@ export function RowList({ rows, active }: { rows: { key: string; left: ReactNode
           key={r.key}
           className={`relative flex items-baseline justify-between gap-4 py-1.5 transition-[color,padding] duration-300 md:py-2.5 ${i === active ? "pl-4 font-semibold text-ink" : "text-ink-2"}`}
         >
-          <span aria-hidden className={`absolute top-1/2 left-0 tag tag-plain size-2.5 -translate-y-1/2 bg-copper [--cut:4px] transition-[opacity,scale] duration-300 ${i === active ? "scale-100 opacity-100" : "scale-75 opacity-0"}`} />
+          <span aria-hidden className={`absolute top-1/2 left-0 tag tag-plain size-2.5 -translate-y-1/2 bg-accent [--cut:4px] transition-[opacity,scale] duration-300 ${i === active ? "scale-100 opacity-100" : "scale-75 opacity-0"}`} />
           <span>{r.left}</span>
           {r.right != null && <span className="tabular text-right">{r.right}</span>}
         </li>

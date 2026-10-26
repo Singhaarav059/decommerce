@@ -20,7 +20,7 @@ export function PinnedFilm({
   seq,
   alt,
   steps,
-  floor = "#d9cfc4",
+  floor = "#eef1ee",
   length = 2.6,
   priority = false,
   night = false,

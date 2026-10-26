@@ -24,7 +24,7 @@ export function Related() {
                 </span>
                 <span className="mt-3 flex items-center justify-between gap-3 font-semibold">
                   {i.label}
-                  <span aria-hidden className="text-copper transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  <span aria-hidden className="text-accent transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </span>
                 <span className="mt-0.5 block text-[0.92rem] text-ink-2">{i.blurb}</span>
               </Link>

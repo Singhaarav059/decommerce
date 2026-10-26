@@ -32,7 +32,7 @@ export default function Page() {
         <ul className="mt-4 space-y-2.5">
           {contactInclude.items.map((i) => (
             <li key={i} className="flex items-baseline gap-3 text-ink">
-              <span aria-hidden className="tag tag-plain size-2.5 shrink-0 [--cut:4px] bg-copper" />
+              <span aria-hidden className="tag tag-plain size-2.5 shrink-0 [--cut:4px] bg-accent" />
               {i}
             </li>
           ))}
@@ -40,7 +40,7 @@ export default function Page() {
       </div>
       <p className="mt-8 text-ink-soft">
         Prefer email? Write to{" "}
-        <a className="text-copper-ink underline decoration-copper/40 decoration-[1.5px] underline-offset-4 hover:decoration-copper" href={`mailto:${brand.demoEmail}`}>
+        <a className="text-accent-ink underline decoration-accent/40 decoration-[1.5px] underline-offset-4 hover:decoration-accent" href={`mailto:${brand.demoEmail}`}>
           {brand.demoEmail}
         </a>
         .

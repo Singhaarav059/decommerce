@@ -51,7 +51,7 @@ export function RackChapter() {
   }, []);
 
   return (
-    <section ref={section} id="ch-storefront" className="tone-light relative md:h-[280svh]" style={{ background: "#ceb9a4", "--floor": "#ceb9a4" } as CSSProperties}>
+    <section ref={section} id="ch-storefront" className="tone-light relative md:h-[280svh]" style={{ background: "#eef1ee", "--floor": "#ceb9a4" } as CSSProperties}>
       <div className="relative overflow-hidden md:sticky md:top-0 md:h-[100svh]">
         <div className="absolute inset-x-0 top-0 h-[64svh] md:inset-0 md:h-auto">
           <Image src="/assets/rack/wall.webp" alt="" fill sizes="100vw" quality={85} className="object-cover" />
@@ -68,7 +68,7 @@ export function RackChapter() {
             <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
               {storefront.links.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="link-u font-semibold text-copper">
+                  <Link href={l.href} className="link-u font-semibold text-accent">
                     {l.label} →
                   </Link>
                 </li>
@@ -78,7 +78,7 @@ export function RackChapter() {
             <div aria-hidden className="mt-8 hidden max-w-[280px] md:block">
               <p className="text-[0.875rem] text-ink-2">Scroll to move the rail</p>
               <div className="mt-2 h-[3px] overflow-hidden rounded-full bg-ink/10">
-                <span ref={bar} className="block h-full origin-left rounded-full bg-copper" style={{ transform: "scaleX(0)" }} />
+                <span ref={bar} className="block h-full origin-left rounded-full bg-accent" style={{ transform: "scaleX(0)" }} />
               </div>
             </div>
           </div>
