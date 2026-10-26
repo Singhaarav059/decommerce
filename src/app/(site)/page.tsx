@@ -8,7 +8,6 @@ import { RackChapter } from "@/components/home/RackChapter";
 import { KineticStatement } from "@/components/home/KineticStatement";
 import { ModulesIndex } from "@/components/home/ModulesIndex";
 import { EngagementSection } from "@/components/home/EngagementSection";
-import { TrustStrip } from "@/components/home/TrustStrip";
 import { AudiencesSection } from "@/components/home/AudiencesSection";
 import { IntegrationsSection } from "@/components/home/IntegrationsSection";
 import { CompareSection } from "@/components/home/CompareSection";
@@ -27,7 +26,6 @@ export default function HomePage() {
     <main id="main">
       <StoryProgress />
       <HomeHero />
-      <TrustStrip />
       <ServiceSection />
       <Collapse />
       <CostsSection />

@@ -338,6 +338,7 @@ export const ribbon = ["One catalog", "One stock count", "One customer record", 
 
 /** Right after the hero: what Decommerce actually is. A service, not a website. */
 export const service = {
+  team: { image: "/assets/company/team-setup.webp", alt: "Two members of the Decommerce team at a round table with a retailer, walking her through the stock dashboard on a laptop while a colleague looks on." },
   idea: {
     eyebrow: "The idea",
     headline: "One stock count, read by every channel at the same moment.",

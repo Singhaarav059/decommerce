@@ -27,6 +27,7 @@ export function Section({
   backdrop,
   layout = "stack",
   headlineMedia,
+  headerMedia,
 }: {
   id?: string;
   /** Kept for callers; sections no longer show a number or label. */
@@ -45,6 +46,8 @@ export function Section({
   layout?: "stack" | "split";
   /** Small photos set inside the headline, after the given word. */
   headlineMedia?: HeadlineMedia;
+  /** A picture (or panel) beside the header on wide screens, so the opening is never half empty. */
+  headerMedia?: ReactNode;
 }) {
   if (layout === "split")
     return (
@@ -74,14 +77,17 @@ export function Section({
       )}
       <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)]">
         {/* one header shape on every section: headline, then its lead directly under it, on the left margin */}
-        <header className="max-w-[880px]">
-          <Headline as="h2" reveal media={headlineMedia} text={headline} className="t-h2 lg:max-w-[20ch]" />
-          {(lead || headerAside) && (
-            <div className="rv mt-6">
-              {lead && <p className="t-lead max-w-[56ch] text-ink-2">{lead}</p>}
-              {headerAside}
-            </div>
-          )}
+        <header className={headerMedia ? "grid items-center gap-10 lg:grid-cols-12 lg:gap-16" : "max-w-[880px]"}>
+          <div className={headerMedia ? "lg:col-span-6" : ""}>
+            <Headline as="h2" reveal media={headlineMedia} text={headline} className="t-h2 lg:max-w-[20ch]" />
+            {(lead || headerAside) && (
+              <div className="rv mt-6">
+                {lead && <p className="t-lead max-w-[56ch] text-ink-2">{lead}</p>}
+                {headerAside}
+              </div>
+            )}
+          </div>
+          {headerMedia && <div className="lg:col-span-6">{headerMedia}</div>}
         </header>
         {children && <div className="mt-12 md:mt-16">{children}</div>}
       </div>

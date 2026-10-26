@@ -3851,7 +3851,37 @@
       "usd": 0.134,
       "out": "assets-src/stills/rack/cardigan.png",
       "prompt": "Recolour only the garment to a light heather grey. Keep the garment's exact shape, cut, folds, fabric texture, buttons, the wooden hanger, the lighting and the "
+    },
+    {
+      "at": "2026-10-26T17:21:33.443Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "4K",
+      "usd": 0.134,
+      "out": "assets-src/style3/HERO-4k.png",
+      "prompt": "Re-render the FIRST image at much higher detail and resolution with no changes to composition, framing, building, rooms, objects, glowing green threads, hang ta"
+    },
+    {
+      "at": "2026-10-26T17:23:12.054Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "4K",
+      "usd": 0.134,
+      "out": "assets-src/style3/HERO-4k2.png",
+      "prompt": "Keep this image exactly, pixel for pixel in composition, people, faces, threads, tag, palette and detail. Make only one change: remove the man sitting at the de"
+    },
+    {
+      "at": "2026-10-26T17:25:50.818Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "4:5",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/style3/team.png",
+      "prompt": "A still from a top-tier modern 3D animated feature film, in the white and sage palette and finish of the SECOND image, with characters exactly as in the FIRST i"
     }
   ],
-  "totalUsd": 132.378
+  "totalUsd": 132.78
 }

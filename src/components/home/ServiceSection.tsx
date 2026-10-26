@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { ButtonLink } from "@/components/ui/Button";
-import { service } from "@/content/home";
+import { service, trust } from "@/content/home";
 import { LiveSystem } from "./LiveSystem";
 
 const PHOTOS = ["/assets/sol/storefront/detail.webp", "/assets/sol/wms/detail.webp", "/assets/sol/clienteling/detail.webp"];
@@ -18,6 +18,26 @@ export function ServiceSection() {
       eyebrow={service.eyebrow}
       headline={service.headline}
       lead={service.body}
+      headerMedia={
+        <figure className="rv">
+          <div className="tag tag-xl relative aspect-[4/5] overflow-hidden bg-studio-light md:aspect-[5/4] lg:aspect-[4/5]">
+            <Image src={service.team.image} alt={service.team.alt} fill sizes="(max-width: 1024px) 100vw, 45vw" quality={82} className="object-cover" />
+          </div>
+          {/* who runs it, in Demaze's own numbers */}
+          <figcaption className="mt-6">
+            <dl className="grid grid-cols-3 gap-4">
+              {trust.stats.map((s) => (
+                <div key={s.label}>
+                  <dt className="sr-only">{s.label}</dt>
+                  <dd className="display text-[clamp(2.2rem,3.4vw,3.2rem)] leading-none tracking-[-0.04em] text-accent">{s.value}</dd>
+                  <span aria-hidden className="mt-1 block text-[0.94rem] leading-tight text-ink-2">{s.label}</span>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 text-[0.94rem] text-ink-2">{trust.label}.</p>
+          </figcaption>
+        </figure>
+      }
       headerAside={
         <div className="mt-7 flex flex-wrap gap-3">
           <ButtonLink href="/contact-us" arrow>

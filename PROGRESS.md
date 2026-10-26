@@ -199,3 +199,10 @@ The owner rejected the module ring and asked for a real redesign, not patches. R
 - Site tokens: copper renamed to `--accent` (forest green #2d6a4f, bright sage #5c9a78), cool sage-white sections, cooler inks; steps panels, integrations stage and night tone recoloured.
 - Spend: Vertex ledger at about $132 of the owner's Google Cloud credit (scripts' cap raised to $200 with the owner's go-ahead).
 - Checks: lint, typecheck, build ✓; skill lint 0/0; inspector 0 fail; axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 93, /oms 92, /about-us 91 (a11y, best practices, SEO 100).
+
+## Hero as a sharp still with drawn life; fuller service opening (26 Oct 2026)
+
+- The owner found the hero film's small characters "melted" and its actions inconsistent. The hero is now the 4K cutaway still (`assets-src/style3/HERO-4k2.png`, faces refined, the stray fifth figure removed) drifting very slowly, with the story drawn over it in SVG: pulses run along the painted threads into the tag (thread paths traced in image pixels), and "Sell one" sends a pulse from the counter into the tag and back out to every channel as the counts drop. Phones and tablets get the whole building in its own frame between the words and the live tag. The scroll film is retired from the hero.
+- "Not a website. A system we run." now has the team scene (Arjun and Meera walking Ananya through the dashboard) beside it, with Demaze's numbers under it; the separate numbers strip is gone.
+- Dev server restarted with its image cache cleared (it was still serving pre-redesign images under the same file names).
+- Checks: lint, typecheck, build ✓; skill lint 0/0; inspector 0 fail; axe clean; no horizontal overflow; Lighthouse mobile / 92 (a11y, best practices, SEO 100).
