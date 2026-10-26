@@ -2,6 +2,7 @@
 
 import { Scene } from "@/components/layout/Scene";
 import { Headline } from "@/components/ui/Headline";
+import { SectionLabel } from "@/components/ui/Section";
 import { Tabs } from "@/components/ui/Tabs";
 import type { Capability } from "@/content/types";
 import { inSentence } from "@/lib/text";
@@ -10,10 +11,7 @@ import { inSentence } from "@/lib/text";
 export function Capabilities({ title, items, src, floor }: { title: string; items: Capability[]; src: string; floor: string }) {
   return (
     <Scene id="capabilities" variant="framed" flip src={src} floor={floor}>
-      <p className="eyebrow border-t border-line-strong pt-6 w-full">
-        <span className="tabular text-copper">03</span>
-        {"Capabilities"}
-      </p>
+      <SectionLabel index="03" eyebrow="Capabilities" />
       <Headline as="h2" reveal text={`What ${inSentence(title)} does.`} className="t-h2 mt-5" />
       <Tabs
         label={`${title} capabilities`}

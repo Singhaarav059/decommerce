@@ -25,6 +25,7 @@ export function Section({
   className = "",
   headerAside,
   backdrop,
+  layout = "stack",
 }: {
   id?: string;
   /** Two-digit section number shown before the label, e.g. "02". */
@@ -39,7 +40,44 @@ export function Section({
   headerAside?: ReactNode;
   /** A photograph behind the section (night tone): darkened so text stays above 7:1, drifting slowly as you scroll. */
   backdrop?: string;
+  /** stack: header above the content. split: the header stays pinned on the left while the content scrolls on the right. */
+  layout?: "stack" | "split";
 }) {
+  const rule = (
+    <div aria-hidden className="relative h-px bg-line-strong">
+      <span className="line-draw absolute top-0 left-0 h-[2px] w-28 origin-left bg-copper" />
+    </div>
+  );
+  // the section number set large in outline: quiet decoration that also says where you are
+  const numeral = index && (
+    <span aria-hidden className="numeral rv block select-none">
+      {index}
+    </span>
+  );
+  const label = (
+    <p className="eyebrow">
+      {index && <span className="tabular text-copper">{index}</span>}
+      {eyebrow}
+    </p>
+  );
+  if (layout === "split")
+    return (
+      <section id={id} className={`relative isolate ${tones[tone]} ${className}`}>
+        <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)]">
+          {rule}
+          <div className="grid gap-12 pt-6 lg:grid-cols-12 lg:gap-12">
+            <header className="lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:col-span-5 lg:self-start">
+              {label}
+              <Headline as="h2" reveal text={headline} className="t-h2 mt-6 max-w-[14ch]" />
+              {lead && <p className="rv t-lead mt-6 max-w-[42ch] text-ink-2">{lead}</p>}
+              {headerAside}
+              <div className="mt-10 hidden lg:block">{numeral}</div>
+            </header>
+            <div className="min-w-0 lg:col-span-7">{children}</div>
+          </div>
+        </div>
+      </section>
+    );
   return (
     <section id={id} className={`relative isolate overflow-clip ${tones[tone]} ${className}`}>
       {backdrop && (
@@ -51,23 +89,39 @@ export function Section({
         </div>
       )}
       <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)]">
-        <header className="grid gap-6 border-t border-line-strong pt-6 lg:grid-cols-12 lg:gap-12">
+        {rule}
+        <header className="grid gap-6 pt-6 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
-            <p className="eyebrow">
-              {index && <span className="tabular text-copper">{index}</span>}
-              {eyebrow}
-            </p>
+            {label}
             <Headline as="h2" reveal text={headline} className="t-h2 mt-6 max-w-[18ch]" />
           </div>
-          {(lead || headerAside) && (
-            <div className="rv self-end lg:col-span-5">
-              {lead && <p className="t-lead max-w-[46ch] text-ink-2">{lead}</p>}
-              {headerAside}
-            </div>
-          )}
+          <div className="flex flex-col justify-between gap-6 lg:col-span-5">
+            <div className="hidden justify-end lg:flex">{numeral}</div>
+            {(lead || headerAside) && (
+              <div className="rv">
+                {lead && <p className="t-lead max-w-[46ch] text-ink-2">{lead}</p>}
+                {headerAside}
+              </div>
+            )}
+          </div>
         </header>
         {children && <div className="mt-12 md:mt-16">{children}</div>}
       </div>
     </section>
+  );
+}
+
+/** The section rule and label on their own, for sections with a custom layout (framed scenes). */
+export function SectionLabel({ index, eyebrow }: { index?: string; eyebrow: string }) {
+  return (
+    <>
+      <div aria-hidden className="relative h-px bg-line-strong">
+        <span className="line-draw absolute top-0 left-0 h-[2px] w-28 origin-left bg-copper" />
+      </div>
+      <p className="eyebrow mt-6">
+        {index && <span className="tabular text-copper">{index}</span>}
+        {eyebrow}
+      </p>
+    </>
   );
 }

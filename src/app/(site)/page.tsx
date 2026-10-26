@@ -10,7 +10,8 @@ import { EngagementSection } from "@/components/home/EngagementSection";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { CloseChapter } from "@/components/home/CloseChapter";
 import { JourneyRail } from "@/components/home/JourneyRail";
-import { chapters } from "@/content/home";
+import { MarqueeBand } from "@/components/ui/MarqueeBand";
+import { chapters, ribbon } from "@/content/home";
 
 /**
  * The homepage story: what Decommerce is, the problem it solves, then one order (ORD-1042)
@@ -23,6 +24,7 @@ export default function HomePage() {
       <StoryProgress />
       <JourneyRail />
       <HeroFilm />
+      <MarqueeBand items={ribbon} />
       <ServiceSection />
       <StoryChapter chapter={chapters.problem} />
       <CostsSection />

@@ -90,7 +90,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
         ]}
       />
 
-      <ProblemFix title={meta.title} problem={meta.problem.title} narrative={<Content />} fix={meta.fix.title} steps={meta.fix.steps} />
+      <ProblemFix title={meta.title} problem={meta.problem.title} narrative={<Content />} fix={meta.fix.title} steps={meta.fix.steps} image={m.seq.pattern.replace("{i}", "000")} after={m.end} />
 
       <Anatomy title={meta.title} parts={meta.anatomy} src={m.end} floor={m.floor} focus={solutionFocus[slug] ?? {}} />
 

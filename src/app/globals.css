@@ -507,3 +507,14 @@ html.lenis body {
     padding-block: 0.3rem;
   }
 }
+
+/* Large outline section number, the Section header decoration */
+.numeral {
+  font-size: clamp(5rem, 10vw, 9.5rem);
+  font-weight: 600;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--line-strong);
+}

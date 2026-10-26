@@ -102,3 +102,11 @@ Direction agreed with the owner: hyper-real look from AI footage, scrubbed frame
 - Every "how it works" sequence (engagement, solution rollout, contact next steps, partner flow) now uses one dark band over a darkened store photograph (`StepsBand`), with a copper line that draws on scroll.
 - Visuals: photos on the three service pillars, an animated sync diagram (one stock count feeding four channels), a sticky photo beside the homepage FAQ, and an automatic sidebar on company and legal pages (contents list that tracks the heading being read, plus a framed room photo with a demo prompt). The order tracker moved to the bottom right, clear of the text.
 - Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; all pinned steps fit at 390x844, 375x667, 1000x640, 1280x720, 1440x900; Lighthouse mobile / 93, /pos 93, /about-us 97, /contact-us 97.
+
+## Section redesign pass (26 Oct 2026)
+
+- "What we do" is a split section: the intro stays pinned on the left; on the right a dark card with the animated sync diagram, then the platform, setup and running as photo cards that stack over each other on scroll.
+- "The problem in full" is a switchable board (Separate systems / With Decommerce): six cards with small illustrative figures (the ORD-1042 numbers: 18 km vs 2.4 km, counts 0/4/0/6 vs 0/0/0/0); the board turns espresso when switched and switches once by itself when first in view.
+- Every Section header now draws a copper rule on scroll and carries its number large in outline; framed anatomy and capabilities headers use the same rule (`SectionLabel`). A moving ribbon of the platform's promise and modules sits under the hero. The closing demo form uses the split Section (06).
+- Solution "before and after" now shows the film's opening frame as Before and the finished scene as After.
+- Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 91, /pos 91, /about-us 96.

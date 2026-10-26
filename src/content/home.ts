@@ -193,6 +193,9 @@ export const storefront = {
   ],
 };
 
+/** The ribbon under the hero. */
+export const ribbon = ["One catalog", "One stock count", "One customer record", "Storefront", "Order management", "Warehouse", "Delivery", "Point of sale", "Clienteling", "Marketplaces"];
+
 /** Right after the hero: what Decommerce actually is. A service, not a website. */
 export const service = {
   eyebrow: "What we do",
@@ -226,13 +229,44 @@ export const costs = {
   headline: "Separate systems leak sales every day.",
   body: "Most retailers grow one channel at a time, so each one gets its own software. Each system keeps its own copy of the truth, and staff spend their evenings making the copies agree.",
   columns: { area: "Where it shows", without: "With separate systems", with: "With Decommerce" },
+  toggle: { without: "Separate systems", with: "With Decommerce", hint: "Illustrative figures for one linen overshirt in size M." },
   rows: [
-    { area: "Stock", without: "Each channel counts its own stock, so the website sells items the store has already sold.", with: "One stock count. A sale anywhere updates every channel at the same moment." },
-    { area: "Orders", without: "Online orders ship from a fixed warehouse, even when a store nearby has the item.", with: "Each order goes to the location that can deliver it fastest, store or warehouse." },
-    { area: "Customers", without: "The till, the website and the loyalty tool each know a different part of the customer.", with: "One customer record, so staff see every purchase and preference at the counter." },
-    { area: "Prices", without: "Prices and promotions are typed into each system and drift apart.", with: "Set a price once and it applies everywhere it should." },
-    { area: "Reporting", without: "Numbers are exported, merged in spreadsheets and argued over.", with: "One set of numbers for stores, website and warehouse, every morning." },
-    { area: "New channels", without: "Adding a marketplace or a store means another integration project.", with: "A new channel reads the same catalog and stock from its first day." },
+    {
+      area: "Stock",
+      without: "Each channel counts its own stock, so the website sells items the store has already sold.",
+      with: "One stock count. A sale anywhere updates every channel at the same moment.",
+      visual: { kind: "counts", labels: ["Store", "Web", "Warehouse", "Market"], without: ["0", "4", "0", "6"], with: ["0", "0", "0", "0"] },
+    },
+    {
+      area: "Orders",
+      without: "Online orders ship from a fixed warehouse, even when a store nearby has the item.",
+      with: "Each order goes to the location that can deliver it fastest, store or warehouse.",
+      visual: { kind: "big", without: "18 km", with: "2.4 km", note: { without: "from the central warehouse", with: "from the Riverside store" } },
+    },
+    {
+      area: "Customers",
+      without: "The till, the website and the loyalty tool each know a different part of the customer.",
+      with: "One customer record, so staff see every purchase and preference at the counter.",
+      visual: { kind: "big", without: "3", with: "1", note: { without: "partial profiles of one person", with: "complete profile" } },
+    },
+    {
+      area: "Prices",
+      without: "Prices and promotions are typed into each system and drift apart.",
+      with: "Set a price once and it applies everywhere it should.",
+      visual: { kind: "big", without: "3", with: "1", note: { without: "prices for the same shirt", with: "price, everywhere" } },
+    },
+    {
+      area: "Reporting",
+      without: "Numbers are exported, merged in spreadsheets and argued over.",
+      with: "One set of numbers for stores, website and warehouse, every morning.",
+      visual: { kind: "word", without: "Spreadsheets", with: "Every morning" },
+    },
+    {
+      area: "New channels",
+      without: "Adding a marketplace or a store means another integration project.",
+      with: "A new channel reads the same catalog and stock from its first day.",
+      visual: { kind: "word", without: "A new project", with: "Day one" },
+    },
   ],
 };
 
