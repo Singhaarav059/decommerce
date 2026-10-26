@@ -42,7 +42,7 @@ export function ProofBand() {
     <Section index="06" eyebrow={proof.eyebrow} headline={proof.headline} lead={proof.body}>
       <dl className="grid gap-4 sm:grid-cols-3">
         {proof.stats.map((st) => (
-          <div key={st.label} className="rv flex flex-col justify-between rounded-[var(--radius-xl)] bg-paper p-6 ring-1 ring-white/5 md:p-8">
+          <div key={st.label} className="rv flex flex-col justify-between rounded-[var(--radius-xl)] bg-paper p-6 ring-1 ring-black/5 md:p-8">
             <dt className="order-2 mt-6 text-ink-2">{st.label}</dt>
             <dd className="display order-1 text-[clamp(4rem,9vw,8rem)] leading-[0.85] tracking-[-0.05em]">
               <Count to={st.value} suffix={st.suffix} />

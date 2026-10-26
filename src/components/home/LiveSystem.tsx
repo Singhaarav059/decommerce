@@ -25,7 +25,7 @@ function useTick(ms: number, steps: number) {
 
 function Panel({ title, className = "", children, dark = false }: { title: string; className?: string; children: ReactNode; dark?: boolean }) {
   return (
-    <div className={`rv flex flex-col overflow-hidden rounded-[var(--radius-xl)] p-5 shadow-[var(--shadow-md)] md:p-6 ${dark ? "bg-paper ring-1 ring-white/10" : "tone-light bg-paper"} ${className}`}>
+    <div className={`rv flex flex-col overflow-hidden rounded-[var(--radius-xl)] p-5 shadow-[var(--shadow-md)] md:p-6 ${dark ? "tone-night bg-night" : "bg-paper ring-1 ring-black/5"} ${className}`}>
       <div className="flex items-center justify-between gap-3">
         <p className="eyebrow">{title}</p>
         <span className="mono rounded-full px-2 py-0.5 text-[0.66rem] text-ink-2 shadow-[inset_0_0_0_1px_var(--line-strong)]">{live.tag}</span>

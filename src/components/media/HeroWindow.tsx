@@ -68,7 +68,7 @@ export function HeroWindow({
   );
   // the pitch rests on the film in a panel, so the window can start right under the headline
   const panel = (
-    <div className="relative z-[2] max-w-[460px] animate-[slide-up_900ms_var(--ease-out)_both] rounded-[var(--radius-lg)] bg-paper/95 p-5 shadow-[var(--shadow-md)] ring-1 ring-white/10 md:p-6">
+    <div className="relative z-[2] max-w-[460px] animate-[slide-up_900ms_var(--ease-out)_both] rounded-[var(--radius-lg)] bg-paper/95 p-5 shadow-[var(--shadow-md)] ring-1 ring-black/5 md:p-6">
       <p className="text-[1rem] leading-relaxed text-ink-2 md:text-[1.1rem]">{body}</p>
       {actions && <div className="mt-5 flex flex-wrap gap-3">{actions}</div>}
     </div>

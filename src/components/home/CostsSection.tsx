@@ -8,8 +8,8 @@ type Side = "without" | "with";
 
 /**
  * The problem in full, as a board you can switch: six places where separate systems cost a
- * retailer, each with a small figure. Switching to "With Decommerce" turns the board to the
- * store's evening espresso and every figure settles. It switches once by itself the first time
+ * retailer, each with a small figure. Switching to "With Decommerce" turns the board copper
+ * and every figure settles. It switches once by itself the first time
  * the board is in view, so the difference is seen even without a click.
  */
 export function CostsSection() {
@@ -65,13 +65,13 @@ export function CostsSection() {
     >
       <div
         ref={board}
-        className={`rounded-[var(--radius-xl)] p-2 transition-colors duration-700 ease-[var(--ease-out)] md:p-3 ${on ? "tone-night bg-night" : "bg-studio-light/60"}`}
+        className={`rounded-[var(--radius-xl)] p-2 transition-colors duration-700 ease-[var(--ease-out)] md:p-3 ${on ? "bg-copper" : "bg-studio-light/70"}`}
       >
         <ul className="grid gap-2 md:grid-cols-2 md:gap-3 lg:grid-cols-3">
           {costs.rows.map((r, i) => {
             const v = r.visual;
             return (
-              <li key={r.area} className={`flex min-h-[15rem] flex-col rounded-[var(--radius-lg)] p-6 transition-colors duration-700 ${on ? "bg-white/[0.05]" : "bg-paper"}`}>
+              <li key={r.area} className={`flex min-h-[15rem] flex-col rounded-[var(--radius-lg)] p-6 transition-colors duration-700 bg-paper`}>
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="display t-h3">{r.area}</h3>
                   <span className="tabular text-[0.8rem] font-semibold text-copper">{String(i + 1).padStart(2, "0")}</span>
@@ -102,7 +102,7 @@ export function CostsSection() {
             );
           })}
         </ul>
-        <p className="px-4 pt-3 pb-2 text-[0.8rem] text-ink-2">{costs.toggle.hint}</p>
+        <p className={`px-4 pt-3 pb-2 text-[0.8rem] transition-colors duration-700 ${on ? "text-paper" : "text-ink-2"}`}>{costs.toggle.hint}</p>
       </div>
     </Section>
   );

@@ -1,20 +1,20 @@
-/* Decommerce design tokens. The site is the store after hours: an espresso floor, warm
-   light text and copper as the one lit accent. Product screens and photographs sit on it
-   as light panels (.tone-light restores the daylight palette inside them).
-   Contrast (WCAG) on --studio: ink 16.5:1, ink-2 8.6:1, copper 7.8:1; dark text on copper 7.4:1. */
+/* Decommerce design tokens. A light site: pale honed travertine, linen panels, warm ink and
+   copper as the one accent. --night is the store after dark, kept for a few dark cards and the
+   dusk film (.tone-night).
+   Contrast (WCAG) on --studio: ink 14:1, ink-2 8.6:1, copper 4.9:1; paper on copper 5.6:1. */
 :root {
-  --studio: #12100d;
-  --studio-light: #1b1713;
-  --paper: #211c17;
-  --ink: #f4eee6;
-  --ink-2: #b8ada0;
-  --copper: #e8915a;
+  --studio: #f2eadf;
+  --studio-light: #e8dccc;
+  --paper: #fbf7f1;
+  --ink: #1b1915;
+  --ink-2: #45403a;
+  --copper: #a8481a;
   /* brighter copper for fills, lines and dots only (never small text) */
-  --copper-bright: #f0a06a;
-  --line: rgb(244 238 230 / 0.1);
-  --line-strong: rgb(244 238 230 / 0.2);
-  --night: #0b0a08;
-  --night-2: #1a1612;
+  --copper-bright: #c8693a;
+  --line: rgb(27 25 21 / 0.13);
+  --line-strong: rgb(27 25 21 / 0.24);
+  --night: #1c1712;
+  --night-2: #2a231c;
   /* the daylight palette, used by .tone-light panels */
   --day: #efe7dc;
   --day-paper: #fbf7f1;
@@ -40,8 +40,8 @@
   --radius-xl: 28px;
 
   /* one warm light from the upper left: shadows fall down and right, tinted with ink */
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.25), 0 4px 14px rgb(0 0 0 / 0.2);
-  --shadow-md: 4px 16px 40px rgb(0 0 0 / 0.35), 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-sm: 0 1px 2px rgb(27 25 21 / 0.06), 0 2px 10px rgb(27 25 21 / 0.06);
+  --shadow-md: 4px 14px 36px rgb(27 25 21 / 0.12), 0 1px 2px rgb(27 25 21 / 0.06);
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);

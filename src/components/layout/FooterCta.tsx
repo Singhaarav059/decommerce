@@ -12,11 +12,11 @@ export function FooterCta() {
   return (
     <div className="mb-14 grid gap-8 border-b border-ink/12 pb-16 md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:pb-20 lg:mb-20">
       <div>
-        <p className="eyebrow !text-ink/70">{footerCta.eyebrow}</p>
+        <p className="eyebrow !text-ink-2">{footerCta.eyebrow}</p>
         <Headline as="h2" reveal text={footerCta.headline} className="t-h2 mt-5 max-w-[16ch]" />
-        <p className="t-lead mt-5 max-w-[46ch] text-ink/70">{footerCta.body}</p>
+        <p className="t-lead mt-5 max-w-[46ch] text-ink-2">{footerCta.body}</p>
       </div>
-      <ButtonLink href={footerCta.primary.href} arrow className="!bg-ink !text-night !shadow-none hover:!bg-[#f0a774] hover:!text-night">
+      <ButtonLink href={footerCta.primary.href} arrow>
         {footerCta.primary.label}
       </ButtonLink>
     </div>

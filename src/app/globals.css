@@ -528,15 +528,15 @@ html.lenis body {
 @keyframes wordmark-draw {
   0% {
     color: transparent;
-    -webkit-text-stroke: 1px rgb(251 247 241 / 0.25);
+    -webkit-text-stroke: 1px rgb(27 25 21 / 0.22);
     letter-spacing: -0.02em;
   }
   60% {
     color: transparent;
-    -webkit-text-stroke: 1px rgb(251 247 241 / 0.3);
+    -webkit-text-stroke: 1px rgb(27 25 21 / 0.28);
   }
   100% {
-    -webkit-text-stroke: 1px rgb(251 247 241 / 0);
+    -webkit-text-stroke: 1px rgb(27 25 21 / 0);
   }
 }
 

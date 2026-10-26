@@ -38,7 +38,7 @@ export function Section({
   className?: string;
   /** Replaces the lead column, e.g. a button. */
   headerAside?: ReactNode;
-  /** A photograph behind the section (night tone): darkened so text stays above 7:1, drifting slowly as you scroll. */
+  /** A photograph behind the section, washed toward the surface so text stays above 7:1, drifting slowly as you scroll. */
   backdrop?: string;
   /** stack: header above the content. split: the header stays pinned on the left while the content scrolls on the right. */
   layout?: "stack" | "split";
@@ -85,7 +85,8 @@ export function Section({
           <div className="absolute inset-0">
             <Image src={backdrop} alt="" fill sizes="100vw" quality={70} className="object-cover" />
           </div>
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(28_23_18/0.94)_0%,rgb(28_23_18/0.8)_45%,rgb(28_23_18/0.94)_100%)]" />
+          {/* the photo is washed toward the section's own surface so text stays well above 7:1 */}
+          <div className={`absolute inset-0 ${tone === "night" ? "bg-[linear-gradient(180deg,rgb(28_23_18/0.94)_0%,rgb(28_23_18/0.8)_45%,rgb(28_23_18/0.94)_100%)]" : "bg-[linear-gradient(180deg,rgb(242_234_223/0.96)_0%,rgb(242_234_223/0.86)_45%,rgb(242_234_223/0.96)_100%)]"}`} />
         </div>
       )}
       <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)]">

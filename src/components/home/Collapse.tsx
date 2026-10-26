@@ -60,7 +60,7 @@ export function Collapse() {
             </div>
           ))}
           <div className="converge-one absolute top-1/2 left-1/2 w-[min(78%,380px)]">
-            <div className="-translate-x-1/2 -translate-y-1/2 rounded-[var(--radius-xl)] bg-copper p-6 text-night shadow-[0_30px_80px_-20px_rgb(232_145_90/0.45)] md:p-8">
+            <div className="-translate-x-1/2 -translate-y-1/2 rounded-[var(--radius-xl)] bg-copper p-6 text-paper shadow-[0_30px_80px_-20px_rgb(168_72_26/0.45)] md:p-8">
               <p className="mono text-[0.72rem] font-medium tracking-[0.1em] uppercase">{c.one.label}</p>
               <div className="mt-3 flex items-end justify-between gap-4">
                 <p className="display text-[clamp(4rem,8vw,6.5rem)] leading-[0.85]">{c.one.count}</p>
@@ -68,7 +68,7 @@ export function Collapse() {
               </div>
               <ul className="mt-5 grid grid-cols-2 gap-2 text-[0.85rem] font-medium">
                 {c.one.channels.map((ch) => (
-                  <li key={ch} className="flex items-center justify-between rounded-full bg-night/10 px-3 py-1.5">
+                  <li key={ch} className="flex items-center justify-between rounded-full bg-paper/15 px-3 py-1.5">
                     {ch}
                     <span className="mono">0</span>
                   </li>

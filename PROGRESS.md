@@ -149,3 +149,9 @@ Owner asked for a complete rehaul, not tweaks. New concept:
 - The owner's Cloudflare Worker (decommerce.singhaarav059.workers.dev) returned Error 1101 on every page. Reproduced locally with @opennextjs/cloudflare 1.20.13 + wrangler 4 in a scratch worktree: Next printed "Cache Components ... setTimeout()" and every request hung until the runtime cancelled it.
 - Cause: `cacheComponents` and `partialPrefetching` in next.config.ts (from the Phase 1 scaffold, never used: no `use cache`, `cacheLife` or Suspense boundaries). Removed both. `/llms.txt` marked `force-static` so it stays a static file.
 - Verified in the local Workers runtime: /, /pos, /about-us, /contact-us, /sitemap.xml, /llms.txt, frame assets and /_next/image all 200; POST /api/demo returns ok. Vercel build unchanged (all pages static).
+
+## Light theme (26 Oct 2026)
+
+- Owner asked for the whole site in a light theme. The concept, layout and motion stay; the root tokens are the light palette again (travertine #f2eadf, linen #fbf7f1, ink #1b1915, copper #a8481a).
+- Pieces built for the dark floor were reworked: light footer (beige, ink-2 muted text, deeper copper #8a3912 for AA), step bands over a pale wash of their photo instead of a dark one, the converge card in copper with linen text, the cost board turns copper when switched, two live screens (till, sync) kept as dark cards for contrast, hairline rings flipped.
+- Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 91, /pos 92, /about-us 96 (a11y, best practices, SEO 100).

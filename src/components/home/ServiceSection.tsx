@@ -33,7 +33,7 @@ export function ServiceSection() {
 
       <ol className="mt-4 grid gap-4 md:grid-cols-3">
         {service.pillars.map((p, i) => (
-          <li key={p.n} className="group rv flex flex-col overflow-hidden rounded-[var(--radius-xl)] bg-paper ring-1 ring-white/5 shadow-[var(--shadow-sm)] transition-[translate,box-shadow] duration-500 ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-md)]">
+          <li key={p.n} className="group rv flex flex-col overflow-hidden rounded-[var(--radius-xl)] bg-paper ring-1 ring-black/5 shadow-[var(--shadow-sm)] transition-[translate,box-shadow] duration-500 ease-[var(--ease-out)] hover:-translate-y-1 hover:shadow-[var(--shadow-md)]">
             <div className="relative aspect-[16/11] overflow-hidden bg-ink/5">
               <Image src={PHOTOS[i]} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" quality={80} className="object-cover object-right transition-transform duration-1000 ease-[var(--ease-out)] group-hover:scale-[1.06]" />
               <span className="display tabular absolute top-4 left-4 flex size-11 items-center justify-center rounded-full bg-copper text-[1rem] text-paper shadow-[var(--shadow-md)]">{p.n}</span>

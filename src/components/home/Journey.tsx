@@ -44,7 +44,7 @@ export function Journey() {
         </div>
         <div ref={track} className="journey-track mt-6 flex min-h-0 flex-1 gap-4 px-[var(--gutter)] md:gap-6">
           {j.steps.map((s) => (
-            <article key={s.n} className="relative flex w-[86vw] shrink-0 flex-col overflow-hidden rounded-[var(--radius-xl)] bg-paper ring-1 ring-white/5 md:w-[64vw] lg:w-[54vw]">
+            <article key={s.n} className="relative flex w-[86vw] shrink-0 flex-col overflow-hidden rounded-[var(--radius-xl)] bg-paper shadow-[var(--shadow-md)] ring-1 ring-black/5 md:w-[64vw] lg:w-[54vw]">
               <div className="relative min-h-0 flex-1">
                 <Image src={s.image} alt="" fill sizes="(max-width: 768px) 86vw, 60vw" quality={80} className="object-cover object-[72%_50%]" />
                 {/* the product screen for this step */}
@@ -69,7 +69,7 @@ export function Journey() {
                   <h3 className="display t-h3">{s.title}</h3>
                   <p className="mt-2 max-w-[52ch] text-[0.95rem] text-ink-2">{s.body}</p>
                 </div>
-                <Link href={s.href} aria-label={`More about ${s.title.toLowerCase()}`} className="flex size-10 shrink-0 items-center justify-center rounded-full text-copper shadow-[inset_0_0_0_1.5px_var(--line-strong)] transition-colors hover:bg-copper hover:text-night">
+                <Link href={s.href} aria-label={`More about ${s.title.toLowerCase()}`} className="flex size-10 shrink-0 items-center justify-center rounded-full text-copper shadow-[inset_0_0_0_1.5px_var(--line-strong)] transition-colors hover:bg-copper hover:text-paper">
                   →
                 </Link>
               </div>

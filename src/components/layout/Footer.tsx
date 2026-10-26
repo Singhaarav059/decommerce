@@ -11,29 +11,29 @@ import { BackToTop } from "./BackToTop";
 export function Footer() {
   const columns = [...solutionGroups, companyGroup];
   return (
-    <footer className="relative z-[var(--z-raised)] overflow-clip bg-night text-ink [--copper:#f4c19e]">
+    <footer className="relative z-[var(--z-raised)] overflow-clip bg-studio-light text-ink [--copper:#8a3912]">
       <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] pt-20 md:pt-28">
         <FooterCta />
 
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
             <Wordmark className="text-[1.75rem]" />
-            <p className="display rv mt-8 max-w-[14ch] text-[clamp(1.6rem,2.4vw,2.2rem)] text-ink/90">
+            <p className="display rv mt-8 max-w-[14ch] text-[clamp(1.6rem,2.4vw,2.2rem)] text-ink">
               One catalog. One stock count. One customer record.
             </p>
-            <p className="mt-5 max-w-[34ch] text-[0.95rem] leading-relaxed text-ink/65">{brand.tagline}</p>
+            <p className="mt-5 max-w-[34ch] text-[0.95rem] leading-relaxed text-ink-2">{brand.tagline}</p>
           </div>
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 lg:col-span-8">
             {columns.map((g, gi) => (
               <nav key={g.label} aria-label={g.label}>
-                <p className="flex items-center gap-2 border-b border-ink/12 pb-3 text-[0.8rem] font-semibold text-ink/60">
+                <p className="flex items-center gap-2 border-b border-ink/12 pb-3 text-[0.8rem] font-semibold text-ink-2">
                   <span className="tabular text-copper">{String(gi + 1).padStart(2, "0")}</span>
                   {g.label}
                 </p>
                 <ul className="mt-4 space-y-2.5">
                   {g.items.map((item) => (
                     <li key={item.href}>
-                      <Link href={item.href} className="group inline-flex items-center gap-2 text-[0.94rem] text-ink/85 transition-colors hover:text-ink">
+                      <Link href={item.href} className="group inline-flex items-center gap-2 text-[0.94rem] text-ink transition-colors hover:text-ink">
                         <span aria-hidden className="h-px w-0 bg-copper transition-[width] duration-300 ease-[var(--ease-out)] group-hover:w-3" />
                         {item.label}
                       </Link>
@@ -45,14 +45,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-5 border-t border-ink/12 py-6 text-[0.84rem] text-ink/60 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-5 border-t border-ink/12 py-6 text-[0.84rem] text-ink-2 md:flex-row md:items-center md:justify-between">
           <p>
             © {brand.legalName} · A{" "}
-            <a href={brand.parent.href} className="link-u text-ink/80 hover:text-ink">
+            <a href={brand.parent.href} className="link-u text-ink hover:text-ink">
               {brand.parent.name}
             </a>{" "}
             company · Sister to{" "}
-            <a href={brand.sibling.href} className="link-u text-ink/80 hover:text-ink">
+            <a href={brand.sibling.href} className="link-u text-ink hover:text-ink">
               {brand.sibling.name}
             </a>
           </p>
