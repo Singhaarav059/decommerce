@@ -2,8 +2,9 @@ import Image from "next/image";
 import { Section } from "@/components/ui/Section";
 import { Faq } from "@/components/ui/Faq";
 import { homeFaq } from "@/content/home";
+import { AskAi } from "@/components/ui/AskAi";
 
-export function HomeFaq({ index = "07" }: { index?: string }) {
+export function HomeFaq({ index = "09" }: { index?: string }) {
   return (
     <Section id="questions" index={index} tone="soft" eyebrow={homeFaq.eyebrow} headline={homeFaq.headline}>
       <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
@@ -12,7 +13,10 @@ export function HomeFaq({ index = "07" }: { index?: string }) {
             <Image src="/assets/sol/clienteling/end.webp" alt="" fill sizes="40vw" quality={80} className="object-cover object-[72%_50%]" />
           </div>
         </div>
-        <Faq items={homeFaq.items} className="lg:col-span-7" />
+        <div className="lg:col-span-7">
+          <Faq items={homeFaq.items} />
+          <AskAi className="mt-10" />
+        </div>
       </div>
     </Section>
   );

@@ -161,3 +161,10 @@ Owner asked for a complete rehaul, not tweaks. New concept:
 - The owner's manager asked for a light theme "like fynd.com". Studied fynd.com: white and very soft grey sections, near-black text, black pill buttons, light-weight headings, small pill labels.
 - Applied within our palette: white pages (#ffffff) alternating with soft stone grey (#f5f4f1), ink #121110, muted #57524b, copper #a8481a kept as the only accent; black pill primary buttons (copper on hover); section labels are rounded pills; headings at weight 450; photo-band washes and framed sections follow the white/grey rhythm.
 - Checks: lint, typecheck, build ✓; axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 91, /pos 92, /about-us 96 (a11y, best practices, SEO 100).
+
+## Fynd gap pass (26 Oct 2026)
+
+- Compared with fynd.com (homepage, menus, footer, OMS and integrations pages). Added what we can say honestly: a trust strip under the hero with Demaze's own numbers; 05 who it's for (growing brands, multi-channel retailers, large retailers and wholesalers); 06 integrations (connect, sync, migrate, consolidate beside an animated hub of system kinds) and a new /integrations page (in the Company menu, footer, sitemap, llms.txt); 07 how it compares (website builder + plugins vs separate systems vs Decommerce, qualitative); ask-AI buttons (ChatGPT, Claude, Perplexity) under the homepage, solution and integrations FAQs.
+- Solution pages: "What's included" with six features per module and the kinds of systems it connects to (replaces the three capability tabs), and a closing demo form (07).
+- Items that need real input from Demaze are listed in LAUNCH.md (logos, case studies, figures, ratings, certifications, pricing, AI tools, PIM, named connectors, resources).
+- Checks: lint, typecheck, build ✓ (34 pages); axe clean; no horizontal overflow; pinned steps fit; Lighthouse mobile / 91, /pos 92, /integrations 91 (a11y, best practices, SEO 100).

@@ -11,7 +11,7 @@ import { StepText } from "./StepText";
 export function CloseChapter() {
   return (
     <>
-      <Section id="ch-close" index="08" eyebrow={close.eyebrow} headline={close.headline} lead={close.body} layout="split">
+      <Section id="ch-close" index="10" eyebrow={close.eyebrow} headline={close.headline} lead={close.body} layout="split">
         <DemoForm className="rv rounded-[var(--radius-xl)] bg-paper p-6 shadow-[var(--shadow-md)] md:p-9" />
       </Section>
       {/* the page darkens from studio to dusk to the night footer */}

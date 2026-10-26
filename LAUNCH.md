@@ -21,3 +21,19 @@ Status of the PLAN.md launch checklist, updated 24 Oct 2026 after the owner-revi
 - Which of the 12 modules exist today and which are coming soon.
 - Demo booking target (email, Calendly or CRM).
 - Deployment: done. Vercel project `decommerce` (framework Next.js) builds `main` from github.com/Singhaarav059/decommerce on every push; production at https://decommerce-lime.vercel.app. Preview URLs require a Vercel login (default protection).
+
+## Gaps against fynd.com that need real input (26 Oct 2026)
+
+Compared section by section with fynd.com. These are things Fynd shows that we must not invent; each needs Demaze to supply or confirm:
+
+- Customer logos and a "trusted by" strip (Fynd: logo wall on every page).
+- Case studies with results (Fynd: Campus Shoes, Reliance Retail and others with measured figures).
+- Platform figures (Fynd: customers served, GMV, stores, countries, orders per hour). We only show Demaze's own numbers (45+ projects, 35+ people, 6 years).
+- Review ratings (Fynd: G2 4.5/5).
+- Security certifications and badges (Fynd: SOC, GDPR, ISO). Our Security page describes practices only.
+- Pricing pages (Fynd: Storefront, Logistics, Store OS and Snap pricing).
+- AI tools (Fynd: AI agents, AI photoshoot, image editor, AR try-on, workflow automation, AI catalog PIM). Decide which, if any, Decommerce or Decignal provides.
+- A catalog / PIM module (Fynd lists it separately; our "one catalog" is implied, not a module page).
+- Named integrations (we list kinds of system; confirm which ready connectors exist).
+- Resources: blog, customer stories, release notes, docs, events, newsroom, careers, status page.
+- Feature lists per module (`src/content/solutions/features.ts`) describe standard capabilities; confirm each exists.

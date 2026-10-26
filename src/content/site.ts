@@ -74,6 +74,7 @@ export const companyGroup: NavGroup = {
   items: [
     { label: "About us", href: "/about-us", image: "/assets/company/scene-about-us.webp", blurb: "Who builds Decommerce" },
     { label: "Book a demo", href: "/contact-us", image: "/assets/company/scene-contact-us.webp", blurb: "Talk to the team" },
+    { label: "Integrations", href: "/integrations", image: "/assets/company/scene-infrastructure.webp", blurb: "Works with what you run today" },
     { label: "Security", href: "/security", image: "/assets/company/scene-security.webp", blurb: "How we protect your data" },
     { label: "Infrastructure", href: "/infrastructure", image: "/assets/company/scene-infrastructure.webp", blurb: "What runs the platform" },
     { label: "Partners", href: "/partners", image: "/assets/company/scene-partners.webp", blurb: "Work with Decommerce" },

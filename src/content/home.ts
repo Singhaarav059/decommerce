@@ -251,6 +251,69 @@ export const journey = {
   ],
 };
 
+/** Under the hero: Demaze's own numbers (the only figures on the site that are not examples). */
+export const trust = {
+  label: "Built and run by Demaze Technologies",
+  stats: [
+    { value: "45+", label: "projects delivered" },
+    { value: "35+", label: "people on the team" },
+    { value: "6", label: "years building software" },
+  ],
+};
+
+/** Who Decommerce is for: three kinds of retailer and what each usually starts with. */
+export const audiences = {
+  eyebrow: "Who it's for",
+  headline: "Built for brands and retailers of every size.",
+  body: "Start with what your business needs today. The same platform carries you from one website to many stores and channels.",
+  groups: [
+    {
+      title: "Growing brands",
+      body: "Sell online and in your first stores without stitching tools together.",
+      points: ["Storefront on your catalog", "Point of sale for your first stores", "One stock count from day one"],
+      image: "/assets/sol/storefront/end.webp",
+      href: "/storefront",
+    },
+    {
+      title: "Multi-channel retailers",
+      body: "Keep website, stores and marketplaces on one catalog and one stock count.",
+      points: ["Marketplace listings from one catalog", "Order routing across locations", "Returns from any channel"],
+      image: "/assets/sol/oms/end.webp",
+      href: "/oms",
+    },
+    {
+      title: "Large retailers and wholesalers",
+      body: "Run many stores, warehouses and trade accounts with systems built for scale.",
+      points: ["Warehouse and delivery management", "B2B portal with contract prices", "A named team and support"],
+      image: "/assets/sol/wms/end.webp",
+      href: "/wms",
+    },
+  ],
+};
+
+/** How Decommerce compares with the usual alternatives. Qualitative only. */
+export const compare = {
+  eyebrow: "How it compares",
+  headline: "One platform, set up and run with you.",
+  body: "Most retailers piece their commerce together. Here is how that compares with running it all on Decommerce.",
+  columns: ["Website builder and plugins", "Separate systems per channel", "Decommerce"],
+  rows: [
+    { area: "Channels", cells: ["Website only", "Each channel on its own tool", "Website, stores, warehouse, delivery and marketplaces"] },
+    { area: "Stock", cells: ["Synced by plugins, often late", "A different count in each system", "One stock count everywhere"] },
+    { area: "In-store", cells: ["Usually not covered", "A separate till system", "Point of sale, clienteling, endless aisle, self-checkout"] },
+    { area: "Delivery", cells: ["Couriers only", "A separate logistics tool", "Order routing, warehouse and delivery built in"] },
+    { area: "Setup", cells: ["You do it yourself", "Several vendors and projects", "One team migrates, connects and trains"] },
+    { area: "After launch", cells: ["Forums and tickets", "Each vendor separately", "The same team runs and improves it with you"] },
+  ],
+};
+
+/** Ask an AI assistant about Decommerce (prefilled question). */
+export const askAi = {
+  title: "Curious if Decommerce is right for you?",
+  body: "Let an AI assistant do the research. Each button opens it with a question about Decommerce.",
+  prompt: "What is Decommerce (unified commerce from Demaze Technologies)? What does it cover across online, supply chain and in-store, and what kind of retailer is it a good fit for?",
+};
+
 /** The ribbon under the hero. */
 export const ribbon = ["One catalog", "One stock count", "One customer record", "Storefront", "Order management", "Warehouse", "Delivery", "Point of sale", "Clienteling", "Marketplaces"];
 

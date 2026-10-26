@@ -3,7 +3,7 @@
 import { chromium } from "playwright";
 const base = process.env.BASE ?? "http://localhost:3000";
 const paths = process.argv.slice(2);
-const routes = paths.length ? paths : ["/", "/storefront", "/storefront/brand-showcase", "/b2b", "/quick-commerce", "/marketplace", "/oms", "/wms", "/tms", "/pos", "/clienteling", "/endless-aisle", "/self-checkout", "/about-us", "/contact-us", "/security", "/infrastructure", "/partners", "/glossary", "/ai-instructions", "/privacy-policy", "/terms-and-conditions"];
+const routes = paths.length ? paths : ["/", "/storefront", "/storefront/brand-showcase", "/b2b", "/quick-commerce", "/marketplace", "/oms", "/wms", "/tms", "/pos", "/clienteling", "/endless-aisle", "/self-checkout", "/about-us", "/contact-us", "/integrations", "/security", "/infrastructure", "/partners", "/glossary", "/ai-instructions", "/privacy-policy", "/terms-and-conditions"];
 const b = await chromium.launch();
 let bad = 0;
 for (const w of [360, 390, 768, 1440]) {

@@ -679,3 +679,21 @@ html.lenis body {
   transform-origin: bottom right;
   background: radial-gradient(circle at 0 0, transparent 27.5px, var(--studio) 28px);
 }
+
+/* IntegrationHub: a copper pulse travels out along each spoke in turn */
+.hub-pulse {
+  offset-rotate: 0deg;
+  offset-distance: 0%;
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hub-pulse {
+    animation: hub-pulse 3.6s var(--ease-in-out) infinite;
+  }
+}
+@keyframes hub-pulse {
+  0% { offset-distance: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  45% { offset-distance: 100%; opacity: 1; }
+  55%, 100% { offset-distance: 100%; opacity: 0; }
+}

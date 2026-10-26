@@ -3,7 +3,7 @@
 import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
 const base = process.argv[2] ?? process.env.BASE ?? "http://localhost:3000";
-const routes = ["/", "/storefront", "/storefront/brand-showcase", "/b2b", "/quick-commerce", "/marketplace", "/oms", "/wms", "/tms", "/pos", "/clienteling", "/endless-aisle", "/self-checkout", "/about-us", "/contact-us", "/security", "/infrastructure", "/partners", "/glossary", "/ai-instructions", "/privacy-policy", "/terms-and-conditions"];
+const routes = ["/", "/storefront", "/storefront/brand-showcase", "/b2b", "/quick-commerce", "/marketplace", "/oms", "/wms", "/tms", "/pos", "/clienteling", "/endless-aisle", "/self-checkout", "/about-us", "/contact-us", "/integrations", "/security", "/infrastructure", "/partners", "/glossary", "/ai-instructions", "/privacy-policy", "/terms-and-conditions"];
 const b = await chromium.launch();
 let total = 0;
 for (const [w, h] of [[1440, 900], [390, 844]]) {

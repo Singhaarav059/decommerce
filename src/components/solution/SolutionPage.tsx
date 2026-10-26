@@ -13,7 +13,10 @@ import { Anatomy } from "./Anatomy";
 import { ProblemFix } from "./ProblemFix";
 import { Rollout } from "./Rollout";
 import { Section } from "@/components/ui/Section";
-import { Capabilities } from "./Capabilities";
+import { FeaturesSection } from "./FeaturesSection";
+import { features, connects } from "@/content/solutions/features";
+import { AskAi } from "@/components/ui/AskAi";
+import { DemoForm } from "@/components/forms/DemoForm";
 import { inSentence } from "@/lib/text";
 
 export function solutionMetadata(slug: SolutionSlug): Metadata {
@@ -29,8 +32,8 @@ export function solutionMetadata(slug: SolutionSlug): Metadata {
 /**
  * The solution template: one continuous film of the module at work (the pitch,
  * the problem, the steps ticking off), then numbered sections on the studio
- * surface: 01 problem and fix, 02 anatomy, 03 capabilities, 04 how we set it up,
- * 05 works with, 06 questions.
+ * surface: 01 problem and fix, 02 anatomy, 03 what's included (features and connections),
+ * 04 how we set it up, 05 works with, 06 questions (and ask an AI), 07 book a demo.
  */
 export function SolutionPage({ slug }: { slug: SolutionSlug }) {
   const { meta, Content } = solutions[slug];
@@ -63,7 +66,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
 
       <Anatomy title={meta.title} parts={meta.anatomy} src={m.end} floor={m.floor} focus={solutionFocus[slug] ?? {}} />
 
-      <Capabilities title={meta.title} items={meta.capabilities} src={m.detail} floor={m.floor} />
+      <FeaturesSection title={meta.title} features={features[slug]} connects={connects[slug]} image={m.detail} />
 
       <Rollout title={meta.title} backdrop={m.detail} />
 
@@ -102,8 +105,15 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
         }
       >
         <div className="grid lg:grid-cols-12">
-          <Faq items={meta.faq} className="lg:col-span-7 lg:col-start-6" />
+          <div className="lg:col-span-7 lg:col-start-6">
+            <Faq items={meta.faq} />
+            <AskAi className="mt-10" prompt={`What is ${meta.title} in Decommerce (unified commerce from Demaze Technologies)? What does it do and what does it connect to?`} />
+          </div>
         </div>
+      </Section>
+
+      <Section id="demo" index="07" eyebrow="Book a demo" headline={`See ${inSentence(meta.title)} on your catalog.`} lead="Tell us what you sell and where. We usually reply within one working day and show you a working setup on a sample of your own products." layout="split">
+        <DemoForm className="rv rounded-[var(--radius-xl)] bg-studio-light p-6 md:p-9" />
       </Section>
     </main>
   );

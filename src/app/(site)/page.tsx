@@ -8,7 +8,10 @@ import { RackChapter } from "@/components/home/RackChapter";
 import { KineticStatement } from "@/components/home/KineticStatement";
 import { ModulesIndex } from "@/components/home/ModulesIndex";
 import { EngagementSection } from "@/components/home/EngagementSection";
-import { ProofBand } from "@/components/home/ProofBand";
+import { TrustStrip } from "@/components/home/TrustStrip";
+import { AudiencesSection } from "@/components/home/AudiencesSection";
+import { IntegrationsSection } from "@/components/home/IntegrationsSection";
+import { CompareSection } from "@/components/home/CompareSection";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { CloseChapter } from "@/components/home/CloseChapter";
 import { MarqueeBand } from "@/components/ui/MarqueeBand";
@@ -17,14 +20,16 @@ import { ribbon } from "@/content/home";
 /**
  * The homepage as one story, after hours in the store: the system opening onto the shop,
  * the product working (01), the problem collapsing into one stock count (02), one order
- * followed from click to doorstep (03), the rail you can browse, the modules (04), how we
- * work (05), who builds it (06), questions (07) and the demo (08).
+ * followed from click to doorstep (03), the rail you can browse, the modules (04), who it is
+ * for (05), integrations (06), how it compares (07), how we work (08), questions (09) and the
+ * demo (10). Demaze's own numbers sit in the strip under the hero.
  */
 export default function HomePage() {
   return (
     <main id="main">
       <StoryProgress />
       <HeroFilm />
+      <TrustStrip />
       <MarqueeBand items={ribbon} />
       <ServiceSection />
       <Collapse />
@@ -33,8 +38,10 @@ export default function HomePage() {
       <RackChapter />
       <KineticStatement />
       <ModulesIndex />
+      <AudiencesSection />
+      <IntegrationsSection />
+      <CompareSection />
       <EngagementSection />
-      <ProofBand />
       <HomeFaq />
       <CloseChapter />
     </main>

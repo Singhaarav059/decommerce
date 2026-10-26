@@ -2,7 +2,7 @@ import { StepsBand } from "@/components/ui/StepsBand";
 import { engagement } from "@/content/home";
 
 /** How an engagement runs: four steps and what you have at the end of each. */
-export function EngagementSection({ index = "05" }: { index?: string }) {
+export function EngagementSection({ index = "08" }: { index?: string }) {
   return (
     <StepsBand
       id="how-we-work"
