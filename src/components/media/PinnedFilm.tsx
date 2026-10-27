@@ -8,7 +8,7 @@ import { FilmStep } from "./FilmStep";
 import { ScrollSequence } from "./ScrollSequence";
 
 /** A scroll film: footage frames, or a few keyframes that hold and dissolve (`blend`), kept in view around `focus`. */
-export type FilmSeq = { pattern: string; mobilePattern?: string; count: number; blend?: boolean; focus?: [number, number]; push?: number };
+export type FilmSeq = { pattern: string; mobilePattern?: string; count: number; blend?: boolean; focus?: [number, number]; push?: number; keys?: number[] };
 
 /**
  * The standard pinned chapter: a scroll-scrubbed full-screen film of a real

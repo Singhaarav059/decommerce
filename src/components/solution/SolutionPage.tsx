@@ -64,7 +64,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
 
       <ProblemFix title={meta.title} problem={meta.problem.title} narrative={<Content />} fix={meta.fix.title} steps={meta.fix.steps} image={m.seq.pattern.replace("{i}", "000")} after={m.end} />
 
-      <Anatomy title={meta.title} parts={meta.anatomy} src={m.end} floor={m.floor} focus={solutionFocus[slug] ?? {}} fx={m.seq.blend ? m.seq.focus[0] : undefined} />
+      <Anatomy title={meta.title} parts={meta.anatomy} src={m.end} floor={m.floor} focus={solutionFocus[slug] ?? {}} fx={m.seq.blend || m.seq.keys ? m.seq.focus[0] : undefined} />
 
       <FeaturesSection title={meta.title} features={features[slug]} connects={connects[slug]} image={m.detail} />
 
@@ -78,7 +78,7 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
               <li key={s} className="rv">
                 <Link href={other.href} className="group block">
                   <div className="tag tag-lg relative aspect-[4/3] overflow-hidden bg-ink/5">
-                    <Image src={solutionMedia(s).end} alt="" fill quality={85} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" style={{ objectPosition: solutionMedia(s).seq.blend ? `${solutionMedia(s).seq.focus[0]}% 50%` : "70% 50%" }} />
+                    <Image src={solutionMedia(s).end} alt="" fill quality={85} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" style={{ objectPosition: solutionMedia(s).seq.blend || solutionMedia(s).seq.keys ? `${solutionMedia(s).seq.focus[0]}% 50%` : "70% 50%" }} />
                   </div>
                   <p className="mt-4 flex items-center gap-2 text-[0.8125rem] font-semibold text-accent">
                     <span aria-hidden className="tag tag-plain size-2.5 bg-accent [--cut:4px]" />

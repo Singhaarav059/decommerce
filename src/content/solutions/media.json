@@ -2,6 +2,12 @@
   "storefront": {
     "count": 3,
     "beats": true,
+    "motion": 79,
+    "keys": [
+      0,
+      31,
+      78
+    ],
     "focus": [
       58,
       40

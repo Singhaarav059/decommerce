@@ -10,6 +10,9 @@ const only = process.argv.slice(2);
 const on = (k) => !only.length || only.includes(k);
 const webp = (src, out, w, q = 86, crop) => sh("cwebp", ["-quiet", "-q", String(q), "-m", "6", "-sharp_yuv", ...(crop ? ["-crop", ...crop.map(String)] : []), "-resize", String(w), "0", src, "-o", out]);
 const size = (p) => sh("python3", ["-c", `from PIL import Image; print(*Image.open("${p}").size)`]).trim().split(" ").map(Number);
+const motion = JSON.parse(readFileSync("scripts/v7/motion.json", "utf8"));
+// frames per second taken from each motion clip: enough for a smooth scrub, light enough for phones
+const FPS = 8;
 const beatsOf = (k) => spec[k].beats.map((b) => `${V7}/${k}/${b.id}.png`).filter(existsSync);
 
 if (on("hero")) {
@@ -67,11 +70,40 @@ for (const k of Object.keys(media).filter((k) => spec[k] && on(k))) {
     const cw = Math.round((H * 9) / 16), x = Math.max(0, Math.min(W - cw, Math.round((W * mfx) / 100 - cw / 2)));
     webp(src, `${dir}/beats/m/${n}.webp`, cw, 86, [x, 0, cw, H]);
   });
+  // motion: when every step between the keyframes has its Veo clip, the sequence is keyframe, clip frames,
+  // keyframe, … (the clip's own first and last frames are swapped for the sharp stills, which it was pinned to)
+  const clips = (motion[k] ?? []).map((t) => `assets-src/vertex/v7-${k}-${t.from}${t.to}.mp4`);
+  rmSync(`${dir}/motion`, { recursive: true, force: true });
+  let keys;
+  if (clips.length && clips.every(existsSync)) {
+    for (const d of ["d", "m"]) mkdirSync(`${dir}/motion/${d}`, { recursive: true });
+    const tmp = `/tmp/v7-${k}`;
+    rmSync(tmp, { recursive: true, force: true });
+    const frames = [beats[0]];
+    keys = [0];
+    clips.forEach((clip, c) => {
+      mkdirSync(`${tmp}/${c}`, { recursive: true });
+      sh("ffmpeg", ["-v", "error", "-i", clip, "-vf", `fps=${FPS}`, `${tmp}/${c}/%03d.png`]);
+      const own = readdirSync(`${tmp}/${c}`).sort().slice(1, -1).map((f) => `${tmp}/${c}/${f}`);
+      frames.push(...own, beats[c + 1]);
+      keys.push(frames.length - 1);
+    });
+    frames.forEach((src, i) => {
+      const [W, H] = size(src);
+      const n = String(i).padStart(3, "0");
+      // held keyframes stay at full sharpness; the frames between them are only seen while scrolling
+      const key = beats.includes(src);
+      webp(src, `${dir}/motion/d/${n}.webp`, key ? 2560 : 1920, key ? 86 : 76);
+      const cw = Math.round((H * 9) / 16), x = Math.max(0, Math.min(W - cw, Math.round((W * mfx) / 100 - cw / 2)));
+      webp(src, `${dir}/motion/m/${n}.webp`, 720, 76, [x, 0, cw, H]);
+    });
+    rmSync(tmp, { recursive: true, force: true });
+  }
   const end = beats.at(-1);
   webp(end, `${dir}/end.webp`, 1920);
   const [W, H] = size(end), cw = Math.round((H * 4) / 3), x = Math.max(0, Math.min(W - cw, Math.round((W * fx) / 100 - cw / 2)));
   webp(end, `${dir}/thumb.webp`, 160, 80, [x, 0, cw, H]);
-  media[k] = { count: readdirSync(`${dir}/beats/d`).length, beats: true, focus: spec[k].focus, floor: sh("python3", ["scripts/v3/floor.py", beats[0], "0.7", "0.8"]).trim() };
+  media[k] = { count: readdirSync(`${dir}/beats/d`).length, beats: true, ...(keys ? { motion: readdirSync(`${dir}/motion/d`).length, keys } : {}), focus: spec[k].focus, floor: sh("python3", ["scripts/v3/floor.py", beats[0], "0.7", "0.8"]).trim() };
   console.log("sol", k, media[k]);
 }
 writeFileSync("src/content/solutions/media.json", JSON.stringify(media, null, 2) + "\n");

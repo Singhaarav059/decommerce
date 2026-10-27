@@ -8,6 +8,24 @@ import { frameUrl, progressiveOrder, wantsStill } from "@/lib/media";
 gsap.registerPlugin(ScrollTrigger);
 
 const CENTRE: [number, number] = [50, 50];
+// share of the scroll each keyframe holds still, so the scene rests on a sharp picture between actions
+const HOLD = 0.1;
+
+/** Scroll position (0 to 1) to frame index, holding on each keyframe and playing the footage between them. */
+function keyed(p: number, keys: number[]) {
+  const runs = keys.slice(1).map((k, i) => k - keys[i]);
+  const span = runs.reduce((a, b) => a + b, 0) || 1;
+  const play = 1 - HOLD * keys.length;
+  let t = 0;
+  for (let j = 0; j < keys.length; j++) {
+    t += HOLD;
+    if (p <= t || j === keys.length - 1) return keys[j];
+    const len = (runs[j] / span) * play;
+    if (p <= t + len) return keys[j] + ((p - t) / len) * runs[j];
+    t += len;
+  }
+  return keys[keys.length - 1];
+}
 const FULL: [number, number] = [0, 1];
 
 export type Caption = { at: [number, number]; eyebrow?: string; text: string };
@@ -50,6 +68,7 @@ export function ScrollSequence({
   focus = CENTRE,
   push = 0,
   span = FULL,
+  keys,
   children,
 }: {
   /** e.g. "/assets/seq/delivery/{i}.webp" */
@@ -80,6 +99,9 @@ export function ScrollSequence({
   push?: number;
   /** The part of the scroll the frames play over, e.g. [0.4, 0.95]: before it the first frame holds, after it the last. */
   span?: [number, number];
+  /** Footage built around sharp keyframes (scripts/v7): the frame indices of those keyframes. Each one holds
+   * for a stretch of the scroll, and the footage between them plays in proportion to its length. */
+  keys?: number[];
   children?: ReactNode;
 }) {
   const section = useRef<HTMLElement>(null);
@@ -150,7 +172,8 @@ export function ScrollSequence({
 
     function draw() {
       if (!g || !cv) return;
-      const x = Math.min(1, Math.max(0, (progress - span[0]) / (span[1] - span[0]))) * (count - 1);
+      const f = Math.min(1, Math.max(0, (progress - span[0]) / (span[1] - span[0])));
+      const x = keys ? keyed(f, keys) : f * (count - 1);
       let i: number;
       let t = 0;
       if (blend) {
@@ -244,7 +267,7 @@ export function ScrollSequence({
       io.disconnect();
       ro.disconnect();
     };
-  }, [still, pattern, mobilePattern, count, pad, captions, defer, blend, push, focus, span]);
+  }, [still, pattern, mobilePattern, count, pad, captions, defer, blend, push, focus, span, keys]);
 
   const keyImg = (
     <picture>

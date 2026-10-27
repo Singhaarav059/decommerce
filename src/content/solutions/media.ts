@@ -4,15 +4,17 @@ import type { SolutionSlug } from "../site";
 /** Media for one solution page (keyframe beats from scripts/v7/build.mjs; the rest from scripts/v6/build.mjs). */
 export function solutionMedia(slug: SolutionSlug) {
   const base = `/assets/sol/${slug}`;
-  const { count, floor, beats, focus } = (data as Record<string, { count: number; floor: string; beats?: boolean; focus?: number[] }>)[slug];
-  // keyframe beats (scripts/v7/build.mjs) hold sharp and dissolve into each other; older scenes are footage
-  const dir = beats ? `${base}/beats` : `${base}/seq`;
+  const { count, floor, beats, focus, motion, keys } = (data as Record<string, { count: number; floor: string; beats?: boolean; focus?: number[]; motion?: number; keys?: number[] }>)[slug];
+  // scripts/v7/build.mjs: footage between sharp keyframes where the motion clips exist (holds on each keyframe),
+  // otherwise the keyframes alone, dissolving into each other
+  const dir = motion ? `${base}/motion` : beats ? `${base}/beats` : `${base}/seq`;
   return {
     seq: {
       pattern: `${dir}/d/{i}.webp`,
       mobilePattern: `${dir}/m/{i}.webp`,
-      count,
-      blend: !!beats,
+      count: motion ?? count,
+      keys: motion ? keys : undefined,
+      blend: !!beats && !motion,
       focus: (focus ?? [50, 50]) as [number, number],
       push: beats ? 0.04 : 0,
     },

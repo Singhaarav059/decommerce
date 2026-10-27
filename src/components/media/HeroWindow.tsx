@@ -101,7 +101,7 @@ export function HeroWindow({
 
   return (
     <div id={id} className="relative">
-      <ScrollSequence {...seq} span={seq.blend ? BEAT_SPAN : undefined} length={length} stillFrame={0} priority={priority} defer alt={alt} bg="var(--studio)" frameClassName="hero-film absolute inset-0 will-change-transform">
+      <ScrollSequence {...seq} span={seq.blend || seq.keys ? BEAT_SPAN : undefined} length={length} stillFrame={0} priority={priority} defer alt={alt} bg="var(--studio)" frameClassName="hero-film absolute inset-0 will-change-transform">
         <HeroStage headRef={head} top={top} rail={rail} />
       </ScrollSequence>
     </div>
