@@ -258,7 +258,8 @@ cite {
       animation-timeline: --rvm;
       animation-range: entry 0% entry 60%;
     }
-    .rv-media img {
+    .rv-media img,
+    .rv-media video {
       animation: rv-zoom linear both;
       animation-timeline: --rvm;
       animation-range: cover 0% cover 100%;

@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { Faq } from "@/components/ui/Faq";
 import { AskAi } from "@/components/ui/AskAi";
 import { integrations as it } from "@/content/integrations";
+import { sceneFilm } from "@/components/page/DocPage";
 
 export const metadata: Metadata = { title: it.meta.title, description: it.meta.description, alternates: { canonical: "/integrations" } };
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = { title: it.meta.title, description: it.meta.d
 export default function Page() {
   return (
     <main id="main">
-      <PageHero eyebrow="Company" headline="Keep what works. Connect the rest." description={it.meta.description} image="/assets/company/scene-infrastructure.webp" />
+      <PageHero eyebrow="Company" headline="Keep what works. Connect the rest." description={it.meta.description} image="/assets/company/scene-infrastructure.webp" film={sceneFilm("infrastructure")} />
       <IntegrationsSection link={false} />
       <Section eyebrow="By kind of system" headline="What Decommerce connects to." lead="Ready connections and custom links, set up by our team as part of every engagement.">
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

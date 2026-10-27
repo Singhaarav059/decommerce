@@ -8,7 +8,7 @@ const spec = JSON.parse(readFileSync("scripts/v7/motion.json", "utf8"));
 const only = process.argv.slice(2);
 const jobs = Object.keys(spec)
   .filter((k) => !k.startsWith("_") && (!only.length || only.includes(k)))
-  .flatMap((k) => spec[k].map((t) => ({ k, ...t, out: `assets-src/vertex/v7-${k}-${t.from}${t.to}.mp4` })))
+  .flatMap((k) => spec[k].filter((t) => !t.dissolve).map((t) => ({ k, ...t, out: `assets-src/vertex/v7-${k}-${t.from}${t.to}.mp4` })))
   .filter((j) => !existsSync(j.out));
 const still = (k, id) => `assets-src/stills/v7/${k}/${id}.png`;
 const q = [...jobs];
@@ -16,10 +16,10 @@ const q = [...jobs];
 await Promise.all([0, 1].map(async () => {
   while (q.length) {
     const j = q.shift();
-    const args = ["scripts/vertex/veo.mjs", "--model", "veo-3.1-generate-001", "--res", "1080p", "--seconds", String(j.seconds), "--seed", "7",
+    const args = ["scripts/vertex/veo.mjs", "--model", "veo-3.1-generate-001", "--res", "1080p", "--aspect", j.aspect ?? "16:9", "--seconds", String(j.seconds), "--seed", "7",
       "--image", still(j.k, j.from), "--last", still(j.k, j.to), "--out", j.out, "--negative", spec._negative, "--prompt", spec._lock + j.action + spec._keep];
     try {
-      await run("node", args, { maxBuffer: 1 << 24, env: { ...process.env, VERTEX_CAP_USD: "200" } });
+      await run("node", args, { maxBuffer: 1 << 24, env: { ...process.env, VERTEX_CAP_USD: "230" } });
       console.log("ok", j.out);
     } catch (e) {
       console.log("FAILED", j.out, String(e.stderr || e.stdout || e.message).split("\n").filter(Boolean).slice(-2).join(" | "));

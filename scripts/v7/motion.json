@@ -1,5 +1,5 @@
 {
-  "_about": "Motion between approved keyframes (scripts/v7/motion.mjs): Veo gets beat N as the first frame and beat N+1 as the last, so both ends of every clip are pinned to reviewed stills and only the one action between them is animated.",
+  "_about": "Motion between approved keyframes (scripts/v7/motion.mjs): Veo gets beat N as the first frame and beat N+1 as the last, so both ends of every clip are pinned to reviewed stills and only the one action between them is animated. A step marked dissolve is a before/after switch that no real action explains (tickets turning into a clean counter): it cross-fades instead of asking the model to invent one.",
   "_lock": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, in the same 3D animated-feature style. ",
   "_keep": " Every person stays the same person with the same face, hair and outfit throughout; nobody enters or leaves; objects move only while a hand holds them; nothing appears, vanishes, duplicates or morphs.",
   "_negative": "extra people, duplicate people, people appearing or disappearing, objects appearing or disappearing, morphing faces, melting, distorted hands, camera movement, zoom, cuts, text, captions, watermark, blur, flicker",
@@ -21,14 +21,220 @@
     {
       "from": "a",
       "to": "b",
+      "dissolve": true
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 8,
+      "action": "Meera puts the scanner down, picks up the white paper bag that stands at the back of the counter (it is the only bag in the shop), holds it open and slides the folded green knit down into it, where it stays. A short receipt curls out of the small printer. Meera lifts that same bag by its rope handles and holds it out across the counter; only then does Ananya take it by the handles. Both smile."
+    }
+  ],
+  "self-checkout": [
+    {
+      "from": "a",
+      "to": "b",
       "seconds": 6,
-      "action": "Ananya lays the folded green knit from her arm flat on the counter in front of Meera and takes out her phone. Meera picks up the small white handheld scanner and scans the knit's label, while Ananya holds her phone flat over the card reader. Both begin to smile."
+      "action": "Ananya steps up to the kiosk, puts the folded sage scarf from her arms into the open paper bag on the shelf, and the kiosk screen lights up; she holds the folded white tee so its label faces the scanning window, which glows soft green."
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 8,
+      "action": "Ananya puts the white tee into the paper bag with the scarf, taps her phone on the card reader, the kiosk screen shows a large green tick, and she lifts the bag off the shelf by its rope handles and turns slightly toward the camera, smiling."
+    }
+  ],
+  "clienteling": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 4,
+      "action": "Meera's polite, uncertain smile turns warm as she raises the slim white tablet from her side and holds it up between them in both hands; its screen lights up with a customer profile. Ananya smiles, recognised."
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 8,
+      "action": "Meera tucks the tablet under one arm, takes a forest-green knit sweater on a wooden hanger from the rail and hands it to Ananya; Ananya takes it by the hanger and holds it up against herself, delighted, and Meera gestures toward it with her free hand."
+    }
+  ],
+  "endless-aisle": [
+    {
+      "from": "a",
+      "to": "b",
+      "dissolve": true
     },
     {
       "from": "b",
       "to": "c",
       "seconds": 6,
-      "action": "Meera puts the scanner down, slips the folded green knit into the white paper bag, and a short receipt prints from the small printer. She lifts the bag by its rope handles and hands it across the counter; Ananya takes it by the handles and both smile."
+      "action": "Meera lowers the tablet into one hand, takes a small white card reader from her trouser pocket with the other and holds it out; Ananya smiles and holds her phone over it. The tablet screen changes to a small white delivery van icon with a green tick."
+    }
+  ],
+  "marketplace": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 8,
+      "action": "Arjun stops rubbing his forehead, gets up from the chair, picks up the folded ivory overshirt from the edge of the photo table and lays it out on the white sweep, then steps behind the camera on the tripod and looks through it to take the photo. The chair stays empty behind him."
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 6,
+      "action": "Arjun straightens up from the camera, walks back to the desk and leans over the laptop, smiling, clicking; on the laptop screen a column of four small toggle switches turns green one by one."
+    }
+  ],
+  "oms": [
+    {
+      "from": "a",
+      "to": "b",
+      "dissolve": true
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 8,
+      "action": "Arjun puts the order slip down, takes a folded white paper bag from under the counter and opens it on the counter, turns to the shelf behind him, takes a folded ivory linen overshirt, places it into the bag, then presses a small printed white label onto the bag, smiling."
+    }
+  ],
+  "wms": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 8,
+      "action": "Arjun folds the crumpled paper pick list and puts it in his pocket and takes a white handheld scanner from his belt; one bin at chest height beside him lights up green; he reaches into that bin and lifts out a small folded garment in a clear bag."
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 6,
+      "action": "Arjun aims the white handheld scanner at the bagged garment's label and a faint red scan line flickers on it; the green light on the bin he picked from goes out, and a different bin two places further along the shelf lights up green. He smiles."
+    }
+  ],
+  "tms": [
+    {
+      "from": "a",
+      "to": "b",
+      "dissolve": true
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 6,
+      "action": "Rohan lowers his phone into his pocket, lifts the top parcel from the neat stack on the trolley with both hands and slides it onto the lowest shelf inside the van, smiling."
+    }
+  ],
+  "quick-commerce": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 6,
+      "action": "Arjun stops searching as one shelf slot lights up soft green; he takes the small white box from that glowing slot and drops it into the sage-green paper bag on the packing table. Rohan, by the door, looks up, ready."
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 8,
+      "action": "Arjun folds the top of the sage-green bag closed and carries it toward the door while Rohan puts on his white helmet; Rohan takes the bag from Arjun's hands and smiles, one step from the open door and the scooter."
+    }
+  ],
+  "b2b": [
+    {
+      "from": "a",
+      "to": "b",
+      "dissolve": true
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 6,
+      "action": "Arjun clicks once to confirm and the laptop screen changes to a large green tick; he steps out from behind the desk to the hand pallet jack beside the shrink-wrapped pallet, takes its handle and turns to the camera, smiling."
+    }
+  ],
+  "brand-showcase": [
+    {
+      "from": "a",
+      "to": "b",
+      "dissolve": true
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 6,
+      "action": "Meera steps back a little from the dressed form, staying on its left side, picks up a slim white tablet from the table and holds it up toward the camera, its screen showing a photo of the same styled look; she smiles."
+    }
+  ],
+  "close": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 8,
+      "action": "Inside, Meera closes the laptop, picks up her small white handbag from the counter, walks to the glass door, steps out onto the pavement and turns a key in the lock, smiling over her shoulder toward the camera."
+    }
+  ],
+  "hero-v": [
+    {
+      "from": "a",
+      "to": "m",
+      "seconds": 4,
+      "aspect": "9:16",
+      "action": "Meera sets the white scanner down on the counter, picks up the folded ivory overshirt and slides it down into the white paper bag standing on the counter, where it stays, then rests her hand on the bag's handles. There is only one bag throughout."
+    },
+    {
+      "from": "m",
+      "to": "b",
+      "seconds": 4,
+      "aspect": "9:16",
+      "action": "Meera lifts the one white paper bag by its rope handles and holds it out across the counter; Ananya takes it by the handles and they smile at each other. There is only one bag throughout."
+    }
+  ],
+  "co-about-us": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 4,
+      "action": "Meera looks up from the floor plan and Arjun from the laptop; they turn to each other and smile, and Arjun gives a small approving nod with an open hand toward the plan."
+    }
+  ],
+  "co-contact-us": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 4,
+      "action": "Ananya leans closer, points at one shirt on the laptop screen and laughs; Meera smiles back at her."
+    }
+  ],
+  "co-security": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 4,
+      "action": "Arjun lowers his badge so it hangs from the lanyard again, takes the door handle and opens the frosted glass door only about a hand's width, then holds it still there, glancing back at the camera with a calm smile. The door never opens wider than that."
+    }
+  ],
+  "co-infrastructure": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 4,
+      "action": "Arjun lowers the tablet to his side, swings the white cabinet door closed over the rack and turns to the camera with a relaxed smile."
+    }
+  ],
+  "co-partners": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 4,
+      "action": "Meera and Rohan let go of the handshake and both turn to the laptop on the table; Meera points at its screen and Rohan leans in, interested."
+    }
+  ],
+  "co-office": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 4,
+      "action": "Meera turns a page of the booklet and writes a short note in its margin, smiling slightly."
     }
   ]
 }

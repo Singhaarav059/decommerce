@@ -22,7 +22,7 @@ const file = (k, id, t = take) => `assets-src/stills/v7/${k}/${id}${t ? `-t${t}`
 async function image(out, refs, prompt, { aspect, size }) {
   const args = ["scripts/vertex/image.mjs", "--aspect", aspect, "--size", size, "--out", out, "--prompt", prompt];
   for (const r of refs) args.push("--ref", r);
-  await run("node", args, { maxBuffer: 1 << 24, env: { ...process.env, VERTEX_CAP_USD: "200" } });
+  await run("node", args, { maxBuffer: 1 << 24, env: { ...process.env, VERTEX_CAP_USD: "230" } });
 }
 
 const one = async (k) => {
@@ -30,7 +30,11 @@ const one = async (k) => {
   const [first, ...rest] = s.beats;
   try {
     const a = file(k, first.id);
-    if (!existsSync(a)) {
+    if (!existsSync(a) && s.base) {
+      // beat one is an approved picture extended to this aspect (e.g. the 4:5 hero to 9:16 for video)
+      await image(a, [s.base, ...portraits(s)], `${s.extend} ${styleOf(s)}`, s);
+      console.log("ok", k, first.id);
+    } else if (!existsSync(a)) {
       const compose = s.aspect === "16:9" && s.compose !== false ? ` ${spec._compose}` : "";
       await image(a, [...portraits(s), FINISH], `${styleOf(s)} The last reference image shows the finish, materials and light to match (not its people). Scene: ${s.scene}${compose} Action: ${first.action}`, s);
       console.log("ok", k, first.id);

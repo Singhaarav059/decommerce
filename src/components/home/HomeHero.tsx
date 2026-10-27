@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/ui/Button";
 import { hero, heroTag as t } from "@/content/home";
 
@@ -11,14 +11,28 @@ type Size = (typeof t.sizes)[number];
 const words = hero.headline.split(" ");
 const LINES = [words.slice(0, 3).join(" "), words.slice(3).join(" ")];
 
+// where the people sit in the tall scene, so the portrait frame keeps them on every screen
+const POS = "object-[50%_55%]";
+
 /**
  * The homepage opening: the words and the live tag on the page, and beside them one large, sharp
  * moment on the shop floor (nothing laid over it). Meera scans the tag on the overshirt Ananya has
- * put on the counter; sell one on the live tag and the picture moves to the next keyframe, the bag
- * handed over, while every channel's count drops together. Restock and it returns.
+ * put on the counter; sell one on the live tag and the sale plays out (a film pinned to both
+ * keyframes, so it starts and ends exactly on them) while every channel's count drops together.
+ * Restock and it returns. Reduced motion: the keyframes cross-fade instead.
  */
 export function HomeHero() {
   const [sold, setSold] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const film = useRef<HTMLVideoElement>(null);
+  const sell = () => {
+    setSold(true);
+    const v = film.current;
+    if (!v || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    v.currentTime = 0;
+    setPlaying(true);
+    v.play().catch(() => setPlaying(false));
+  };
   return (
     <section id="ch-store" aria-labelledby="hero-title" className="relative bg-studio">
       <div className="mx-auto grid max-w-[var(--max-w)] gap-x-12 px-[var(--gutter)] pt-[calc(var(--header-h)+clamp(16px,3vh,40px))] pb-10 lg:min-h-[100svh] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:grid-rows-[1fr_auto_auto_1fr] lg:pb-[clamp(16px,3vh,40px)]">
@@ -42,28 +56,29 @@ export function HomeHero() {
             </ButtonLink>
           </div>
         </div>
-        <Scene sold={sold} />
+        <Scene sold={sold} playing={playing} film={film} onEnded={() => setPlaying(false)} />
         <div className="lg:col-start-1 lg:row-start-3">
-          <HangTag onSell={() => setSold(true)} onRestock={() => setSold(false)} />
+          <HangTag onSell={sell} onRestock={() => setSold(false)} />
         </div>
       </div>
     </section>
   );
 }
 
-/** The two keyframes of the sale, stacked: the bag fades in over the scan when a sale is made. */
-function Scene({ sold }: { sold: boolean }) {
+/** The two keyframes of the sale, stacked, with the film of the sale between them on top while it plays. */
+function Scene({ sold, playing, film, onEnded }: { sold: boolean; playing: boolean; film: React.RefObject<HTMLVideoElement | null>; onEnded: () => void }) {
   // the second keyframe waits until the page is idle, so it never competes with the first for bandwidth
   const [later, setLater] = useState(false);
   useEffect(() => {
     const ric = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 1200));
     const id = ric(() => setLater(true), { timeout: 4000 });
+    // the film too: it is only fetched once the page is idle
     return () => (window.cancelIdleCallback ?? window.clearTimeout)(id);
   }, []);
   return (
     <div className="intro tag tag-xl relative aspect-[4/5] overflow-hidden bg-studio-light max-lg:-mx-[calc(var(--gutter)/2)] lg:col-start-2 lg:row-span-4 lg:row-start-1 lg:aspect-auto lg:h-[calc(100svh-var(--header-h)-clamp(16px,3vh,40px)*2)] lg:min-h-[560px]">
       <div className="hero-drift absolute inset-0">
-        <Image src="/assets/hero/beat-a.webp" alt={hero.posterAlt} fill priority sizes="(min-width: 1024px) 55vw, 100vw" quality={85} className="object-cover object-[50%_32%]" />
+        <Image src="/assets/hero/beat-a.webp" alt={hero.posterAlt} fill priority sizes="(min-width: 1024px) 55vw, 100vw" quality={85} className={`object-cover ${POS}`} />
         {(later || sold) && (
         <Image
           src="/assets/hero/beat-b.webp"
@@ -71,9 +86,19 @@ function Scene({ sold }: { sold: boolean }) {
           fill
           sizes="(min-width: 1024px) 55vw, 100vw"
           quality={85}
-          className={`object-cover object-[50%_32%] transition-opacity duration-700 ease-[var(--ease-out)] ${sold ? "opacity-100" : "opacity-0"}`}
+          className={`object-cover ${POS} transition-opacity duration-700 ease-[var(--ease-out)] ${sold ? "opacity-100" : "opacity-0"}`}
         />
         )}
+        <video
+          ref={film}
+          src={later ? "/assets/hero/sale.mp4" : undefined}
+          muted
+          playsInline
+          preload="auto"
+          aria-hidden
+          onEnded={onEnded}
+          className={`absolute inset-0 size-full object-cover ${POS} ${playing ? "opacity-100" : "opacity-0"}`}
+        />
       </div>
     </div>
   );

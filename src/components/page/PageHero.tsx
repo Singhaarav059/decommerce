@@ -1,12 +1,14 @@
 import Image from "next/image";
+import { HeroFilm } from "./HeroFilm";
 
 /**
  * The opening of a company or legal page, in the homepage's language: a giant headline (words
  * rise in) with the description beside it, then the page's room of the store in a wide tag-shaped
  * window that opens as it scrolls into view. The scene is composed around its people (scripts/v7),
- * so the window is cropped from the middle and nothing washes over it.
+ * so the window is cropped from the middle and nothing washes over it. `film`, when the scene has one,
+ * plays once as the window comes into view (HeroFilm).
  */
-export function PageHero({ headline, description, image }: { eyebrow?: string; headline: string; description: string; image: string }) {
+export function PageHero({ headline, description, image, film }: { eyebrow?: string; headline: string; description: string; image: string; film?: string }) {
   const plain = headline.replace(/\*/g, "");
   const words = plain.split(" ");
   return (
@@ -30,6 +32,7 @@ export function PageHero({ headline, description, image }: { eyebrow?: string; h
         <div className="rv-media">
           <div className="tag tag-xl relative aspect-[4/3] overflow-hidden md:aspect-[21/9]">
             <Image src={image} alt="" fill priority sizes="100vw" quality={85} className="object-cover object-[50%_45%]" />
+            {film && <HeroFilm src={film} className="object-[50%_45%]" />}
           </div>
         </div>
       </div>

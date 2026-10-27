@@ -17,6 +17,12 @@
   "brand-showcase": {
     "count": 3,
     "beats": true,
+    "motion": 63,
+    "keys": [
+      0,
+      15,
+      62
+    ],
     "focus": [
       52,
       42
@@ -26,6 +32,12 @@
   "b2b": {
     "count": 3,
     "beats": true,
+    "motion": 63,
+    "keys": [
+      0,
+      15,
+      62
+    ],
     "focus": [
       50,
       45
@@ -35,6 +47,12 @@
   "quick-commerce": {
     "count": 3,
     "beats": true,
+    "motion": 111,
+    "keys": [
+      0,
+      47,
+      110
+    ],
     "focus": [
       50,
       45
@@ -44,6 +62,12 @@
   "marketplace": {
     "count": 3,
     "beats": true,
+    "motion": 111,
+    "keys": [
+      0,
+      63,
+      110
+    ],
     "focus": [
       50,
       45
@@ -53,6 +77,12 @@
   "oms": {
     "count": 3,
     "beats": true,
+    "motion": 79,
+    "keys": [
+      0,
+      15,
+      78
+    ],
     "focus": [
       50,
       45
@@ -62,6 +92,12 @@
   "wms": {
     "count": 3,
     "beats": true,
+    "motion": 111,
+    "keys": [
+      0,
+      63,
+      110
+    ],
     "focus": [
       52,
       45
@@ -71,6 +107,12 @@
   "tms": {
     "count": 3,
     "beats": true,
+    "motion": 63,
+    "keys": [
+      0,
+      15,
+      62
+    ],
     "focus": [
       50,
       45
@@ -80,6 +122,12 @@
   "pos": {
     "count": 3,
     "beats": true,
+    "motion": 79,
+    "keys": [
+      0,
+      15,
+      78
+    ],
     "focus": [
       52,
       42
@@ -89,6 +137,12 @@
   "clienteling": {
     "count": 3,
     "beats": true,
+    "motion": 95,
+    "keys": [
+      0,
+      31,
+      94
+    ],
     "focus": [
       50,
       42
@@ -98,6 +152,12 @@
   "endless-aisle": {
     "count": 3,
     "beats": true,
+    "motion": 63,
+    "keys": [
+      0,
+      15,
+      62
+    ],
     "focus": [
       52,
       42
@@ -107,6 +167,12 @@
   "self-checkout": {
     "count": 3,
     "beats": true,
+    "motion": 111,
+    "keys": [
+      0,
+      47,
+      110
+    ],
     "focus": [
       50,
       45

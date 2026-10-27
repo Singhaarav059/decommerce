@@ -1,20 +1,26 @@
 {
   "about-us": {
-    "floor": "#c2bbb7"
+    "floor": "#c2bbb7",
+    "film": true
   },
   "contact-us": {
-    "floor": "#c2bcb5"
+    "floor": "#c2bcb5",
+    "film": true
   },
   "partners": {
-    "floor": "#c2bbba"
+    "floor": "#c2bbba",
+    "film": true
   },
   "security": {
-    "floor": "#c1bbb8"
+    "floor": "#c1bbb8",
+    "film": true
   },
   "infrastructure": {
-    "floor": "#c7bab3"
+    "floor": "#c7bab3",
+    "film": true
   },
   "office": {
-    "floor": "#cabbb5"
+    "floor": "#cabbb5",
+    "film": true
   }
 }
