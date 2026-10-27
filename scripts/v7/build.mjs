@@ -1,6 +1,6 @@
 // Build the site's media from the v7 keyframe beats (assets-src/stills/v7/<scene>/<beat>.png, scripts/v7/beats.mjs).
 // Beats are served sharp (near full resolution, high quality) because each one is held on screen.
-// node scripts/v7/build.mjs [hero|j-<step>|<solution slug> ...]
+// node scripts/v7/build.mjs [hero|close|j-<step>|co-<page>|<solution slug> ...]
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 const sh = (cmd, args) => execFileSync(cmd, args, { stdio: ["ignore", "pipe", "pipe"] }).toString();
@@ -37,6 +37,17 @@ if (on("close") && beatsOf("close").length === spec.close.beats.length) {
   });
   console.log("close", beatsOf("close").length);
 }
+
+// company and legal pages: one scene each, composed around its people
+const scenes = JSON.parse(readFileSync("src/content/company/scenes.json", "utf8"));
+for (const k of Object.keys(spec).filter((k) => k.startsWith("co-") && on(k))) {
+  const [src] = beatsOf(k);
+  if (!src) { console.log("missing", k); continue; }
+  webp(src, `public/assets/company/scene-${k.slice(3)}.webp`, 2560);
+  scenes[k.slice(3)] = { floor: sh("python3", ["scripts/v3/floor.py", src, "0.7", "0.89"]).trim() };
+  console.log("company", k);
+}
+writeFileSync("src/content/company/scenes.json", JSON.stringify(scenes, null, 2) + "\n");
 
 const media = JSON.parse(readFileSync("src/content/solutions/media.json", "utf8"));
 for (const k of Object.keys(media).filter((k) => spec[k] && on(k))) {

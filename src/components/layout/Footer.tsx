@@ -23,7 +23,7 @@ export function Footer() {
             <p className="mt-5 max-w-[34ch] leading-relaxed text-ink-2">{brand.tagline}</p>
             <Link href={brand.team.href} className="group mt-8 flex max-w-[360px] items-center gap-4">
               <span className="tag tag-sm relative block aspect-[4/3] w-28 shrink-0 overflow-hidden">
-                <Image src={brand.team.image} alt="" fill sizes="112px" quality={70} className="object-cover object-right transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.08]" />
+                <Image src={brand.team.image} alt="" fill sizes="112px" quality={70} className="object-cover object-[50%_40%] transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.08]" />
               </span>
               <span className="font-semibold transition-colors group-hover:text-accent">
                 {brand.team.label} <span aria-hidden>→</span>

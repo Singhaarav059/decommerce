@@ -221,7 +221,7 @@ export function Header() {
                       fill
                       sizes="340px"
                       quality={75}
-                      className={`object-cover object-[75%_50%] transition-[opacity,scale] duration-700 ease-[var(--ease-out)] ${item.href === preview.href ? "scale-100 opacity-100" : "scale-[1.05] opacity-0"}`}
+                      className={`object-cover object-[50%_45%] transition-[opacity,scale] duration-700 ease-[var(--ease-out)] ${item.href === preview.href ? "scale-100 opacity-100" : "scale-[1.05] opacity-0"}`}
                     />
                   ))}
                 </div>

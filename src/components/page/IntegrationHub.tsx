@@ -31,7 +31,7 @@ export function IntegrationHub() {
 
   return (
     <div className="tag tag-xl relative isolate overflow-hidden bg-night text-paper">
-      <Image src={it.stage.image} alt="" fill sizes="(max-width: 1024px) 100vw, 55vw" quality={70} className="-z-10 object-cover" style={{ objectPosition: "85% 50%" }} />
+      <Image src={it.stage.image} alt="" fill sizes="(max-width: 1024px) 100vw, 55vw" quality={70} className="-z-10 object-cover" style={{ objectPosition: "50% 45%" }} />
       <div aria-hidden className="absolute inset-0 -z-10 bg-[rgb(10_20_15/0.78)]" />
 
       <div className="px-5 pt-24 pb-6 md:px-10 md:pt-16 md:pb-8">

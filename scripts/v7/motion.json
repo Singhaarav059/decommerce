@@ -1,0 +1,34 @@
+{
+  "_about": "Motion between approved keyframes (scripts/v7/motion.mjs): Veo gets beat N as the first frame and beat N+1 as the last, so both ends of every clip are pinned to reviewed stills and only the one action between them is animated.",
+  "_lock": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, in the same 3D animated-feature style. ",
+  "_keep": " Every person stays the same person with the same face, hair and outfit throughout; nobody enters or leaves; objects move only while a hand holds them; nothing appears, vanishes, duplicates or morphs.",
+  "_negative": "extra people, duplicate people, people appearing or disappearing, objects appearing or disappearing, morphing faces, melting, distorted hands, camera movement, zoom, cuts, text, captions, watermark, blur, flicker",
+  "storefront": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 4,
+      "action": "Meera lifts her chin from her hand and, with her left hand, slides the printed sheet off the right edge of the desk out of view, then places both hands on the keyboard and types. On the monitor, product photos of folded shirts fill the empty grey boxes one by one."
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 6,
+      "action": "Meera stops typing, pushes her chair back a little and stands up behind the desk, staying beside her chair, rests one hand on the desk top and turns to smile warmly at the camera. On the monitor the grid of shirts changes to a single product page of the ivory overshirt."
+    }
+  ],
+  "pos": [
+    {
+      "from": "a",
+      "to": "b",
+      "seconds": 6,
+      "action": "Ananya lays the folded green knit from her arm flat on the counter in front of Meera and takes out her phone. Meera picks up the small white handheld scanner and scans the knit's label, while Ananya holds her phone flat over the card reader. Both begin to smile."
+    },
+    {
+      "from": "b",
+      "to": "c",
+      "seconds": 6,
+      "action": "Meera puts the scanner down, slips the folded green knit into the white paper bag, and a short receipt prints from the small printer. She lifts the bag by its rope handles and hands it across the counter; Ananya takes it by the handles and both smile."
+    }
+  ]
+}

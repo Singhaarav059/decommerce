@@ -4511,7 +4511,142 @@
       "usd": 0.134,
       "out": "assets-src/stills/v7/endless-aisle/b.png",
       "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T06:07:08.952Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/co-about-us/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T06:07:48.687Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/co-contact-us/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T06:08:26.878Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/co-infrastructure/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T06:09:11.483Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/co-partners/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T06:10:55.901Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/co-office/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T06:11:20.121Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/co-security/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T06:13:28.782Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/co-office/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T06:14:56.932Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 4,
+      "usd": 0.8,
+      "out": "assets-src/vertex/v7-storefront-ab.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T06:15:50.160Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-storefront-bc.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T06:17:32.970Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-pos-ab.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T06:17:58.891Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-pos-bc.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T06:19:43.478Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/storefront/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T06:22:04.374Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-storefront-bc.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
     }
   ],
-  "totalUsd": 141.434
+  "totalUsd": 148.106
 }

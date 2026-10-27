@@ -1,20 +1,20 @@
 {
   "about-us": {
-    "floor": "#c0bbbd"
+    "floor": "#c2bbb7"
   },
   "contact-us": {
-    "floor": "#c1bcba"
+    "floor": "#c2bcb5"
   },
   "partners": {
-    "floor": "#c2bab7"
+    "floor": "#c2bbba"
   },
   "security": {
-    "floor": "#c0bcc1"
+    "floor": "#c1bbb8"
   },
   "infrastructure": {
-    "floor": "#ccc4c5"
+    "floor": "#c7bab3"
   },
   "office": {
-    "floor": "#e5dedc"
+    "floor": "#cabbb5"
   }
 }

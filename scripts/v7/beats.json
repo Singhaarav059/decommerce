@@ -40,7 +40,7 @@
       },
       {
         "id": "c",
-        "action": "the monitor now shows one product page: a large photo of an ivory linen overshirt on the left half of the screen and, on the right half, three small square size buttons above one wide forest-green button (no text). The printed sheet is gone from the desk. Meera has turned in her chair toward the camera, one hand still resting on the desk, and smiles warmly at the camera."
+        "action": "the monitor now shows one product page: a large photo of an ivory linen overshirt on the left half of the screen and, on the right half, three small square size buttons above one wide forest-green button (no text). The printed sheet is gone from the desk. Meera has stood up from her chair and stands behind the desk, right beside the chair, one hand resting on the desk top, turned toward the camera and smiling warmly. She is still behind the desk, in the same place she sat."
       }
     ],
     "focus": [
@@ -465,5 +465,116 @@
     "ananya": "Ananya, sleek low bun, sage-green long coat over a cream knit",
     "arjun": "Arjun, groomed short beard, light grey overshirt over a white tee, charcoal trousers",
     "rohan": "Rohan, short dark hair, white zip jacket over a white tee, navy trousers"
+  },
+  "co-about-us": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "meera",
+      "arjun"
+    ],
+    "scene": "The bright back-office studio of the flagship store, where the Decommerce team plans a store launch. Camera at standing eye level, 40mm lens, three-quarter view. A long light ash-wood table in the centre of the frame with a slim open laptop showing a clean dashboard of small product photos and plain bar charts, a printed store floor plan, fabric swatches in sage and ivory, and two white coffee cups. Meera and Arjun stand side by side behind the table, seen from the hips up, faces clearly visible. Behind them: an ash-wood shelf with folded shirts and an olive tree in a white pot. White plaster walls with soft leaf shadows, pale terrazzo floor.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Arjun points at the laptop screen while Meera, smiling, marks the printed floor plan with a pen; both look engaged and confident, mid-conversation."
+      }
+    ]
+  },
+  "co-contact-us": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "meera",
+      "ananya"
+    ],
+    "scene": "A calm demo corner of the flagship store. Camera at seated eye level, 40mm lens, three-quarter view. A round light ash-wood table in the centre with a slim open laptop turned so its screen faces the camera, and two white coffee cups; beside the table a chrome rail of ivory, sage and grey linen shirts on wooden hangers. Meera, from Decommerce, and Ananya, a retailer seeing a demo, sit at the table facing each other, seen from the waist up, faces clearly visible. White plaster walls with soft leaf shadows, pale terrazzo floor.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "The laptop screen shows a storefront page filled with photos of the same linen shirts that hang on the rail beside them. Meera gestures from the screen toward the rail; Ananya leans in, delighted, recognising her own shirts."
+      }
+    ]
+  },
+  "co-security": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "arjun"
+    ],
+    "scene": "The entrance to the stock office at the back of the flagship store. Camera at standing eye level, 40mm lens, three-quarter view. A frosted glass door in a brushed steel frame in the centre of the frame, with a small white card reader on the wall beside it; an olive tree in a white pot. Arjun stands at the door, seen from the knees up, face clearly visible, a white staff badge on a sage-green lanyard around his neck. White plaster walls with soft leaf shadows, pale terrazzo floor.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Arjun holds his white staff badge flat against the card reader; the reader's small light glows green. He looks calm and unhurried."
+      }
+    ]
+  },
+  "co-infrastructure": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "arjun"
+    ],
+    "scene": "Behind the sales counter of the flagship store. Camera at standing eye level, 40mm lens, three-quarter view. In the centre, a tall white cabinet with its door open, revealing a small, tidy server rack: neat rows of slim white units with tiny green status lights and neatly bundled grey cables. Beside it, light ash-wood shelves with folded shirts in ivory and sage, and the edge of a white stone counter in the right foreground. Arjun stands beside the open cabinet, seen from the knees up, face clearly visible. White plaster walls with soft leaf shadows, pale terrazzo floor.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Arjun holds a slim white tablet in one hand, its screen showing a few plain green status bars, and rests his other hand on the open cabinet door, relaxed and smiling; every status light on the rack glows green."
+      }
+    ]
+  },
+  "co-partners": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "meera",
+      "rohan"
+    ],
+    "scene": "A bright meeting corner in the back office of the flagship store. Camera at standing eye level, 40mm lens, three-quarter view. A light ash-wood table in the centre with a slim open laptop showing a storefront page of product photos, a small toy-sized model of a white electric delivery van, and a printed route map. Meera stands on the left and Rohan, here a partner from a delivery company, stands on the right, both seen from the hips up, faces clearly visible. An olive tree in a white pot. White plaster walls with soft leaf shadows, pale terrazzo floor.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Meera and Rohan shake hands warmly across the table, both smiling at each other."
+      }
+    ]
+  },
+  "co-office": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "meera"
+    ],
+    "scene": "A quiet, bright corner of the back office of the flagship store. Camera at seated eye level, 40mm lens, three-quarter view. A light ash-wood desk in the centre with a slim open laptop, a neat stack of printed pages and a white ceramic mug; behind it an ash-wood shelf with plain white storage boxes and a small olive tree. Meera sits at the desk in the centre of the frame, facing three-quarters toward the camera, seen from the waist up, face clearly visible; the laptop is on the desk just to her left. White plaster walls with soft leaf shadows, pale terrazzo floor.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Meera reads a slim printed booklet held open in one hand, a pen in the other, interested and relaxed; the laptop beside her shows a simple page of plain text blocks."
+      }
+    ]
   }
 }

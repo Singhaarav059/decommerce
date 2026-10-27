@@ -130,7 +130,7 @@ export function StepsBand({
                         </div>
                       </div>
                       <div className="tag tag-lg relative m-4 ml-0 hidden w-1/2 overflow-hidden lg:block">
-                        <Image src={images?.[i] ?? backdrop} alt="" fill sizes="30vw" quality={75} style={{ objectPosition: "85% 50%" }} className={`object-cover transition-transform duration-[1800ms] ease-[var(--ease-out)] ${on ? "scale-100" : "scale-110"}`} />
+                        <Image src={images?.[i] ?? backdrop} alt="" fill sizes="30vw" quality={75} style={{ objectPosition: "50% 45%" }} className={`object-cover transition-transform duration-[1800ms] ease-[var(--ease-out)] ${on ? "scale-100" : "scale-110"}`} />
                       </div>
                     </div>
                   </div>
