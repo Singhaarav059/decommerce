@@ -3881,7 +3881,637 @@
       "usd": 0.134,
       "out": "assets-src/style3/team.png",
       "prompt": "A still from a top-tier modern 3D animated feature film, in the white and sage palette and finish of the SECOND image, with characters exactly as in the FIRST i"
+    },
+    {
+      "at": "2026-10-27T04:43:34.352Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/storefront/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T04:44:12.181Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/storefront/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T04:44:52.513Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/storefront/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T04:46:32.392Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "4:5",
+      "size": "4K",
+      "usd": 0.24,
+      "out": "assets-src/stills/v7/hero/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T04:47:44.859Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "4:5",
+      "size": "4K",
+      "usd": 0.24,
+      "out": "assets-src/stills/v7/hero/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T04:49:49.944Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/storefront/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T04:57:43.246Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/self-checkout/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T04:57:45.804Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/marketplace/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T04:58:49.001Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/self-checkout/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T04:59:04.393Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/j-pack/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:00:02.044Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/self-checkout/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:00:50.928Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/self-checkout/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:01:35.900Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/marketplace/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:02:48.859Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/clienteling/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:04:23.411Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/pos/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:05:03.349Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/marketplace/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:05:46.521Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/pos/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:07:57.717Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/clienteling/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:08:41.988Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/pos/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:09:50.450Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/marketplace/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:10:48.617Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/marketplace/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:11:51.085Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/oms/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:12:52.549Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/oms/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:13:59.484Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/oms/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:15:02.507Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/tms/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:15:54.122Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/tms/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:16:57.185Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:17:42.939Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:18:58.108Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:20:07.058Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/quick-commerce/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:21:00.161Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/quick-commerce/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:21:10.794Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/tms/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:21:57.587Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/b2b/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:22:55.813Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/b2b/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:23:39.505Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/b2b/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:24:55.581Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/j-order/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:25:47.803Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/j-delivery/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:26:45.136Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/j-counter/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:27:36.338Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/j-online/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:28:49.934Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/close/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:29:52.988Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/close/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:30:56.317Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/pos/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:32:51.093Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/wms/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:33:25.953Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:33:48.616Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/wms/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:34:57.549Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/wms/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:36:03.471Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/quick-commerce/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:36:59.714Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/brand-showcase/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:37:42.249Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/brand-showcase/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:38:56.545Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/j-counter/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:40:49.520Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/brand-showcase/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:41:20.432Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:42:03.114Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:43:21.066Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/clienteling/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:44:03.518Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/brand-showcase/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:44:59.951Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/brand-showcase/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:46:00.405Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/brand-showcase/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:48:29.621Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/a.png",
+      "prompt": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces wit"
+    },
+    {
+      "at": "2026-10-27T05:48:42.328Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/clienteling/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:49:31.008Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:50:27.718Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:51:48.669Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/clienteling/c.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
+    },
+    {
+      "at": "2026-10-27T05:53:09.175Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "16:9",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/endless-aisle/b.png",
+      "prompt": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, "
     }
   ],
-  "totalUsd": 132.78
+  "totalUsd": 141.434
 }

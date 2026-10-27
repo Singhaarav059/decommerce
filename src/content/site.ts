@@ -1,6 +1,8 @@
 // Site-wide content: brand, nav groups and the 22-page sitemap.
 // Page copy lives in MDX beside this file; this holds only names and routes.
 
+import solutionMediaData from "./solutions/media.json";
+
 export const brand = {
   name: "decommerce",
   legalName: "Decommerce",
@@ -115,8 +117,8 @@ export const navIntro: Record<string, string> = {
 
 /**
  * Where the people and the subject sit in each module's photograph (horizontal %, for
- * object-position), so square and portrait crops keep them whole. The left of every photo is
- * plain wall, so the default leans right.
+ * object-position), so square and portrait crops keep them whole. Older photos keep their left
+ * side as plain wall, so these lean right; keyframe scenes use their own focus (beatFocus).
  */
 export const moduleFocus: Record<SolutionSlug, number> = {
   storefront: 96,
@@ -132,7 +134,12 @@ export const moduleFocus: Record<SolutionSlug, number> = {
   "endless-aisle": 100,
   "self-checkout": 78,
 };
-export const focusOf = (slug?: SolutionSlug) => `${slug ? moduleFocus[slug] : 75}% 50%`;
+// keyframe scenes (scripts/v7) are composed around their own focus point; older stills lean right
+const beatFocus = (slug: SolutionSlug) => {
+  const m = (solutionMediaData as Record<string, { beats?: boolean; focus?: number[] }>)[slug];
+  return m?.beats && m.focus ? m.focus[0] : undefined;
+};
+export const focusOf = (slug?: SolutionSlug) => `${slug ? (beatFocus(slug) ?? moduleFocus[slug]) : 75}% 50%`;
 
 /** Where an item's preview photograph lives. */
 export const navImage = (i: NavItem) => i.image ?? (i.slug ? `/assets/sol/${i.slug}/end.webp` : "/assets/company/scene-office.webp");
@@ -159,18 +166,3 @@ export const rollout = {
   included: ["Data migration", "Payment, courier and channel connections", "Staff training", "Support after launch"],
 };
 
-/** A small example screen for each module, floated over its photo in the module index. Illustrative. */
-export const moduleScreens: Record<SolutionSlug, { title: string; rows: [string, string][] }> = {
-  storefront: { title: "Product page", rows: [["Linen overshirt", "Live"], ["Sizes in stock", "S · M · L"]] },
-  "brand-showcase": { title: "Look 04", rows: [["Pieces", "3"], ["Add the look", "One tap"]] },
-  b2b: { title: "Wholesale order", rows: [["Buyer tier", "Trade B"], ["Pallets", "2"]] },
-  "quick-commerce": { title: "Rider ETA", rows: [["Dark store", "Packed"], ["Arriving", "11 min"]] },
-  marketplace: { title: "Listings", rows: [["Channels", "4"], ["Stock shared", "Yes"]] },
-  oms: { title: "ORD-1042", rows: [["Routed to", "Riverside"], ["Distance", "2.4 km"]] },
-  wms: { title: "Pick list", rows: [["Bin", "B-14"], ["Scanned", "1 of 1"]] },
-  tms: { title: "Route 7", rows: [["Stops", "9"], ["Next", "12 min"]] },
-  pos: { title: "Till 2", rows: [["Paid", "Tap"], ["Receipt", "Sent"]] },
-  clienteling: { title: "Customer", rows: [["Usual size", "M"], ["Last visit", "Look 04"]] },
-  "endless-aisle": { title: "Not on the shelf", rows: [["Riverside", "In stock"], ["Delivery", "Tomorrow"]] },
-  "self-checkout": { title: "Kiosk 1", rows: [["Scanned", "2 items"], ["Paid", "Tap"]] },
-};

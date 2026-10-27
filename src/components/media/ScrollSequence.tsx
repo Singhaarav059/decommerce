@@ -7,6 +7,9 @@ import { frameUrl, progressiveOrder, wantsStill } from "@/lib/media";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const CENTRE: [number, number] = [50, 50];
+const FULL: [number, number] = [0, 1];
+
 export type Caption = { at: [number, number]; eyebrow?: string; text: string };
 
 type Listener = (p: number) => void;
@@ -43,6 +46,10 @@ export function ScrollSequence({
   bg,
   priority = false,
   defer = false,
+  blend = false,
+  focus = CENTRE,
+  push = 0,
+  span = FULL,
   children,
 }: {
   /** e.g. "/assets/seq/delivery/{i}.webp" */
@@ -65,6 +72,14 @@ export function ScrollSequence({
   priority?: boolean;
   /** Stream the other frames only after the page has loaded and gone idle. */
   defer?: boolean;
+  /** The frames are a few keyframes, not footage: hold each one and dissolve into the next between them. */
+  blend?: boolean;
+  /** The point of the picture to keep in view when it is cropped, in percent [x, y] (desktop frames only). */
+  focus?: [number, number];
+  /** A slow push in over the whole scroll: 0.04 ends 4% closer. */
+  push?: number;
+  /** The part of the scroll the frames play over, e.g. [0.4, 0.95]: before it the first frame holds, after it the last. */
+  span?: [number, number];
   children?: ReactNode;
 }) {
   const section = useRef<HTMLElement>(null);
@@ -94,10 +109,13 @@ export function ScrollSequence({
     const g = cv?.getContext("2d", { alpha: false });
     if (!el || !cv || !g) return;
 
-    const src = mobilePattern && innerWidth < 768 ? mobilePattern : pattern;
+    const phone = !!mobilePattern && innerWidth < 768;
+    const src = phone ? mobilePattern : pattern;
+    // phone frames are already cut around the subject
+    const [fx, fy] = phone ? [0.5, focus[1] / 100] : [focus[0] / 100, focus[1] / 100];
     const frames: (HTMLImageElement | null)[] = Array(count).fill(null);
     let progress = 0;
-    let drawn = -1;
+    let drawn = "";
     let cancelled = false;
 
     const resize = () => {
@@ -110,7 +128,7 @@ export function ScrollSequence({
       // resizing the canvas resets its context state: ask for the sharper resampler every time
       g.imageSmoothingEnabled = true;
       g.imageSmoothingQuality = "high";
-      drawn = -1;
+      drawn = "";
       draw();
     };
 
@@ -122,17 +140,37 @@ export function ScrollSequence({
       return -1;
     };
 
-    function draw() {
-      const want = Math.min(count - 1, Math.round(progress * (count - 1)));
-      const i = nearestLoaded(want);
-      if (i < 0 || i === drawn || !g || !cv) return;
-      const img = frames[i]!;
-      // cover-fit
-      const s = Math.max(cv.width / img.naturalWidth, cv.height / img.naturalHeight);
+    // cover-fit around the focus point, pushed in by `zoom`
+    const paint = (img: HTMLImageElement, zoom: number) => {
+      const s = Math.max(cv.width / img.naturalWidth, cv.height / img.naturalHeight) * zoom;
       const w = img.naturalWidth * s;
       const h = img.naturalHeight * s;
-      g.drawImage(img, (cv.width - w) / 2, (cv.height - h) / 2, w, h);
-      drawn = i;
+      g.drawImage(img, (cv.width - w) * fx, (cv.height - h) * fy, w, h);
+    };
+
+    function draw() {
+      if (!g || !cv) return;
+      const x = Math.min(1, Math.max(0, (progress - span[0]) / (span[1] - span[0]))) * (count - 1);
+      let i: number;
+      let t = 0;
+      if (blend) {
+        // hold each keyframe for most of its stretch, then dissolve into the next over the middle 30%
+        i = nearestLoaded(Math.min(count - 1, Math.floor(x)));
+        const f = Math.min(1, Math.max(0, (x - Math.floor(x) - 0.35) / 0.3));
+        if (frames[Math.floor(x) + 1]) t = f * f * (3 - 2 * f);
+      } else i = nearestLoaded(Math.min(count - 1, Math.round(x)));
+      if (i < 0) return;
+      const zoom = 1 + push * progress;
+      const key = `${i}|${t.toFixed(3)}|${zoom.toFixed(4)}`;
+      if (key === drawn) return;
+      g.globalAlpha = 1;
+      paint(frames[i]!, zoom);
+      if (t > 0) {
+        g.globalAlpha = t;
+        paint(frames[Math.floor(x) + 1]!, zoom);
+        g.globalAlpha = 1;
+      }
+      drawn = key;
       // the canvas stays invisible over the still image until it has a real frame
       cv.style.opacity = "1";
     }
@@ -206,7 +244,7 @@ export function ScrollSequence({
       io.disconnect();
       ro.disconnect();
     };
-  }, [still, pattern, mobilePattern, count, pad, captions, defer]);
+  }, [still, pattern, mobilePattern, count, pad, captions, defer, blend, push, focus, span]);
 
   const keyImg = (
     <picture>
@@ -218,6 +256,7 @@ export function ScrollSequence({
         loading={priority ? "eager" : "lazy"}
         decoding="async"
         className="absolute inset-0 size-full object-cover"
+        style={{ objectPosition: `${focus[0]}% ${focus[1]}%` }}
       />
     </picture>
   );

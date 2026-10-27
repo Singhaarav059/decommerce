@@ -2,12 +2,12 @@ import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 
 /** Washes the photo out around one point ([x, y] in percent of the photo), so the eye goes there. */
-function Spot({ spot, className }: { spot?: [number, number] | null; className: string }) {
+function Spot({ spot, className, style }: { spot?: [number, number] | null; className: string; style?: CSSProperties }) {
   return (
     <div
       aria-hidden
       className={`absolute top-1/2 aspect-video min-h-full min-w-full -translate-y-1/2 transition-opacity duration-500 ease-[var(--ease-out)] ${className}`}
-      style={{ opacity: spot ? 1 : 0, background: spot ? `radial-gradient(circle at ${spot[0]}% ${spot[1]}%, transparent 0 9%, rgb(239 231 222 / 0.62) 22%)` : undefined }} /* taste-skill-ignore: spotlight wash on a photo */
+      style={{ ...style, opacity: spot ? 1 : 0, background: spot ? `radial-gradient(circle at ${spot[0]}% ${spot[1]}%, transparent 0 9%, rgb(239 231 222 / 0.62) 22%)` : undefined }} /* taste-skill-ignore: spotlight wash on a photo */
     />
   );
 }
@@ -32,6 +32,8 @@ export function Scene({
   flip = false,
   light = true,
   soft = false,
+  fx = 100,
+  bare = false,
 }: {
   id?: string;
   src: string;
@@ -46,6 +48,10 @@ export function Scene({
   light?: boolean;
   /** Framed sections: sit on the soft stone tone instead of white (for alternating sections). */
   soft?: boolean;
+  /** Framed sections: which part of a wide photo stays in the frame, 0 (left) to 100 (right). Older photos keep their subject on the right. */
+  fx?: number;
+  /** Full scenes composed with a calm wall for the words: no wash under the text. */
+  bare?: boolean;
 }) {
   if (variant === "framed")
     return (
@@ -53,10 +59,10 @@ export function Scene({
       <section id={id} aria-label={label} className={soft ? "bg-studio-light" : "bg-studio"}>
         <div className="mx-auto grid max-w-[var(--max-w)] grid-cols-1 items-center gap-8 px-[var(--gutter)] py-[var(--section-gap)] md:gap-10 lg:grid-cols-12 lg:gap-12">
           <div className={`rv-media min-w-0 lg:col-span-7 ${flip ? "" : "lg:order-2"}`}>
-            {/* cropped to the subject: the photos keep their calm left side empty for full-bleed text */}
+            {/* cropped to the subject (`fx`); the wash is laid out like the cover-fitted photo */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-ink/5 md:aspect-[5/4]">
-              <Image src={src} alt="" fill sizes="(max-width: 1024px) 100vw, 58vw" quality={85} className="object-cover object-right" />
-              <Spot spot={spot} className="left-full -translate-x-full" />
+              <Image src={src} alt="" fill sizes="(max-width: 1024px) 100vw, 58vw" quality={85} className="object-cover" style={{ objectPosition: `${fx}% 50%` }} />
+              <Spot spot={spot} className="" style={{ left: `${fx}%`, translate: `-${fx}% -50%` }} />
             </div>
           </div>
           <div className={`min-w-0 lg:col-span-5 ${flip ? "lg:pl-4" : "lg:pr-4"}`}>{children}</div>
@@ -71,7 +77,7 @@ export function Scene({
           <Image src={src} alt="" fill priority={priority} sizes="100vw" quality={85} className="object-cover object-[70%_50%] md:object-center" />
           {/* the wash is laid out like the cover-fitted photo, so spot coordinates are photo percentages */}
           <Spot spot={spot} className="left-[70%] -translate-x-[70%] md:left-1/2 md:-translate-x-1/2" />
-          <div aria-hidden className={`scrim absolute inset-0 hidden md:block ${light ? "" : "night"}`} />
+          {!bare && <div aria-hidden className={`scrim absolute inset-0 hidden md:block ${light ? "" : "night"}`} />}
         </div>
       </div>
       <div className="relative mx-auto flex max-w-[var(--max-w)] px-[var(--gutter)] pt-[calc(52svh+8px)] pb-16 md:min-h-[100svh] md:items-center md:pt-[calc(var(--header-h)+40px)] md:pb-20 [--ink-2:var(--ink)]">

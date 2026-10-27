@@ -14,14 +14,14 @@ export function CloseChapter() {
       <Section id="ch-close" eyebrow={close.eyebrow} headline={close.headline} lead={close.body} layout="split">
         <DemoForm className="rv tag tag-lg tag-plain bg-studio-light p-6 pt-12 md:p-10 md:pt-16" />
       </Section>
-      {/* the page darkens from studio to dusk to the night footer */}
+      {/* the page moves from studio to dusk, the words on the shop's own calm wall, then the night footer */}
       <PinnedFilm
         id="ch-close-film"
         seq={sequences.close}
         alt={close.alt}
         length={1.3}
         floor={sequences.close.floor}
-        night
+        bare
         steps={[<StepText key="a" label={close.film.label} headline={close.film.headline} body={close.film.body} />]}
       />
     </>

@@ -42,9 +42,19 @@ export function Journey() {
           {j.steps.map((s) => (
             <article key={s.title} className="relative flex w-[86vw] shrink-0 flex-col md:w-[64vw] lg:w-[54vw]">
               <div className="tag tag-lg relative min-h-0 flex-1 overflow-hidden bg-studio">
-                <Image src={s.image} alt="" fill sizes="(max-width: 768px) 86vw, 60vw" quality={80} className="object-cover object-[72%_50%]" />
-                {/* the product screen for this step */}
-                <div className="tone-light absolute right-4 bottom-4 w-[min(300px,78%)] bg-paper p-4">
+                <Image src={s.image} alt="" fill sizes="(max-width: 768px) 86vw, 60vw" quality={85} className="object-cover object-[50%_42%]" />
+              </div>
+              {/* the words and the product screen for this step sit under the picture, never on it */}
+              <div className="flex items-start gap-5 pt-5 md:gap-6">
+                <div className="min-w-0 flex-1">
+                  <p className="flex items-center gap-2 text-[0.875rem] font-semibold">
+                    <span aria-hidden className="tag tag-plain size-3 shrink-0 bg-accent [--cut:5px]" />
+                    {s.tag}
+                  </p>
+                  <h3 className="display t-h3 mt-2">{s.title}</h3>
+                  <p className="mt-2 max-w-[52ch] text-[0.95rem] text-ink-2">{s.body}</p>
+                </div>
+                <div className="w-[min(280px,38%)] shrink-0 bg-paper p-4 max-md:hidden">
                   <div className="flex items-center justify-between text-[0.8125rem]">
                     <span className="text-[0.875rem] font-semibold">{s.ui.title}</span>
                     <span className="text-ink-2">Example</span>
@@ -57,17 +67,6 @@ export function Journey() {
                       </div>
                     ))}
                   </dl>
-                </div>
-                {/* a small floating tag, like a price tag on a product photo */}
-                <span className="tag tag-xs tag-plain absolute top-4 right-4 flex items-center gap-2 bg-paper py-2 pr-4 pl-4 text-[0.875rem] font-semibold">
-                  <span aria-hidden className="tag tag-plain size-3 bg-accent [--cut:5px]" />
-                  {s.tag}
-                </span>
-              </div>
-              <div className="flex items-start justify-between gap-6 pt-5">
-                <div>
-                  <h3 className="display t-h3">{s.title}</h3>
-                  <p className="mt-2 max-w-[52ch] text-[0.95rem] text-ink-2">{s.body}</p>
                 </div>
                 <Link href={s.href} aria-label={`More about ${s.title.toLowerCase()}`} className="tag tag-xs tag-plain flex size-11 shrink-0 items-center justify-center bg-ink text-paper transition-colors hover:bg-accent">
                   →

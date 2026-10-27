@@ -12,10 +12,10 @@ import { inSentence } from "@/lib/text";
  * Choosing a part spotlights it in the scene (no pins or labels drawn on the
  * photo). `focus` gives each part's centre in percent of the photo.
  */
-export function Anatomy({ title, parts, src, floor, focus }: { title: string; parts: Part[]; src: string; floor: string; focus: Record<string, [number, number]> }) {
+export function Anatomy({ title, parts, src, floor, focus, fx }: { title: string; parts: Part[]; src: string; floor: string; focus: Record<string, [number, number]>; fx?: number }) {
   const [active, setActive] = useState<string | null>(null);
   return (
-    <Scene id="anatomy" variant="framed" soft src={src} floor={floor} spot={active ? (focus[active] ?? [65, 50]) : null}>
+    <Scene id="anatomy" variant="framed" soft src={src} floor={floor} fx={fx} spot={active ? (focus[active] ?? [65, 50]) : null}>
       <SectionLabel eyebrow="Anatomy" />
       <Headline as="h2" reveal text={`What makes ${inSentence(title)} work.`} className="t-h2 mt-5" />
       <ul className="mt-8 md:mt-10">

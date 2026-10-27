@@ -211,7 +211,8 @@ export function Header() {
                     </Link>
                   </p>
                 </div>
-                <div className={`relative overflow-hidden rounded-[var(--radius-lg)] bg-studio ${panel.items.length > 5 ? "aspect-[4/5]" : "aspect-[20/19]"}`}>
+                <div>
+                <div className={`relative overflow-hidden rounded-[var(--radius-lg)] bg-studio ${panel.items.length > 5 ? "aspect-[1/1]" : "aspect-[5/4]"}`}>
                   {panel.items.map((item) => (
                     <Image
                       key={item.href}
@@ -223,10 +224,12 @@ export function Header() {
                       className={`object-cover object-[75%_50%] transition-[opacity,scale] duration-700 ease-[var(--ease-out)] ${item.href === preview.href ? "scale-100 opacity-100" : "scale-[1.05] opacity-0"}`}
                     />
                   ))}
-                  <p key={preview.href} className="absolute inset-x-3 bottom-3 animate-[rise_400ms_var(--ease-out)_both] rounded-[var(--radius-md)] bg-paper px-4 py-3 text-[0.84rem]">
-                    <span className="block font-semibold">{preview.label}</span>
-                    <span className="text-ink-2">{preview.blurb}</span>
-                  </p>
+                </div>
+                {/* the caption sits under the picture, never on it */}
+                <p key={preview.href} className="mt-2 animate-[rise_400ms_var(--ease-out)_both] rounded-[var(--radius-md)] bg-studio-light px-4 py-3 text-[0.84rem]">
+                  <span className="block font-semibold">{preview.label}</span>
+                  <span className="text-ink-2">{preview.blurb}</span>
+                </p>
                 </div>
               </div>
             </div>

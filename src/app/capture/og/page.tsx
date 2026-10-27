@@ -9,7 +9,9 @@ export const metadata = { robots: { index: false, follow: false } };
 export default function OgCapture() {
   return (
     <main className="relative h-[630px] w-[1200px] overflow-hidden bg-studio">
-      <Image src="/assets/seq/hero/d/000.webp" alt="" width={1280} height={720} priority className="feather absolute top-[40px] right-[-120px] h-[560px] w-auto max-w-none" />
+      <div className="tag tag-lg absolute top-[32px] right-[48px] h-[566px] w-[453px] overflow-hidden">
+        <Image src="/assets/hero/beat-a.webp" alt="" fill priority sizes="453px" quality={85} className="object-cover object-[50%_32%]" />
+      </div>
       <div className="absolute top-14 left-16 w-[560px]">
         <p className="text-[2.4rem] leading-none font-semibold tracking-[-0.035em]">
           {brand.name}

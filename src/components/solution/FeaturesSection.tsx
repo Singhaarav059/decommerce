@@ -11,13 +11,15 @@ export function FeaturesSection({ title, features, connects, image }: { title: s
       <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-[calc(var(--header-h)+24px)]">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-xl)] bg-studio-light lg:aspect-[4/5]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-xl)] bg-studio-light lg:aspect-[5/6]">
               <Image src={image} alt="" fill sizes="(max-width: 1024px) 100vw, 40vw" quality={85} className="object-cover object-right" />
-              <div className="absolute inset-x-4 bottom-4 rounded-[var(--radius-lg)] bg-paper/95 p-4">
+            </div>
+            {/* under the picture, never on it */}
+            <div className="mt-3 rounded-[var(--radius-lg)] bg-studio-light p-4">
                 <p className="text-[0.8rem] font-semibold text-ink-2">Connects to</p>
                 <ul className="mt-2 flex flex-wrap gap-1.5">
                   {connects.map((c) => (
-                    <li key={c} className="bg-studio-light px-3 py-1 text-[0.82rem] font-medium">
+                    <li key={c} className="bg-paper px-3 py-1 text-[0.82rem] font-medium">
                       {c}
                     </li>
                   ))}
@@ -25,7 +27,6 @@ export function FeaturesSection({ title, features, connects, image }: { title: s
                 <Link href="/integrations" className="link-u mt-3 inline-block text-[0.85rem] font-semibold text-accent">
                   All integrations →
                 </Link>
-              </div>
             </div>
           </div>
         </div>

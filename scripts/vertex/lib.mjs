@@ -46,11 +46,13 @@ export function record(entry) {
   console.log(`[cost] recorded $${entry.usd.toFixed(2)} · total $${l.totalUsd.toFixed(2)}`);
 }
 
-/** USD per generated image (Vertex/Gemini pricing, Oct 2026; 1K–2K output). */
+/** USD per generated image (Vertex/Gemini pricing, Oct 2026; 1K–2K output). 4K output costs more: see IMAGE_PRICE_4K. */
 export const IMAGE_PRICE = {
   "gemini-3-pro-image": 0.134,
   "gemini-3.1-flash-image": 0.101,
 };
+/** 4K output is billed as 2000 image tokens instead of 1120 (Gemini 3 Pro Image). */
+export const IMAGE_PRICE_4K = { "gemini-3-pro-image": 0.24 };
 
 export async function vertex(path, body, location = REGION) {
   const host = location === "global" ? "aiplatform.googleapis.com" : `${location}-aiplatform.googleapis.com`;

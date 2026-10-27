@@ -7,7 +7,7 @@
 // Shares the spending cap and ledger with veo.mjs.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, extname } from "node:path";
-import { IMAGE_PRICE, guard, record, vertex } from "./lib.mjs";
+import { IMAGE_PRICE, IMAGE_PRICE_4K, guard, record, vertex } from "./lib.mjs";
 
 const argv = process.argv.slice(2);
 const arg = (k, d) => {
@@ -21,7 +21,7 @@ const model = arg("model", "gemini-3-pro-image");
 const aspect = arg("aspect", "16:9");
 const size = arg("size", "2K");
 if (!prompt || !out) throw new Error("--prompt and --out are required");
-const price = IMAGE_PRICE[model];
+const price = size === "4K" ? IMAGE_PRICE_4K[model] : IMAGE_PRICE[model];
 if (price == null) throw new Error(`No price for ${model}`);
 guard(price, `${model} ${aspect} ${size}`);
 if (argv.includes("--dry")) process.exit(0);

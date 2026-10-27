@@ -1,0 +1,469 @@
+{
+  "_about": "Keyframe beats for every scene (scripts/v7/beats.mjs). Beat one is drawn from the cast sheet; every later beat is an edit of beat one that changes only its action, so faces, set and light stay identical. Each beat is one clear action that a reviewer can check.",
+  "_style": "Image style: a frame from a top-tier modern 3D animated feature film, crisp, clean and highly detailed, in sharp focus throughout. Clear, well-defined faces with bright, level, symmetrical eyes, smooth stylised skin, natural hands with five fingers, believable fabric folds. The characters must match their CAST portraits exactly ({cast}): same faces, the same fair, light skin tones, hair and outfits. Palette and light: bright white plaster, pale grey limestone, white terrazzo, light ash wood, soft sage green, one deep forest-green accent, living greenery, brushed chrome; one soft daylight from the upper left with gentle leaf shadows. No text, letters, numbers, logos, signs or watermarks anywhere; screens show only product photos and plain interface blocks. Only the people described are in the picture; nobody else, not even in the background or in reflections.",
+  "_edit": "Edit the FIRST image. Keep it identical: the same camera position, lens, framing and crop, the same light, set, furniture and every object not mentioned below, and the same characters with exactly the same faces, hair, skin tones and outfits. Every character and every object that changes place appears exactly once: when a person or an object moves to a new place, it is no longer at its old place (remove it from there completely and show what was behind it), and nothing is duplicated. Change only this: ",
+  "hero": {
+    "aspect": "4:5",
+    "size": "4K",
+    "scene": "The calm, airy shop floor of a premium clothing flagship store. Camera at standing eye level, 50mm lens, looking straight across a sales counter. The counter (a white stone top on a light ash-wood base) runs across the lower third of the frame. Behind it: a white plaster wall with one long open ash-wood shelf of neatly folded shirts in ivory, sage and forest green, and a tall olive tree in a white ceramic pot at the left edge. Meera stands behind the counter on the left half of the frame, facing the camera at a slight angle. Ananya stands on the customer side of the counter on the right half of the frame, turned three-quarters toward Meera so her face is clearly visible. Both are seen from the hips up and are large in the frame; each head is about one seventh of the image height, in the upper middle of the image, with calm wall above them.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Ananya has just laid a neatly folded ivory linen overshirt flat on the counter between them. A small sage-green card hang tag (a rectangle with its top-left corner clipped off and a small punched hole) hangs from the shirt's collar on a thin cord and lies clearly visible on top of the shirt. Meera holds a slim white handheld scanner in her right hand and points it down at the hang tag. Both look down at the tag, relaxed and about to smile."
+      },
+      {
+        "id": "b",
+        "action": "the sale is done. Meera now holds a white paper shopping bag with white rope handles out across the counter; Ananya takes it by its handles with her right hand. Both look at each other and smile warmly. The folded ivory overshirt is now inside the bag, with its sage-green hang tag just peeking over the bag's top edge, so the counter top is clear except for the white scanner lying flat on it."
+      }
+    ],
+    "focus": [
+      50,
+      40
+    ],
+    "cast": [
+      "meera",
+      "ananya"
+    ]
+  },
+  "storefront": {
+    "aspect": "16:9",
+    "size": "2K",
+    "scene": "A bright corner of the same flagship store, set up as a small website studio. Camera at seated eye level, 35mm lens, three-quarter view. A light ash-wood desk stands in the centre of the frame with a large, slim, white desktop monitor, a white keyboard and a mouse on it. The monitor is turned slightly toward the camera so its screen is clearly visible and large. Meera sits at the desk to the right of the monitor, in three-quarter view facing it; her face and upper body are clearly visible and large. Behind the desk: a chrome clothing rail of linen shirts in ivory, sage, grey and forest green on light wooden hangers, a white plaster wall with soft leaf shadows, and an olive tree in a white pot on the left. Composition rules: Meera's head and the monitor sit inside the central 60 percent of the frame width and between 25 and 65 percent of the frame height; the bottom fifth of the frame is plain desk front and terrazzo floor.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "The monitor shows an empty website template: plain light grey placeholder rectangles where the photos should be, nothing filled in. A printed sheet with a plain grid of empty cells lies on the desk beside the keyboard. Meera rests her chin on one hand and looks at the empty screen, thoughtful."
+      },
+      {
+        "id": "b",
+        "action": "the monitor now shows a tidy grid of six product photos of folded shirts (ivory, sage, grey, forest green, white and stone) on white tiles. Remove the printed sheet of paper from the desk completely: the desk top beside the keyboard is now bare light wood. Meera sits upright with both hands on the keyboard, typing, and looks at the screen with a small pleased smile."
+      },
+      {
+        "id": "c",
+        "action": "the monitor now shows one product page: a large photo of an ivory linen overshirt on the left half of the screen and, on the right half, three small square size buttons above one wide forest-green button (no text). The printed sheet is gone from the desk. Meera has turned in her chair toward the camera, one hand still resting on the desk, and smiles warmly at the camera."
+      }
+    ],
+    "focus": [
+      58,
+      40
+    ],
+    "mfocus": [
+      47,
+      40
+    ],
+    "cast": [
+      "meera"
+    ]
+  },
+  "_compose": "Composition rules: the characters are large in the frame (seen from the knees up or closer) with clearly visible faces; keep the people and the key objects inside the central 60 percent of the frame width and between 22 and 70 percent of the frame height; the top fifth is calm wall and the bottom fifth is plain floor or furniture front, so the picture can be cropped without cutting anyone.",
+  "pos": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      52,
+      42
+    ],
+    "scene": "The sales counter of the flagship store. Camera at standing eye level, 40mm lens, three-quarter view across the counter. The counter has a white stone top on a light ash-wood base; on it stand a slim white point-of-sale screen on a stand facing Meera, a small white card reader, a small white receipt printer and an empty white paper shopping bag with rope handles. Meera stands behind the counter on the left; Ananya stands on the customer side on the right, turned toward Meera. Behind them: white plaster walls with soft leaf shadows, light ash-wood shelving, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "The till is slow: Meera frowns at the point-of-sale screen and taps it slowly with one finger. Ananya holds a folded forest-green knit in one hand and checks the watch on her other wrist, mildly impatient. The card reader sits idle."
+      },
+      {
+        "id": "b",
+        "action": "The folded forest-green knit has moved from Ananya's arm onto the counter: it now lies only on the counter in front of Meera, and Ananya no longer holds or carries any knit. Meera points a small white handheld scanner down at the knit's label. Ananya holds her phone flat just above the white card reader to pay, smiling. Meera smiles too."
+      },
+      {
+        "id": "c",
+        "action": "the sale is done. Ananya no longer holds or carries any knit, and there is no knit on the counter: the folded forest-green knit is now inside the white paper shopping bag, its top just visible. A short plain white paper receipt curls out of the small receipt printer. Meera hands the bag across the counter by its rope handles and Ananya takes it by the handles. Both smile warmly."
+      }
+    ],
+    "cast": [
+      "meera",
+      "ananya"
+    ]
+  },
+  "self-checkout": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "scene": "A self-checkout corner of the flagship store. Camera at standing eye level, 40mm lens, three-quarter view. A slim white self-checkout kiosk stands in the centre of the frame: a vertical touchscreen on a light ash-wood pedestal, a small scanning window below the screen, a small card reader, and a small ash bagging shelf to its right holding an open white paper bag. Ananya, the only person in the picture, stands at the kiosk facing it in three-quarter view, her face clearly visible. To the left, a short row of chrome queue posts joined by sage-green ropes leads toward the kiosk. Behind them: white plaster walls with soft leaf shadows, light ash-wood shelving, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "The kiosk screen is dark. Ananya holds a folded sage scarf and a folded white tee against her chest and glances at the watch on her wrist, mildly frustrated, looking along the empty queue posts."
+      },
+      {
+        "id": "b",
+        "action": "The kiosk screen is now on and shows two small product photos (a sage scarf and a white tee) in a plain list. Ananya holds the folded white tee so its label faces the kiosk's scanning window, which glows a soft green. The folded sage scarf already lies in the open bag on the bagging shelf."
+      },
+      {
+        "id": "c",
+        "action": "The kiosk screen shows one large green tick icon. Both items are inside the white paper bag, and Ananya, smiling, lifts the bag off the bagging shelf by its rope handles and turns slightly toward the camera to leave."
+      }
+    ],
+    "cast": [
+      "ananya"
+    ]
+  },
+  "clienteling": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      42
+    ],
+    "scene": "The shop floor of the flagship store beside a chrome clothing rail of knitwear and shirts in ivory, sage, grey and forest green. Camera at standing eye level, 40mm lens. Meera, the associate, stands on the left holding a slim white tablet; Ananya, a regular customer, stands on the right facing her. Both are seen from the knees up, in three-quarter view toward each other, faces clearly visible. Behind them: white plaster walls with soft leaf shadows, light ash-wood shelving, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Ananya has just walked in. Meera greets her with a polite but uncertain, generic smile and an open hand, clearly not recognising her. The tablet hangs down at Meera's side with its screen dark."
+      },
+      {
+        "id": "b",
+        "action": "Meera has raised the same slim white tablet from her side and now holds it up between them in both hands, its screen facing the camera (it is the only tablet in the picture; nothing hangs at her side any more). The screen shows a customer profile: a round portrait photo of Ananya, a row of three small product photos of her past buys (a sage coat, an ivory shirt, a grey knit) and three small size chips (no text). Ananya smiles, recognised; Meera smiles warmly at her."
+      },
+      {
+        "id": "c",
+        "action": "Ananya now holds one forest-green knit sweater on a wooden hanger up against herself, delighted; it is the only green sweater outside the rail. Meera, beside her, has the slim white tablet tucked under one arm and gestures toward the sweater with her other, empty hand, smiling."
+      }
+    ],
+    "cast": [
+      "meera",
+      "ananya"
+    ]
+  },
+  "endless-aisle": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      52,
+      42
+    ],
+    "scene": "The shop floor of the flagship store in front of a wall of light ash-wood shelving with neat stacks of folded sage, ivory and grey shirts sorted into square cubbies. Camera at standing eye level, 40mm lens. Meera stands on the left holding a slim white tablet; Ananya stands on the right, both seen from the knees up in three-quarter view, faces clearly visible, with the same fair, light complexions as in the CAST image. One cubby at chest height in the middle of the shelving is completely empty. Behind them: white plaster walls with soft leaf shadows, light ash-wood shelving, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Ananya points at the empty cubby where her size should be, disappointed. Meera looks at the gap with an apologetic expression; the tablet hangs at her side, screen dark."
+      },
+      {
+        "id": "b",
+        "action": "Meera has raised the same slim white tablet she was holding at her side (it is the only tablet in the picture) and holds it up herself in both hands, turned toward Ananya with its screen facing the camera: it shows a simple pale map with three small grey store pins and one larger forest-green pin, and a small photo of a folded sage shirt. Ananya's hands are empty; she leans in to look, hopeful."
+      },
+      {
+        "id": "c",
+        "action": "Meera holds a small white card reader out toward Ananya in one hand, and Ananya smiles and holds her phone over it to order the shirt to her home. The slim white tablet stays in Meera's other hand, showing a small white delivery van icon beside a green tick; Ananya holds only her phone. The cubby is still empty."
+      }
+    ],
+    "cast": [
+      "meera",
+      "ananya"
+    ]
+  },
+  "marketplace": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "scene": "A small product photo corner in the back of the flagship store. Camera at standing eye level, 35mm lens, three-quarter view. A light ash-wood table with a white paper sweep backdrop, a softbox light on a stand, a camera on a tripod in front of the table, and a slim white laptop on a small ash desk beside it. Arjun is the only person in the picture, seen from the knees up, face clearly visible. Behind them: white plaster walls with soft leaf shadows, light ash-wood shelving, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Arjun sits at the laptop, tired, rubbing his forehead: the laptop screen shows four copies of the same small product page side by side, each in a different plain pale colour frame. A folded ivory linen overshirt lies unphotographed at the edge of the photo table; the softbox is off."
+      },
+      {
+        "id": "b",
+        "action": "Arjun has got up from the desk: the desk chair is now empty and pushed back, and nobody sits at the laptop. Arjun now stands behind the camera on the tripod, looking through it, photographing the ivory linen overshirt now laid neatly flat on the white sweep. The softbox light is on and glowing. There is only one Arjun in the picture."
+      },
+      {
+        "id": "c",
+        "action": "Arjun has got up from the desk and stands beside it, leaning over the laptop, smiling, clicking; the desk chair is empty. The laptop screen now shows one single product listing with a photo of the ivory overshirt and, beside it, a column of four small toggle switches, all switched on in green. The overshirt lies flat on the white sweep; the softbox is on. There is only one Arjun in the picture."
+      }
+    ],
+    "cast": [
+      "arjun"
+    ]
+  },
+  "oms": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "scene": "The packing counter in the stockroom of the flagship store. Camera at standing eye level, 40mm lens, three-quarter view. A long light ash-wood counter with a small white label printer and a slim white tablet on it; behind it white shelving of neatly folded shirts in ivory, sage and forest green. Arjun stands behind the counter facing the camera, seen from the hips up, face clearly visible. Behind them: white plaster walls with soft leaf shadows, light ash-wood shelving, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "A messy pile of printed white paper order tickets covers the counter and a few have fallen to the floor. Arjun holds a fistful of tickets and scratches his head, overwhelmed."
+      },
+      {
+        "id": "b",
+        "action": "The counter is now clear and tidy, no loose tickets anywhere. A single white order slip slides out of the small label printer and Arjun reads it, calm and relaxed. The tablet on the counter shows a simple pale map with three small store pins, one of them highlighted in forest green."
+      },
+      {
+        "id": "c",
+        "action": "The counter is clear and tidy, no loose tickets anywhere. Arjun places a folded ivory linen overshirt into an open white paper bag on the counter and presses a small printed white label onto the bag, smiling. The tablet still shows the map with the green pin."
+      }
+    ],
+    "cast": [
+      "arjun"
+    ]
+  },
+  "wms": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      52,
+      45
+    ],
+    "scene": "An aisle in a bright, clean warehouse. Camera at standing eye level, 35mm lens, looking along white steel shelving on the right side of the aisle, filled with identical pale grey plastic bins; every bin has a small round indicator light on its front edge. Arjun stands in the aisle beside the shelving, seen from the knees up in three-quarter view, face clearly visible. Pale terrazzo floor, white walls, soft daylight from the upper left, a potted olive tree at the end of the aisle.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Arjun peers along the bins, searching, confused, holding a crumpled paper pick list in one hand. All the indicator lights are off."
+      },
+      {
+        "id": "b",
+        "action": "One bin at chest height right beside Arjun has its indicator light glowing bright green; Arjun reaches into that bin and lifts out a small folded garment in a clear bag. The paper pick list is gone; a white handheld scanner is in his other hand. All other lights are off."
+      },
+      {
+        "id": "c",
+        "action": "Arjun scans the label of the bagged garment with the white handheld scanner, a faint red scan line on the label, and smiles. The bin he picked from now has its light off, and a different bin two places further along the shelf glows bright green. All other lights are off."
+      }
+    ],
+    "cast": [
+      "arjun"
+    ]
+  },
+  "tms": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "scene": "The loading bay behind the flagship store, outdoors in soft morning light. Camera at standing eye level, 35mm lens, three-quarter view. A sleek modern white electric delivery van with its rear doors open stands on the right, with neat ash-wood shelves inside its cargo area. In the centre, a light steel trolley holds kraft parcels with small sage-green labels. Rohan, the courier, stands between the trolley and the van, seen from the knees up, face clearly visible. White plaster wall behind with soft leaf shadows, an olive tree in a white pot, pale stone paving.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Rohan holds a crumpled paper map scribbled over with tangled pen lines and frowns at it, confused. The parcels are piled messily on the trolley; the van's shelves are empty."
+      },
+      {
+        "id": "b",
+        "action": "The paper map is gone. Rohan holds up a phone whose screen faces the camera, showing a simple pale map with one clean looping green route line through small round pins; he looks relieved. The parcels on the trolley are now stacked in a neat ordered row; the van's shelves are still empty."
+      },
+      {
+        "id": "c",
+        "action": "The paper map is gone. Rohan, smiling, slides the last parcel onto the van's shelves, where the other parcels now sit in neat ordered rows; the trolley is empty."
+      }
+    ],
+    "cast": [
+      "rohan"
+    ]
+  },
+  "quick-commerce": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "scene": "A small, bright neighbourhood dark store (a compact quick-delivery stockroom). Camera at standing eye level, 35mm lens, three-quarter view. Light ash-wood shelves of neatly boxed everyday items in white and sage boxes on the left; a packing table in the centre; on the right an open glass door to a sunny street where a white electric scooter is parked. Arjun stands at the packing table and Rohan, the rider, stands near the door, both seen from the knees up, faces clearly visible. White walls, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Arjun searches along the shelves with a puzzled look, one hand raised, unable to find an item. Rohan waits by the door holding his white helmet under his arm and checks the watch on his wrist, impatient. The packing table holds an empty sage-green paper bag."
+      },
+      {
+        "id": "b",
+        "action": "One shelf slot glows with a soft green light; Arjun takes a small white box from that glowing slot and drops it into the sage-green paper bag on the packing table. Rohan looks up from his phone, ready."
+      },
+      {
+        "id": "c",
+        "action": "Arjun hands the folded-over, sealed sage-green paper bag to Rohan, who takes it, wearing his white helmet and smiling, one step from the open door and the scooter."
+      }
+    ],
+    "cast": [
+      "arjun",
+      "rohan"
+    ]
+  },
+  "b2b": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "scene": "The trade office corner of a bright warehouse. Camera at standing eye level, 35mm lens, three-quarter view. A light ash-wood standing desk with a slim white laptop on the left of centre; behind and to the right, two pallets of white boxes in clear shrink wrap and white steel shelving. Arjun stands at the desk, seen from the knees up, face clearly visible. White walls with soft leaf shadows, a potted olive tree, pale terrazzo floor.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Arjun copies orders by hand from a thick open paper order book into the laptop, tired, a pen behind his ear, loose order sheets beside the book. The laptop screen shows a plain spreadsheet grid."
+      },
+      {
+        "id": "b",
+        "action": "The paper order book and the loose sheets are gone. The laptop screen faces the camera and shows a clean wholesale order screen: a grid of small product photos with quantity steppers beside them and three plain price columns. Arjun smiles and clicks to confirm."
+      },
+      {
+        "id": "c",
+        "action": "The paper order book and the loose sheets are gone. Arjun has stepped out from the desk and pulls a hand pallet jack carrying one shrink-wrapped pallet of white boxes toward the camera, holding the handle with both hands, smiling. The laptop on the desk shows a large green tick."
+      }
+    ],
+    "cast": [
+      "arjun"
+    ]
+  },
+  "brand-showcase": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      52,
+      42
+    ],
+    "scene": "The styling corner of the flagship store. Camera at standing eye level, 40mm lens, three-quarter view. Three white dress forms stand on a low light ash-wood plinth on the right; a light ash-wood styling table stands in the centre. Meera stands at the table, seen from the knees up, face clearly visible. Meera is the only person in the picture; nobody else is in the room. Behind them: white plaster walls with soft leaf shadows, light ash-wood shelving, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Meera looks puzzled at loose printed photos and fabric swatches scattered all over the styling table, holding two photos up to compare. All three dress forms are bare."
+      },
+      {
+        "id": "b",
+        "action": "The table is tidy now, with a few neatly folded pieces. Meera dresses the centre dress form in a complete look, an ivory linen overshirt over a white tee with a forest-green knit draped over its shoulders, and straightens the collar. The other two forms are bare."
+      },
+      {
+        "id": "c",
+        "action": "The table is tidy now, with a few neatly folded pieces. Meera stands back beside the fully styled centre dress form (ivory linen overshirt over a white tee, forest-green knit on its shoulders), smiling, and holds up a slim white tablet whose screen faces the camera, showing a photo of that same styled look above one wide forest-green button. The other two forms are bare."
+      }
+    ],
+    "cast": [
+      "meera"
+    ]
+  },
+  "j-order": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      55,
+      42
+    ],
+    "scene": "The shop floor of the Riverside branch of the flagship store. Camera at standing eye level, 40mm lens, three-quarter view. Meera stands beside a chrome rail of linen shirts, seen from the knees up, face clearly visible, holding a slim white tablet whose screen faces the camera and shows a simple pale map with three small grey location pins and one larger forest-green pin. With her other hand she lifts an ivory linen overshirt on a wooden hanger off the rail, smiling. White plaster walls with soft leaf shadows, light ash-wood shelving, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Meera glances from the tablet to the overshirt, pleased that this branch has the size."
+      }
+    ],
+    "cast": [
+      "meera"
+    ]
+  },
+  "j-pack": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      52,
+      45
+    ],
+    "scene": "The packing table in a bright stockroom. Camera at standing eye level, 40mm lens, three-quarter view. A light ash-wood packing table with a small white label printer and an open kraft shipping box; white shelving of folded shirts behind; a short roller conveyor leaves the table to the right. Arjun stands behind the table, seen from the hips up, face clearly visible. White walls with soft leaf shadows, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Arjun lays a neatly folded ivory linen overshirt with a small sage-green hang tag into the open kraft box with one hand, and with the other aims a white handheld scanner at the white label on the box's side, a faint red scan line on the label. He looks focused and calm."
+      }
+    ],
+    "cast": [
+      "arjun"
+    ]
+  },
+  "j-delivery": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "scene": "The front door of a calm, elegant white townhouse on a quiet street, in soft afternoon light. Camera at standing eye level, 40mm lens, three-quarter view from the pavement. The light ash-wood front door is open; Ananya, at home in a cream knit and pale trousers (no coat), stands in the doorway; Rohan, the courier, stands on the step facing her. Both are seen from the knees up, faces clearly visible. A potted olive tree beside the door, white plaster wall with leaf shadows, and a sleek white electric delivery van softly out of focus at the kerb behind Rohan.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Rohan hands a small kraft parcel with a sage-green label to Ananya with both hands; she takes it, smiling warmly, and Rohan smiles back."
+      }
+    ],
+    "cast": [
+      "rohan",
+      "ananya"
+    ]
+  },
+  "j-counter": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      42
+    ],
+    "scene": "The sales counter of the flagship store. Camera at standing eye level, 40mm lens, three-quarter view across the counter. A white stone counter on a light ash-wood base with a slim white point-of-sale screen on a stand turned toward the camera, and a small white card reader. Beside the counter, a short chrome rail holds a few linen shirts and one empty light wooden hanger. Meera stands behind the counter in the centre of the frame, seen from the hips up, face clearly visible. Meera is the only person in the picture: the shop is quiet, there are no customers and nobody in front of the counter. White plaster walls with soft leaf shadows, light ash-wood shelving, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "The point-of-sale screen shows a photo of an ivory linen overshirt greyed out, with a small plain grey band across it. Meera looks from the screen to the empty hanger on the rail and nods, calm and relaxed, already reaching for the card reader for the next sale."
+      }
+    ],
+    "cast": [
+      "meera"
+    ]
+  },
+  "j-online": {
+    "aspect": "16:9",
+    "size": "2K",
+    "focus": [
+      50,
+      42
+    ],
+    "scene": "A calm, bright living room in a white apartment in the afternoon. Camera at seated eye level, 40mm lens, three-quarter view. Ananya, at home in a cream knit and pale trousers (no coat), sits on a soft white sofa with a sage-green cushion, seen from the knees up, face clearly visible, holding a phone in both hands with its screen turned toward the camera. White plaster wall with soft leaf shadows, a light ash-wood side table, an olive tree in a white pot.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "The phone screen shows a simple product page: a photo of an ivory linen overshirt, three small size buttons with the middle one selected in dark ink, and one wide forest-green button. Ananya taps the green button with her thumb, smiling."
+      }
+    ],
+    "cast": [
+      "ananya"
+    ]
+  },
+  "close": {
+    "aspect": "16:9",
+    "size": "2K",
+    "compose": false,
+    "focus": [
+      70,
+      50
+    ],
+    "scene": "Dusk on a quiet, elegant city street. Camera at standing eye level, 35mm lens, straight-on view of the flagship store's front. A pale limestone facade; on the right half of the frame a wide, tall glass shopfront and a glass door, with warm light glowing inside on light ash-wood shelves and rails of ivory, sage and forest-green shirts and a white stone counter; olive trees in white planters on either side of the door. The left 40 percent of the frame is a calm, plain pale limestone wall in soft blue dusk light with gentle leaf shadows and no objects, kept empty for text. Pale stone pavement along the bottom. Soft blue dusk sky light from the upper left, warm interior light.",
+    "beats": [
+      {
+        "id": "a",
+        "action": "Inside, behind the glass, Meera stands at the counter and closes a slim white laptop, relaxed and smiling; all the store lights are warm and fully on. She is clearly visible through the glass, seen from the hips up."
+      },
+      {
+        "id": "b",
+        "action": "Meera has stepped out through the glass door onto the pavement and turns a key in the door's lock, smiling over her shoulder toward the camera, a small white handbag on her shoulder. Inside, the lights are dimmed to a soft, low night glow; the laptop on the counter is closed. The sky is a little darker."
+      }
+    ],
+    "cast": [
+      "meera"
+    ]
+  },
+  "_people": {
+    "meera": "Meera, long dark waves, white shirt, pale grey wide trousers",
+    "ananya": "Ananya, sleek low bun, sage-green long coat over a cream knit",
+    "arjun": "Arjun, groomed short beard, light grey overshirt over a white tee, charcoal trousers",
+    "rohan": "Rohan, short dark hair, white zip jacket over a white tee, navy trousers"
+  }
+}

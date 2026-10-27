@@ -7,7 +7,8 @@ import { frameUrl, wantsStill } from "@/lib/media";
 import { FilmStep } from "./FilmStep";
 import { ScrollSequence } from "./ScrollSequence";
 
-export type FilmSeq = { pattern: string; mobilePattern?: string; count: number };
+/** A scroll film: footage frames, or a few keyframes that hold and dissolve (`blend`), kept in view around `focus`. */
+export type FilmSeq = { pattern: string; mobilePattern?: string; count: number; blend?: boolean; focus?: [number, number]; push?: number };
 
 /**
  * The standard pinned chapter: a scroll-scrubbed full-screen film of a real
@@ -24,6 +25,7 @@ export function PinnedFilm({
   length = 2.6,
   priority = false,
   night = false,
+  bare = false,
   overlay,
 }: {
   id: string;
@@ -36,6 +38,8 @@ export function PinnedFilm({
   priority?: boolean;
   /** Light text for a night scene. */
   night?: boolean;
+  /** The scene was composed with a calm wall for the words: no wash under the text column. */
+  bare?: boolean;
   /** Extra layer over the film (desktop), e.g. floating product cards; it can follow the scroll with useSequenceProgress. */
   overlay?: ReactNode;
 }) {
@@ -76,7 +80,7 @@ export function PinnedFilm({
   );
   if (still)
     return (
-      <Scene id={id} src={frameUrl(seq.pattern, seq.count - 1)} floor={floor} label={alt} priority={priority} light={!night}>
+      <Scene id={id} src={frameUrl(seq.pattern, seq.count - 1)} floor={floor} label={alt} priority={priority} light={!night} bare={bare}>
         <div className={`grid gap-14 ${night ? "tone-night" : ""}`}>
           {slices.map((s, i) => (
             <div key={i}>{s.node}</div>
@@ -88,7 +92,7 @@ export function PinnedFilm({
     <div ref={wrap} id={id} className={`relative ${night ? "" : "tone-light"}`} style={{ "--floor": floor } as CSSProperties}>
       <ScrollSequence {...seq} length={length} stillFrame={0} priority={priority} defer alt={alt} bg={floor} frameClassName={FULL_PANE}>
         {/* desktop: a wash of the floor colour under the text column, so copy reads over any frame */}
-        <div aria-hidden className={`scrim pointer-events-none absolute inset-0 hidden md:block ${night ? "night" : ""}`} />
+        {!bare && <div aria-hidden className={`scrim pointer-events-none absolute inset-0 hidden md:block ${night ? "night" : ""}`} />}
         {overlay}
         <div className={`${FULL_TEXT} ${night ? "tone-night" : ""}`}>
           <div ref={text} className="grid">

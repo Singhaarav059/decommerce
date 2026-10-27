@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroWindow } from "@/components/media/HeroWindow";
-import { SolutionHeroCards } from "./SolutionHeroCards";
+import { SolutionSteps } from "./SolutionSteps";
 import { ButtonLink } from "@/components/ui/Button";
 import { Faq } from "@/components/ui/Faq";
 import { solutionBySlug, type SolutionSlug } from "@/content/site";
@@ -59,12 +59,12 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
             </ButtonLink>
           </>
         }
-        overlay={<SolutionHeroCards slug={slug} label={meta.title} fix={meta.fix.title} steps={meta.fix.steps} />}
+        rail={<SolutionSteps fix={meta.fix.title} steps={meta.fix.steps} />}
       />
 
       <ProblemFix title={meta.title} problem={meta.problem.title} narrative={<Content />} fix={meta.fix.title} steps={meta.fix.steps} image={m.seq.pattern.replace("{i}", "000")} after={m.end} />
 
-      <Anatomy title={meta.title} parts={meta.anatomy} src={m.end} floor={m.floor} focus={solutionFocus[slug] ?? {}} />
+      <Anatomy title={meta.title} parts={meta.anatomy} src={m.end} floor={m.floor} focus={solutionFocus[slug] ?? {}} fx={m.seq.blend ? m.seq.focus[0] : undefined} />
 
       <FeaturesSection title={meta.title} features={features[slug]} connects={connects[slug]} image={m.detail} />
 
@@ -78,13 +78,13 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
               <li key={s} className="rv">
                 <Link href={other.href} className="group block">
                   <div className="tag tag-lg relative aspect-[4/3] overflow-hidden bg-ink/5">
-                    <Image src={solutionMedia(s).end} alt="" fill quality={85} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-[70%_50%] transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" />
-                    <span className="tag tag-xs tag-plain absolute right-3 bottom-3 flex items-center gap-2 bg-paper py-1.5 pr-3 pl-4 text-[0.8125rem] font-semibold">
-                      <span aria-hidden className="tag tag-plain size-2.5 bg-accent [--cut:4px]" />
-                      Shares catalog and stock
-                    </span>
+                    <Image src={solutionMedia(s).end} alt="" fill quality={85} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" style={{ objectPosition: solutionMedia(s).seq.blend ? `${solutionMedia(s).seq.focus[0]}% 50%` : "70% 50%" }} />
                   </div>
-                  <p className="mt-4 flex items-center justify-between gap-3 text-[1.05rem] font-semibold">
+                  <p className="mt-4 flex items-center gap-2 text-[0.8125rem] font-semibold text-accent">
+                    <span aria-hidden className="tag tag-plain size-2.5 bg-accent [--cut:4px]" />
+                    Shares catalog and stock
+                  </p>
+                  <p className="mt-2 flex items-center justify-between gap-3 text-[1.05rem] font-semibold">
                     {other.label}
                     <span aria-hidden className="text-accent transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </p>

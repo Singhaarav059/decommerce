@@ -17,7 +17,7 @@ export const hero = {
   body: "Website, store, warehouse and marketplaces, run from one catalog, one stock count and one customer record.",
   primary: { label: "Book a demo", href: "/contact-us" },
   secondary: { label: "What we do", href: "#what-we-do" },
-  posterAlt: "A white flagship building cut open like a dollhouse: an associate hands a shopping bag to a customer on the shop floor, a colleague lifts a linen overshirt in the stockroom above, the website glows on a screen upstairs, and a courier loads a white van at the kerb, every place joined by thin green threads of light to one glowing hang tag.",
+  posterAlt: "On the shop floor of a white and sage flagship, Ananya lays an ivory linen overshirt on the counter and Meera scans the sage hang tag on its collar.",
   arrival: "Every sale here, online or at the counter, runs through the same catalog and the same stock count.",
 };
 
@@ -253,17 +253,17 @@ export const collapse = {
   hint: "Illustrative counts for one shirt in size M.",
 };
 
-/** Follow one order: the horizontal journey. Frames come from the homepage films. */
+/** Follow one order: the horizontal journey. One sharp still per step (scripts/v7, scenes j-*). */
 export const journey = {
   eyebrow: "Follow one order",
   headline: "ORD-1042, from click to doorstep.",
   body: "One linen overshirt in size M, ordered online on a quiet afternoon. Every step below runs on the same system.",
   steps: [
-    { tag: "Paid online", title: "Ordered online", body: "The customer buys the last size M on the website. The order lands in Decommerce with the stock it reserves.", image: "/assets/sol/storefront/detail.webp", ui: { title: "ORD-1042", rows: [["Item", "Linen overshirt · M"], ["Channel", "Website"], ["Payment", "Paid"]] }, href: "/storefront" },
-    { tag: "2.4 km route", title: "Routed in a second", body: "Every store and warehouse is checked. Riverside has the size and the shortest trip, so it ships.", image: "/assets/seq/order/d/030.webp", ui: { title: "Routing", rows: [["Central warehouse", "18 km"], ["Riverside store", "2.4 km, chosen"], ["Old Town store", "No size M"]] }, href: "/oms" },
-    { tag: "Scan confirmed", title: "Picked and packed", body: "The handheld shows the shelf, the scan confirms the item, the label prints and the box rolls to dispatch.", image: "/assets/seq/pack/d/024.webp", ui: { title: "Pick list", rows: [["Shelf", "B-14"], ["Scan", "LIN-OVR-M-SND"], ["Label", "Printed"]] }, href: "/wms" },
-    { tag: "Handed over", title: "Into her hands", body: "The van follows one efficient route. The courier hands the parcel over at the door and confirms on the same system.", image: "/assets/seq/delivery/d/034.webp", ui: { title: "Delivery", rows: [["Route", "7 · stop 3"], ["ETA", "12 min"], ["Status", "Delivered"]] }, href: "/tms" },
-    { tag: "Store shows 0", title: "And at the counter", body: "Back in the store the count already reads zero, so nobody sells a shirt that is not there. The next customer taps to pay.", image: "/assets/seq/counter/d/036.webp", ui: { title: "Same stock count", rows: [["Website", "0"], ["Store", "0"], ["Marketplace", "0"]] }, href: "/pos" },
+    { tag: "Paid online", title: "Ordered online", body: "The customer buys the last size M on the website. The order lands in Decommerce with the stock it reserves.", image: "/assets/journey/online.webp", ui: { title: "ORD-1042", rows: [["Item", "Linen overshirt · M"], ["Channel", "Website"], ["Payment", "Paid"]] }, href: "/storefront" },
+    { tag: "2.4 km route", title: "Routed in a second", body: "Every store and warehouse is checked. Riverside has the size and the shortest trip, so it ships.", image: "/assets/journey/order.webp", ui: { title: "Routing", rows: [["Central warehouse", "18 km"], ["Riverside store", "2.4 km, chosen"], ["Old Town store", "No size M"]] }, href: "/oms" },
+    { tag: "Scan confirmed", title: "Picked and packed", body: "The handheld shows the shelf, the scan confirms the item, the label prints and the box rolls to dispatch.", image: "/assets/journey/pack.webp", ui: { title: "Pick list", rows: [["Shelf", "B-14"], ["Scan", "LIN-OVR-M-SND"], ["Label", "Printed"]] }, href: "/wms" },
+    { tag: "Handed over", title: "Into her hands", body: "The van follows one efficient route. The courier hands the parcel over at the door and confirms on the same system.", image: "/assets/journey/delivery.webp", ui: { title: "Delivery", rows: [["Route", "7 · stop 3"], ["ETA", "12 min"], ["Status", "Delivered"]] }, href: "/tms" },
+    { tag: "Store shows 0", title: "And at the counter", body: "Back in the store the count already reads zero, so nobody sells a shirt that is not there. The next customer taps to pay.", image: "/assets/journey/counter.webp", ui: { title: "Same stock count", rows: [["Website", "0"], ["Store", "0"], ["Marketplace", "0"]] }, href: "/pos" },
   ],
 };
 

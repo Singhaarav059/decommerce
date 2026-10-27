@@ -1,50 +1,110 @@
 {
   "storefront": {
-    "count": 48,
-    "floor": "#bfbbbb"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      58,
+      40
+    ],
+    "floor": "#c2bbb4"
   },
   "brand-showcase": {
-    "count": 48,
-    "floor": "#c5bab4"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      52,
+      42
+    ],
+    "floor": "#cdc0bb"
   },
   "b2b": {
-    "count": 48,
-    "floor": "#c1bbbb"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      50,
+      45
+    ],
+    "floor": "#c0bbba"
   },
   "quick-commerce": {
-    "count": 48,
-    "floor": "#d5ccce"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      50,
+      45
+    ],
+    "floor": "#e1dcdc"
   },
   "marketplace": {
-    "count": 48,
-    "floor": "#d0c9cc"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      50,
+      45
+    ],
+    "floor": "#bebbbc"
   },
   "oms": {
-    "count": 48,
-    "floor": "#d2c6ca"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      50,
+      45
+    ],
+    "floor": "#e2ddde"
   },
   "wms": {
-    "count": 48,
-    "floor": "#ccc8c7"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      52,
+      45
+    ],
+    "floor": "#bbbcbf"
   },
   "tms": {
-    "count": 48,
-    "floor": "#dcd0ce"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      50,
+      45
+    ],
+    "floor": "#d1c9cc"
   },
   "pos": {
-    "count": 48,
-    "floor": "#bebdba"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      52,
+      42
+    ],
+    "floor": "#c2bbb2"
   },
   "clienteling": {
-    "count": 48,
-    "floor": "#bebcbb"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      50,
+      42
+    ],
+    "floor": "#cac2bf"
   },
   "endless-aisle": {
-    "count": 48,
-    "floor": "#bdbbc1"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      52,
+      42
+    ],
+    "floor": "#c4bab2"
   },
   "self-checkout": {
-    "count": 48,
-    "floor": "#c4bbb2"
+    "count": 3,
+    "beats": true,
+    "focus": [
+      50,
+      45
+    ],
+    "floor": "#c5bcb3"
   }
 }

@@ -53,3 +53,5 @@ next-env.d.ts
 /assets-src/vertex/v5clay-*.mp4
 /assets-src/vertex/v6-*-take*.mp4
 /.taste-skill/
+# rejected keyframe takes (kept locally for comparison)
+/assets-src/stills/v7/**/*-t[0-9].png
