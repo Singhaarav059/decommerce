@@ -47,11 +47,11 @@
   "quick-commerce": {
     "count": 3,
     "beats": true,
-    "motion": 111,
+    "motion": 79,
     "keys": [
       0,
-      47,
-      110
+      15,
+      78
     ],
     "focus": [
       50,
@@ -62,11 +62,11 @@
   "marketplace": {
     "count": 3,
     "beats": true,
-    "motion": 111,
+    "motion": 79,
     "keys": [
       0,
       63,
-      110
+      78
     ],
     "focus": [
       50,

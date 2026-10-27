@@ -12,7 +12,7 @@ export function FeaturesSection({ title, features, connects, image }: { title: s
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-[calc(var(--header-h)+24px)]">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-xl)] bg-studio-light lg:aspect-[5/6]">
-              <Image src={image} alt="" fill sizes="(max-width: 1024px) 100vw, 40vw" quality={85} className="object-cover object-right" />
+              <Image src={image} alt="" fill sizes="(max-width: 1024px) 100vw, 40vw" quality={85} className="object-cover object-[50%_45%]" />
             </div>
             {/* under the picture, never on it */}
             <div className="mt-3 rounded-[var(--radius-lg)] bg-studio-light p-4">

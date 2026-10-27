@@ -95,6 +95,14 @@ if (on("close") && beatsOf("close").length === spec.close.beats.length) {
   console.log("close", beatsOf("close").length, keys ? `motion ${readdirSync("public/assets/seq/close/motion/d").length} frames, keys ${keys}` : "no motion yet");
 }
 
+// each solution's close-up (Features, the homepage service cards)
+for (const k of Object.keys(spec).filter((k) => k.startsWith("d-") && on(k))) {
+  const [src] = beatsOf(k);
+  if (!src) { console.log("missing", k); continue; }
+  webp(src, `public/assets/sol/${k.slice(2)}/detail.webp`, 1600);
+  console.log("detail", k);
+}
+
 // company and legal pages: one scene each, composed around its people
 const scenes = JSON.parse(readFileSync("src/content/company/scenes.json", "utf8"));
 for (const k of Object.keys(spec).filter((k) => k.startsWith("co-") && on(k))) {

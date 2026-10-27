@@ -5191,7 +5191,237 @@
       "out": "assets-src/vertex/v7-hero-v-am.mp4",
       "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
       "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:16:29.300Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-self-checkout-ab.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:16:57.131Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 1.6,
+      "out": "assets-src/vertex/v7-self-checkout-bc.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:19:02.941Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-marketplace-bc.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:19:06.659Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 1.6,
+      "out": "assets-src/vertex/v7-marketplace-ab.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:21:14.864Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-quick-commerce-ab.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:21:22.757Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-tms-bc.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:23:30.000Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 1.6,
+      "out": "assets-src/vertex/v7-close-ab.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:23:35.602Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 8,
+      "usd": 1.6,
+      "out": "assets-src/vertex/v7-quick-commerce-bc.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:26:36.298Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-marketplace-bc.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:26:48.564Z",
+      "kind": "video",
+      "model": "veo-3.1-generate-001",
+      "res": "1080p",
+      "seconds": 6,
+      "usd": 1.2000000000000002,
+      "out": "assets-src/vertex/v7-quick-commerce-ab.mp4",
+      "prompt": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, i",
+      "filtered": 0
+    },
+    {
+      "at": "2026-10-27T08:31:38.992Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-brand-showcase/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:31:40.296Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-storefront/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:31:42.359Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-b2b/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:32:19.306Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-quick-commerce/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:32:20.979Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-marketplace/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:33:34.033Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-wms/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:34:34.918Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-pos/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:35:39.797Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-tms/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:38:13.160Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-clienteling/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:38:55.046Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-oms/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:39:34.576Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-endless-aisle/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
+    },
+    {
+      "at": "2026-10-27T08:39:54.793Z",
+      "kind": "image",
+      "model": "gemini-3-pro-image",
+      "aspect": "1:1",
+      "size": "2K",
+      "usd": 0.134,
+      "out": "assets-src/stills/v7/d-self-checkout/a.png",
+      "prompt": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, pa"
     }
   ],
-  "totalUsd": 191.286
+  "totalUsd": 206.494
 }

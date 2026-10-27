@@ -56,3 +56,5 @@ next-env.d.ts
 # rejected keyframe takes (kept locally for comparison)
 /assets-src/stills/v7/**/*-t[0-9].png
 /assets-src/vertex/v7-*-take*.mp4
+# compiled face detector (scripts/v7/facedetect.swift)
+/scripts/v7/facedetect

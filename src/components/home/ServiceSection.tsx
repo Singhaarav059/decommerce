@@ -55,7 +55,7 @@ export function ServiceSection() {
         {service.pillars.map((p, i) => (
           <li key={p.title} className="group rv flex flex-col">
             <div className="tag tag-lg relative aspect-[4/3] overflow-hidden bg-studio-light">
-              <Image src={PHOTOS[i]} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" quality={80} className="object-cover object-right transition-transform duration-1000 ease-[var(--ease-out)] group-hover:scale-[1.05]" />
+              <Image src={PHOTOS[i]} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" quality={80} className="object-cover object-[50%_45%] transition-transform duration-1000 ease-[var(--ease-out)] group-hover:scale-[1.05]" />
             </div>
             <h3 className="display t-h3 mt-7">{p.title}</h3>
             <p className="mt-3 text-ink-2">{p.body}</p>

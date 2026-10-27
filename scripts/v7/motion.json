@@ -1,8 +1,8 @@
 {
-  "_about": "Motion between approved keyframes (scripts/v7/motion.mjs): Veo gets beat N as the first frame and beat N+1 as the last, so both ends of every clip are pinned to reviewed stills and only the one action between them is animated. A step marked dissolve is a before/after switch that no real action explains (tickets turning into a clean counter): it cross-fades instead of asking the model to invent one.",
+  "_about": "Motion between approved keyframes (scripts/v7/motion.mjs): Veo gets beat N as the first frame and beat N+1 as the last, so both ends of every clip are pinned to reviewed stills and only the one action between them is animated. A step marked dissolve is a before/after switch that no real action explains (tickets turning into a clean counter): it cross-fades instead of asking the model to invent one. Steps where a face falls into shade in every take (leaning over a desk or shelf with the window behind) also dissolve: the face audit would not pass them.",
   "_lock": "Locked-off tripod shot: the camera does not move, pan or zoom. The first and last frames are fixed; animate only the action described, smoothly and naturally, in the same 3D animated-feature style. ",
-  "_keep": " Every person stays the same person with the same face, hair and outfit throughout; nobody enters or leaves; objects move only while a hand holds them; nothing appears, vanishes, duplicates or morphs.",
-  "_negative": "extra people, duplicate people, people appearing or disappearing, objects appearing or disappearing, morphing faces, melting, distorted hands, camera movement, zoom, cuts, text, captions, watermark, blur, flicker",
+  "_keep": " Every person stays the same person with exactly the same face, features, hair and outfit throughout, and the same fair, light skin tone as in the first and last frames: faces stay evenly lit by the soft daylight from the front, never fall into shadow and never turn darker; the light in the room does not change. Nobody enters or leaves; objects move only while a hand holds them; nothing appears, vanishes, duplicates or morphs.",
+  "_negative": "extra people, duplicate people, people appearing or disappearing, objects appearing or disappearing, morphing faces, melting, distorted hands, camera movement, zoom, cuts, text, captions, watermark, blur, flicker, darker skin, changing skin tone, shadowed faces, face changing into another person",
   "storefront": [
     {
       "from": "a",
@@ -81,8 +81,7 @@
     {
       "from": "b",
       "to": "c",
-      "seconds": 6,
-      "action": "Arjun straightens up from the camera, walks back to the desk and leans over the laptop, smiling, clicking; on the laptop screen a column of four small toggle switches turns green one by one."
+      "dissolve": true
     }
   ],
   "oms": [
@@ -129,8 +128,7 @@
     {
       "from": "a",
       "to": "b",
-      "seconds": 6,
-      "action": "Arjun stops searching as one shelf slot lights up soft green; he takes the small white box from that glowing slot and drops it into the sage-green paper bag on the packing table. Rohan, by the door, looks up, ready."
+      "dissolve": true
     },
     {
       "from": "b",
@@ -170,7 +168,7 @@
       "from": "a",
       "to": "b",
       "seconds": 8,
-      "action": "Inside, Meera closes the laptop, picks up her small white handbag from the counter, walks to the glass door, steps out onto the pavement and turns a key in the lock, smiling over her shoulder toward the camera."
+      "action": "Inside, Meera closes the laptop and picks up her small white handbag, then walks toward the glass door with her face turned toward the camera and lit by the warm shop lights, steps out onto the pavement, turns a key in the lock and smiles over her shoulder toward the camera."
     }
   ],
   "hero-v": [

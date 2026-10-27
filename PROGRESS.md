@@ -251,3 +251,12 @@ Owner review: white dots on faces, plain empty halves (FAQ, demo form), the same
 - Page changes rise and uncover from the bottom (reduced motion: fade), leaving no styles behind.
 - Checks: lint, typecheck, build ✓; axe no WCAG A/AA violations (all routes, 1440 and 390); no horizontal overflow; Lighthouse mobile / 94, /storefront 94, /pos 94, /oms 93, /about-us 96 (a11y, best practices, SEO 100; CLS 0).
 - Not changed: the anatomy section still uses the scene's end keyframe (also the hero film's last frame), since its spotlight points are set on that picture; the homepage keeps all its sections.
+
+## Faces and physics audit (27 Oct 2026)
+
+The owner found a mid-motion frame of the dusk close where Meera's face was not hers (distorted, darker), and a close-up with a shirt floating in mid-air.
+- New test: `scripts/v7/faceaudit.py` samples every clip, finds faces with the macOS Vision detector (`facedetect.swift`), crops each one large next to the clip's keyframe face and scores skin-tone drift. Earlier reviews looked at whole frames too small to judge faces.
+- Results across 26 clips: identity drift in the close (fixed: regenerated with Meera facing the camera, face holds throughout); faces falling into shade and reading darker in marketplace, self-checkout, TMS and quick commerce. Regenerated with "faces stay evenly lit from the front, same fair skin, light does not change" in every prompt: TMS and marketplace step one improved; marketplace step two and quick commerce step one stayed dark across takes (he leans toward a desk or shelf with the window behind), so those two steps dissolve between their keyframes instead.
+- The 12 solution close-ups (features panels, homepage service cards) were the previous generation: blank-wall compositions, a floating shirt (WMS), an extra-people crowd (brand showcase). All re-shot from each scene's final keyframe as square close-ups under a gravity rule (every object on a surface or in a gripping hand), each reviewed at full size; crops now centred.
+- Spend: Vertex ledger $206.49 of the $230 cap.
+- Checks: lint, typecheck, build ✓; axe no WCAG A/AA violations; no horizontal overflow; Lighthouse mobile / 93, /storefront 93, /wms 94, /about-us 96 (a11y, best practices, SEO 100; CLS 0).

@@ -629,5 +629,248 @@
         "action": "the sale is done. Meera now holds the white paper shopping bag that stood empty on the counter (the only bag in the picture) out across the counter by its rope handles; Ananya takes it by its handles with her right hand. Both look at each other and smile warmly. The folded ivory overshirt is now inside that bag, with its sage-green hang tag just peeking over the bag's top edge, so the counter top is clear except for the white scanner lying flat on it."
       }
     ]
+  },
+  "d-storefront": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "meera"
+    ],
+    "base": "assets-src/stills/v7/storefront/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up over Meera's shoulder of the large monitor showing one product page: a photo of an ivory linen overshirt, three small size buttons and a forest-green button; her hand rests on the white mouse on the desk, and a neat stack of folded ivory and sage shirts sits on the desk beside the keyboard. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-brand-showcase": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "meera"
+    ],
+    "base": "assets-src/stills/v7/brand-showcase/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of the styled centre dress form (an ivory linen overshirt over a white tee, a forest-green knit draped over its shoulders) with Meera's hands straightening the overshirt's collar; her face is visible in three-quarter view at the side of the frame. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-b2b": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "arjun"
+    ],
+    "base": "assets-src/stills/v7/b2b/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of Arjun gripping the hand pallet jack's handle with both hands, the shrink-wrapped pallet of white boxes on the jack's forks behind it, his smiling face in three-quarter view; the laptop on the desk with its green tick soft in the background. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-quick-commerce": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "arjun"
+    ],
+    "base": "assets-src/stills/v7/quick-commerce/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of Arjun's hands folding the top of the sage-green paper delivery bag closed while it stands on the packing table, the small white box visible inside it, and behind him one shelf slot glowing soft green; his face in three-quarter view, smiling. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-marketplace": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "arjun"
+    ],
+    "base": "assets-src/stills/v7/marketplace/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of Arjun behind the camera on its tripod, both hands holding the camera, its rear screen showing the ivory linen overshirt laid flat on the white sweep; the softbox glowing to one side. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-oms": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "arjun"
+    ],
+    "base": "assets-src/stills/v7/oms/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of Arjun's hands pressing a small printed white label onto the white paper bag standing on the counter, the folded ivory linen overshirt visible inside the bag, the label printer beside it; his face in three-quarter view, smiling. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-wms": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "arjun"
+    ],
+    "base": "assets-src/stills/v7/wms/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of Arjun holding a small folded sage garment in a clear bag firmly in his left hand, fingers wrapped around it, and aiming a white handheld scanner at its label with his right hand, a faint red scan line on the label; behind him a grey bin on the shelf glows green. His face is in three-quarter view, focused. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-tms": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "rohan"
+    ],
+    "base": "assets-src/stills/v7/tms/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of Rohan sliding a kraft parcel with a sage-green label onto a shelf inside the white van with both hands, other parcels in neat rows on the shelves; his face in three-quarter view, smiling. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-pos": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "ananya",
+      "meera"
+    ],
+    "base": "assets-src/stills/v7/pos/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up at the counter: Ananya's hand holds her phone flat just above the small white card reader that rests on the white stone counter, a short paper receipt curling from the small printer beside it, and Meera, behind the counter, smiling in the background. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-clienteling": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "meera",
+      "ananya"
+    ],
+    "base": "assets-src/stills/v7/clienteling/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of Meera holding the slim white tablet in both hands, its screen showing a customer profile with a round portrait photo and three small product photos; Ananya beside her looks at it, smiling; the rail of knitwear behind them. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-endless-aisle": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "meera",
+      "ananya"
+    ],
+    "base": "assets-src/stills/v7/endless-aisle/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of the slim white tablet held in Meera's two hands, its screen showing a simple pale map with one forest-green pin and a small photo of a folded sage shirt; Ananya leans in beside her, hopeful; the shelf with the empty cubby behind them. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
+  },
+  "d-self-checkout": {
+    "aspect": "1:1",
+    "size": "2K",
+    "focus": [
+      50,
+      45
+    ],
+    "cast": [
+      "ananya"
+    ],
+    "base": "assets-src/stills/v7/self-checkout/c.png",
+    "extend": "Make a new photograph from the same moment and place as the FIRST image, with the same characters (same faces, hair, skin tones and outfits), set, materials, palette and soft daylight from the upper left, taken closer: a close-up of the self-checkout kiosk's screen showing one large green tick, with Ananya beside it lifting the white paper bag (the folded sage scarf and white tee inside) off the bagging shelf by its rope handles, smiling. Everything obeys gravity: every object either rests on a surface or is held firmly in a hand that visibly grips it; nothing floats, hovers or sticks to anything. Hands have five fingers and hold things naturally. Only the people named are in the picture.",
+    "scene": "",
+    "beats": [
+      {
+        "id": "a",
+        "action": ""
+      }
+    ]
   }
 }
