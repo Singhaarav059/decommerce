@@ -3,6 +3,7 @@
 import { DemoForm } from "@/components/forms/DemoForm";
 import { PinnedFilm } from "@/components/media/PinnedFilm";
 import { Section } from "@/components/ui/Section";
+import { NextSteps } from "@/components/ui/NextSteps";
 import { close } from "@/content/home";
 import { sequences } from "@/content/media";
 import { StepText } from "./StepText";
@@ -11,7 +12,7 @@ import { StepText } from "./StepText";
 export function CloseChapter() {
   return (
     <>
-      <Section id="ch-close" eyebrow={close.eyebrow} headline={close.headline} lead={close.body} layout="split">
+      <Section id="ch-close" eyebrow={close.eyebrow} headline={close.headline} lead={close.body} layout="split" headerAside={<NextSteps className="mt-10" />}>
         <DemoForm className="rv tag tag-lg tag-plain bg-studio-light p-6 pt-12 md:p-10 md:pt-16" />
       </Section>
       {/* the page moves from studio to dusk, the words on the shop's own calm wall, then the night footer */}

@@ -1,12 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Headline } from "./Headline";
+import { StepGraphic, type StepGraphicKind } from "./StepGraphic";
 
 export type BandStep = { title: string; body: string; result?: string };
 
 /** Stage fills, darkest first: the order reads dark to light, all in the one green hue. */
+// the usual four steps of setting something up
+const PROCESS: StepGraphicKind[] = ["connect", "build", "launch", "run"];
+
 const FILLS = [
   { bg: "bg-[#10261b]", ink: "text-paper", soft: "text-paper/80" },
   { bg: "bg-[#1d4434]", ink: "text-paper", soft: "text-paper/80" },
@@ -17,7 +20,8 @@ const FILLS = [
 
 /**
  * The one design for every "how it works" sequence: one row of tinted panels with no gaps, dark
- * to light in step order. The open step takes most of the width with its text and a photograph;
+ * to light in step order. The open step takes most of the width with its text and a drawn motion
+ * graphic of that step (StepGraphic: no photograph, so nothing repeats a picture from the page);
  * the others are slivers showing only their name. On wide screens the section pins and scrolling
  * walks through the steps (choosing a sliver scrolls to it); phones stack the panels as bars
  * that open on tap. Reduced motion: no pin, tap to open.
@@ -27,8 +31,7 @@ export function StepsBand({
   headline,
   lead,
   steps,
-  backdrop,
-  images,
+  graphics = PROCESS,
   resultLabel = "You have",
   headerAside,
   tone = "studio",
@@ -39,9 +42,8 @@ export function StepsBand({
   headline: string;
   lead?: string;
   steps: BandStep[];
-  backdrop: string;
-  /** One photograph per step for the open panel; falls back to the backdrop. */
-  images?: string[];
+  /** The drawn graphic for each step's open panel (default: connect, build, go live, run). */
+  graphics?: StepGraphicKind[];
   resultLabel?: string;
   headerAside?: ReactNode;
   tone?: "studio" | "soft";
@@ -129,8 +131,10 @@ export function StepsBand({
                           )}
                         </div>
                       </div>
-                      <div className="tag tag-lg relative m-4 ml-0 hidden w-1/2 overflow-hidden lg:block">
-                        <Image src={images?.[i] ?? backdrop} alt="" fill sizes="30vw" quality={75} style={{ objectPosition: "50% 45%" }} className={`object-cover transition-transform duration-[1800ms] ease-[var(--ease-out)] ${on ? "scale-100" : "scale-110"}`} />
+                      <div className="relative m-4 ml-0 hidden w-1/2 items-center justify-center lg:flex">
+                        <div className="aspect-[4/3] w-full max-w-[460px]" style={f.ink === "text-ink" ? ({ "--sg-hi-panel": "var(--accent)", "--sg-on-hi-panel": "#ffffff" } as CSSProperties) : undefined}>
+                          <StepGraphic kind={graphics[i % graphics.length]} on={on} />
+                        </div>
                       </div>
                     </div>
                   </div>

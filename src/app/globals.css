@@ -112,14 +112,12 @@ cite {
   }
 }
 
-/* The hang tag on ORD-1042's overshirt: a rectangle with its top-left corner clipped and a
-   punched eyelet. It masks every photograph, shapes the button and makes the list bullet.
-   --cut sets the scale (a size class, or an arbitrary [--cut:…] utility, which this rule must
-   not override, so it only reads the variable); the eyelet sits on the corner's diagonal. */
+/* The hang tag on ORD-1042's overshirt: a rectangle with its top-left corner clipped. It shapes every
+   photograph, the buttons and filled tiles, and makes the list bullet. --cut sets the scale (a size
+   class, or an arbitrary [--cut:…] utility, which this rule must not override, so it only reads the
+   variable). No punched eyelet: on a photograph it read as a white dot on whatever sat in the corner. */
 .tag {
   clip-path: polygon(var(--cut, 28px) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cut, 28px));
-  -webkit-mask: radial-gradient(circle at calc(var(--cut, 28px) * 0.92) calc(var(--cut, 28px) * 0.92), #0000 calc(var(--cut, 28px) * 0.13), #000 calc(var(--cut, 28px) * 0.13 + 0.5px)); /* taste-skill-ignore: tag eyelet mask */
-  mask: radial-gradient(circle at calc(var(--cut, 28px) * 0.92) calc(var(--cut, 28px) * 0.92), #0000 calc(var(--cut, 28px) * 0.13), #000 calc(var(--cut, 28px) * 0.13 + 0.5px)); /* taste-skill-ignore: tag eyelet mask */
 }
 .tag-xs {
   --cut: 10px;
@@ -133,10 +131,8 @@ cite {
 .tag-xl {
   --cut: clamp(56px, 9vw, 140px);
 }
-/* the clipped corner alone, no eyelet (for controls where a hole would read as a dot) */
+/* kept for markup that names it; every tag is plain now */
 .tag-plain {
-  -webkit-mask: none;
-  mask: none;
 }
 
 
@@ -202,12 +198,28 @@ cite {
 }
 
 /* Page enter: a short fade so route changes never cut hard */
+/* moving between pages: the new page rises into place as it uncovers from the bottom up */
 .page-in {
   animation: page-in 520ms var(--ease-out) both;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .page-in {
+    animation: page-rise 700ms var(--ease-out) backwards;
+  }
 }
 @keyframes page-in {
   from {
     opacity: 0;
+  }
+}
+@keyframes page-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    clip-path: inset(6% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
   }
 }
 
@@ -237,6 +249,22 @@ cite {
     }
     .rv-words {
       view-timeline: --rvw block;
+    }
+    /* NextSteps: the track draws down as the list scrolls in */
+    .next-steps {
+      view-timeline: --ns block;
+    }
+    .next-steps-line {
+      transform-origin: top;
+      animation: ns-draw linear both;
+      animation-timeline: --ns;
+      animation-range: entry 10% cover 50%;
+    }
+    /* list items that arrive one after another (set --i to the item's index) */
+    .rv-step {
+      animation: rv-up linear both;
+      animation-timeline: view();
+      animation-range: entry calc(10% + var(--i, 0) * 9%) entry calc(45% + var(--i, 0) * 9%);
     }
     .rv-words .w > span {
       animation: rv-word linear both;
@@ -651,13 +679,14 @@ html.lenis body {
   /* side edge: the gutter, plus the margin when the screen is wider than the content */
   --side: max(var(--gutter), calc((100vw - var(--max-w)) / 2 + var(--gutter)));
   --hb: clamp(16px, 4vh, 40px);
-  /* half the headline block's height (two lines of headline on wide screens; headline and pitch
-     stacked on narrow ones): the scene starts this far down so its middle sits in the window's middle */
-  --drop: calc((var(--header-h) + clamp(12px, 3vh, 40px) + 1.9 * min(5.6vw, 10.5vh) + 28px - var(--hb)) / 2);
+  /* the headline block's height (two lines of headline on wide screens; headline and pitch stacked
+     on narrow ones), less a little: the scene starts this far down so the window opens on the top of
+     the picture, where the faces are, and nobody's head is cut off before it unfolds */
+  --drop: calc(var(--header-h) + clamp(12px, 3vh, 40px) + 1.9 * min(5.6vw, 10.5vh) + 28px - 3vh);
 }
 @media (max-width: 1023px) {
   [data-stage] {
-    --drop: calc((var(--header-h) + 2.8 * clamp(2.6rem, 9vw, 4.4rem) + 230px - var(--hb)) / 2);
+    --drop: calc(var(--header-h) + 2.8 * clamp(2.6rem, 9vw, 4.4rem) + 230px - 3vh);
   }
 }
 .hero-film {
@@ -673,13 +702,11 @@ html.lenis body {
 [data-stage] .hero-corner.tl {
   display: block;
 }
-/* the window onto the film is the hang tag: its top-left corner clipped, the eyelet punched
-   through (both painted in the page colour); the other corners stay square */
+/* the window onto the film is the hang tag: its top-left corner clipped (painted in the page
+   colour); the other corners stay square */
 .hero-corner.tl {
   transform-origin: top left;
-  background:
-    radial-gradient(circle at calc(var(--hero-cut) * 0.92) calc(var(--hero-cut) * 0.92), var(--studio) calc(var(--hero-cut) * 0.13), transparent calc(var(--hero-cut) * 0.13 + 0.5px)), /* taste-skill-ignore: tag eyelet painted in page colour */
-    linear-gradient(135deg, var(--studio) 50%, transparent calc(50% + 0.5px)) 0 0 / var(--hero-cut) var(--hero-cut) no-repeat; /* taste-skill-ignore: tag corner painted in page colour */
+  background: linear-gradient(135deg, var(--studio) 50%, transparent calc(50% + 0.5px)) 0 0 / var(--hero-cut) var(--hero-cut) no-repeat; /* taste-skill-ignore: tag corner painted in page colour */
 }
 
 /* IntegrationHub: a green pulse travels out along each spoke in turn */
@@ -736,5 +763,71 @@ html.lenis body {
   }
   to {
     transform: scale(1.035);
+  }
+}
+
+/* StepGraphic: drawn step animations. They wait in their start state until the step opens
+   (.is-on), play once and rest on the finished picture; loops (pulse, ripple) keep it alive. */
+.step-graphic {
+  /* bright sage on the dark panels; the light panels set the forest accent instead */
+  --sg-hi: var(--sg-hi-panel, #9fd1b4);
+  --sg-on-hi: var(--sg-on-hi-panel, #0f1a15);
+}
+.step-graphic .sg-pulse {
+  offset-rotate: 0deg;
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .step-graphic .sg-draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .step-graphic .sg-pop,
+  .step-graphic .sg-fade,
+  .step-graphic .sg-rise { opacity: 0; }
+  .step-graphic .sg-pop { transform-box: fill-box; transform-origin: center; }
+  .step-graphic .sg-ripple { opacity: 0; transform-box: fill-box; transform-origin: center; }
+  .step-graphic.is-on .sg-draw { animation: sg-draw 1100ms var(--ease-out) forwards; }
+  .step-graphic.is-on .sg-pop { animation: sg-pop 520ms var(--ease-overshoot) forwards; }
+  .step-graphic.is-on .sg-fade { animation: sg-fade 500ms var(--ease-out) forwards; }
+  .step-graphic.is-on .sg-rise { animation: sg-rise 600ms var(--ease-out) forwards; }
+  .step-graphic.is-on .sg-ripple { animation: sg-ripple 1800ms var(--ease-out) infinite; }
+  .step-graphic.is-on .sg-pulse { animation: sg-pulse 2400ms var(--ease-in-out) infinite; }
+  .step-graphic.is-on .sg-slide { animation: sg-slide 600ms var(--ease-in-out) 200ms forwards; }
+  .step-graphic.is-on .sg-typing circle { animation: sg-blink 600ms ease-in-out 2 alternate; }
+  .step-graphic.is-on .sg-typing { animation: sg-gone 1ms linear 1450ms forwards; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .step-graphic .sg-slide { transform: translateX(120px); }
+  .step-graphic .sg-typing { display: none; }
+}
+@keyframes sg-draw { to { stroke-dashoffset: 0; } }
+@keyframes sg-pop { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: scale(1); } }
+@keyframes sg-fade { to { opacity: 1; } }
+@keyframes sg-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes sg-ripple { 0% { opacity: 0.8; transform: scale(1); } 100% { opacity: 0; transform: scale(2.6); } }
+@keyframes sg-pulse { 0% { offset-distance: 0%; opacity: 0; } 15%, 75% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+@keyframes sg-slide { to { transform: translateX(120px); } }
+@keyframes sg-blink { from { opacity: 0.25; } to { opacity: 1; } }
+@keyframes sg-gone { to { opacity: 0; } }
+
+/* ChannelSync: today's channel cards drift apart a little, each on its own clock */
+@media (prefers-reduced-motion: no-preference) {
+  .channel-sync .cs-drift {
+    animation: cs-drift 3.6s var(--ease-in-out) infinite alternate;
+  }
+}
+@keyframes cs-drift {
+  to {
+    translate: 4px -5px;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes ns-draw {
+  from {
+    transform: scaleY(0);
   }
 }

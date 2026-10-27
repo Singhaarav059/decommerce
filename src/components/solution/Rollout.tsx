@@ -3,13 +3,12 @@ import { rollout } from "@/content/site";
 import { inSentence } from "@/lib/text";
 
 /** The service around the module: four rollout steps and what every engagement includes. */
-export function Rollout({ title, backdrop }: { title: string; backdrop: string }) {
+export function Rollout({ title }: { title: string }) {
   const x = inSentence(title);
   return (
     <StepsBand
       eyebrow={rollout.eyebrow}
       headline={rollout.headline}
-      backdrop={backdrop}
       headerAside={
         <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
           {rollout.included.map((i) => (

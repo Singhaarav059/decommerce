@@ -16,7 +16,7 @@ export default function Page() {
       scene="contact-us"
       after={
         <>
-          <Steps {...contactNext} backdrop="/assets/company/scene-office.webp" />
+          <Steps {...contactNext} graphics={["message", "reply", "launch", "build"]} />
           <HomeFaq />
         </>
       }

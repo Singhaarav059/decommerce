@@ -25,6 +25,25 @@ export function HomeHero() {
   const [sold, setSold] = useState(false);
   const [playing, setPlaying] = useState(false);
   const film = useRef<HTMLVideoElement>(null);
+  // the tag's own "sell one", so the hero can make the first sale by itself
+  const autoSell = useRef<(() => void) | null>(null);
+  const touched = useRef(false);
+  // once the film has loaded, the first sale plays by itself (unless the visitor got there first)
+  useEffect(() => {
+    const v = film.current;
+    if (!v || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let t = 0;
+    const go = () => {
+      t = window.setTimeout(() => {
+        if (!touched.current && v.getBoundingClientRect().top < innerHeight) autoSell.current?.();
+      }, 1600);
+    };
+    v.addEventListener("canplaythrough", go, { once: true });
+    return () => {
+      v.removeEventListener("canplaythrough", go);
+      clearTimeout(t);
+    };
+  }, []);
   const sell = () => {
     setSold(true);
     const v = film.current;
@@ -58,7 +77,7 @@ export function HomeHero() {
         </div>
         <Scene sold={sold} playing={playing} film={film} onEnded={() => setPlaying(false)} />
         <div className="lg:col-start-1 lg:row-start-3">
-          <HangTag onSell={sell} onRestock={() => setSold(false)} />
+          <HangTag onSell={sell} onRestock={() => setSold(false)} register={(fn) => (autoSell.current = fn)} onTouch={() => (touched.current = true)} />
         </div>
       </div>
     </section>
@@ -105,7 +124,7 @@ function Scene({ sold, playing, film, onEnded }: { sold: boolean; playing: boole
 }
 
 /** The live thing: the shirt's tag, with one stock count that every channel reads. Sell one and they all drop together. */
-function HangTag({ onSell, onRestock }: { onSell: () => void; onRestock: () => void }) {
+function HangTag({ onSell, onRestock, register, onTouch }: { onSell: () => void; onRestock: () => void; register: (sell: () => void) => void; onTouch: () => void }) {
   const [size, setSize] = useState<Size>("M");
   const [stock, setStock] = useState(t.start);
   const [tick, setTick] = useState(0);
@@ -116,6 +135,11 @@ function HangTag({ onSell, onRestock }: { onSell: () => void; onRestock: () => v
     if (n > 0) onSell();
     else onRestock();
   };
+  const actRef = useRef(act);
+  useEffect(() => {
+    actRef.current = act;
+  });
+  useEffect(() => register(() => actRef.current()), [register]);
   return (
     <div className="intro tag tag-sm relative z-[1] mt-6 w-full max-w-[520px] bg-studio-light p-5 pt-7 text-ink lg:mt-10">
       <div className="flex items-center justify-between gap-4">
@@ -148,7 +172,13 @@ function HangTag({ onSell, onRestock }: { onSell: () => void; onRestock: () => v
         ))}
       </ul>
       <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-        <button type="button" onClick={act} className="tag tag-xs tag-plain flex h-11 items-center gap-3 bg-accent pr-5 pl-6 font-semibold text-paper transition-colors hover:bg-ink">
+        <button
+          type="button"
+          onClick={() => {
+            onTouch();
+            act();
+          }}
+          className="tag tag-xs tag-plain flex h-11 items-center gap-3 bg-accent pr-5 pl-6 font-semibold text-paper transition-colors hover:bg-ink">
           {n > 0 ? t.sell : t.restock}
           <span aria-hidden>→</span>
         </button>

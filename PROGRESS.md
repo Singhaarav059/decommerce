@@ -239,3 +239,15 @@ The owner asked for video back and raised the Vertex cap to $230 for it.
 - Lesson recorded: keyframes must be physically reachable from each other, every object in a clip must already exist in its first frame, and one action per clip.
 - Spend: Vertex ledger $191.29 of the $230 cap.
 - Checks: lint, typecheck, build ✓; axe no WCAG A/AA violations (all routes, 1440 and 390); no horizontal overflow; Lighthouse mobile / 94, /storefront 93, /pos 94, /oms 93, /about-us 96 (a11y, best practices, SEO 100; CLS 0).
+
+## Design pass: no dots, no repeats, drawn motion in the empty places (27 Oct 2026)
+
+Owner review: white dots on faces, plain empty halves (FAQ, demo form), the same pictures repeating within a page, a head cut off before the hero window opens, and a request for more motion, decoration and variety without making the site heavier.
+- The hang-tag eyelet is gone from the tag shape and the hero window corner (it painted a white dot on whatever sat in a picture's corner).
+- Solution heroes open on the top of the picture (`--drop` is the headline block's height, less 3vh), so faces are in the window before it unfolds.
+- New drawn motion graphics instead of repeated photos: `ChannelSync` (four channels with their own counts, drifting, then joined to one tag; illustrative numbers, labelled) replaces the before/after photos and the company side panel's photo; `StepGraphic` (connect, build, go live, run, message, reply) fills every steps band's open panel instead of a photo; `AskPreview` types the exact question the AI buttons send beside each FAQ (solution pages, integrations, homepage); `NextSteps` draws what happens after the demo form (solution pages, homepage).
+- Homepage: the hero plays the first sale by itself once its film has loaded (counts drop with it; a visitor's click or reduced motion skips it); audiences use each module's middle keyframe instead of repeating the module end pictures; the FAQ photo (a repeat) gave way to the ask preview.
+- About us: "You are here" moved off the picture; the Decommerce family card uses the new counter scene instead of the old cutaway.
+- Page changes rise and uncover from the bottom (reduced motion: fade), leaving no styles behind.
+- Checks: lint, typecheck, build ✓; axe no WCAG A/AA violations (all routes, 1440 and 390); no horizontal overflow; Lighthouse mobile / 94, /storefront 94, /pos 94, /oms 93, /about-us 96 (a11y, best practices, SEO 100; CLS 0).
+- Not changed: the anatomy section still uses the scene's end keyframe (also the hero film's last frame), since its spotlight points are set on that picture; the homepage keeps all its sections.

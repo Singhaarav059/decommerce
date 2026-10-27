@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import { ChannelSync } from "@/components/ui/ChannelSync";
 import { useEffect, useState } from "react";
 
 /**
  * The sidebar for company and legal pages that have none of their own: a contents list built
- * from the article's headings (the one being read is marked), then a framed photograph of the
- * page's room with a short way to talk to the team.
+ * from the article's headings (the one being read is marked), then the one-stock-count drawing
+ * with a short way to talk to the team.
  */
-export function DocAside({ image }: { image: string }) {
+export function DocAside() {
   const [heads, setHeads] = useState<{ id: string; text: string }[]>([]);
   const [active, setActive] = useState(0);
   useEffect(() => {
@@ -46,12 +46,9 @@ export function DocAside({ image }: { image: string }) {
           </ol>
         </nav>
       )}
-      <div className="tag tag-sm tag-plain overflow-hidden bg-studio-light">
-        <div>
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <Image src={image} alt="" fill sizes="440px" quality={80} className="object-cover object-[50%_45%]" />
-          </div>
-        </div>
+      <div className="tag tag-sm overflow-hidden bg-studio-light">
+        {/* the idea behind every page, drawn (the page's own scene is already in its hero) */}
+        <ChannelSync synced className="p-5 pb-0 text-[0.8125rem]" />
         <div className="p-5">
           <p className="font-semibold">Questions about this page?</p>
           <p className="mt-1 text-[0.95rem] text-ink-2">Talk to the team that builds and runs Decommerce.</p>

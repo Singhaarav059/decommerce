@@ -15,9 +15,10 @@ import { Rollout } from "./Rollout";
 import { Section } from "@/components/ui/Section";
 import { FeaturesSection } from "./FeaturesSection";
 import { features, connects } from "@/content/solutions/features";
-import { AskAi } from "@/components/ui/AskAi";
+import { AskPreview } from "@/components/ui/AskPreview";
 import { DemoForm } from "@/components/forms/DemoForm";
 import { inSentence } from "@/lib/text";
+import { NextSteps } from "@/components/ui/NextSteps";
 
 export function solutionMetadata(slug: SolutionSlug): Metadata {
   const { meta } = solutions[slug];
@@ -62,13 +63,13 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
         rail={<SolutionSteps fix={meta.fix.title} steps={meta.fix.steps} />}
       />
 
-      <ProblemFix title={meta.title} problem={meta.problem.title} narrative={<Content />} fix={meta.fix.title} steps={meta.fix.steps} image={m.seq.pattern.replace("{i}", "000")} after={m.end} />
+      <ProblemFix title={meta.title} problem={meta.problem.title} narrative={<Content />} fix={meta.fix.title} steps={meta.fix.steps} />
 
       <Anatomy title={meta.title} parts={meta.anatomy} src={m.end} floor={m.floor} focus={solutionFocus[slug] ?? {}} fx={m.seq.blend || m.seq.keys ? m.seq.focus[0] : undefined} />
 
       <FeaturesSection title={meta.title} features={features[slug]} connects={connects[slug]} image={m.detail} />
 
-      <Rollout title={meta.title} backdrop={m.detail} />
+      <Rollout title={meta.title} />
 
       <Section eyebrow="Works with" headline="Same catalog, same stock, same customer." lead={`${meta.title} shares its data with every other module. These are the ones it works with most closely.`}>
         <ul className="grid grid-cols-1 gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -108,15 +109,15 @@ export function SolutionPage({ slug }: { slug: SolutionSlug }) {
           </ButtonLink>
         }
       >
-        <div className="grid lg:grid-cols-12">
-          <div className="lg:col-span-7 lg:col-start-6">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-7 lg:col-start-6 lg:row-start-1">
             <Faq items={meta.faq} />
-            <AskAi className="mt-10" prompt={`What is ${meta.title} in Decommerce (unified commerce from Demaze Technologies)? What does it do and what does it connect to?`} />
           </div>
+          <AskPreview className="lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:col-span-4 lg:row-start-1 lg:self-start" prompt={`What is ${meta.title} in Decommerce (unified commerce from Demaze Technologies)? What does it do and what does it connect to?`} />
         </div>
       </Section>
 
-      <Section id="demo" eyebrow="Book a demo" headline={`See ${inSentence(meta.title)} on your catalog.`} lead="Tell us what you sell and where. We usually reply within one working day and show you a working setup on a sample of your own products." layout="split">
+      <Section id="demo" eyebrow="Book a demo" headline={`See ${inSentence(meta.title)} on your catalog.`} lead="Tell us what you sell and where. We usually reply within one working day and show you a working setup on a sample of your own products." layout="split" headerAside={<NextSteps className="mt-10" />}>
         <DemoForm className="rv tag tag-lg tag-plain bg-studio-light p-6 pt-12 md:p-10 md:pt-16" />
       </Section>
     </main>

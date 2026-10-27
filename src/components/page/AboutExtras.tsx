@@ -45,10 +45,12 @@ export function AboutExtras({ meta }: { meta: DocMeta }) {
                 <>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-lg)] bg-travertine">
                     <Image src={f.poster} alt="" fill quality={85} sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" />
-                    {f.current && <span className="absolute top-3 left-3 tag tag-xs tag-plain bg-paper py-1 pr-3 pl-4 text-[0.8125rem] font-semibold">You are here</span>}
                   </div>
                   <p className="mt-4 flex items-center justify-between text-lg font-semibold">
-                    {f.name}
+                    <span>
+                      {f.name}
+                      {f.current && <span className="ml-3 align-middle text-[0.8125rem] font-semibold text-accent">You are here</span>}
+                    </span>
                     {!f.current && <span aria-hidden className="text-accent transition-transform duration-300 group-hover:translate-x-1">{external ? "↗" : "→"}</span>}
                   </p>
                   <p className="mt-1 text-ink-2">{f.role}</p>

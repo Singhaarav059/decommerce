@@ -4,7 +4,7 @@ import { Related } from "@/components/page/Related";
 import { IntegrationsSection } from "@/components/home/IntegrationsSection";
 import { Section } from "@/components/ui/Section";
 import { Faq } from "@/components/ui/Faq";
-import { AskAi } from "@/components/ui/AskAi";
+import { AskPreview } from "@/components/ui/AskPreview";
 import { integrations as it } from "@/content/integrations";
 import { sceneFilm } from "@/components/page/DocPage";
 
@@ -31,11 +31,11 @@ export default function Page() {
         </ul>
       </Section>
       <Section tone="soft" eyebrow="Questions" headline="Integrations, answered.">
-        <div className="grid lg:grid-cols-12">
-          <div className="lg:col-span-7 lg:col-start-6">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-7 lg:col-start-6 lg:row-start-1">
             <Faq items={it.faq} />
-            <AskAi className="mt-10" prompt="How does Decommerce (unified commerce from Demaze Technologies) integrate with an existing ERP, accounting, payments, couriers and marketplaces?" />
           </div>
+          <AskPreview className="lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:col-span-4 lg:row-start-1 lg:self-start" prompt="How does Decommerce (unified commerce from Demaze Technologies) integrate with an existing ERP, accounting, payments, couriers and marketplaces?" />
         </div>
       </Section>
       <Related />
