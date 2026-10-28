@@ -14,6 +14,6 @@ export const demoForm = {
   submit: "Book a demo",
   sending: "Sending…",
   success: { title: "Thanks, we've got it.", body: "We'll reply within one working day to set up a time." },
-  error: "That didn't send. Please try again, or write to us directly.",
+  error: "We couldn't send your request right now. Please try again later.",
   privacy: "We only use these details to reply to you.",
 };

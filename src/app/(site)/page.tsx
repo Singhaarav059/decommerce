@@ -1,44 +1,8 @@
-import { StoryProgress } from "@/components/layout/StoryProgress";
 import { HomeHero } from "@/components/home/HomeHero";
-import { ServiceSection } from "@/components/home/ServiceSection";
-import { Collapse } from "@/components/home/Collapse";
-import { CostsSection } from "@/components/home/CostsSection";
-import { Journey } from "@/components/home/Journey";
-import { RackChapter } from "@/components/home/RackChapter";
-import { KineticStatement } from "@/components/home/KineticStatement";
-import { ModulesIndex } from "@/components/home/ModulesIndex";
-import { EngagementSection } from "@/components/home/EngagementSection";
-import { AudiencesSection } from "@/components/home/AudiencesSection";
-import { IntegrationsSection } from "@/components/home/IntegrationsSection";
-import { CompareSection } from "@/components/home/CompareSection";
-import { HomeFaq } from "@/components/home/HomeFaq";
-import { CloseChapter } from "@/components/home/CloseChapter";
+import { CommerceIntro } from "@/components/home/CommerceIntro";
+import { HomeExperience } from "@/components/home/HomeExperience";
+import { StockStory } from "@/components/home/StockStory";
 
-/**
- * The homepage as one story, after hours in the store: the system opening onto the shop,
- * the product working (01), the problem collapsing into one stock count (02), one order
- * followed from click to doorstep (03), the rail you can browse, the modules (04), who it is
- * for (05), integrations (06), how it compares (07), how we work (08), questions (09) and the
- * demo (10). Demaze's own numbers sit in the strip under the hero.
- */
 export default function HomePage() {
-  return (
-    <main id="main">
-      <StoryProgress />
-      <HomeHero />
-      <ServiceSection />
-      <Collapse />
-      <CostsSection />
-      <Journey />
-      <RackChapter />
-      <KineticStatement />
-      <ModulesIndex />
-      <AudiencesSection />
-      <IntegrationsSection />
-      <CompareSection />
-      <EngagementSection />
-      <HomeFaq />
-      <CloseChapter />
-    </main>
-  );
+  return <main id="main"><HomeHero /><CommerceIntro /><StockStory /><HomeExperience /></main>;
 }

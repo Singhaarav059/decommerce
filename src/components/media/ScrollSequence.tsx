@@ -61,6 +61,7 @@ export function ScrollSequence({
   captions = [],
   className = "",
   frameClassName = "absolute inset-0",
+  stillFrameClassName = "",
   bg,
   priority = false,
   defer = false,
@@ -85,6 +86,8 @@ export function ScrollSequence({
   className?: string;
   /** Where the film sits inside the sticky viewport (default: full bleed). Use breakpoint classes for a phone layout. */
   frameClassName?: string;
+  /** Optional positioning for the reduced-motion still. */
+  stillFrameClassName?: string;
   /** Viewport colour around the film (match the footage's backdrop). */
   bg?: string;
   /** The still frame is the page's LCP image: fetch it first. */
@@ -287,7 +290,7 @@ export function ScrollSequence({
   if (still) {
     return (
       <section className={`relative ${className}`} aria-label={alt}>
-        <div className="relative aspect-[16/10] w-full overflow-hidden md:aspect-[16/8]">{keyImg}</div>
+        <div className={`relative aspect-[16/10] w-full overflow-hidden md:aspect-[16/8] ${stillFrameClassName}`}>{keyImg}</div>
         {captions.length > 0 && (
           <ol className="mx-auto grid max-w-[var(--max-w)] gap-6 px-[var(--gutter)] py-10 md:grid-cols-3">
             {captions.map((c) => (

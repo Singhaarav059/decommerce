@@ -1,32 +1,13 @@
 "use client";
-
 import { useEffect, useState } from "react";
 
-/** A sticky legend of a long page's sections; the one being read is highlighted. */
 export function PageLegend({ legend, label }: { legend: { label: string; detail: string }[]; label: string }) {
   const [active, setActive] = useState(0);
   useEffect(() => {
-    const heads = [...document.querySelectorAll<HTMLElement>("article h2")];
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) if (e.isIntersecting) setActive(heads.indexOf(e.target as HTMLElement));
-      },
-      { rootMargin: "-30% 0px -50% 0px" },
-    );
-    heads.forEach((h) => io.observe(h));
-    return () => io.disconnect();
+    const headings = [...document.querySelectorAll<HTMLElement>("article h2")];
+    const observer = new IntersectionObserver(entries => { for (const entry of entries) if (entry.isIntersecting) setActive(headings.indexOf(entry.target as HTMLElement)); }, { rootMargin: "-30% 0px -50% 0px" });
+    headings.forEach(heading => observer.observe(heading));
+    return () => observer.disconnect();
   }, []);
-  return (
-    <nav aria-label={label} className="sticky top-[calc(var(--header-h)+24px)]">
-      <p className="text-[0.875rem] font-semibold">{label}</p>
-      <ol className="mt-4">
-        {legend.map((l, i) => (
-          <li key={l.label} className={`flex items-baseline justify-between gap-4 py-2 text-[0.95rem] ${i === active ? "font-semibold text-ink" : "text-ink-2"}`}>
-            <span>{l.label}</span>
-            <span className="text-right text-[0.9rem] font-normal text-ink-2">{l.detail}</span>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
+  return <nav className="document-legend" aria-label={label}><p>{label}</p><ol>{legend.map((item, i) => <li key={item.label} className={i === active ? "active" : ""}><span>{String(i + 1).padStart(2, "0")}</span><div><strong>{item.label}</strong><small>{item.detail}</small></div></li>)}</ol></nav>;
 }

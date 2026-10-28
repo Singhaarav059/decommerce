@@ -7,7 +7,7 @@ export default function SiteLayout({ children }: LayoutProps<"/">) {
     <>
       <a
         href="#main"
-        className="fixed top-2 left-2 z-[60] -translate-y-20 rounded-[var(--radius-md)] bg-ink px-4 py-2 text-sm text-studio focus:translate-y-0"
+        className="skip-to-content"
       >
         Skip to content
       </a>

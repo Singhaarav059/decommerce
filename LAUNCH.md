@@ -1,3 +1,5 @@
+> **Redesign preview:** The 2026-10-27 redesign changes the page layouts and motion after the historical checks below. The current work remains local; the historical deployment and Lighthouse results do not verify this redesign. Demo submissions require `DEMO_WEBHOOK_URL`; without it the form reports that delivery is unavailable. The local preview uses an explicitly labelled dummy email and example-only contact form; replace these with a real contact and delivery destination before launch.
+
 # Launch checklist
 
 Status of the PLAN.md launch checklist, updated 24 Oct 2026 after the owner-review revision and first deploy. ✅ done and verified · ⚠️ done with caveats · ⬜ needs a person.

@@ -19,6 +19,7 @@ const tones: Record<Tone, string> = {
 export function Section({
   id,
   headline,
+  eyebrow,
   lead,
   tone = "studio",
   children,
@@ -55,6 +56,7 @@ export function Section({
         <div className="mx-auto max-w-[var(--max-w)] px-[var(--gutter)] py-[var(--section-gap)]">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
             <header className="lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:col-span-5 lg:self-start">
+              {eyebrow && <p className="section-kicker shared-kicker"><span /> {eyebrow}</p>}
               <Headline as="h2" reveal media={headlineMedia} text={headline} className="t-h2 lg:max-w-[14ch]" />
               {lead && <p className="t-lead mt-6 max-w-[42ch] text-ink-2">{lead}</p>}
               {headerAside}
@@ -79,6 +81,7 @@ export function Section({
         {/* one header shape on every section: headline, then its lead directly under it, on the left margin */}
         <header className={headerMedia ? "grid items-center gap-10 lg:grid-cols-12 lg:gap-16" : "max-w-[880px]"}>
           <div className={headerMedia ? "lg:col-span-6" : ""}>
+            {eyebrow && <p className="section-kicker shared-kicker"><span /> {eyebrow}</p>}
             <Headline as="h2" reveal media={headlineMedia} text={headline} className="t-h2 lg:max-w-[20ch]" />
             {(lead || headerAside) && (
               <div className="rv mt-6">

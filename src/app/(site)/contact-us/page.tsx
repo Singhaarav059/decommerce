@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Content, { meta } from "@/content/company/contact-us.mdx";
 import { DocPage } from "@/components/page/DocPage";
 import { DemoForm } from "@/components/forms/DemoForm";
-import { brand } from "@/content/site";
 import { Steps } from "@/components/page/Steps";
 import { HomeFaq } from "@/components/home/HomeFaq";
 import { contactInclude, contactNext } from "@/content/company";
@@ -10,6 +9,9 @@ import { contactInclude, contactNext } from "@/content/company";
 export const metadata: Metadata = { title: meta.title, description: meta.description, alternates: { canonical: "/contact-us" } };
 
 export default function Page() {
+  const demoMode = process.env.DEMO_PREVIEW_MODE === "1";
+  const configuredEmail = process.env.DEMO_CONTACT_EMAIL?.trim();
+  const contactEmail = configuredEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(configuredEmail) ? configuredEmail : undefined;
   return (
     <DocPage
       meta={meta}
@@ -22,7 +24,7 @@ export default function Page() {
       }
       aside={
         <div className="tag tag-lg tag-plain bg-studio-light p-6 pt-12 md:p-8 md:pt-14 lg:sticky lg:top-[calc(var(--header-h)+24px)]">
-          <DemoForm />
+          <DemoForm contactEmail={demoMode ? undefined : contactEmail} demoMode={demoMode} />
         </div>
       }
     >
@@ -38,13 +40,7 @@ export default function Page() {
           ))}
         </ul>
       </div>
-      <p className="mt-8 text-ink-soft">
-        Prefer email? Write to{" "}
-        <a className="text-accent-ink underline decoration-accent/40 decoration-[1.5px] underline-offset-4 hover:decoration-accent" href={`mailto:${brand.demoEmail}`}>
-          {brand.demoEmail}
-        </a>
-        .
-      </p>
+      {contactEmail && <p className="mt-8 text-ink-soft">{demoMode ? <>Example contact: {contactEmail} (placeholder only).</> : <>Prefer email? Write to <a className="text-accent-ink underline underline-offset-4" href={`mailto:${contactEmail}`}>{contactEmail}</a>.</>}</p>}
     </DocPage>
   );
 }

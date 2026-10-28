@@ -1,125 +1,28 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { HeroWindow } from "@/components/media/HeroWindow";
-import { SolutionSteps } from "./SolutionSteps";
-import { ButtonLink } from "@/components/ui/Button";
+import { SolutionHero } from "./SolutionHero";
+import { SolutionFeatures } from "./SolutionFeatures";
+import { SolutionFlow } from "./SolutionFlow";
 import { Faq } from "@/components/ui/Faq";
 import { solutionBySlug, type SolutionSlug } from "@/content/site";
 import { solutions } from "@/content/solutions";
-import { solutionFocus } from "@/content/solutions/focus";
-import { solutionMedia } from "@/content/solutions/media";
-import { Anatomy } from "./Anatomy";
-import { ProblemFix } from "./ProblemFix";
-import { Rollout } from "./Rollout";
-import { Section } from "@/components/ui/Section";
-import { FeaturesSection } from "./FeaturesSection";
+import { solutionEditorial } from "@/content/solutions/editorial";
 import { features, connects } from "@/content/solutions/features";
-import { AskPreview } from "@/components/ui/AskPreview";
-import { DemoForm } from "@/components/forms/DemoForm";
-import { inSentence } from "@/lib/text";
-import { NextSteps } from "@/components/ui/NextSteps";
 
 export function solutionMetadata(slug: SolutionSlug): Metadata {
   const { meta } = solutions[slug];
-  return {
-    title: meta.title,
-    description: meta.description,
-    alternates: { canonical: solutionBySlug(slug).href },
-    openGraph: { title: `${meta.title} · Decommerce`, description: meta.description },
-  };
+  return { title: meta.title, description: meta.description, alternates: { canonical: solutionBySlug(slug).href }, openGraph: { title: `${meta.title} · Decommerce`, description: meta.description } };
 }
 
-/**
- * The solution template: one continuous film of the module at work (the pitch,
- * the problem, the steps ticking off), then numbered sections on the studio
- * surface: 01 problem and fix, 02 anatomy, 03 what's included (features and connections),
- * 04 how we set it up, 05 works with, 06 questions (and ask an AI), 07 book a demo.
- */
 export function SolutionPage({ slug }: { slug: SolutionSlug }) {
   const { meta, Content } = solutions[slug];
-  const m = solutionMedia(slug);
-  return (
-    <main id="main">
-      <HeroWindow
-        id="film"
-        seq={m.seq}
-        priority
-        length={2.6}
-        alt={`${meta.title}: ${meta.fix.fixed}`}
-        eyebrow={meta.eyebrow}
-        headline={meta.headline.replace(/\*/g, "")}
-        body={meta.promise}
-        actions={
-          <>
-            <ButtonLink href="/contact-us" arrow>
-              Book a demo
-            </ButtonLink>
-            <ButtonLink href="#anatomy" variant="secondary">
-              What&rsquo;s inside
-            </ButtonLink>
-          </>
-        }
-        rail={<SolutionSteps fix={meta.fix.title} steps={meta.fix.steps} />}
-      />
-
-      <ProblemFix title={meta.title} problem={meta.problem.title} narrative={<Content />} fix={meta.fix.title} steps={meta.fix.steps} />
-
-      <Anatomy title={meta.title} parts={meta.anatomy} src={m.end} floor={m.floor} focus={solutionFocus[slug] ?? {}} fx={m.seq.blend || m.seq.keys ? m.seq.focus[0] : undefined} />
-
-      <FeaturesSection title={meta.title} features={features[slug]} connects={connects[slug]} image={m.detail} />
-
-      <Rollout title={meta.title} />
-
-      <Section eyebrow="Works with" headline="Same catalog, same stock, same customer." lead={`${meta.title} shares its data with every other module. These are the ones it works with most closely.`}>
-        <ul className="grid grid-cols-1 gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-          {meta.worksWith.map((s) => {
-            const other = solutionBySlug(s);
-            return (
-              <li key={s} className="rv">
-                <Link href={other.href} className="group block">
-                  <div className="tag tag-lg relative aspect-[4/3] overflow-hidden bg-ink/5">
-                    <Image src={solutionMedia(s).end} alt="" fill quality={85} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.05]" style={{ objectPosition: solutionMedia(s).seq.blend || solutionMedia(s).seq.keys ? `${solutionMedia(s).seq.focus[0]}% 50%` : "70% 50%" }} />
-                  </div>
-                  <p className="mt-4 flex items-center gap-2 text-[0.8125rem] font-semibold text-accent">
-                    <span aria-hidden className="tag tag-plain size-2.5 bg-accent [--cut:4px]" />
-                    Shares catalog and stock
-                  </p>
-                  <p className="mt-2 flex items-center justify-between gap-3 text-[1.05rem] font-semibold">
-                    {other.label}
-                    <span aria-hidden className="text-accent transition-transform duration-300 group-hover:translate-x-1">→</span>
-                  </p>
-                  <p className="mt-1 text-ink-2">{other.blurb}</p>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </Section>
-
-      <Section
-       
-        tone="soft"
-        eyebrow="Questions"
-        headline={`${meta.title}, answered.`}
-        lead={`See ${inSentence(meta.title)} running on a sample of your own catalog.`}
-        headerAside={
-          <ButtonLink href="/contact-us" arrow className="mt-6">
-            Book a demo
-          </ButtonLink>
-        }
-      >
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-7 lg:col-start-6 lg:row-start-1">
-            <Faq items={meta.faq} />
-          </div>
-          <AskPreview className="lg:sticky lg:top-[calc(var(--header-h)+24px)] lg:col-span-4 lg:row-start-1 lg:self-start" prompt={`What is ${meta.title} in Decommerce (unified commerce from Demaze Technologies)? What does it do and what does it connect to?`} />
-        </div>
-      </Section>
-
-      <Section id="demo" eyebrow="Book a demo" headline={`See ${inSentence(meta.title)} on your catalog.`} lead="Tell us what you sell and where. We usually reply within one working day and show you a working setup on a sample of your own products." layout="split" headerAside={<NextSteps className="mt-10" />}>
-        <DemoForm className="rv tag tag-lg tag-plain bg-studio-light p-6 pt-12 md:p-10 md:pt-16" />
-      </Section>
-    </main>
-  );
+  const editorial = solutionEditorial[slug];
+  return <main id="main">
+    <SolutionHero title={meta.title} eyebrow={meta.eyebrow} headline={meta.headline} body={meta.promise} poster={editorial} />
+    <section id="solution-story" className="solution-story"><div className="solution-story-heading"><p className="section-kicker"><span /> A BETTER WAY</p><h2>{meta.fix.title.replace(/\*/g, "")}</h2></div><div className="solution-story-grid"><SolutionFlow title={meta.title} steps={meta.fix.steps} /><div className="solution-story-text"><p className="mini-label">THE OPPORTUNITY</p><h3>{meta.problem.title.replace(/\*/g, "")}</h3><div className="solution-narrative"><Content /></div><p className="solution-story-guide">Select each step to explore how the workflow comes together.</p><a className="solution-story-link" href="#capabilities">Explore what’s inside ↗</a></div></div></section>
+    <SolutionFeatures title={meta.title} items={features[slug]} connects={connects[slug]} image={editorial} />
+    <section className="solution-related"><div className="solution-related-head"><div><p className="section-kicker"><span /> THE BIGGER PICTURE</p><h2>Better together.</h2></div><p>One catalog connects every part of your commerce world.</p></div><div className="solution-related-grid">{meta.worksWith.map(s => { const item = solutionBySlug(s); return <Link href={item.href} key={s}><div><Image src={solutionEditorial[s]} alt="" fill sizes="(max-width: 767px) 70vw, 25vw" className="object-cover" /></div><p>{item.label}<span>↗</span></p><small>{item.blurb}</small></Link>; })}</div></section>
+    <section className="solution-faq"><div><p className="section-kicker"><span /> GOOD TO KNOW</p><h2>Questions?<br /><em>Let’s clear them up.</em></h2></div><Faq items={meta.faq} /></section>
+  </main>;
 }

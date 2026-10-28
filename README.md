@@ -1,6 +1,6 @@
 # Decommerce website
 
-Marketing site for Decommerce: 22 pages in one 3D store world. Plan: [PLAN.md](PLAN.md) · progress: [PROGRESS.md](PROGRESS.md) · launch status: [LAUNCH.md](LAUNCH.md) · assets: [CREDITS.md](CREDITS.md).
+Marketing site for Decommerce: an animated 3D-rendered commerce world across the homepage, solution pages and company pages. Plan: [PLAN.md](PLAN.md) · progress: [PROGRESS.md](PROGRESS.md) · launch status: [LAUNCH.md](LAUNCH.md) · assets: [CREDITS.md](CREDITS.md).
 
 ## Run
 
@@ -36,4 +36,6 @@ scripts/compress-glb.sh /tmp/models/rack.glb public/assets/models/rack.glb
 
 ## Environment
 
-- `DEMO_WEBHOOK_URL`: where `/api/demo` forwards book-a-demo leads (JSON POST). Unset = leads are only logged.
+- `DEMO_WEBHOOK_URL`: where `/api/demo` forwards book-a-demo leads (JSON POST). The form returns an unavailable error when this is unset; configure a real delivery endpoint before launch.
+- `DEMO_CONTACT_EMAIL`: optional public contact email shown on the contact page and when delivery fails. Set this at build time; an unset or invalid value is hidden.
+- `DEMO_PREVIEW_MODE=1`: presents the contact form as a local-only example; submissions are not sent or saved, and the contact email is labelled as a placeholder. Set at build time and remove before connecting a real delivery endpoint.

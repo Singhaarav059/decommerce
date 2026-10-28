@@ -4,19 +4,23 @@ import { NextResponse } from "next/server";
  * Book-a-demo submissions. Validates, drops honeypot spam, then forwards the
  * lead as JSON to DEMO_WEBHOOK_URL (a CRM, Slack or form-to-email endpoint;
  * the destination is still an open decision). Without the variable the lead
- * is only logged, which is fine for previews.
+ * is unavailable until a delivery destination is configured.
  */
 type Lead = { name: string; email: string; company: string; sells: string; message: string; website?: string };
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(req: Request) {
-  let body: Partial<Lead>;
+  let parsed: unknown;
   try {
-    body = await req.json();
+    parsed = await req.json();
   } catch {
     return NextResponse.json({ ok: false, error: "bad_json" }, { status: 400 });
   }
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+    return NextResponse.json({ ok: false, error: "invalid" }, { status: 400 });
+  }
+  const body = parsed as Partial<Lead>;
   // honeypot: real people never fill the hidden "website" field
   if (body.website) return NextResponse.json({ ok: true });
 
@@ -32,15 +36,16 @@ export async function POST(req: Request) {
   }
 
   const hook = process.env.DEMO_WEBHOOK_URL;
-  if (hook) {
+  if (!hook) return NextResponse.json({ ok: false, error: "unavailable" }, { status: 503 });
+  try {
     const res = await fetch(hook, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ source: "decommerce.site/book-a-demo", ...lead }),
     });
     if (!res.ok) return NextResponse.json({ ok: false, error: "upstream" }, { status: 502 });
-  } else {
-    console.info("[demo] lead (no DEMO_WEBHOOK_URL set)", { company: lead.company, sells: lead.sells });
+  } catch {
+    return NextResponse.json({ ok: false, error: "upstream" }, { status: 502 });
   }
   return NextResponse.json({ ok: true });
 }
